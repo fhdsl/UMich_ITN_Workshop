@@ -1,0 +1,27 @@
+---
+title: "**Analyzing Clinical Data**"
+output:
+  html_document
+---
+
+## Workshop Material
+
+In this workshop we will cover:
+
+- An overview of the breadth of different types of clinical data
+- Best practices and tools for clinical data management and analysis
+- General methods for measuring data, such as methods for analyzing clinical data over time
+
+[Chris Battiston](https://www.linkedin.com/in/christopher-b-7246942/) will lead this workshop.
+
+<div class = "link_button"><a href="https://bit.ly/clinical_data_umich2025" target="_blank"> Slides Link</a></div>
+
+<div class = "slido_button"><a href="https://app.sli.do/event/sZ1tiAZuG3kXthsfQKvhGn" target="_blank"> Discussion Link </a></div>
+
+<div class = "resource_button"><a
+href="https://posit.cloud/" target="_blank"> Resource Link </a></div>
+<br>
+
+## Additional Resources
+
+- [REDCap Users Guide](https://www.womensacademics.ca/wp-content/uploads/2025/01/WCH-REDCap-v14.8-User-Guide-30Dec2024.pdf)

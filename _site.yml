@@ -1,24 +1,45 @@
-name: OTTR Template Website
+name: ITN Workshops at University of Michigan 2025
 output_dir: 'docs'
 navbar:
-  title: OTTR Web
+  title: University of Michigan Workshops 2025
   left:
   - text: ""
     href: index.html
     icon: fa-home
-  - text: 1. Setup
-    href: setup.html
-  - text: 2. Hosting
-    href: hosting.html
-  - text: Editing
-    href: editing.html
-  - text: 3. Style
-    href: style.html
-  - text: 4. Git Actions
-    href: git_actions.html
-  - text: More ottr docs
-    href: https://www.ottrproject.org/
-
+#  - text: Intro to Reproducibility
+#    menu:
+#    - text: Workshop Material
+#      href: reproducibility_intro.html
+#    - text: Activity
+#      href: reproducibility_intro_activity.html
+#  - text: Intermediate & Advanced Reproducibility
+#    menu:
+#    - text: Workshop Material
+#      href: reproducibility_adv.html
+#    - text: Activity
+#      href: reproducibility_adv_activity.html
+  - text: Analyzing Clinical Data
+    menu:
+    - text: Workshop Material
+      href: clinical_data.html
+    - text: Activity
+      href: clinical_data_activity.html
+  - text: Choosing Genomics Tools
+    menu:
+    - text: Workshop Material
+      href: choosing_genomics_tools.html
+    - text: Activity
+      href: choosing_genomics_tools_activity.html
+  - text: Spatial Transcriptomics
+    menu:
+    - text: Workshop Material
+      href: st_tools.html
+    - text: Activity
+      href: st_tools_activity.html
+  - text: ITN Home
+    href: https://www.itcrtraining.org/home
+#  - text: UM Resources
+#    href:
 
 output:
   html_document:

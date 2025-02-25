@@ -1,34 +1,86 @@
 ---
-title: "**Website Name**"
+title: "**ITN University of Michigan 2025 Workshops **"
 output:
   html_document
 ---
 
-<div class = "banner_color">
-Banner text!  
+# University of Michigan ITN Workshops
+
+Welcome to the ITN University of Michigan Workshop Series!
+
+Over the next two days we will cover the a variety of bioinformatics topics. Please feel free to refer to these materials in the future.
+
+**Wifi:** {FILLIN}
+
+**Website:** bit.ly/{FILLIN}
+
+### **Schedule**
+
+
+<div class = "myStyle" align = "center">
+
+| Day 1 (SRB Ferman Family Conference Room) - April 8:                            | Time                |  
+|---------------------------------------------------------------------------------|:-------------------:|
+| Introduction to Reproducibility                                                 | 9:30 AM - 11:00 AM  |  
+| Intermediate and Advanced Reproducibility                                       | 11:30 AM - 1:00 PM  |  
+| <img width="10%" src="resources/images/plate.png"> <mark>Free Lunch!    </mark> | 1:00 PM - 2:00 PM   |  
+| Analyzing Clinical Data                                                         | 2:00 PM - 3:30 PM   |
+
+
+| Day 2 (FILL IN ROOM) - April 9:                                                 |  Time               |
+|---------------------------------------------------------------------------------|:-------------------:|
+| Choosing Genomics Tools                                                         | 9:30 AM -11:00 AM   |  
+| Tools for Spatial Transcriptomics                                               | 11:30AM - 1:00 PM   |
+| <img width="10%" src="resources/images/plate.png"> <mark>Free Lunch!   </mark>  | 1:00 PM - 2:00 PM   |
+| Introduction to UM Resources                                                    | 2:00 PM - 3:00 PM   |
+
 </div>
 
-### **About**
+<br>
 
-This website was created with the OTTR_Template_Website template. This enables simpler creation of websites that have automated checks for broken URLs and spelling errors, as well as automated rendering of all html files. No need to worry about git conflicts for html files!
+### **Pre-requisites**
 
-Here is how you can include images in your website pages (this one is saved in `resources/images` to keep things tidy:
-
-```{r, fig.align='center', fig.alt= "Example image", echo = FALSE, out.width="30%"}
-knitr::include_graphics("resources/images/example_image.png")
-```
-
- 
- 
-We will go through the following:
-
-1. How to set up your repository to enable the GitHub actions of the template. (Setup tab)
-2. How to host your website using GitHub (Hosting tab)
-3. How to modify your website structure (Structure tab)
-4. How to change your website style (Style tab)
-5. More information about GitHub Actions (Git Actions tab)
-
-Click on each tab to learn more.
+This information was emailed to you, but you will need to register for the following resources based on the workshops you will be attending:
 
 
+<div class = "myStyle" align = "center">
 
+|         Workshop         | GitHub | GitHub Desktop | Docker Desktop | PositCloud | GenePattern | spatialGE |
+|----------------------------|:------:|:------:|:-------:|:------:|:------:|:-------:|
+| Introduction to Reproducibility  | `r  config::get("checkmark")` | `r  config::get("checkmark")` |             |               |             |         |
+| Intermediate and Advanced Reproducibility | `r  config::get("checkmark")`  | `r  config::get("checkmark")` | `r  config::get("checkmark")` |            |            |        |
+| Analyzing Clinical Data |        |          |            | `r  config::get("checkmark")`  |       |      |
+| Choosing Genomics Tools |        |          |      |              | `r  config::get("checkmark")` |     |
+| Tools for Spatial Transcriptomics |        |          |        |  |      | `r  config::get("checkmark")`|
+</div>
+
+<br>
+
+If you do not have a **GitHub account** or a preferred git client, please create your own GitHub account and install **GitHub Desktop**:
+  - [Create a GitHub account](https://github.com/) using the "Sign up" button in the top right.
+  - [Download GitHub Desktop](https://desktop.github.com/download/)
+
+Install **Docker and Docker Desktop** if you don’t already have it installed by [following these instructions](https://www.docker.com/get-started/) *(If you absolutely cannot install Docker you can try to [install podman as an alternative](https://podman.io/docs/installation))*
+
+To create a **Posit Cloud** account, go to the [Posit Cloud website](https://login.posit.cloud/register?redirect=https%3A%2F%2Fclient.login.posit.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D0) and sign up with any of the shown methods.
+
+To create a **GenePattern** account, go to the [GenePattern website](https://cloud.genepattern.org/gp/) and click the "Click to Register" link above the login prompt.
+
+<p align="center">
+    <img width="20%" src="resources/images/gp_login.png" class="img_shad">
+</p>
+
+To create a **spatialGE** account, go to [spatialGE Website](https://spatialge.moffitt.org) and click on "Sign Up" in the upper right corner.
+
+<p align="center" >
+    <img width="20%" src="resources/images/spatialge_login.png" class="img_shad">
+</p>
+
+<!--
+### Accessing Computational Resources for further practice or your research after the workshop
+
+- **Galaxy**: The training link will no longer work, and you should use [usegalaxy.org](https://usegalaxy.org/) to access the platform.
+- **Posit Cloud**: The workspace will be available until {FILL IN DATE}, otherwise, you could use the free version of PositCloud [https://posit.cloud/](https://posit.cloud/) to work with R in general (but does not have enough computing capacity to work with the data we used in our workshop). Alternatively, you could R/RStudio on your local machine or potentially on your institutional server.
+- **GenePattern**:
+- **spatialGE**: You can continue using the link [https://spatialge.moffitt.org/](https://spatialge.moffitt.org/) and can also use the R package: [https://github.com/FridleyLab/spatialGE](https://github.com/FridleyLab/spatialGE)
+-->

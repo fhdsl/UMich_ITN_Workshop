@@ -1,12 +1,13 @@
-# OTTR for Websites!
+# University of Michigan ITN Workshops
 
-Get started by going to [ottrproject.org](https://www.ottrproject.org/getting_started.html)! 
+This repository contains the content for the ITN workshop website for folks to follow along with activities as a part of the University of Michigan ITN Workshops (in April 2025).
 
-This is a template for creating websites from Rmd files hosted on GitHub with three helpful automations following a pull request to the repository: spelling check, broken link check, and website rendering.
+See this website here: https://hutchdatascience.org/UMich_ITN_Workshop/
 
-- Check for spelling errors more intensively than RStudio and allow you to add words to the dictionary
-- Check for broken links - you will be warned about broken links
-- Automatic rendering of the website for previewing before merges
-- Automatic rendering of the website upon merging to main
-- Docker images that can be customized.
+The slides associated with these activities can be found here:
 
+- [Introduction to Reproducibility]()
+- [Intermediate and Advanced Reproducibility]()
+- [Analyzing Clinical Data](https://docs.google.com/presentation/d/1IPl1u3pdGuDbtIpkOCMgRRR1B5z0bLBxF8oj9pjO3mw/edit?usp=sharing)
+- [Choosing Genomics Tools]()
+- [Tools for Spatial Transcriptomics]()
