@@ -1,2 +1,2 @@
 default:
-  checkmark: "<img width='20%' src='resources/images/check.png' alt='checkmark icon' class = icon>"
+  checkmark: "<img width='20px' src='resources/images/check.png' alt='checkmark icon' class = icon>"
