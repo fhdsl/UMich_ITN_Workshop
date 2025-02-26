@@ -1,0 +1,16 @@
+---
+title: "**Analyzing Clinical Data: Activity**"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      toc_collapsed: true
+    toc_depth: 3
+    number_sections: false
+css: style.css
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+Open the resource link, etc.

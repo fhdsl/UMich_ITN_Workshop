@@ -1,0 +1,51 @@
+---
+title: "**Tools for Spatial Transcriptomics**"
+output:
+  html_document
+---
+
+## Workshop Material
+
+In this workshop we will cover:
+
+- Fundamentals about spatial transcriptomics
+- Description about why spatial transcriptomics is a "hot topic" in cancer research
+- Overview of technologies available
+- Overview of analysis tools available
+- Overview of how to use spatialGE for analysis
+
+[Dr. Oscar Ospina](https://www.linkedin.com/in/oscareospina/) will lead this workshop.
+
+<!--
+<div class = "link_button"><a href="https://docs.google.com/presentation/d/1yPqGAAMdBA6DMpNlmV22sr-fB9nLc0oGs-0o_z1mxTY/edit?usp=drive_link" target="_blank"> Slides Link</a></div>
+
+<div class = "slido_button"><a href="https://app.sli.do/event/u34YdHzLCsYKgqCNueqiRp" target="_blank"> Discussion Link </a></div>
+-->
+
+<div class = "resource_button"><a
+href="https://spatialge.moffitt.org/" target="_blank"> Resource Link </a></div>
+<br>
+
+## Additional Resources
+
+- [The accompanying paper for spatialGE](https://doi.org/10.1158/0008-5472.CAN-24-2346)
+- [Tutorials on how to use the spatialGE R package](https://fridleylab.github.io/spatialGE/)
+- [The code for spatialGE](https://github.com/FridleyLab/spatialGE)
+
+<!--
+### Note from Oscar:
+
+Point and click tools are very useful for faster and more efficient exploratory analysis than waiting on a bioinformatician that has 10 projects and will take a month to reply. However, those wanting to conduct hypothesis testing and in-depth analysis can't circumvent coding. And so, learning to code, even little-by-little helps.
+
+As a reminder, spatialGE can be used as point and click tool, and there are ST tools on Galaxy. [Asc-Seurat](https://asc-seurat.readthedocs.io/en/latest/installation.html) may be useful but I haven't tested it myself and it'll require you to have Docker installed on the machine to use it.
+
+For single-cell RNA-seq (scRNA-seq) and spatial transcriptomics (ST) analyses, start with the Seurat tutorials and aim to understand what each step is doing. (For those wanting to use/learn Python, Scanpy and Squidpy are good starting points.)
+  - [Example Seurat scRNA-seq tutorial](https://satijalab.org/seurat/articles/pbmc3k_tutorial)
+  - [Example Seurat ST tutorial](https://satijalab.org/seurat/articles/spatial_vignette.html)
+  - [Scanpy tutorials for scRNA-seq](https://scanpy.readthedocs.io/en/stable/tutorials/index.html)
+  - [Squidpy tutorials for ST](https://squidpy.readthedocs.io/en/stable/notebooks/tutorials/index.html)
+
+There is a wealth of data sets available (scRNA and ST). I suggest the [Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/), [CROST](https://ngdc.cncb.ac.cn/crost/home), or [TCGA](https://www.cancer.gov/ccg/research/genome-sequencing/tcga).
+
+Also remember: what matters is to start! Don't wait until you fell you can learn a lot. Just start with the tutorials and know that learning takes time, but it pays off. Lastly, don't be afraid to reach out for help/guidance. Most people are willing to help. I certainly am.
+-->

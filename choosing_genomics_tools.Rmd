@@ -1,0 +1,28 @@
+---
+title: "**Choosing Genomics Tools**"
+output:
+  html_document
+---
+
+## Workshop Material
+
+In this workshop we will cover:
+
+- Fundamentals and best practices for general omics data workflows
+- Considerations for choosing the right tool for your research
+- Biases associated with genomics data to watch out for
+
+<!--
+<div class = "link_button"><a href="" target="_blank"> Slides Link</a></div>
+
+<div class = "slido_button"><a href="" target="_blank"> Discussion Link </a></div>
+-->
+
+<div class = "resource_button"><a
+href="http://cloud.genepattern.org/gp/" target="_blank"> Resource Link </a></div>
+<br>
+
+## Additional Resources
+
+- Material for this workshop is adapted from the [Choosing Genomics Tools ITN course](https://bit.ly/genomics-tools) which is a sort of wikipedia for -omics analyses. That and our other courses are available for free. See [our website](https://www.itcrtraining.org/courses) for more information.
+- The ITCR provides [tables broken by down data type with information on available analysis tools](https://www.cancer.gov/about-nci/organization/cssi/resources/informatics-tools)

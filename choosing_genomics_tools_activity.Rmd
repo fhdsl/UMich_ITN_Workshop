@@ -1,0 +1,24 @@
+---
+title: "**Choosing Genomics Tools: Gene Pattern Activity**"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      toc_collapsed: true
+    toc_depth: 3
+    number_sections: false
+css: style.css
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+#### Bulk RNA-seq
+
+- [Download the relevant datasets at this link](https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/)
+- [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/)
+
+#### Single cell RNA-seq
+
+- [Download practice 10x single cell data](https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz)
+- [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/)
