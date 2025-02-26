@@ -19,20 +19,20 @@ Over the next two days we will cover the a variety of bioinformatics topics. Ple
 
 <div class = "myStyle" align = "center">
 
-| Day 1 (FILL IN Room) - April 8:                                               | Time                  |  
-|-------------------------------------------------------------------------------|:---------------------:|
-| Introduction to Reproducibility                                               | 9:30 AM - 11:00 AM    |  
-| Intermediate and Advanced Reproducibility                                     | 11:30 AM - 1:00 PM    |  
-| <img width="10%" src="resources/images/plate.png"> <mark>Free Lunch!  </mark> | 1:00 PM - 2:00 PM     |  
-| Analyzing Clinical Data                                                       | 2:00 PM - 3:30 PM     |
+| Day 1 (FILL IN Room) - April 8:                                           | Time                   |  
+|---------------------------------------------------------------------------|:----------------------:|
+| Introduction to Reproducibility                                           | 9:30 AM - 11:00 AM     |  
+| Intermediate and Advanced Reproducibility                                 | 11:30 AM - 1:00 PM     |  
+| <img width="10%" src="resources/images/plate.png"><mark>Free Lunch!</mark>| 1:00 PM - 2:00 PM      |  
+| Analyzing Clinical Data                                                   | 2:00 PM - 3:30 PM      |
 
 
-| Day 2 (FILL IN ROOM) - April 9:                                               |  Time                 |
-|-------------------------------------------------------------------------------|:---------------------:|
-| Choosing Genomics Tools                                                       | 9:30 AM -11:00 AM     |  
-| Tools for Spatial Transcriptomics                                             | 11:30AM - 1:00 PM     |
-| <img width="10%" src="resources/images/plate.png"> <mark>Free Lunch! </mark>  | 1:00 PM - 2:00 PM     |
-| Introduction to UM Resources                                                  | 2:00 PM - 3:00 PM     |
+| Day 2 (FILL IN ROOM) - April 9:                                           |  Time                  |
+|---------------------------------------------------------------------------|:----------------------:|
+| Choosing Genomics Tools                                                   | 9:30 AM -11:00 AM      |  
+| Tools for Spatial Transcriptomics                                         | 11:30AM - 1:00 PM      |
+| <img width="10%" src="resources/images/plate.png"><mark>Free Lunch!</mark>| 1:00 PM - 2:00 PM      |
+| Introduction to UM Resources                                              | 2:00 PM - 3:00 PM      |
 
 </div>
 
