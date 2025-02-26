@@ -64,7 +64,7 @@ If you do not have a **GitHub account** or a preferred git client, please create
   - [Create a GitHub account](https://github.com/) using the "Sign up" button in the top right.
   - [Download GitHub Desktop](https://desktop.github.com/download/)
 
-Install **Docker and Docker Desktop** if you don’t already have it installed by [following these instructions](https://www.docker.com/get-started/) *(If you absolutely cannot install Docker you can try to [install podman as an alternative](https://podman.io/docs/installation))*
+Install **Docker and Docker Desktop** if you don’t already have it installed by [following these instructions](https://www.docker.com/get-started/) *(If you absolutely cannot install Docker you can try to [install Podman as an alternative](https://podman.io/docs/installation))*
 
 To create a **Posit Cloud** account, go to the [Posit Cloud website](https://login.posit.cloud/register?redirect=https%3A%2F%2Fclient.login.posit.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D0) and sign up with any of the shown methods.
 

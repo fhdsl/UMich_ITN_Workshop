@@ -4,6 +4,7 @@ Asc
 auth
 autofilled
 automations
+Battiston
 bc
 bioconductor
 bioinformatics
@@ -48,6 +49,7 @@ favicon
 Ferman
 galaxyproject
 Gapdh
+GenePattern
 GH
 github
 Github
@@ -94,6 +96,7 @@ pembrolizumab
 Phenotyping
 phind
 Phind
+Podman
 pos
 PositCloud
 positivity
@@ -112,6 +115,7 @@ ra
 README
 README
 READMEs
+REDCap
 renv
 repo
 reproducibility

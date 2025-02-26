@@ -8,7 +8,7 @@ output:
 
 In this workshop we will cover:
 
-- Fundamentals and best practices for general omic data workflows
+- Fundamentals and best practices for general omics data workflows
 - Considerations for choosing the right tool for your research
 - Biases associated with genomics data to watch out for
 
