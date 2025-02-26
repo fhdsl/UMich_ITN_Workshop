@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Getting started with Spatial Transcriptomics</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link rel="shortcut icon" href="resources/images/favicon.ico" />
+ <!--- go to https://favicon.io/favicon-converter/ to upload an image to make a new favicon.io. You will need to replace the current favicon.io image with the one in the downloaded directory from the website. The current image is in the resources/images/ directory --->
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">University of Michigan Workshops 2025</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyzing Clinical Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="clinical_data.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="clinical_data_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Choosing Genomics Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="choosing_genomics_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="choosing_genomics_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Spatial Transcriptomics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="st_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="st_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://www.itcrtraining.org/home">ITN Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Getting started with Spatial
+Transcriptomics</h1>
+
+</div>
+
+
+<div id="get-workshop-files" class="section level2">
+<h2>Get workshop files</h2>
+<p><input type="checkbox"> Download the files for this activity clicking
+here: <a
+href="https://github.com/fhdsl/Moffitt_ITN_Workshop/archive/refs/heads/main.zip"
+class="uri">https://github.com/fhdsl/Moffitt_ITN_Workshop/archive/refs/heads/main.zip</a><br />
+<input type="checkbox"> Put this file on your desktop so it is easily
+findable.<br />
+<input type="checkbox"> Double click the zip file (or right click and
+choose “unzip” or “decompress” to unzip the file.<br />
+<input type="checkbox"> Open up your activity files you downloaded so we
+can see what’s there.</p>
+<div id="get-familiar-with-the-data-set" class="section level3">
+<h3>Get familiar with the data set</h3>
+<p>Within the folder, navigate to <code>activity-files</code> and then
+<code>spatial_transcriptomics_activity_files</code> we should see a
+metadata file (<code>meylan_etal_2022_tumor_grade.csv</code>), a PDF of
+the manuscript that describes these data, and a
+<code>visium_samples</code> folder that includes two samples.</p>
+<p>Each sample’s folder contains a several files resulting from the
+<code>spaceranger</code> pipeline. However, we will use the following
+files:</p>
+<ul>
+<li>sample_b_01
+<ul>
+<li>GSM5924046_frozen_b_1_filtered_feature_bc_matrix.h5 (the gene
+expression data)</li>
+<li>spatial
+<ul>
+<li>GSM5924046_frozen_b_1_tissue_positions_list.csv (spot x,y spatial
+positions)</li>
+<li>GSM5924046_frozen_b_1_tissue_hires_image.png (The H&amp;E-stained
+tissue image)</li>
+<li>GSM5924046_frozen_b_1_scalefactors_json.json (to scale the H&amp;E
+image and plots)</li>
+</ul></li>
+</ul></li>
+<li>sample_b_07 …</li>
+</ul>
+<p>The README describes these samples:</p>
+<blockquote>
+<p>These samples result from tumor biopsies collected from a patient
+cohort with clear cell renal cell carcinoma (ccRCC). The researchers
+profiled the samples with 10X Visium to study the gene expression in TLS
+in a spatial context.</p>
+</blockquote>
+<p>The metadata file (<code>meylan_etal_2022_tumor_grade.csv</code>)
+contains two variables of interest. One is the tumor grade, and the
+other is positivity for a tertiary lymphoid structure (TLS) as
+ascertained using immunohistochemistry staining. The file looks like
+this:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">samplename</th>
+<th align="left">cohort</th>
+<th align="left">ID</th>
+<th align="left">pT</th>
+<th align="left">tls</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sample_b_01</td>
+<td align="left">IMM</td>
+<td align="left">b_1</td>
+<td align="left">pT1</td>
+<td align="left">pos</td>
+</tr>
+<tr class="even">
+<td align="left">sample_b_07</td>
+<td align="left">IMM</td>
+<td align="left">b_7</td>
+<td align="left">pT3</td>
+<td align="left">neg</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="create-an-account-with-spatialge" class="section level2">
+<h2>Create an account with spatialGE</h2>
+<p><input type="checkbox"> Go to <a
+href="https://spatialge.moffitt.org/"
+class="uri">https://spatialge.moffitt.org/</a><br />
+<input type="checkbox"> Click on “Sign Up” in the upper right
+corner.</p>
+</div>
+<div id="starting-a-new-project" class="section level2">
+<h2>Starting a new project</h2>
+<p><input type="checkbox"> Click the blue “New Project” button.<br />
+<input type="checkbox"> For
+<code>What spatial transcriptomics platform are you using for this project?</code>
+choose <code>Visium</code> – this is the type of data our example data
+are.<br />
+<input type="checkbox"> Make your own project name and description
+that’s sensible. Could be something related to the workshop such as
+“ITN-Moffitt workshop”.<br />
+<input type="checkbox"> Then click “Create”.</p>
+<div id="uploading-the-dataset" class="section level3">
+<h3>Uploading the dataset</h3>
+<p><strong>IMPORTANT:</strong> <em>For each sample we will repeat the
+following steps to upload each sample’s set of files.</em></p>
+</div>
+<div id="uploading-one-samples-data" class="section level3">
+<h3>Uploading one sample’s data</h3>
+<p><input type="checkbox"> For <code>Sample Name</code> put the ID
+indicating on the folder, e.g. <code>sample_b_01</code>. This is very
+important, as sample IDs need to match exactly the sample IDs in the
+metadata file (<code>meylan_etal_2022_tumor_grade.csv</code>).
+Otherwise, no metadata is imported.<br />
+<input type="checkbox"> For the <code>Gene expression</code> box upload
+the <code>.h5</code> file
+e.g. <code>GSM5924046_frozen_b_1_filtered_feature_bc_matrix.h5</code>.
+You can upload files by dragging and dropping or by clicking on them to
+navigate.<br />
+<input type="checkbox"> For the <code>Coordinates</code> box upload the
+<code>.csv</code> file
+e.g. <code>GSM5924046_frozen_b_1_tissue_positions_list.csv</code>.<br />
+<input type="checkbox"> For the <code>Tissue image</code> box upload the
+<code>.png</code> file
+e.g. <code>GSM5924046_frozen_b_1_tissue_hires_image.png</code>.<br />
+<input type="checkbox"> For the <code>Scale factor</code> box upload the
+<code>.json</code> file
+e.g. <code>GSM5924046_frozen_b_1_scalefactors_json.json</code>. The
+scaling factor file is output automatically by the
+<code>10X Space Ranger</code> pipeline, and contains information to
+approximate the size of the tissue image and the expression plots.</p>
+<p><input type="checkbox"> Once the above steps are done click the green
+<code>Import Sample</code>.</p>
+<p>Now <a href="#uploading-one-samples-data">return to the beginning of
+these steps</a> to repeat the same steps for the other sample.</p>
+<p><em>You can use this checklist to keep track as you upload and follow
+the steps for each sample.</em></p>
+<p><input type="checkbox"> <code>sample_b_01</code> data entered<br />
+<input type="checkbox"> <code>sample_b_07</code> data entered</p>
+</div>
+<div id="adding-metadata" class="section level3">
+<h3>Adding metadata</h3>
+<p><input type="checkbox"> Now click
+<code>Option 1: Upload metadata file</code>.<br />
+<input type="checkbox"> Upload the
+<code>meylan_etal_2022_tumor_grade.csv</code> file. You can drag and
+drop the file or by click on the (+) button to navigate.</p>
+<div id="section" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Homework: Manually adding sample metadata
+</summary>
+<p>Metadata can also be added manually. To do so, follow these
+steps:</p>
+<p><input type="checkbox">Click
+<code>Option 2: Add metadata manually</code>.<br />
+<input type="checkbox"> Click <code>Add new metadata column</code>. Add
+a column named <code>patient</code>.<br />
+<input type="checkbox"> Click <code>Add new metadata column</code>
+again. Add a column named <code>therapy</code>.</p>
+<p>You can refer to the <code>meylan_etal_2022_tumor_grade.csv</code>
+file’s contents to add these data for each sample:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">samplename</th>
+<th align="left">pT</th>
+<th align="left">tls</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sample_b_01</td>
+<td align="left">pT1</td>
+<td align="left">pos</td>
+</tr>
+<tr class="even">
+<td align="left">sample_b_07</td>
+<td align="left">pT3</td>
+<td align="left">neg</td>
+</tr>
+<tr class="odd">
+<td align="left">sample_b_18</td>
+<td align="left">pT2</td>
+<td align="left">pos</td>
+</tr>
+<tr class="even">
+<td align="left">sample_a_01</td>
+<td align="left">pT1b</td>
+<td align="left">neg</td>
+</tr>
+</tbody>
+</table>
+<p><input type="checkbox"> Add this <code>sample_b_01</code>
+corresponding <code>pT</code> and <code>tls</code> information.<br />
+<input type="checkbox"> Add this <code>sample_b_07</code> corresponding
+<code>pT</code> and <code>tls</code> information.<br />
+<input type="checkbox"> Add this <code>sample_b_18</code> corresponding
+<code>pT</code> and <code>tls</code> information.<br />
+<input type="checkbox"> Add this <code>sample_a_01</code> corresponding
+<code>pT</code> and <code>tls</code> information.</p>
+</details>
+</div>
+<div id="section-1" class="section level4">
+<h4></h4>
+<p><strong>Remember:</strong> The sample IDs in the metadata should
+match exactly the sample names used during file import.</p>
+</div>
+<div id="section-2" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Homework: Additional samples in the data set
+</summary>
+<p>Users are encouraged to try spatialGE with these additional samples
+after the workshop. These samples were not used in the workshop for
+time-efficiency purposes</p>
+<p>The metadata for the other two samples looks like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">samplename</th>
+<th align="left">cohort</th>
+<th align="left">ID</th>
+<th align="left">pT</th>
+<th align="left">tls</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sample_b_01</td>
+<td align="left">IMM</td>
+<td align="left">b_1</td>
+<td align="left">pT1</td>
+<td align="left">pos</td>
+</tr>
+<tr class="even">
+<td align="left">sample_b_07</td>
+<td align="left">IMM</td>
+<td align="left">b_7</td>
+<td align="left">pT3</td>
+<td align="left">neg</td>
+</tr>
+<tr class="odd">
+<td align="left">sample_b_18</td>
+<td align="left">IMM</td>
+<td align="left">b_18</td>
+<td align="left">pT2</td>
+<td align="left">pos</td>
+</tr>
+<tr class="even">
+<td align="left">sample_a_01</td>
+<td align="left">ExhauCRF</td>
+<td align="left">a_1</td>
+<td align="left">pT1b</td>
+<td align="left">neg</td>
+</tr>
+</tbody>
+</table>
+<p>The metadata file and additional visium samples can be found within
+the <code>additional_activity_files_for_home</code>.</p>
+<p><em>You can use this checklist to keep track as you upload and follow
+the steps for each sample.</em></p>
+<p><input type="checkbox"> <code>sample_b_01</code> data entered<br />
+<input type="checkbox"> <code>sample_b_07</code> data entered<br />
+<input type="checkbox"> <code>sample_b_18</code> data entered<br />
+<input type="checkbox"> <code>sample_a_01</code> data entered</p>
+</details>
+</div>
+<div id="section-3" class="section level4">
+<h4></h4>
+</div>
+</div>
+<div id="after-youve-entered-the-data-and-metadata"
+class="section level3">
+<h3>After you’ve entered the data and metadata:</h3>
+<p><strong>NOTE</strong>: Make sure to upload all the samples before
+clicking the <code>Import Data</code> button. You will not be able to
+edit the project (unless you start a new project completely) after you
+click <code>Import Data</code>.</p>
+<p><input type="checkbox"> Make sure everything is as you intend and
+then click <code>Import Data</code>.</p>
+<p>This may take a little bit of time. Note you can have it send you an
+email instead of waiting on the page.</p>
+<div id="section-4" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Advanced task: Loading data into the command-line version of spatialGE
+</summary>
+<p>Most of analyses in this step-by-step tutorial can also be performed
+with the spatialGE R package. To do so, start by installing the
+spatialGE package:</p>
+<pre class="r"><code># Install devtools if not already installed:
+#install.packages(&#39;devtools&#39;)
+
+devtools::install_github(&#39;FridleyLab/spatialGE&#39;)</code></pre>
+<p>Then load the spatialGE package:</p>
+<pre class="r"><code>library(&#39;spatialGE&#39;)</code></pre>
+<p>Now, specify the directory paths to the folders containing the data
+and the metadata file:</p>
+<pre class="r"><code>counts_fp = c(&#39;./activity-files/spatial_transcriptomics_activity_files/visium_samples/sample_b_01/&#39;,
+              &#39;./activity-files/spatial_transcriptomics_activity_files/visium_samples/sample_b_07/&#39;,
+              &#39;./activity-files/spatial_transcriptomics_activity_files/additional_activity_files_for_home/sample_a_01/&#39;,
+              &#39;./activity-files/spatial_transcriptomics_activity_files/additional_activity_files_for_home/sample_b_18/&#39;)
+
+meta_file = &#39;./activity-files/spatial_transcriptomics_activity_files/additional_activity_files_for_home/meylan_etal_2022_tumor_grade.csv&#39;</code></pre>
+<p>Finally, create an STlist. The STlist is the R object in spatialGE
+that holds the data and results:</p>
+<pre class="r"><code>tls_stlist = STlist(rnacounts=counts_fp, samples=meta_file)</code></pre>
+</details>
+</div>
+<div id="section-5" class="section level4">
+<h4></h4>
+</div>
+</div>
+</div>
+<div id="filtering-your-data" class="section level2">
+<h2>Filtering your data</h2>
+<p>Each ST technology will require different filtering parameters.
+Compared to single-cell ST, spot-level ST (e.g., Visium), tends to yield
+more counts per spot. Even among spot-level ST projects, these
+parameters will need adjustment considering the sequencing depth and
+cellularity (i.e., cells per area unit). For these reasons, the values
+used here should not be taken as “golden rule”, but rather, users are
+encouraged to try different parameters and see what filtering procedure
+produces the most “noise” reduction without loosing too much relevant
+information. spatialGE provides statistics and plots to help the user
+assess the effect of filtering.</p>
+<p><input type="checkbox"> Go to the “Filter data” tab.<br />
+<input type="checkbox"> Click “Filter spots/cells”.<br />
+<input type="checkbox"> Enter the minimum number of counts a spot needs
+to have to be kept in the data set. In this case, 500 will be
+input.<br />
+<input type="checkbox"> Enter the minimum number of genes a spot needs
+to have to be kept in the data set. In this case, 100 will be
+input.<br />
+<input type="checkbox"> Click the “Mitochondrial genes (^MT-)” box to
+filter spots by mitochondrial gene content. Keep in mind that some ST
+platforms do not quantify mitochondrial genes.<br />
+<input type="checkbox"> Enter the maximum percentage of mitochondrial
+counts. Use 20% in this case.</p>
+<div id="section-6" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Homework: Performing gene-level filtering
+</summary>
+<p>Users can also remove genes with low number of counts. This is
+advisable in most cases. However, since ST features a high gene dropout
+(i.e., genes that the technology fails to quantify), imposing a filter
+too stringent might lead to keep very little usable information in the
+data set.</p>
+<p>To perform a gene count filter:</p>
+<p><input type="checkbox"> Now, to filter out genes, click “Filter
+genes”.<br />
+<input type="checkbox"> Filter out genes with less than 100
+counts.<br />
+<input type="checkbox"> Filter out genes expressed in less than 20
+spots.</p>
+</details>
+</div>
+<div id="section-7" class="section level4">
+<h4></h4>
+</div>
+<div id="section-8" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Advanced task: Filtering data using the command-line version of
+spatialGE
+</summary>
+<p>To achieve the same spot- and gene level filtering results as those
+obtained with the web application, users can run the following command
+in the R console.</p>
+<pre class="r"><code>tls_stlist = filter_data(tls_stlist,
+                         spot_minreads=500,
+                         spot_mingenes=100,
+                         spot_maxpct=0.2,
+                         gene_minreads=100,
+                         gene_minspots=20)</code></pre>
+</details>
+</div>
+<div id="section-9" class="section level4">
+<h4></h4>
+<p><input type="checkbox"> Once you have all the filter settings as
+you’d like click the blue “APPLY FILTER” button.<br />
+<input type="checkbox"> Users can also download a “parameter file”,
+which contains the filtering settings used for reproducibility. To do
+this, locate the “Download parameter log” link below the “APPLY FILTER”
+button.</p>
+</div>
+<div id="visualize-filtering-results" class="section level3">
+<h3>Visualize filtering results</h3>
+<div id="count-distributions" class="section level4">
+<h4>Count distributions</h4>
+<p><input type="checkbox"> Click “Violin plots” to visualize count
+distribution after filtering.<br />
+<input type="checkbox"> Currently, “total_counts” and “total_genes” per
+spot can be visualized.<br />
+<input type="checkbox"> When changing the variable to plot, click the
+blue “GENERATE PLOTS” button to update.</p>
+</div>
+<div id="section-10" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Advanced task: Create count distribution plots with the command-line
+version of spatialGE
+</summary>
+<pre class="r"><code>spatialGE::distribution_plots(tls_stlist, , plot_meta=&#39;total_counts&#39;, plot_type=&#39;violin&#39;)</code></pre>
+</details>
+</div>
+<div id="section-11" class="section level4">
+<h4></h4>
+</div>
+<div id="section-12" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Homework: Visualizing gene counts in spatial context
+</summary>
+<p><strong>Quilt plot</strong></p>
+<p>The quilt plot tab within the QC and Data Transformation module
+allows visualization of the counts or detected genes per spot. This
+functionality might be useful to assess the localization of areas with
+low cellularity or necrotic.</p>
+<p><input type="checkbox"> Click <code>Quilt plot</code> to visualize
+the total number of genes or counts per spot and their spatial
+context.<br />
+<input type="checkbox"> Select <code>total_counts</code>.<br />
+<input type="checkbox"> Select one sample underneath the
+<code>First sample</code> dropdown menu.<br />
+<input type="checkbox"> And select a second sample to compare to
+underneath the <code>Second sample</code> drop-down menu.<br />
+<input type="checkbox"> Click blue “GENERATE PLOTS” button to create the
+plot.</p>
+</details>
+</div>
+<div id="section-13" class="section level4">
+<h4></h4>
+</div>
+</div>
+</div>
+<div id="normalize-data" class="section level2">
+<h2>Normalize Data</h2>
+<p><input type="checkbox"> Click the “Normalize data” tab.<br />
+<input type="checkbox"> Click “Use SCTransform” to apply Seurat’s
+normalization method.<br />
+<input type="checkbox"> Click the blue “NORMALIZE DATA” to start
+normalization.<br />
+</p>
+<div id="section-14" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Homework: Assessing data normalization results at the gene level
+</summary>
+<p>The spatialGE web app allows users to assess the distribution of
+counts per spot or cell for specific genes. To do so, follow these
+steps:</p>
+<p><input type="checkbox"> The distribution of counts per spot for a
+given gene can also be plotted. For example, <em>MAP2K2</em>. When
+querying a gene, keep in mind that the query is case-sensitive. Since
+these are human samples, use all-upper case letters.<br />
+<input type="checkbox"> Click “GENERATE PLOTS” to show the number of
+<em>MAP2K2</em> counts per spot.</p>
+</details>
+</div>
+<div id="section-15" class="section level4">
+<h4></h4>
+</div>
+<div id="section-16" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Advanced task: Data normalization using the command-line version of
+sptialGE
+</summary>
+<pre class="r"><code># Perform data normalization using SCTransform
+# NOTE: To use log-transformation set `method=&#39;log&#39;`
+tls_stlist = transform_data(tls_stlist, method=&#39;sct&#39;)</code></pre>
+</details>
+</div>
+<div id="section-17" class="section level4">
+<h4></h4>
+</div>
+</div>
+<div id="visualization" class="section level2">
+<h2>Visualization</h2>
+<div id="gene-expression-comparative-visualization"
+class="section level3">
+<h3>Gene expression comparative visualization</h3>
+<p><input type="checkbox"> Click the <code>Visualization</code> module
+on the left side menu.<br />
+<input type="checkbox"> You can search for your favorite gene in the
+<code>Search and select genes</code> menu. For this example query and
+click <em>IGKC</em>.<br />
+<input type="checkbox"> Also query and click <em>MS4A1</em> gene.<br />
+<input type="checkbox"> Lastly, also query and click
+<em>COL1A1</em>.<br />
+<input type="checkbox"> Click blue “GENERATE PLOTS” button to create the
+plot.</p>
+<p>Images can be exported in multiple formats (PNG/SVG/PDF).</p>
+<div id="section-18" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Homework: Generation of gene expression surfaces
+</summary>
+<p><strong>Gene expression surface (“kriging”)</strong></p>
+<p>Users can also generate a “expression surface” to visualize
+expression of a gene in the spatial context. This is a type of plot
+where expression values are inferred for the spaces not quantified
+between spots.</p>
+<p><input type="checkbox"> Click the “Expression surface” tab.<br />
+<input type="checkbox"> In the <code>Search and select genes</code> menu
+search and select <code>IGKC</code>.<br />
+<input type="checkbox"> Click “ESTIMATE SURFACES” button to create the
+plot.</p>
+</details>
+</div>
+<div id="section-19" class="section level4">
+<h4></h4>
+</div>
+<div id="section-20" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Advanced task: Create spatial gene expression plots using the
+command-line version of spatialGE
+</summary>
+<pre class="r"><code>STplot(tls_stlist, genes=c(&#39;IGKC&#39;, &#39;MS4A1&#39;, &#39;COL1A1&#39;))</code></pre>
+</details>
+</div>
+<div id="section-21" class="section level4">
+<h4></h4>
+</div>
+</div>
+</div>
+<div id="detect-spatial-domains" class="section level2">
+<h2>Spatial Domain Detection</h2>
+<p><input type="checkbox"> Click the “Spatial domain detection” on the
+left side menu.<br />
+<input type="checkbox"> Now in the <code>Number of domains</code> slider
+put 3 to 5 domains will be detected in the samples. This is how many
+clusters will attempt to be identified.<br />
+<input type="checkbox"> For
+<code>Number of most variable genes to use</code> choose 3000 with high
+variation will be used to detect the domains.<br />
+<input type="checkbox"> Finally, click “RUN STCLUST” to find
+clusters.<br />
+<input type="checkbox"> Explore the results by clicking each
+<code>K=</code> tab.</p>
+<p>Images can be exported in multiple formats (PNG/SVG/PDF).</p>
+<div id="section-22" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Advanced task: Domain detection using the command-line version of
+spatialGE
+</summary>
+<pre class="r"><code>tls_stlist = STclust(tls_stlist, ks=c(3:5))
+
+# Plot the detected domains
+STplot(tls_stlist, ks=3:5)</code></pre>
+</details>
+</div>
+<div id="section-23" class="section level4">
+<h4></h4>
+</div>
+<div id="section-24" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Homework: Other analysis types to explore
+</summary>
+<p>We encourage the users to run these more advanced analyses. These
+were not included due to time necessary to complete them. However, these
+are some of the advanced analysis types that can help in hypothesis
+generation using spatial transcriptomics data.</p>
+<p><strong>Phenotyping</strong></p>
+<p>In spatialGE, inferring cell types on Visium data sets is achieved
+with STdeconvolve (<a
+href="https://doi.org/10.1038/s41467-022-30033-z">Miller et
+al.2022</a>). The STdeconvolve is performed in two stages:</p>
+<ol style="list-style-type: decimal">
+<li><p>The method attempts to fit a series of models composed of “latent
+topics”. Each latent topic represents a cell type, a cell state, or even
+a functional niche.</p></li>
+<li><p>The latent topics are assigned a biological identity based on a
+list of reference genes. The assignments are obtained via gene set
+enrichment analysis (GSEA).</p></li>
+</ol>
+<p><input type="checkbox"> Click the “Phenotyping” module on the left
+side menu.<br />
+<input type="checkbox"> To begin stage 1, select 7 to 10 topics in the
+<code>Fit LDA models with this many topics</code> slider. This is the
+number of topics within each model: One model with 7 topics, another
+with 8, another with 9, and one with 10 topics.<br />
+<input type="checkbox"> For <code>Use this many variable genes</code>
+choose 5000 with high variation will be used to detect the
+domains.<br />
+<input type="checkbox"> Finally, click “RUN LDA MODELS”.<br />
+</p>
+<p><input type="checkbox"> To begin stage 2, select the “CellMarker
+signatures (v2.0, Human-Cancer)” reference data set from the “Gene
+signatures” drop-down.<br />
+<input type="checkbox"> Then, click “ASSIGN IDENTITIES” to begin
+GSEA.</p>
+<p><strong>Spatial gradient detection</strong></p>
+<p>In spatialGE, users can test if a gene shows higher (or lower)
+expression closer to a specific cluster or spatial domain (“spatial
+gradient”). The method is useful to investigate spatial patterns at the
+interface of spatial domains.</p>
+<p>Using the steps previously outlined to <a
+href="#detect-spatial-domains">detect spatial domains</a>, it seems
+spatial domain 3 in the plot with title “stclust_spw0_k3”, is an
+immune-infiltrated area. With the following steps, users can test for
+genes with spatial expression gradients with respect to this immune
+region:</p>
+<p><input type="checkbox"> Click the “Spatial gradients” module on the
+left side menu.<br />
+<input type="checkbox"> Using the table at the top, select all
+samples.<br />
+<input type="checkbox"> Write “1000” in the “Number of most variable
+genes to use” textbox.<br />
+<input type="checkbox"> From the “Annotation to test” drop-down, select
+” STclust; Domains (k): 03; No spatial weight”.<br />
+<input type="checkbox"> From the “reference cluster” drop-down, select
+“3”.<br />
+<input type="checkbox"> Then, click “RUN STGRADIENT”.</p>
+</details>
+</div>
+<div id="section-25" class="section level4">
+<h4></h4>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

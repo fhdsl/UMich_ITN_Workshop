@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ITN University of Michigan 2025 Workshops </title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link rel="shortcut icon" href="resources/images/favicon.ico" />
+ <!--- go to https://favicon.io/favicon-converter/ to upload an image to make a new favicon.io. You will need to replace the current favicon.io image with the one in the downloaded directory from the website. The current image is in the resources/images/ directory --->
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">University of Michigan Workshops 2025</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyzing Clinical Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="clinical_data.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="clinical_data_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Choosing Genomics Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="choosing_genomics_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="choosing_genomics_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Spatial Transcriptomics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="st_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="st_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://www.itcrtraining.org/home">ITN Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><strong>ITN University of Michigan 2025
+Workshops </strong></h1>
+
+</div>
+
+
+<div id="university-of-michigan-itn-workshops" class="section level1">
+<h1>University of Michigan ITN Workshops</h1>
+<p>Welcome to the ITN University of Michigan Workshop Series!</p>
+<p>Over the next two days we will cover the a variety of bioinformatics
+topics. Please feel free to refer to these materials in the future.</p>
+<p><strong>Wifi:</strong> {FILLIN}</p>
+<p><strong>Website:</strong> bit.ly/{FILLIN}</p>
+<div id="schedule" class="section level3">
+<h3><strong>Schedule</strong></h3>
+<div class="myStyle" align="center">
+<table>
+<colgroup>
+<col width="75%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day 1 (FILL IN Room) - April 8:</th>
+<th align="center">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction to Reproducibility</td>
+<td align="center">9:30 AM - 11:00 AM</td>
+</tr>
+<tr class="even">
+<td>Intermediate and Advanced Reproducibility</td>
+<td align="center">11:30 AM - 1:00 PM</td>
+</tr>
+<tr class="odd">
+<td><img width="10%" src="resources/images/plate.png"><mark>Free
+Lunch!</mark></td>
+<td align="center">1:00 PM - 2:00 PM</td>
+</tr>
+<tr class="even">
+<td>Analyzing Clinical Data</td>
+<td align="center">2:00 PM - 3:30 PM</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="75%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day 2 (FILL IN ROOM) - April 9:</th>
+<th align="center">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Choosing Genomics Tools</td>
+<td align="center">9:30 AM -11:00 AM</td>
+</tr>
+<tr class="even">
+<td>Tools for Spatial Transcriptomics</td>
+<td align="center">11:30AM - 1:00 PM</td>
+</tr>
+<tr class="odd">
+<td><img width="10%" src="resources/images/plate.png"><mark>Free
+Lunch!</mark></td>
+<td align="center">1:00 PM - 2:00 PM</td>
+</tr>
+<tr class="even">
+<td>Introduction to UM Resources</td>
+<td align="center">2:00 PM - 3:00 PM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</div>
+<div id="pre-requisites" class="section level3">
+<h3><strong>Pre-requisites</strong></h3>
+<p>This information was emailed to you, but you will need to register
+for the following resources based on the workshops you will be
+attending:</p>
+<div class="myStyle" align="center">
+<table>
+<colgroup>
+<col width="16%" />
+<col width="12%" />
+<col width="25%" />
+<col width="25%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day 1 Workshops</th>
+<th align="center">GitHub</th>
+<th align="center">GitHub Desktop</th>
+<th align="center">Docker Desktop</th>
+<th align="center">PositCloud</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction to Reproducibility</td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td>Intermediate and Advanced Reproducibility</td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td>Analyzing Clinical Data</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="40%" />
+<col width="33%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day 2 Workshops</th>
+<th align="center">GenePattern</th>
+<th align="center">spatialGE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Choosing Genomics Tools</td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td>Tools for Spatial Transcriptomics</td>
+<td align="center"></td>
+<td
+align="center"><img width='12px' src='resources/images/check.png' alt='checkmark icon' class = icon></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p>If you do not have a <strong>GitHub account</strong> or a preferred
+git client, please create your own GitHub account and install
+<strong>GitHub Desktop</strong>: - <a href="https://github.com/">Create
+a GitHub account</a> using the “Sign up” button in the top right. - <a
+href="https://desktop.github.com/download/">Download GitHub
+Desktop</a></p>
+<p>Install <strong>Docker and Docker Desktop</strong> if you don’t
+already have it installed by <a
+href="https://www.docker.com/get-started/">following these
+instructions</a> <em>(If you absolutely cannot install Docker you can
+try to <a href="https://podman.io/docs/installation">install Podman as
+an alternative</a>)</em></p>
+<p>To create a <strong>Posit Cloud</strong> account, go to the <a
+href="https://login.posit.cloud/register?redirect=https%3A%2F%2Fclient.login.posit.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D0">Posit
+Cloud website</a> and sign up with any of the shown methods.</p>
+<p>To create a <strong>GenePattern</strong> account, go to the <a
+href="https://cloud.genepattern.org/gp/">GenePattern website</a> and
+click the “Click to Register” link above the login prompt.</p>
+<p align="center">
+<img width="20%" src="resources/images/gp_login.png" class="img_shad">
+</p>
+<p>To create a <strong>spatialGE</strong> account, go to <a
+href="https://spatialge.moffitt.org">spatialGE Website</a> and click on
+“Sign Up” in the upper right corner.</p>
+<p align="center">
+<img width="20%" src="resources/images/spatialge_login.png" class="img_shad">
+</p>
+<!--
+### Accessing Computational Resources for further practice or your research after the workshop
+
+- **Galaxy**: The training link will no longer work, and you should use [usegalaxy.org](https://usegalaxy.org/) to access the platform.
+- **Posit Cloud**: The workspace will be available until {FILL IN DATE}, otherwise, you could use the free version of PositCloud [https://posit.cloud/](https://posit.cloud/) to work with R in general (but does not have enough computing capacity to work with the data we used in our workshop). Alternatively, you could R/RStudio on your local machine or potentially on your institutional server.
+- **GenePattern**:
+- **spatialGE**: You can continue using the link [https://spatialge.moffitt.org/](https://spatialge.moffitt.org/) and can also use the R package: [https://github.com/FridleyLab/spatialGE](https://github.com/FridleyLab/spatialGE)
+-->
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
