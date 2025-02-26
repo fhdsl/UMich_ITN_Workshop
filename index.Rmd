@@ -45,13 +45,17 @@ This information was emailed to you, but you will need to register for the follo
 
 <div class = "myStyle" align = "center">
 
-| Workshop | GitHub | GitHub Desktop | Docker Desktop | PositCloud | GenePattern | spatialGE |
-|----------|:------:|:--------------:|:--------------:|:----------:|:-----------:|:---------:|
-| Introduction to Reproducibility | `r  config::get("checkmark")` | `r  config::get("checkmark")` |  |  |  |  |
-| Intermediate and Advanced Reproducibility | `r  config::get("checkmark")` | `r  config::get("checkmark")` | `r  config::get("checkmark")` |  |  |  |
-| Analyzing Clinical Data |  |  |  | `r  config::get("checkmark")` |  |  |
-| Choosing Genomics Tools |  |  |  |  | `r  config::get("checkmark")` |   |
-| Tools for Spatial Transcriptomics|  |  |  |  |  | `r  config::get("checkmark")`|
+| Day 1 Workshops | GitHub | GitHub Desktop | Docker Desktop | PositCloud |
+|----------|:------:|:--------------:|:--------------:|:----------:|
+| Introduction to Reproducibility | `r  config::get("checkmark")` | `r  config::get("checkmark")` |  |  |
+| Intermediate and Advanced Reproducibility | `r  config::get("checkmark")` | `r  config::get("checkmark")` | `r  config::get("checkmark")` |  |
+| Analyzing Clinical Data |  |  |  | `r  config::get("checkmark")` |
+
+| Day 2 Workshops |  GenePattern | spatialGE |
+|-----------------|:------------:|:---------:|
+| Choosing Genomics Tools | `r  config::get("checkmark")` |   |
+| Tools for Spatial Transcriptomics|  | `r  config::get("checkmark")`|
+
 </div>
 
 <br>
