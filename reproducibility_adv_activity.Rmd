@@ -1,12 +1,16 @@
 ---
+title: **Containers Activity**
 output:
   html_document:
     toc: true
     toc_float:
       toc_collapsed: true
     toc_depth: 3
-    number_sections: true
-  css: style.css
+    number_sections: false
+css: style.css
+editor_options:
+  markdown:
+    wrap: 72
 ---
 # Activity 0: Getting started with Docker
 
