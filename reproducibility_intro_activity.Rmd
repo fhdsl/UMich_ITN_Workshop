@@ -1,0 +1,154 @@
+---
+title: GitHub and Reproducibility Skill Sets
+output:
+  html_document:
+    toc: true
+    toc_float:
+      toc_collapsed: true
+    toc_depth: 3
+    number_sections: false
+css: style.css
+---
+```{r echo = FALSE, show = FALSE}
+knitr::opts_chunk$set(number_sections = FALSE)
+```
+## Activity 1: Git-ting Familiar with Branches
+
+<input type="checkbox"> Create an account or otherwise [login to GitHub](https://github.com)   
+<input type="checkbox"> Install GitHub Desktop to your computer: https://desktop.github.com/download/  
+
+### Create the repository for this activity
+
+<input type="checkbox"> Go to the template repository for this workshop: https://github.com/fhdsl/reproducibility-sandbox
+
+### Getting familiar with the repository
+
+This repository is a "mock" analysis. It has an example folder and file organizational structure that looks like this:
+
+- 00-download-data.py
+- 01-heatmap.Rmd
+- 01-heatmap.nb.html
+- **README.md**
+- renv.lock
+- run_analysis.sh
+- results/
+- plots/
+- docker/
+
+When you look at the README for this repository however, you will notice it is blank.
+
+### Create your own copy of this repository
+
+<input type="checkbox"> Click the green `Use this template` button and then `Create a new repository`. If you don't see this button, you may need to expand your window.  
+<input type="checkbox"> On the next screen, create a `Repository name`.   
+<input type="checkbox"> Choose `Public`.  
+<input type="checkbox"> Scroll to the bottom and click `Create repository`.  
+
+### Cloning our repository
+
+GitHub Desktop is a great tool to help use use version control and interact with GitHub.  
+<input type="checkbox"> Open up GitHub Desktop on your computer.  
+<input type="checkbox"> Go to `File` > `Clone Repository`.  
+<input type="checkbox"> Search for your ITN workshop repository name in the tab that says `Github.com`. Click on the name of this repository in this list. You can choose where you'd like it to download on your computer underneath `Local Path`.  
+<input type="checkbox"> Click the blue `Clone` button.  
+
+### Window Juggling
+
+Note the three buttons on the main GitHub Desktop repository page that connect us to related apps.
+
+We will be "juggling" some windows when doing this activity:
+
+- `Code editor` -- we'll actually edit files with this
+- `Files` -- we'll find where our files are on our computer with this
+- `Online GitHub` -- we will send our pull request and suggested changes to online GitHub.com with this.
+
+### Filing a pull request
+
+Pull requests are great for suggesting changes in a way that allow us to preview and discuss the changes before merging to the `main` version.
+
+We will practice filing a pull request by filling in the the README. READMEs are great for getting folks up to speed on a repository or code base.
+
+### Create a new branch
+
+But to create a pull request, we first need to create a branch to work from that is separate from the `main` copy.
+
+<input type="checkbox"> Click the `Current Branch` box > `New branch`.  
+<input type="checkbox"> Call this new branch `readme-edit`.  
+
+### Create an AI generated README
+
+<input type="checkbox"> Click the `Show in Finder` or `Show in Explorer` button depending on your operating system.  
+<input type="checkbox"> With any text editor open up both the `01-heatmap.Rmd` file and the `README.md` file  
+<input type="checkbox"> Copy all the text from `01-heatmap.Rmd` (Cmd + A - Mac, Ctrl + A - Windows).     
+<input type="checkbox"> Go to phind https://www.phind.com/search  
+<input type="checkbox"> Ask phind to create a README from the code. Copy (Cmd + A - Mac, Ctrl + C - Windows) and paste (Cmd + V - Mac, Ctrl + V - Windows) in the code from `01-heatmap.Rmd`. You may want to do some variations on the prompt you use to ask phind to do this to get good results.     
+<input type="checkbox"> Copy all the text from the desired Phind output and paste it to `README.md`. Save the file.  
+
+
+### Adding changes to a branch
+
+<input type="checkbox"> Go back to GitHub Desktop. You should see `1 changed file` in the upper right corner. It may be upper left for Windows.    
+<input type="checkbox"> Type in a "commit" message. Commits are how we add things to our branch.  
+<input type="checkbox"> Click the button that says `Commit to ...` it will have your branch name which should be `readme-edit`.  
+<input type="checkbox"> Click the `Publish branch` button. This will "push" your changes to online Github.com  
+
+
+### Making the pull request
+
+<input type="checkbox"> Follow GitHub Desktop's prompt to `Create a Pull Request` and click the blue button. If the blue button says `Preview Pull Request` then click the downward facing arrow to see the option to `Create a Pull Request`.   
+<input type="checkbox"> It should open up a page on GitHub.com Fill out the `Add a title` and the `Add a description` boxes to appropriately describe the work you did on the branch we are making the pull request from.  
+<input type="checkbox"> Click `Create pull request`.  
+
+
+## Activity 2: Navigating PR components
+
+### 2a: Leaving comments and suggestions
+
+<input type="checkbox"> Return to your pull request from Activity 1.   
+<input type="checkbox"> Click on the `Files Changed` tab.   
+<input type="checkbox"> Click one of the plus signs to the left to leave a comment.   
+<input type="checkbox"> With one of the open comments click the little symbol that has a plus and minus in a page to leave a suggestion.  
+<input type="checkbox"> Click `Add a single comment`.  
+
+Note that you or a collaborator can now readily incorporate your suggestion by clicking `Commit suggestion` or they could comment back to further discuss.
+
+<input type="checkbox"> Click `Commit suggestion` and then `Commit changes`.  
+<input type="checkbox"> Return to the `Conversation` tab and scroll to the bottom. You should see an additional commit now!
+
+### 2b: Reading GitHub Actions logs
+
+On the bottom of your PR you will notice a box at the bottom that will probably either say `Some checks haven't completed yet` or `All checks passed`.  
+
+This is an automatic check run by GitHub Actions which is one of many systems used for Continuous Integration/Continuous Deployment.
+
+<input type="checkbox"> If needed, click `Show all checks`.  
+<input type="checkbox"> Click `Details` at the end of the line that says `Render R Example / render-notebooks (pull_request)`.  
+<input type="checkbox"> Click around in here to investigate what GitHub Actions logs look like.
+
+For more learning about using [GitHub Actions for science see our course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/).
+
+### 2c: Updating your local repository
+
+If you followed the steps in the `Leaving comments and suggestions` section of this activity you will now have at least one commit that is on your online version of your repository but the changes done online won't automatically get to your local repository. To do this we need to `Pull` the latest changes to our computer.
+
+<input type="checkbox"> Return to GitHub Desktop.  
+<input type="checkbox"> Click the `Fetch origin` button.  
+<input type="checkbox"> You should be prompted to `Pull origin` click this button.  
+<input type="checkbox"> Now your changes should be synced. Open up the file you've changed with any default text editor to look for the change you made to make sure.  
+
+### 2d: Merging your PR
+
+In a real life setting the life of a Pull request could be long or short. What's important is that the discussions that need to be had about the changes are had before the pull request is merged.
+
+Pull requests and GitHub have their own kind of etiquette. Make sure you talk to your team or collaborators to create and discuss what kind of guidelines and workflows you'd like to adhere to so everyone can do their best work!
+
+<input type="checkbox"> Return to GitHub Pull Request Online.  
+<input type="checkbox"> Click the `Merge` button. Follow up with the `Confirm merge` button.  
+
+Yay! Congrats.
+
+### For more learning:
+- [Docs and Usability course](https://jhudatascience.org/Documentation_and_Usability/)
+- [Intro to Reproducibility course](https://jhudatascience.org/Reproducibility_in_Cancer_Informatics/introduction.html)
+- [Advanced Reproducibility course](https://jhudatascience.org/Adv_Reproducibility_in_Cancer_Informatics/introduction.html)
+- [Github Automation for Scientists course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/)

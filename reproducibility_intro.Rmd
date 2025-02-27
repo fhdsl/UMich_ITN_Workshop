@@ -1,0 +1,30 @@
+---
+title: "**Introduction to Reproducibility**"
+output:
+  html_document
+---
+
+## Workshop Material
+
+In this workshop we will cover:
+
+- Best practices for making analyses reproducible
+- Best practices for organizing data and code
+- Writing durable code and managing package versions
+- Using GitHub to make code open source
+
+<!--
+
+<div class = "link_button"><a href="{FILL IN}" target="_blank"> Slides Link</a></div>
+
+<div class = "slido_button"><a href="{FILL IN}" target="_blank"> Discussion Link </a></div>
+
+<div class = "resource_button"><a
+href="{FILL IN}" target="_blank"> Resource Link </a></div>
+<br>
+
+-->
+
+## Additional Resources
+
+- [ITN Course "Introduction to Reproducibility in Cancer Informatics"](https://jhudatascience.org/Reproducibility_in_Cancer_Informatics/introduction.html)

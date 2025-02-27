@@ -6,18 +6,18 @@ navbar:
   - text: ""
     href: index.html
     icon: fa-home
-#  - text: Intro to Reproducibility
-#    menu:
-#    - text: Workshop Material
-#      href: reproducibility_intro.html
-#    - text: Activity
-#      href: reproducibility_intro_activity.html
-#  - text: Intermediate & Advanced Reproducibility
-#    menu:
-#    - text: Workshop Material
-#      href: reproducibility_adv.html
-#    - text: Activity
-#      href: reproducibility_adv_activity.html
+  - text: Intro to Reproducibility
+    menu:
+    - text: Workshop Material
+      href: reproducibility_intro.html
+    - text: Activity
+      href: reproducibility_intro_activity.html
+  - text: Intermediate & Advanced Reproducibility
+    menu:
+    - text: Workshop Material
+      href: reproducibility_adv.html
+    - text: Activity
+      href: reproducibility_adv_activity.html
   - text: Analyzing Clinical Data
     menu:
     - text: Workshop Material
