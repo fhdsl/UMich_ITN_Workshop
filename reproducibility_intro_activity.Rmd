@@ -152,3 +152,4 @@ Yay! Congrats.
 - [Intro to Reproducibility course](https://jhudatascience.org/Reproducibility_in_Cancer_Informatics/introduction.html)
 - [Advanced Reproducibility course](https://jhudatascience.org/Adv_Reproducibility_in_Cancer_Informatics/introduction.html)
 - [Github Automation for Scientists course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/)
+- [Containers for Scientists course](https://hutchdatascience.org/Containers_for_Scientists/)
