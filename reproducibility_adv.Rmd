@@ -1,0 +1,32 @@
+---
+title: "**Intermediate & Advanced Reproducibility**"
+output:
+  html_document
+---
+
+## Workshop Material
+
+In this workshop we will cover:
+
+- Fundamentals of version control
+- How to use GitHub to not only make code open source, but also version controlled
+- Best practices for collaborative code review
+- Best practices for using containers
+
+<!--
+
+<div class = "link_button"><a href="{FILL IN}" target="_blank"> Slides Link</a></div>
+
+<div class = "slido_button"><a href="{FILL IN}" target="_blank"> Discussion Link </a></div>
+
+<div class = "resource_button"><a
+href="{FILL IN}" target="_blank"> Resource Link </a></div>
+<br>
+
+-->
+
+## Additional Resources
+
+- [ITN Course "Advanced Reproducibility in Cancer Informatics"](https://jhudatascience.org/Adv_Reproducibility_in_Cancer_Informatics/introduction.html)
+- [ITN Course "GitHub Automation for Scientists"](https://hutchdatascience.org/GitHub_Automation_for_Scientists/)
+- [ITN Course "Containers for Scientists"](https://hutchdatascience.org/Containers_for_Scientists/)
