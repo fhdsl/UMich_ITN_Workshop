@@ -11,7 +11,7 @@
 
 
 
-<title>Analyzing Clinical Data: Activity</title>
+<title>GitHub and Reproducibility Skill Sets</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -420,13 +420,237 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><strong>Analyzing Clinical Data:
-Activity</strong></h1>
+<h1 class="title toc-ignore">GitHub and Reproducibility Skill Sets</h1>
 
 </div>
 
 
-<p>Open the resource link, etc.</p>
+<div id="activity-1-git-ting-familiar-with-branches"
+class="section level2">
+<h2>Activity 1: Git-ting Familiar with Branches</h2>
+<p><input type="checkbox"> Create an account or otherwise <a
+href="https://github.com">login to GitHub</a><br />
+<input type="checkbox"> Install GitHub Desktop to your computer: <a
+href="https://desktop.github.com/download/"
+class="uri">https://desktop.github.com/download/</a></p>
+<div id="create-the-repository-for-this-activity"
+class="section level3">
+<h3>Create the repository for this activity</h3>
+<p><input type="checkbox"> Go to the template repository for this
+workshop: <a href="https://github.com/fhdsl/reproducibility-sandbox"
+class="uri">https://github.com/fhdsl/reproducibility-sandbox</a></p>
+</div>
+<div id="getting-familiar-with-the-repository" class="section level3">
+<h3>Getting familiar with the repository</h3>
+<p>This repository is a “mock” analysis. It has an example folder and
+file organizational structure that looks like this:</p>
+<ul>
+<li>00-download-data.py</li>
+<li>01-heatmap.Rmd</li>
+<li>01-heatmap.nb.html</li>
+<li><strong>README.md</strong></li>
+<li>renv.lock</li>
+<li>run_analysis.sh</li>
+<li>results/</li>
+<li>plots/</li>
+<li>docker/</li>
+</ul>
+<p>When you look at the README for this repository however, you will
+notice it is blank.</p>
+</div>
+<div id="create-your-own-copy-of-this-repository"
+class="section level3">
+<h3>Create your own copy of this repository</h3>
+<p><input type="checkbox"> Click the green
+<code>Use this template</code> button and then
+<code>Create a new repository</code>. If you don’t see this button, you
+may need to expand your window.<br />
+<input type="checkbox"> On the next screen, create a
+<code>Repository name</code>.<br />
+<input type="checkbox"> Choose <code>Public</code>.<br />
+<input type="checkbox"> Scroll to the bottom and click
+<code>Create repository</code>.</p>
+</div>
+<div id="cloning-our-repository" class="section level3">
+<h3>Cloning our repository</h3>
+<p>GitHub Desktop is a great tool to help use use version control and
+interact with GitHub.<br />
+<input type="checkbox"> Open up GitHub Desktop on your computer.<br />
+<input type="checkbox"> Go to <code>File</code> &gt;
+<code>Clone Repository</code>.<br />
+<input type="checkbox"> Search for your ITN workshop repository name in
+the tab that says <code>Github.com</code>. Click on the name of this
+repository in this list. You can choose where you’d like it to download
+on your computer underneath <code>Local Path</code>.<br />
+<input type="checkbox"> Click the blue <code>Clone</code> button.</p>
+</div>
+<div id="window-juggling" class="section level3">
+<h3>Window Juggling</h3>
+<p>Note the three buttons on the main GitHub Desktop repository page
+that connect us to related apps.</p>
+<p>We will be “juggling” some windows when doing this activity:</p>
+<ul>
+<li><code>Code editor</code> – we’ll actually edit files with this</li>
+<li><code>Files</code> – we’ll find where our files are on our computer
+with this</li>
+<li><code>Online GitHub</code> – we will send our pull request and
+suggested changes to online GitHub.com with this.</li>
+</ul>
+</div>
+<div id="filing-a-pull-request" class="section level3">
+<h3>Filing a pull request</h3>
+<p>Pull requests are great for suggesting changes in a way that allow us
+to preview and discuss the changes before merging to the
+<code>main</code> version.</p>
+<p>We will practice filing a pull request by filling in the the README.
+READMEs are great for getting folks up to speed on a repository or code
+base.</p>
+</div>
+<div id="create-a-new-branch" class="section level3">
+<h3>Create a new branch</h3>
+<p>But to create a pull request, we first need to create a branch to
+work from that is separate from the <code>main</code> copy.</p>
+<p><input type="checkbox"> Click the <code>Current Branch</code> box
+&gt; <code>New branch</code>.<br />
+<input type="checkbox"> Call this new branch
+<code>readme-edit</code>.</p>
+</div>
+<div id="create-an-ai-generated-readme" class="section level3">
+<h3>Create an AI generated README</h3>
+<p><input type="checkbox"> Click the <code>Show in Finder</code> or
+<code>Show in Explorer</code> button depending on your operating
+system.<br />
+<input type="checkbox"> With any text editor open up both the
+<code>01-heatmap.Rmd</code> file and the <code>README.md</code>
+file<br />
+<input type="checkbox"> Copy all the text from
+<code>01-heatmap.Rmd</code> (Cmd + A - Mac, Ctrl + A - Windows).<br />
+<input type="checkbox"> Go to phind <a
+href="https://www.phind.com/search"
+class="uri">https://www.phind.com/search</a><br />
+<input type="checkbox"> Ask phind to create a README from the code. Copy
+(Cmd + A - Mac, Ctrl + C - Windows) and paste (Cmd + V - Mac, Ctrl + V -
+Windows) in the code from <code>01-heatmap.Rmd</code>. You may want to
+do some variations on the prompt you use to ask phind to do this to get
+good results.<br />
+<input type="checkbox"> Copy all the text from the desired Phind output
+and paste it to <code>README.md</code>. Save the file.</p>
+</div>
+<div id="adding-changes-to-a-branch" class="section level3">
+<h3>Adding changes to a branch</h3>
+<p><input type="checkbox"> Go back to GitHub Desktop. You should see
+<code>1 changed file</code> in the upper right corner. It may be upper
+left for Windows.<br />
+<input type="checkbox"> Type in a “commit” message. Commits are how we
+add things to our branch.<br />
+<input type="checkbox"> Click the button that says
+<code>Commit to ...</code> it will have your branch name which should be
+<code>readme-edit</code>.<br />
+<input type="checkbox"> Click the <code>Publish branch</code> button.
+This will “push” your changes to online Github.com</p>
+</div>
+<div id="making-the-pull-request" class="section level3">
+<h3>Making the pull request</h3>
+<p><input type="checkbox"> Follow GitHub Desktop’s prompt to
+<code>Create a Pull Request</code> and click the blue button. If the
+blue button says <code>Preview Pull Request</code> then click the
+downward facing arrow to see the option to
+<code>Create a Pull Request</code>.<br />
+<input type="checkbox"> It should open up a page on GitHub.com Fill out
+the <code>Add a title</code> and the <code>Add a description</code>
+boxes to appropriately describe the work you did on the branch we are
+making the pull request from.<br />
+<input type="checkbox"> Click <code>Create pull request</code>.</p>
+</div>
+</div>
+<div id="activity-2-navigating-pr-components" class="section level2">
+<h2>Activity 2: Navigating PR components</h2>
+<div id="a-leaving-comments-and-suggestions" class="section level3">
+<h3>2a: Leaving comments and suggestions</h3>
+<p><input type="checkbox"> Return to your pull request from Activity
+1.<br />
+<input type="checkbox"> Click on the <code>Files Changed</code>
+tab.<br />
+<input type="checkbox"> Click one of the plus signs to the left to leave
+a comment.<br />
+<input type="checkbox"> With one of the open comments click the little
+symbol that has a plus and minus in a page to leave a suggestion.<br />
+<input type="checkbox"> Click <code>Add a single comment</code>.</p>
+<p>Note that you or a collaborator can now readily incorporate your
+suggestion by clicking <code>Commit suggestion</code> or they could
+comment back to further discuss.</p>
+<p><input type="checkbox"> Click <code>Commit suggestion</code> and then
+<code>Commit changes</code>.<br />
+<input type="checkbox"> Return to the <code>Conversation</code> tab and
+scroll to the bottom. You should see an additional commit now!</p>
+</div>
+<div id="b-reading-github-actions-logs" class="section level3">
+<h3>2b: Reading GitHub Actions logs</h3>
+<p>On the bottom of your PR you will notice a box at the bottom that
+will probably either say <code>Some checks haven't completed yet</code>
+or <code>All checks passed</code>.</p>
+<p>This is an automatic check run by GitHub Actions which is one of many
+systems used for Continuous Integration/Continuous Deployment.</p>
+<p><input type="checkbox"> If needed, click
+<code>Show all checks</code>.<br />
+<input type="checkbox"> Click <code>Details</code> at the end of the
+line that says
+<code>Render R Example / render-notebooks (pull_request)</code>.<br />
+<input type="checkbox"> Click around in here to investigate what GitHub
+Actions logs look like.</p>
+<p>For more learning about using <a
+href="https://hutchdatascience.org/GitHub_Automation_for_Scientists/">GitHub
+Actions for science see our course</a>.</p>
+</div>
+<div id="c-updating-your-local-repository" class="section level3">
+<h3>2c: Updating your local repository</h3>
+<p>If you followed the steps in the
+<code>Leaving comments and suggestions</code> section of this activity
+you will now have at least one commit that is on your online version of
+your repository but the changes done online won’t automatically get to
+your local repository. To do this we need to <code>Pull</code> the
+latest changes to our computer.</p>
+<p><input type="checkbox"> Return to GitHub Desktop.<br />
+<input type="checkbox"> Click the <code>Fetch origin</code>
+button.<br />
+<input type="checkbox"> You should be prompted to
+<code>Pull origin</code> click this button.<br />
+<input type="checkbox"> Now your changes should be synced. Open up the
+file you’ve changed with any default text editor to look for the change
+you made to make sure.</p>
+</div>
+<div id="d-merging-your-pr" class="section level3">
+<h3>2d: Merging your PR</h3>
+<p>In a real life setting the life of a Pull request could be long or
+short. What’s important is that the discussions that need to be had
+about the changes are had before the pull request is merged.</p>
+<p>Pull requests and GitHub have their own kind of etiquette. Make sure
+you talk to your team or collaborators to create and discuss what kind
+of guidelines and workflows you’d like to adhere to so everyone can do
+their best work!</p>
+<p><input type="checkbox"> Return to GitHub Pull Request Online.<br />
+<input type="checkbox"> Click the <code>Merge</code> button. Follow up
+with the <code>Confirm merge</code> button.</p>
+<p>Yay! Congrats.</p>
+</div>
+<div id="for-more-learning" class="section level3">
+<h3>For more learning:</h3>
+<ul>
+<li><a
+href="https://jhudatascience.org/Documentation_and_Usability/">Docs and
+Usability course</a></li>
+<li><a
+href="https://jhudatascience.org/Reproducibility_in_Cancer_Informatics/introduction.html">Intro
+to Reproducibility course</a></li>
+<li><a
+href="https://jhudatascience.org/Adv_Reproducibility_in_Cancer_Informatics/introduction.html">Advanced
+Reproducibility course</a></li>
+<li><a
+href="https://hutchdatascience.org/GitHub_Automation_for_Scientists/">Github
+Automation for Scientists course</a></li>
+</ul>
+</div>
+</div>
 
 
 

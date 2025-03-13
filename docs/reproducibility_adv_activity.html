@@ -11,7 +11,7 @@
 
 
 
-<title>Setup</title>
+<title>Containers Activity</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -224,6 +227,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -231,6 +297,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -344,107 +420,109 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Setup</h1>
+<h1 class="title toc-ignore"><strong>Containers Activity</strong></h1>
 
 </div>
 
 
-<div id="getting-started" class="section level3">
-<h3>Getting started</h3>
-<p>Create your repository by clicking on the
-<code>Use this Template</code> button at <a
-href="https://github.com/jhudsl/OTTR_Template_Website">OTTR_Template_Website
-repository</a></p>
-<p><img src="resources/images/create-repo.png" /></p>
-<p>You’ll need to make your repository <code>public</code>.</p>
+<div id="activity-0-getting-started-with-docker" class="section level1">
+<h1>Activity 0: Getting started with Docker</h1>
+<p>Go here to <a href="https://www.docker.com/get-started">install
+Docker</a>, following the instructions for your particular operating
+system.</p>
+<p>If you don’t have a Docker account create an account when prompted,
+or <a href="https://hub.docker.com/">go here</a>. After you install
+Docker, start up Docker desktop by double clicking on the app. It may
+take some time to start up.</p>
+<div id="activity-1-pull-and-run-a-docker-image" class="section level2">
+<h2>Activity 1: Pull and run a Docker image</h2>
+<div id="step-1-docker-pull" class="section level3">
+<h3>Step 1: Docker pull</h3>
+<p><input type="checkbox"> We need to get the Docker
+<strong>image</strong> we want to use. We do this by “pulling” it.</p>
+<p>Run this command in your Terminal or Command Prompt window:</p>
+<pre><code>docker pull cansav09/practice-image:1</code></pre>
 </div>
-<div id="set-your-gh_pat" class="section level3">
-<h3>Set your GH_PAT</h3>
-<p>To enable the GitHub actions, your repository needs to be setup in a
-specific way.</p>
-<p>For OTTR GitHub actions to run, they need to have credentials through
-a personal access token.</p>
-<ol style="list-style-type: decimal">
-<li>Set up your own personal access token <a
-href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">following
-these instructions</a> - but create a <strong>classic token</strong>.
-Keep this personal access token handy for the next step. When you get to
-the permissions page, check the box that says <code>repo</code> and
-select all that is underneath that header. No other permissions are
-necessary.</li>
-</ol>
-<details>
-<summary>
-Click here for more detailed instructions. The instructions for this
-step may change with updates to GitHub.
-</summary>
-<p>First, go to your username settings, by clicking on your user icon
-(upper right corner) and scrolling down to settings.</p>
-<p><img src="resources/images/usersettings.png" alt="User settings" width="20%" style="display: block; margin: auto;" /></p>
-<p>Next, scroll all the way down on the far right menu to “Developer
-Settings”.</p>
-<p><img src="resources/images/developer_settings.png" alt="User settings" width="80%" style="display: block; margin: auto;" /></p>
-<p>Then select “Personal Access Tokens” and “Tokens (classic)”</p>
-<p><img src="resources/images/classic_tokens.png" alt="classic tokens" width="40%" style="display: block; margin: auto;" /></p>
-<p>Then click “Generate new token” and confirm that you want
-classic.</p>
-<p><img src="resources/images/generate_classic.png" alt="generate classic token" width="80%" style="display: block; margin: auto;" /></p>
-<p>Finally, add a name select all the repo scopes and scroll down to the
-green button to generate the token. Copy this somewhere safe to then
-paste into your repository settings.</p>
-<p><img src="resources/images/set_up_token.png" alt="set up token" width="80%" style="display: block; margin: auto;" /></p>
-</details>
-<ol start="2" style="list-style-type: decimal">
-<li>In your new OTTR_Template_Website derived repository, go to Settings
-&gt; Secrets and variables &gt; Actions. Click
-<code>New Repository Secret</code>.</li>
-</ol>
-<p><img src="resources/images/repo_action_token.png" alt="classic tokens" width="80%" style="display: block; margin: auto;" /></p>
-<p><img src="resources/images/gh_pat_set_up.png" alt="new repository secret" width="80%" style="display: block; margin: auto;" /></p>
-<p>In the window opened, name this new secret <code>GH_PAT</code> and
-paste the personal access token in the box below. (Note that the name
-<code>GH_PAT</code> is specific to how OTTR works and other secret names
-cannot be used and for OTTR to still work).</p>
-<p>Click the green button to add the secret.</p>
-<p><img src="resources/images/setting_gh_pat.png" alt="Clicking on settings" width="80%" style="display: block; margin: auto;" /></p>
+<div id="step-2-check-what-images-you-have" class="section level3">
+<h3>Step 2: Check what images you have</h3>
+<p><input type="checkbox"> To see what images we have we can run
+<code>docker image ls</code> and we should see
+<code>cansav09/practice-image:1</code> show up now.</p>
 </div>
-<div id="allow-github-actions" class="section level3">
-<h3>Allow GitHub Actions</h3>
-<p>Go to the settings menu for your repository that you created from the
-template. This should be located at the top of GitHub on the right
-side.</p>
-<p>Scroll down to the “Actions” button and click it, then click
-“General”.
-<img src="resources/images/actions.png" alt="allowing workflows" width="40%" style="display: block; margin: auto;" /></p>
-<p><img src="resources/images/general.png" alt="allowing workflows" width="80%" style="display: block; margin: auto;" /></p>
-<p>Scroll down to the workflow permissions section and select “Read and
-write permissions”, then click “Allow GitHub actions to create and
-approve pull requests.</p>
-<p>Finally, click “save”.</p>
-<p><img src="resources/images/workflows.png" alt="allowing workflows" width="80%" style="display: block; margin: auto;" /></p>
+<div id="step-3-run-the-docker-image-to-start-a-container"
+class="section level3">
+<h3>Step 3: Run the docker image to start a container!</h3>
+<p><input type="checkbox"> Now if want to launch the image for use, we
+can use <code>docker run</code> to turn it into a
+<strong>container</strong></p>
+<pre><code>docker run cansav09/practice-image:1</code></pre>
+<p><input type="checkbox"> To see what containers we have running we
+have we can run:</p>
+<pre><code>docker ps</code></pre>
 </div>
-<div id="protect-branches" class="section level3">
-<h3>Protect branches</h3>
-<p>Although this isn’t entirely required, its strongly recommended that
-you use these settings to protect your <code>main</code> branches.</p>
-<p>Click on settings in the far upper right corner:</p>
-<p><img src="resources/images/settings.png" alt="Clicking on settings" width="80%" style="display: block; margin: auto;" />
-Click on branches:</p>
-<p><img src="resources/images/branches.png" alt="Clicking on settings" width="80%" style="display: block; margin: auto;" />
-Click the add rule button.</p>
-<p><img src="resources/images/add_rule.png" alt="Adding rule" width="608" style="display: block; margin: auto;" />
-Type “main” as the branch name pattern:</p>
-<p><img src="resources/images/main_branch.png" alt="adding main branch rule" width="80%" style="display: block; margin: auto;" />
-Click on the following boxes to require pull requests before
-merging:</p>
-<p><img src="resources/images/branch_rule.png" alt="modify branch rules" width="80%" style="display: block; margin: auto;" /></p>
-<p>Note that if you have admin privileges on this repository, you will
-likely still be able to override these branch protections so use caution
-when git pushing!</p>
+<div id="step-4-run-a-single-command" class="section level3">
+<h3>Step 4: Run a single command</h3>
+<p><input type="checkbox"> To run stuff interactively from the command
+line we can do:</p>
+<pre><code>docker exec -it &lt;PUT_CONTAINER_ID_HERE&gt; bash</code></pre>
+</div>
+<div id="step-5-try-calling-a-script" class="section level3">
+<h3>Step 5: Try calling a script</h3>
+<p><input type="checkbox"> To run a script using the docker container we
+could just add reference to a script at the end:</p>
+<p><strong>BUT! You will find that this command won’t work yet though,
+why?</strong></p>
+<pre><code>docker exec -it &lt;PUT_CONTAINER_ID_HERE&gt; bash run_analysis.sh</code></pre>
+<p>This won’t work because the file <code>run_analysis.sh</code> is not
+a file that our container has. Docker containers do not have all the
+files that our computer does; they only have the files we add to it.</p>
+<pre><code>bash: run_analysis.sh: No such file or directory</code></pre>
+</div>
+</div>
+<div id="activity-1b-add-a-volume-to-the-image" class="section level2">
+<h2>Activity 1b: Add a volume to the image</h2>
+<p>Our container is separate from our computer so if we want to use a
+file we have to attach it using a “volume”.</p>
+<div id="step-1-lets-add-our-containers-for-scientists-sandbox-files"
+class="section level3">
+<h3>Step 1: Let’s add our containers-for-scientists-sandbox files</h3>
+<p>Point it so the volume has the workshop files</p>
+<p>If we want to run <code>run_analysis.sh</code> there’s two ways we
+could get our files on there.</p>
+<ul>
+<li>We could download the files we need from online! We could
+<code>git clone</code> files from a repository or otherwise
+<code>wget</code> or <code>curl</code> files.</li>
+<li>We could add a <code>volume</code> of files that are local to our
+computer. For this we will use the You’ll <code>-v</code> or volume
+option.</li>
+</ul>
+</div>
+<div id="step-2-lets-add-our-containers-for-scientists-sandbox-files"
+class="section level3">
+<h3>Step 2: Let’s add our containers-for-scientists-sandbox files</h3>
+<p>We can specify a particular file path on our computer or give it
+<code>$PWD</code> Then optionally we can give a <code>:</code> and a
+file path we’d like this to be stored on on the container. Otherwise it
+will be stored at the absolute top of the container.</p>
+<p><input type="checkbox"> Now we can run:</p>
+<pre><code>docker run -v $PWD:/home cansav09/practice-image:1</code></pre>
+</div>
+<div id="step-3-retry-calling-the-script" class="section level3">
+<h3>Step 3: Retry calling the script</h3>
+<p><input type="checkbox"> Now we can run:</p>
+<pre><code>docker exec -it &lt;REPLACE_WITH_CONTAINER_ID&gt; bash /home/run_analysis.sh</code></pre>
+<p>Now we have a new error! What does this mean?</p>
+<p><strong>Question: Does our container have all of the same software
+that our computer has?</strong></p>
+</div>
+</div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -477,6 +555,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
