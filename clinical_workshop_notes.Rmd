@@ -8,14 +8,14 @@ runtime: shiny
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-install.packages(c("rbibutils", "Rdpack", "reformulas", "sqldf", "survival"), repos='https://cloud.r-project.org')
-install.packages("nloptr", repos='https://cloud.r-project.org')
-install.packges("lme4",repos='https://cloud.r-project.org')
-install.packages("pbkrtest",repos='https://cloud.r-project.org')
-install.packages("car", repos='https://cloud.r-project.org')
-instal.packages("rstatix", repos='https://cloud.r-project.org')
-install.packages("ggpubr", repos='https://cloud.r-project.org')
-install.packages("survminer", repos='https://cloud.r-project.org')
+#install.packages(c("rbibutils", "Rdpack", "reformulas", "sqldf", "survival"), repos='https://cloud.r-project.org')
+#install.packages("nloptr", repos='https://cloud.r-project.org')
+#install.packges("lme4",repos='https://cloud.r-project.org')
+#install.packages("pbkrtest",repos='https://cloud.r-project.org')
+#install.packages("car", repos='https://cloud.r-project.org')
+#instal.packages("rstatix", repos='https://cloud.r-project.org')
+#install.packages("ggpubr", repos='https://cloud.r-project.org')
+#install.packages("survminer", repos='https://cloud.r-project.org')
 
 library(sqldf)
 library(survival)
