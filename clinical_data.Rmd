@@ -24,4 +24,6 @@ href="https://posit.cloud/" target="_blank"> Resource Link </a></div>
 
 ## Additional Resources
 
+- [More Extensive Notes](clinical_workshop_notes.html)
 - [REDCap Users Guide](https://www.womensacademics.ca/wp-content/uploads/2025/01/WCH-REDCap-v14.8-User-Guide-30Dec2024.pdf)
+
