@@ -30,7 +30,7 @@ CROST
 Ctrl
 customizable
 custimization
-custimazations
+customizations
 cwrigh
 dev
 DimPlot
@@ -200,6 +200,7 @@ tsv
 UIs
 UMich
 UMAP
+undirected
 UseGalaxy
 usegalaxy
 VectraPolarisData

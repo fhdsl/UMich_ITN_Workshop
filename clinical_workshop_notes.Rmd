@@ -1,5 +1,5 @@
 ---
-title: "Clincal Data Analysis Notes"
+title: "Clinical Data Analysis Notes"
 output:
   html_document:
     toc: true
@@ -70,7 +70,7 @@ I wanted to highlight some my personal favorite R Packages.I work in [REDCap](ht
 
 Most people are familiar with RStudio for the purposes of having a nice user interface for interacting with R.  Although a Google Search may show that there are a number of other UIs such as `rattle` and `RKWard`, I've only found one that works on the current version of R.  Called `GrapheR`, it can be used to make simple graphing tasks easier for novice, it is not for the advanced user as the graphics are far too rudimentary.
 
-- `GrapheR` Helps users create and visualize networks and graph-based data. It simplifies the process of constructing graphs, visualizing them with various layouts, and analyzing network structures. The package supports directed and un-directed graphs, weighted edges, and offers a range of layout options for displaying graphs, such as circular, spring, and hierarchical layouts. `GrapheR` also provides utilities for network metrics like degree centrality, betweenness, and clustering, enabling users to perform network analysis efficiently. The package integrates well with tidyverse for data manipulation and supports various export formats, including PDF and PNG for easy reporting.
+- `GrapheR` Helps users create and visualize networks and graph-based data. It simplifies the process of constructing graphs, visualizing them with various layouts, and analyzing network structures. The package supports directed and undirected graphs, weighted edges, and offers a range of layout options for displaying graphs, such as circular, spring, and hierarchical layouts. `GrapheR` also provides utilities for network metrics like degree centrality, betweenness, and clustering, enabling users to perform network analysis efficiently. The package integrates well with tidyverse for data manipulation and supports various export formats, including PDF and PNG for easy reporting.
 
 - `tidyverse`The `tidyverse` suite of packages created by Hadley Wickham (among many countless contributors), and the [tidyverse philosophy](https://www.tidyverse.org/) centers around a consistent, human-readable approach to data science, emphasizing tidy data principles where each variable is a column, each observation is a row, and each value is a cell. It promotes a functional programming style with clear, pipeable workflows, making data manipulation, visualization, and analysis more intuitive and efficient.  Check out [the original `tidyverse` paper](https://joss.theoj.org/papers/10.21105/joss.01686).
 
@@ -134,9 +134,9 @@ sqldf("select * from lung where age>60 limit 10")
 The package supports a variety of operations, making it a versatile tool for data analysis.
 
 - It allows for easy data filtering and selection, enabling users to extract specific rows and columns with simple queries. 
-- Aggregation and summarization functions, such as COUNT, AVG, MIN, and MAX, allow users to quickly compute statistics on datasets. 
-- Sorting and ordering data is straightforward with the ORDER BY clause, and merging datasets is effortless using SQL joins, such as INNER JOIN and LEFT JOIN. 
-- Additionally, sqldf can be used for data cleaning and validation, helping identify duplicates, missing values, or inconsistencies within a dataset.
+- Aggregation and summarization functions, such as `COUNT`, `AVG`, `MIN`, and `MAX`, allow users to quickly compute statistics on datasets. 
+- Sorting and ordering data is straightforward with the `ORDER BY` clause, and merging datasets is effortless using SQL joins, such as `INNER JOIN` and `LEFT JOIN`. 
+- Additionally, `sqldf` can be used for data cleaning and validation, helping identify duplicates, missing values, or inconsistencies within a dataset.
 
 Here is a basic example of using `sqldf` to create a basic summary table: 
 
