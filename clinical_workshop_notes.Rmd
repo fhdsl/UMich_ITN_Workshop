@@ -1,5 +1,5 @@
 ---
-title: "Clincal Data Anlysis Notes"
+title: "Clincal Data Analysis Notes"
 output:
   html_document:
     toc: true
@@ -63,14 +63,14 @@ I wanted to highlight some my personal favorite R Packages.I work in [REDCap](ht
 
 ### Non-REDCap Packages
 
-- ***`tidygeocoder`***Simple and efficient way to perform geocoding and reverse geocoding within a tidyverse-friendly framework. It allows users to convert addresses into latitude and longitude coordinates (geocoding) and vice versa (reverse geocoding) using various online services such as OpenStreetMap (Nominatim), Google, Bing, and Census Bureau APIs. The package supports batch processing, making it useful for handling large datasets, and integrates well with dplyr, enabling seamless incorporation into data analysis workflows.</li>
-- ***`beepr`***Play notification sounds to signal the completion of code execution. It is especially useful for long-running scripts, alerting users when a task is finished without requiring them to monitor the console.</li>
+- ***`tidygeocoder`***Simple and efficient way to perform geocoding and reverse geocoding within a tidyverse-friendly framework. It allows users to convert addresses into latitude and longitude coordinates (geocoding) and vice versa (reverse geocoding) using various online services such as OpenStreetMap (Nominatim), Google, Bing, and Census Bureau APIs. The package supports batch processing, making it useful for handling large datasets, and integrates well with dplyr, enabling seamless incorporation into data analysis workflows.
+- ***`beepr`***Play notification sounds to signal the completion of code execution. It is especially useful for long-running scripts, alerting users when a task is finished without requiring them to monitor the console.
 - ***`DataExplorer`***Simplifies exploratory data analysis (EDA) by providing automated functions for data visualization, summary statistics, and feature engineering. It enables users to quickly generate descriptive reports, identify missing values, visualize distributions, detect correlations, and assess data structure. Key functions include `introduce()` for dataset overview, `plot_missing()` for missing data patterns, `plot_histogram()` for distributions, and `create_report()` for generating a comprehensive EDA report.
 
 
 Most people are familiar with RStudio for the purposes of having a nice user interface for interacting with R.  Although a Google Search may show that there are a number of other UIs such as `rattle` and `RKWard`, I've only found one that works on the current version of R.  Called `GrapheR`, it can be used to make simple graphing tasks easier for novice, it is not for the advanced user as the graphics are far too rudimentary.
 
-- `GrapheR` Helps users create and visualize networks and graph-based data. It simplifies the process of constructing graphs, visualizing them with various layouts, and analyzing network structures. The package supports directed and undirected graphs, weighted edges, and offers a range of layout options for displaying graphs, such as circular, spring, and hierarchical layouts. `GrapheR` also provides utilities for network metrics like degree centrality, betweenness, and clustering, enabling users to perform network analysis efficiently. The package integrates well with tidyverse for data manipulation and supports various export formats, including PDF and PNG for easy reporting.
+- `GrapheR` Helps users create and visualize networks and graph-based data. It simplifies the process of constructing graphs, visualizing them with various layouts, and analyzing network structures. The package supports directed and un-directed graphs, weighted edges, and offers a range of layout options for displaying graphs, such as circular, spring, and hierarchical layouts. `GrapheR` also provides utilities for network metrics like degree centrality, betweenness, and clustering, enabling users to perform network analysis efficiently. The package integrates well with tidyverse for data manipulation and supports various export formats, including PDF and PNG for easy reporting.
 
 - `tidyverse`The `tidyverse` suite of packages created by Hadley Wickham (among many countless contributors), and the [tidyverse philosophy](https://www.tidyverse.org/) centers around a consistent, human-readable approach to data science, emphasizing tidy data principles where each variable is a column, each observation is a row, and each value is a cell. It promotes a functional programming style with clear, pipeable workflows, making data manipulation, visualization, and analysis more intuitive and efficient.  Check out [the original `tidyverse` paper](https://joss.theoj.org/papers/10.21105/joss.01686).
 
@@ -360,14 +360,14 @@ legend("topright", legend=c("Male", "Female"), col=c("blue", "red"), lty=c(1, 2)
 The next step is to plot these survival curves using the plot() function. In this version, the plot assigns blue to males and red to females, with line styles differentiated—a solid line for males and a dashed line for females. The x-axis represents time in days, while the y-axis shows the probability of survival over time. A legend is added to the top right corner to help distinguish between the two survival curves.
 
 -```log_rank_test <- survdiff(surv_obj ~ lung$sex) log_rank_test``` 
-To formally test whether survival differs between males and females, the survdiff() function performs a log-rank test, a statistical method used to compare survival distributions between groups. The output includes a chi-square statistic and a p-value, where a p-value below 0.05 would indicate a statistically significant difference in survival between the two genders. This approach provides more meaningful insights than the earlier single-curve model by highlighting potential disparities in survival outcomes between patient groups.
+To formally test whether survival differs between males and females, the `survdiff()` function performs a log-rank test, a statistical method used to compare survival distributions between groups. The output includes a chi-square statistic and a p-value, where a p-value below 0.05 would indicate a statistically significant difference in survival between the two genders. This approach provides more meaningful insights than the earlier single-curve model by highlighting potential disparities in survival outcomes between patient groups.
 
 
 ## `survminer` Introduction
 
-As you may have noticed, the `survival` outputs are OK but not something you'd want to use in a presentation.  This is where the `survminer` package comes in - it's a powerful tool designed to help users visualize the results of survival analysis in a more informative and publication-ready format. It works seamlessly with the `survival` package, which is used for fitting survival models, to generate a variety of plots that aid in the interpretation of time-to-event data. One of the primary features of survminer is its ability to create Kaplan-Meier curves, which estimate and display survival probabilities over time. These curves can be further customized by adding p-values, confidence intervals, and other statistical details, making it easier to interpret the significance of survival differences between groups.
+As you may have noticed, the `survival` outputs are OK but not something you'd want to use in a presentation.  This is where the `survminer` package comes in - it's a powerful tool designed to help users visualize the results of survival analysis in a more informative and publication-ready format. It works seamlessly with the `survival` package, which is used for fitting survival models, to generate a variety of plots that aid in the interpretation of time-to-event data. One of the primary features of `survminer` is its ability to create Kaplan-Meier curves, which estimate and display survival probabilities over time. These curves can be further customized by adding p-values, confidence intervals, and other statistical details, making it easier to interpret the significance of survival differences between groups.
 
-In addition to Kaplan-Meier curves, `survminer` allows for the visualization of survival curves for multiple groups, making it especially useful for comparing the survival outcomes of different treatment groups or patient subpopulations. The package also includes options to visualize hazard ratios and other important statistical measures, which are crucial for understanding the impact of covariates on survival. The graphical tools provided by survminer support clear, attractive, and customizable plots that can be tailored to meet specific research needs, from adjusting colors and labels to modifying plot legends and axes.
+In addition to Kaplan-Meier curves, `survminer` allows for the visualization of survival curves for multiple groups, making it especially useful for comparing the survival outcomes of different treatment groups or patient subpopulations. The package also includes options to visualize hazard ratios and other important statistical measures, which are crucial for understanding the impact of covariates on survival. The graphical tools provided by `survminer` support clear, attractive, and customizable plots that can be tailored to meet specific research needs, from adjusting colors and labels to modifying plot legends and axes.
 
 Furthermore, `survminer` offers additional visualization techniques, such as:
 
@@ -445,9 +445,9 @@ In conclusion, while crossing KM curves can indicate that the survival patterns 
 So given the various ways that we've reviewed to create a KM Curve, now we can put together a hypothetical workflow to highlight the use cases for each of the packages we've discussing. 
 
 - We want to use an SQL query to filter the data for specific conditions, such as selecting patients with a certain age range, patients with diabetes, and patients from a specific area.
-- Now that we have our filtered data, we'll create a Surv object and fit a Cox regression model to estimate the effect of variables like sex and `ph.ecog` (performance score) on survival.  We will do this for each of the three data subsets we've created.
-- We will now use the survminer package to create Kaplan-Meier survival curves for male and female patients in the filtered datasets. This is useful for visualizing survival probabilities by gender.
-- Finally, we'll perform log-rank tests to compare survival between males and females.</li>
+- Now that we have our filtered data, we'll create a `Surv` object and fit a Cox regression model to estimate the effect of variables like sex and `ph.ecog` (performance score) on survival.  We will do this for each of the three data subsets we've created.
+- We will now use the `survminer` package to create Kaplan-Meier survival curves for male and female patients in the filtered datasets. This is useful for visualizing survival probabilities by gender.
+- Finally, we'll perform log-rank tests to compare survival between males and females.
 
 
 Hopefully this will give you a sense of how you can quickly pull together complex data and generate powerful, useful visualizations and analyses. 
