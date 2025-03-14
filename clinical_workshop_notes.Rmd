@@ -230,54 +230,95 @@ Kaplan-Meier curves are particularly useful for comparing survival outcomes betw
 
 ## `survival` Introduction
 
-The `survival` R package is a widely used tool for analyzing time-to-event data, also known as survival data, which is commonly applied in fields like clinical research, epidemiology, and social sciences. Survival analysis focuses on estimating the time it takes for a specific event, such as death, disease recurrence, or recovery, to occur, and it handles censored data—cases where the event has not yet occurred by the study's end. The package provides a range of statistical methods, including the Kaplan-Meier estimator, which is used to visualize survival functions and estimate the probability of an event occurring over time. It also includes the Cox proportional hazards model, a powerful method for examining the effect of multiple covariates (like age, treatment, or other risk factors) on the hazard or risk of an event happening. The package allows for the use of log-rank tests to compare survival distributions between groups, helping researchers determine if there are significant differences in survival between different treatments or population groups. Additionally, parametric survival models such as exponential, Weibull, or log-normal can be applied when the assumptions of the Cox model do not hold, offering more flexibility in modeling time-to-event data. The survival package also supports the analysis of competing risks, where individuals may experience one of several possible events, and the occurrence of one event precludes the occurrence of others. Researchers can also visualize and compare survival curves for different groups, further aiding in understanding the impact of various factors on survival outcomes. With its comprehensive set of tools for modeling and visualizing survival data, the survival package is essential for researchers aiming to identify factors that influence the timing of events and make informed decisions based on time-based data.
+The `survival` R package is a widely used tool for analyzing time-to-event data, also known as survival data, which is commonly applied in fields like clinical research, epidemiology, and social sciences. Survival analysis focuses on estimating the time it takes for a specific event, such as death, disease recurrence, or recovery, to occur, and it handles censored data—cases where the event has not yet occurred by the study's end. 
+
+The package provides a range of statistical methods including:
+
+- The **Kaplan-Meier estimator** which is used to visualize survival functions and estimate the probability of an event occurring over time. 
+- The **Cox proportional hazards model**, a powerful method for examining the effect of multiple covariates (like age, treatment, or other risk factors) on the hazard or risk of an event happening. 
+- **Log-rank tests** to compare survival distributions between groups, helping researchers determine if there are significant differences in survival between different treatments or population groups. 
+- parametric survival models such as exponential, Weibull, or log-normal can be applied when the assumptions of the Cox model do not hold, offering more flexibility in modeling time-to-event data. 
+
+The survival package also supports the analysis of competing risks, where individuals may experience one of several possible events, and the occurrence of one event precludes the occurrence of others. Researchers can also visualize and compare survival curves for different groups, further aiding in understanding the impact of various factors on survival outcomes. With its comprehensive set of tools for modeling and visualizing survival data, the survival package is essential for researchers aiming to identify factors that influence the timing of events and make informed decisions based on time-based data.
 
 ## `survival` Example
 
-``` {r lung5, echo=FALSE}
-# Create a survival object: Surv(time, status) where 'time' is survival time and 'status' is event (1 = death, 0 = censored)
+
+``` {r lung5, eval =FALSE}
+# Create a survival object: Surv(time, status)
+#'time' is survival time
+#'status' is event (1 = death, 0 = censored)
 surv_obj <- Surv(lung$time, lung$status)
 
 # Fit the Kaplan-Meier model
-km_fit <- survfit(surv_obj ~ 1)  # '~ 1' indicates no grouping variable, just the overall survival curve
+km_fit <- survfit(surv_obj ~ 1) 
+# '~ 1' indicates no grouping variable, just the overall survival curve
 
 # Plot the Kaplan-Meier survival curve
-plot(km_fit, main="Kaplan-Meier Survival Curve", xlab="Time (days)", ylab="Survival Probability")
+plot(km_fit, main="Kaplan-Meier Survival Curve", 
+     xlab="Time (days)", ylab="Survival Probability")
+```
+
+Here is the output: 
+<br> 
+``` {r lung5_out, echo = FALSE}
+# Create a survival object: Surv(time, status)
+#'time' is survival time
+#'status' is event (1 = death, 0 = censored)
+surv_obj <- Surv(lung$time, lung$status)
+
+# Fit the Kaplan-Meier model
+km_fit <- survfit(surv_obj ~ 1) 
+# '~ 1' indicates no grouping variable, just the overall survival curve
+
+# Plot the Kaplan-Meier survival curve
+plot(km_fit, main="Kaplan-Meier Survival Curve", 
+     xlab="Time (days)", ylab="Survival Probability")
 ```
 
 ### `survival` Example - Explanation
 
-```
-# Create a survival object: Surv(time, status) where 'time' is survival time and 'status' is event (1 = death, 0 = censored)
+
+``` {r lung5_again, eval =FALSE}
+# Create a survival object: Surv(time, status)
+#'time' is survival time
+#'status' is event (1 = death, 0 = censored)
 surv_obj <- Surv(lung$time, lung$status)
 
 # Fit the Kaplan-Meier model
-km_fit <- survfit(surv_obj ~ 1)  # '~ 1' indicates no grouping variable, just the overall survival curve
+km_fit <- survfit(surv_obj ~ 1) 
+# '~ 1' indicates no grouping variable, just the overall survival curve
 
 # Plot the Kaplan-Meier survival curve
-plot(km_fit, main="Kaplan-Meier Survival Curve", xlab="Time (days)", ylab="Survival Probability")
+plot(km_fit, main="Kaplan-Meier Survival Curve", 
+     xlab="Time (days)", ylab="Survival Probability")
 ```
 
 - `surv_obj <- Surv(lung$time, lung$status)`Creates a survival object using the `Surv()` function, which combines survival time `(lung$time)` and event status `(lung$status)`. Here, the event status is coded as 1 for an event (e.g., death) and 0 for censored data, meaning the event did not occur before the study ended.
 
-- `km_fit <- survfit(surv_obj ~ 1)` The Kaplan-Meier model is fitted using the survfit() function. The formula surv_obj ~ 1 indicates that the model estimates an overall survival curve without considering any grouping variables.
+- `km_fit <- survfit(surv_obj ~ 1)` The Kaplan-Meier model is fitted using the `survfit()` function. The formula `surv_obj ~ 1` indicates that the model estimates an overall survival curve without considering any grouping variables.
 
-- `plot(km_fit, main="Kaplan-Meier Survival Curve", xlab="Time (days)", ylab="Survival Probability")` The plot() function generates a Kaplan-Meier survival curve, visually displaying how survival probability changes over time. The main argument sets the title of the plot, while xlab and ylab label the x-axis (time in days) and y-axis (survival probability), respectively.
+- `plot(km_fit, main="Kaplan-Meier Survival Curve", xlab="Time (days)", ylab="Survival Probability")` The plot() function generates a Kaplan-Meier survival curve, visually displaying how survival probability changes over time. The main argument sets the title of the plot, while `xlab` and `ylab` label the x-axis `Time (days)` and y-axis `Survival Probability`, respectively.
 
 The Kaplan-Meier survival curve generated from this code provides a simple overview of survival probabilities over time for the entire dataset, without breaking it down by groups. The x-axis represents time in days, while the y-axis shows the probability of survival. The curve starts at 1 (100% survival) and gradually steps downward as events (e.g., deaths) occur. Each drop in the curve corresponds to a time point where at least one event happened. The presence of censored data (patients lost to follow-up or still alive at the study's end) is typically indicated by small marks on the curve.
 
-While this plot gives a good initial look at overall survival trends, it lacks detail on differences between subgroups. For example, it doesn’t show whether survival differs based on factors like gender, treatment, or disease severity. To gain deeper insights, grouped survival curves and statistical comparisons (like the log-rank test) would be needed.
+While this plot gives a good initial look at overall survival trends, it lacks detail on differences between subgroups. For example, it doesn’t show whether survival differs based on factors like **gender**, **treatment**, or **disease severity**. To gain deeper insights, grouped survival curves and statistical comparisons (like the log-rank test) would be needed.
 
-### A Slightly Better Example of the `survfit` function
+### `survival` Example 2
 
-``` {r lung6, echo=FALSE}
+Suppose we want to compare survival between two groups (e.g., based on the variable `lung$sex`).
 
-# Suppose we want to compare survival between two groups (e.g., based on gender: lung$sex)
+``` {r lung6, echo = FALSE}
+
 # Fit Kaplan-Meier models for each group
 km_fit_group <- survfit(surv_obj ~ lung$sex)
 
 # Plot the survival curves by gender
-plot(km_fit_group, col=c("blue", "red"), lty=c(1, 2), main="Survival by Gender", xlab="Time (days)", ylab="Survival Probability")
+plot(km_fit_group, col=c("blue", "red"), lty=c(1, 2),
+     main="Survival by Gender", 
+     xlab="Time (days)", 
+     ylab="Survival Probability")
+
 legend("topright", legend=c("Male", "Female"), col=c("blue", "red"), lty=c(1, 2))
 
 # Perform a log-rank test to compare survival between males and females
@@ -285,15 +326,21 @@ log_rank_test <- survdiff(surv_obj ~ lung$sex)
 log_rank_test
 ```
 
-## `survival` Example 2
+## `survival` Example 2 Explanation
 
-```
-# Suppose we want to compare survival between two groups (e.g., based on gender: lung$sex)
+So how do we make the above plot? We can now also include a variable to fit for different groups based on that variable. 
+
+``` {r lung6_echo, eval = FALSE}
+
 # Fit Kaplan-Meier models for each group
 km_fit_group <- survfit(surv_obj ~ lung$sex)
 
 # Plot the survival curves by gender
-plot(km_fit_group, col=c("blue", "red"), lty=c(1, 2), main="Survival by Gender", xlab="Time (days)", ylab="Survival Probability")
+plot(km_fit_group, col=c("blue", "red"), lty=c(1, 2),
+     main="Survival by Gender", 
+     xlab="Time (days)", 
+     ylab="Survival Probability")
+
 legend("topright", legend=c("Male", "Female"), col=c("blue", "red"), lty=c(1, 2))
 
 # Perform a log-rank test to compare survival between males and females
@@ -303,22 +350,32 @@ log_rank_test
 
 
 -`km_fit_group <- survfit(surv_obj ~ lung$sex)` This code builds upon the Kaplan-Meier survival model we previously examined by incorporating gender as a grouping variable. Instead of generating a single survival curve for the entire dataset, the model now estimates separate survival curves for males and females using the formula `surv_obj ~ lung$sex`. This allows for a direct visual and statistical comparison of survival outcomes between the two groups.
-- Plotting the data 
+
+- Plotting the data:
 ```
 plot(km_fit_group, col=c("blue", "red"), lty=c(1, 2), main="Survival by Gender", 
 xlab="Time (days)", ylab="Survival Probability")
 legend("topright", legend=c("Male", "Female"), col=c("blue", "red"), lty=c(1, 2))
 ```
 The next step is to plot these survival curves using the plot() function. In this version, the plot assigns blue to males and red to females, with line styles differentiated—a solid line for males and a dashed line for females. The x-axis represents time in days, while the y-axis shows the probability of survival over time. A legend is added to the top right corner to help distinguish between the two survival curves.
--```log_rank_test <- survdiff(surv_obj ~ lung$sex) log_rank_test``` To formally test whether survival differs between males and females, the survdiff() function performs a log-rank test, a statistical method used to compare survival distributions between groups. The output includes a chi-square statistic and a p-value, where a p-value below 0.05 would indicate a statistically significant difference in survival between the two genders. This approach provides more meaningful insights than the earlier single-curve model by highlighting potential disparities in survival outcomes between patient groups.
+
+-```log_rank_test <- survdiff(surv_obj ~ lung$sex) log_rank_test``` 
+To formally test whether survival differs between males and females, the survdiff() function performs a log-rank test, a statistical method used to compare survival distributions between groups. The output includes a chi-square statistic and a p-value, where a p-value below 0.05 would indicate a statistically significant difference in survival between the two genders. This approach provides more meaningful insights than the earlier single-curve model by highlighting potential disparities in survival outcomes between patient groups.
 
 
 ## `survminer` Introduction
+
 As you may have noticed, the `survival` outputs are OK but not something you'd want to use in a presentation.  This is where the `survminer` package comes in - it's a powerful tool designed to help users visualize the results of survival analysis in a more informative and publication-ready format. It works seamlessly with the `survival` package, which is used for fitting survival models, to generate a variety of plots that aid in the interpretation of time-to-event data. One of the primary features of survminer is its ability to create Kaplan-Meier curves, which estimate and display survival probabilities over time. These curves can be further customized by adding p-values, confidence intervals, and other statistical details, making it easier to interpret the significance of survival differences between groups.
 
 In addition to Kaplan-Meier curves, `survminer` allows for the visualization of survival curves for multiple groups, making it especially useful for comparing the survival outcomes of different treatment groups or patient subpopulations. The package also includes options to visualize hazard ratios and other important statistical measures, which are crucial for understanding the impact of covariates on survival. The graphical tools provided by survminer support clear, attractive, and customizable plots that can be tailored to meet specific research needs, from adjusting colors and labels to modifying plot legends and axes.
 
-Furthermore, `survminer` offers additional visualization techniques, such as survival curves by strata, cox regression plots, and diagnostic plots for assessing the fit and assumptions of survival models. These plots help users identify potential issues, such as proportional hazards violations, and gain deeper insights into the factors influencing survival outcomes.
+Furthermore, `survminer` offers additional visualization techniques, such as:
+
+- Survival curves by strata
+- Cox regression plots
+- Diagnostic plots for assessing the fit and assumptions of survival models
+
+These plots help users identify potential issues, such as proportional hazards violations, and gain deeper insights into the factors influencing survival outcomes.
 
 By integrating easily with the `survival` package, `survminer` makes it much simpler to communicate complex survival analysis results visually. It is widely used in clinical research, epidemiology, and other fields where time-to-event data plays a key role, providing researchers with effective tools to present and interpret survival data in a clear, accessible way. With its intuitive interface and powerful visualization capabilities, `survminer` is an invaluable resource for anyone working with survival data.
 
@@ -345,7 +402,9 @@ ggsurvplot(fit, data = lung,
 
 ### `survminer` Example - Explanation 
 
-```
+The following code makes the above plot:
+
+```{r survival_echo, eval = FALSE}
 fit <- survfit(Surv(time, status) ~ sex, data = lung)
 
 ggsurvplot(fit, data = lung, 
@@ -354,9 +413,17 @@ ggsurvplot(fit, data = lung,
            conf.int = TRUE, 
            ggtheme = theme_minimal())
 ```
-<ul line-style-type:circle>
-<li><b><i>`fit <- survfit(Surv(time, status) ~ sex, data = lung)`</b></i>This line fits a Kaplan-Meier survival model using the `survfit()` function. It defines the time-to-event variable (time) and the event status (status) using the `Surv()` function, while sex is included as a grouping variable. This means the model will estimate and compare survival curves separately for males and females using data from the lung dataset.</li>
-<li><b><i>`ggsurvplot(fit, data = lung, pval = TRUE, risk.table = TRUE, conf.int = TRUE, ggtheme = theme_minimal())`</b></i>The `ggsurvplot()` function is used to create an enhanced survival plot. The first argument, `fit`, is the Kaplan-Meier model object, and `data = lung` specifies the dataset. The `pval = TRUE` argument adds a p-value to the plot, indicating whether there is a significant difference in survival between the two groups.  A p-value less than 0.05 suggests that the differences in survival between these groups are statistically significant. The `risk.table = TRUE` option includes a risk table below the plot, showing the number of individuals still at risk at different time points. The `conf.int = TRUE` argument adds confidence intervals, which provide a shaded region around the survival curves to indicate uncertainty. Finally, `ggtheme = theme_minimal()` applies a clean, minimalistic theme to improve the plot’s readability and aesthetics.</li></ul>
+
+
+- `fit <- survfit(Surv(time, status) ~ sex, data = lung)`
+This line fits a Kaplan-Meier survival model using the `survfit()` function. It defines the time-to-event variable (time) and the event status (status) using the `Surv()` function, while sex is included as a grouping variable. This means the model will estimate and compare survival curves separately for males and females using data from the lung dataset.
+
+- `ggsurvplot(fit, data = lung, pval = TRUE, risk.table = TRUE, conf.int = TRUE, ggtheme = theme_minimal())`
+  - The `ggsurvplot()` function is used to create an enhanced survival plot. 
+  - The first argument, `fit`, is the Kaplan-Meier model object, and `data = lung` specifies the dataset. The `pval = TRUE` argument adds a p-value to the plot, indicating whether there is a significant difference in survival between the two groups.  A p-value less than 0.05 suggests that the differences in survival between these groups are statistically significant. 
+  - The `risk.table = TRUE` option includes a risk table below the plot, showing the number of individuals still at risk at different time points. 
+  - The `conf.int = TRUE` argument adds confidence intervals, which provide a shaded region around the survival curves to indicate uncertainty. 
+  - Finally, `ggtheme = theme_minimal()` applies a clean, minimalistic theme to improve the plot’s readability and aesthetics.
 
 The resulting Kaplan-Meier plot gives a clear visual representation of the survival probabilities over time for different groups. By examining the curves, you can quickly determine whether there is a notable difference in survival between males and females. If the curves diverge significantly, this may indicate that sex plays a role in the survival time of lung cancer patients. The confidence intervals help assess the precision of the survival estimates, while the risk table provides more detailed information on how many individuals are still at risk at each time point. Overall, the Kaplan-Meier curve, along with the statistical tests and additional plot elements, serves as an invaluable tool for understanding survival patterns and comparing groups in clinical studies.
 
