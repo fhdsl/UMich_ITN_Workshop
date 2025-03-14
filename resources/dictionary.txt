@@ -1,5 +1,7 @@
 adriamycin
 al
+analytics
+another's
 Asc
 auth
 autofilled
@@ -9,6 +11,7 @@ bc
 bioconductor
 bioinformatics
 bioinformatician
+biostatistician
 Bootstap
 ccRCC
 CellMarker
@@ -22,7 +25,9 @@ css
 csv
 CROST
 Ctrl
+customizable
 custimization
+custimazations
 cwrigh
 dev
 Dockerfile
@@ -50,6 +55,7 @@ Ferman
 galaxyproject
 Gapdh
 GenePattern
+ggthemes
 GH
 github
 Github
@@ -57,6 +63,7 @@ GitHub
 glyphicons
 GSEA
 GSM
+Hadley
 HTTPS
 https
 IGKC
@@ -70,6 +77,8 @@ ITCR
 Il2ra
 juliawrobel
 json
+Kaplan
+Legos
 lightblue
 lightgreen
 LLR
@@ -96,6 +105,8 @@ pembrolizumab
 Phenotyping
 phind
 Phind
+pipeable
+PlayDoh
 Podman
 pos
 PositCloud
@@ -125,11 +136,13 @@ RNAseq
 rstudio
 RStudio
 samplename
+Schoenfeld
 SCTransform
 scalefactors
 Scanpy
 scRNA
 SeuratNormalise
+SickKids
 slido
 Slido
 Soupir
@@ -138,6 +151,7 @@ spatialge
 spatialTIME
 spw
 Squidpy
+sqldf
 SRB
 STdeconvolve
 STCLUST
@@ -146,11 +160,14 @@ STclust
 STGRADIENT
 STlist
 subdir
+summarization
+survminer
 taxotere
 TCGA
 textbox
 th
 tibble
+tidyverse
 tls
 TLS
 TNBC
@@ -160,6 +177,8 @@ transcriptomics
 Transcriptomics
 tSNE
 tsv
+UIs
+UMich
 UMAP
 UseGalaxy
 usegalaxy
@@ -167,6 +186,7 @@ VectraPolarisData
 Visium
 visium
 walkthrough
+Wickham
 Wifi
 wikipedia
 Wrobel
