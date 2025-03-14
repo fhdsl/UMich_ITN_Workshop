@@ -8,7 +8,7 @@ runtime: shiny
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-install.packages(c("sqldf", "survival", "survminer"), repos='https://cloud.r-project.org', dependencies = TRUE)
+install.packages(c("sqldf", "survival", "survminer", "nloptr", "lme4","pbkrtest", "rstatix", "ggpubr", "car"), repos='https://cloud.r-project.org')
 
 library(sqldf)
 library(survival)
