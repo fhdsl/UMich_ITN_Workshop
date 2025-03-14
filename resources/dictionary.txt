@@ -87,6 +87,7 @@ Il2ra
 juliawrobel
 json
 Kaplan
+karno
 Karnofsky
 Legos
 lightblue
