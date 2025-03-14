@@ -1,9 +1,9 @@
 ---
-title: "UMich Presentation"
-author: "Chris Battiston"
-date: "`r Sys.Date()`"
-output: html_document
-runtime: shiny
+title: "Clincal Data Anlysis Notes"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -15,31 +15,35 @@ library(survminer)
 ```
 
 ## Introductions
+
+<details> <summary> About the author 😃 Chris Battiston </summary>
 I am the Research Database Administrator for a hospital in Toronto, Canada.  I have over 20 years experience in database administration and all things healthcare data-related.  I have been using R now for over 7 years, and have become increasingly appreciative of it's flexibility, power, and user-friendly environment.  
 
-I'm a hardcore fan of heavy metal music, coffee, and ridiculously spicy food, and spend my spare time chasing my 5 1/2 year old son around the house (or cleaning up his never-ending piles of PlayDoh, Legos, and Hot Wheels!).
+I'm a hardcore fan of heavy metal music, coffee, and ridiculously spicy food🔥, and spend my spare time chasing my 5 1/2 year old son around the house (or cleaning up his never-ending piles of PlayDoh, Legos, and Hot Wheels🚗!).
 
-The goal of this class will be to give you an introduction to R, and then using a sample dataset we'll dig into survival or Kaplan-Meier curves. 
+I'm a Geek that loves data, R, and passionate about taking complex topics and breaking them down for easier consumption.  
+</details>
 
-I should stress I'm not a biostatistician or formally trained in stats - I'm a Geek that loves data, R, and passionate about taking complex topics and breaking them down for easier consumption.  
+This is the more detailed version of the presentation given for the [ITN Workshop at the University of Michigan on Analyzing Clinical Data](https://hutchdatascience.org/UMich_ITN_Workshop/clinical_data.html).  
 
-## Outline
-This is the more detailed version of the presentation given to the University of Michigan's <b><i><u>what's the day called?</b></i></u> and is intended to explore more of the various aspects of the topics covered in the presentation.  Questions about the content (but not support questions!) can be emailed to chris.battiston@wchospital.ca and I will respond as soon as possible. 
 
-As with the Presentation, the outline will be:
+❓ Questions about the content (but not support questions!) can be emailed to chris.battiston@wchospital.ca.❓ 
 
-<ul style="list-style-type:circle">
-<li>An Introduction to R</li>
-<li>SQL - Your best friend in Data Management</li>
-<li>Exploring `ggplot2`</li>
-<li>A Brief Introduction to Kaplan-Meier Curves</li>
-<li>`survival` Introduction</li>
-<li>`survminer` Introduction</li>
-<li>Conclusion</li>
-</ul>
+The goals are to:
+
+- Give an introduction to R and tools for clinical analysis
+- Give an a more thorough introduction to these tools:
+  - `sqlr` - Your best friend in data management
+  - `ggplot2` - Your best friend for visualizations
+  - `survival` - Your best friend for analyzing [survival data
+  - `survminer`- Your best friend for making publication ready survival analysis data plots
+- Use a sample dataset to dig into survival or Kaplan-Meier curves
 
 ## Introduction to R
-R is a massive, fully customizable data management environment.  To do it any justice, I'd need a week of classes - so given this is based on a short workshop I gave, I'm going to cover a lot of content that I was not able to cover in the session.  R is driven largely by what are called "libraries" or "packages", which are basically plugins or extensions created by the R User Community.  For every one task you can do in R, there is likely going to be a multitude of packages you can choose from - as you move forward in becoming an R User, spend time familiarizing yourself with the various packages to see what each offers. 
+
+R is a massive, fully customizable data management environment.  To do it any justice, I'd need a week of classes - so given this is based on a short workshop I gave, I'm going to cover a lot of content that I was not able to cover in the session. 
+
+R is driven largely by what are called "libraries" or "packages", which are basically plugins or extensions created by the R User Community.  For every one task you can do in R, there is likely going to be a multitude of packages you can choose from - as you move forward in becoming an R User, spend time familiarizing yourself with the various packages to see what each offers. 
 
 Designed for statistical computing, data analysis, and visualization, R is widely used in academia, research, and industry for tasks ranging from basic data manipulation to advanced machine learning. As mentioned, one of R’s key strengths is its extensive package ecosystem, which allows users to extend its functionality by installing and calling specialized libraries such as `ggplot2` for visualization, `dplyr` for data manipulation, and `survival` for survival analysis. Installing and loading libraries is crucial because many of R’s advanced features are provided through community-contributed packages rather than built into the base language.
 
@@ -47,33 +51,35 @@ Compared to SAS, R offers greater flexibility, a more active community, and as i
 
 R’s increasing popularity is driven by the rise of data science, the availability of extensive online learning resources, and its ability to integrate with other programming languages like Python and SQL. It is particularly favored for research and academic work because of its strong statistical modeling capabilities and the transparency of its open-source development. Additionally, companies are adopting R for business analytics, finance, healthcare, and bioinformatics, further solidifying its role in modern data-driven decision-making.
 
-Although out of scope for the purposes of this document, I wanted to highlight some of my personal favorite R Packages.  I should note that I'm highlighting a number of REDCap-specific packages as I work with these the most often.<br>
-<ul style="list-style-type:circle">
-<li><b><i>`REDCapR`</i></b>Facilitates secure and efficient data transfer between R and REDCap (Research Electronic Data Capture), a widely used web-based platform for managing research and clinical study data.</li>
-<li><b><i>`REDCapAPI`</i></b>Provides a flexible interface for interacting with REDCap's API, enabling users to efficiently retrieve, update, and manage data stored in REDCap databases. It offers a comprehensive set of functions for querying records, exporting metadata, importing data, handling users and project settings, and managing files or logs. Unlike REDCapR, which focuses on streamlined data extraction, REDCapAPI provides more granular control over API calls, making it well-suited for advanced users who need custom queries, fine-tuned data manipulation, and administrative project management.</li>
-<li><b><i>`redcapcustodian`</b></i>Designed for managing user permissions and project access within REDCap using the API. It helps administrators automate tasks such as assigning roles, modifying user privileges, and auditing access logs across multiple REDCap projects.</li>
-<li><b><i>`redcapDM`</b></i>Designed to facilitate data management and quality control for research studies using REDCap. It provides functions for data cleaning, validation, monitoring, and reporting, helping researchers ensure data integrity before analysis. Key features include identifying missing or inconsistent data, summarizing project metadata, generating automated reports, and tracking changes over time.</li>
+I wanted to highlight some my personal favorite R Packages.I work in [REDCap](https://project-redcap.org/) often.
+
+REDCap-specific packages:
+
+- ***`REDCapR`*** Facilitates secure and efficient data transfer between R and REDCap (Research Electronic Data Capture), a widely used web-based platform for managing research and clinical study data.
+- ***`REDCapAPI`***Provides a flexible interface for interacting with REDCap's API, enabling users to efficiently retrieve, update, and manage data stored in REDCap databases. It offers a comprehensive set of functions for querying records, exporting metadata, importing data, handling users and project settings, and managing files or logs. Unlike REDCapR, which focuses on streamlined data extraction, REDCapAPI provides more granular control over API calls, making it well-suited for advanced users who need custom queries, fine-tuned data manipulation, and administrative project management.
+- ***`redcapcustodian`*** Designed for managing user permissions and project access within REDCap using the API. It helps administrators automate tasks such as assigning roles, modifying user privileges, and auditing access logs across multiple REDCap projects.
+- ***`redcapDM`***Designed to facilitate data management and quality control for research studies using REDCap. It provides functions for data cleaning, validation, monitoring, and reporting, helping researchers ensure data integrity before analysis. Key features include identifying missing or inconsistent data, summarizing project metadata, generating automated reports, and tracking changes over time.</li>
 </ul>
 
 Some non-REDCap packages I like to use are:
-<ul style="list-style-type:circle">
-<li><b><i>`tidygeocoder`</i></b>Simple and efficient way to perform geocoding and reverse geocoding within a tidyverse-friendly framework. It allows users to convert addresses into latitude and longitude coordinates (geocoding) and vice versa (reverse geocoding) using various online services such as OpenStreetMap (Nominatim), Google, Bing, and Census Bureau APIs. The package supports batch processing, making it useful for handling large datasets, and integrates well with dplyr, enabling seamless incorporation into data analysis workflows.</li>
-<li><b><i>`beepr`</i></b>Play notification sounds to signal the completion of code execution. It is especially useful for long-running scripts, alerting users when a task is finished without requiring them to monitor the console.</li>
-<li><b><i>`DataExplorer`</i></b>Simplifies exploratory data analysis (EDA) by providing automated functions for data visualization, summary statistics, and feature engineering. It enables users to quickly generate descriptive reports, identify missing values, visualize distributions, detect correlations, and assess data structure. Key functions include `introduce()` for dataset overview, `plot_missing()` for missing data patterns, `plot_histogram()` for distributions, and `create_report()` for generating a comprehensive EDA report.</li>
-</ul>
+
+- ***`tidygeocoder`***Simple and efficient way to perform geocoding and reverse geocoding within a tidyverse-friendly framework. It allows users to convert addresses into latitude and longitude coordinates (geocoding) and vice versa (reverse geocoding) using various online services such as OpenStreetMap (Nominatim), Google, Bing, and Census Bureau APIs. The package supports batch processing, making it useful for handling large datasets, and integrates well with dplyr, enabling seamless incorporation into data analysis workflows.</li>
+- ***`beepr`***Play notification sounds to signal the completion of code execution. It is especially useful for long-running scripts, alerting users when a task is finished without requiring them to monitor the console.</li>
+- ***`DataExplorer`***Simplifies exploratory data analysis (EDA) by providing automated functions for data visualization, summary statistics, and feature engineering. It enables users to quickly generate descriptive reports, identify missing values, visualize distributions, detect correlations, and assess data structure. Key functions include `introduce()` for dataset overview, `plot_missing()` for missing data patterns, `plot_histogram()` for distributions, and `create_report()` for generating a comprehensive EDA report.
+
 
 Most people are familiar with RStudio for the purposes of having a nice user interface for interacting with R.  Although a Google Search may show that there are a number of other UIs such as `rattle` and `RKWard`, I've only found one that works on the current version of R.  Called `GrapheR`, it can be used to make simple graphing tasks easier for novice, it is not for the advanced user as the graphics are far too rudimentary.
 <ul style="list-style-type:circle"><li><b><i>`GrapheR`</i></b>Helps users create and visualize networks and graph-based data. It simplifies the process of constructing graphs, visualizing them with various layouts, and analyzing network structures. The package supports directed and undirected graphs, weighted edges, and offers a range of layout options for displaying graphs, such as circular, spring, and hierarchical layouts. `GrapheR` also provides utilities for network metrics like degree centrality, betweenness, and clustering, enabling users to perform network analysis efficiently. The package integrates well with tidyverse for data manipulation and supports various export formats, including PDF and PNG for easy reporting.</li></ul>
 
 Although there is a package available, the last aspect of R I wanted to highlight before getting into the Course specifics is better described as a framework or way of thinking. Called the `tidyverse`, and created by Hadley Wickham (among many others, and countless contributors), the <a href="https://www.tidyverse.org/">tidyverse philosophy</a> centers around a consistent, human-readable approach to data science, emphasizing tidy data principles where each variable is a column, each observation is a row, and each value is a cell. It promotes a functional programming style with clear, pipeable workflows, making data manipulation, visualization, and analysis more intuitive and efficient.  For the original `tidyverse` paper, see <a href="https://joss.theoj.org/papers/10.21105/joss.01686">here</a>.
 
-For the purposes of this course, we're going to be using the following:<br>
-<ul style="list-style-type:circle">
-<li><b><i>`sqldf`</b></i>perform SQL queries directly on R data frames, facilitating the manipulation and analysis of data using SQL syntax. It enables seamless integration of SQL operations such as SELECT, JOIN, GROUP BY, and WHERE with R data structures, without the need to convert data into a database format. `sqldf` can handle both simple and complex queries and is particularly useful for users familiar with SQL who prefer its syntax for data manipulation. The package supports working with data stored in data frames, tables, or external databases like SQLite and MySQL.</li>
-<li><b><i>`ggplot2`</b></i>one of the most widely used libraries for creating data visualizations. It is based on the Grammar of Graphics, which provides a systematic approach to building plots by combining various components such as data, aesthetic mappings (e.g., x and y axes, color, size), geometries (e.g., points, lines, bars), and statistical transformations. With `ggplot2`, users can easily create a wide range of static and dynamic visualizations, including scatter plots, bar charts, histograms, line graphs, boxplots, and more. It also provides robust customization options for themes, labels, and scales, allowing users to tailor visualizations for publication-quality graphics. The ggplot2 package integrates well with other tidyverse packages, making it a powerful tool for data exploration, analysis, and presentation.</li>
-<li><b><i>`survminer`</b></i>specifically designed for visualizing survival analysis results. It provides functions to create publication-ready survival plots, such as Kaplan-Meier curves, survival curves by groups, and hazard ratio plots. The package allows for easy customization of plots, including adjustments to colors, labels, legends, and axes, and supports the addition of confidence intervals and p-values to plots. `survminer` works seamlessly with the survival package in R, which is used to perform survival analysis. It is particularly useful for researchers and analysts working with clinical or time-to-event data, enabling them to generate clear, informative, and visually appealing plots to communicate survival outcomes effectively.</li>
-<li><b><i>`survival`</b></i>comprehensive tool for performing survival analysis and modeling time-to-event data. It provides functions to fit and analyze various survival models, including the Cox proportional hazards model, Kaplan-Meier estimators, and parametric survival models (e.g., exponential, Weibull). The package includes methods for estimating survival curves, performing log-rank tests for comparing survival between groups, and handling censored data (where an event has not occurred for some individuals by the end of the study). The survival package also allows for advanced statistical techniques such as frailty models and competing risks analysis. It is widely used in clinical research, epidemiology, and other fields involving time-to-event data.</li>
-</ul>
+For the purposes of this course, we're going to be using the following:
+
+***`sqldf`***perform SQL queries directly on R data frames, facilitating the manipulation and analysis of data using SQL syntax. It enables seamless integration of SQL operations such as SELECT, JOIN, GROUP BY, and WHERE with R data structures, without the need to convert data into a database format. `sqldf` can handle both simple and complex queries and is particularly useful for users familiar with SQL who prefer its syntax for data manipulation. The package supports working with data stored in data frames, tables, or external databases like SQLite and MySQL.
+- ***`ggplot2`*** One of the most widely used libraries for creating data visualizations. It is based on the Grammar of Graphics, which provides a systematic approach to building plots by combining various components such as data, aesthetic mappings (e.g., x and y axes, color, size), geometries (e.g., points, lines, bars), and statistical transformations. With `ggplot2`, users can easily create a wide range of static and dynamic visualizations, including scatter plots, bar charts, histograms, line graphs, boxplots, and more. It also provides robust customization options for themes, labels, and scales, allowing users to tailor visualizations for publication-quality graphics. The ggplot2 package integrates well with other tidyverse packages, making it a powerful tool for data exploration, analysis, and presentation.
+- ***`survminer`***specifically designed for visualizing survival analysis results. It provides functions to create publication-ready survival plots, such as Kaplan-Meier curves, survival curves by groups, and hazard ratio plots. The package allows for easy customization of plots, including adjustments to colors, labels, legends, and axes, and supports the addition of confidence intervals and p-values to plots. `survminer` works seamlessly with the survival package in R, which is used to perform survival analysis. It is particularly useful for researchers and analysts working with clinical or time-to-event data, enabling them to generate clear, informative, and visually appealing plots to communicate survival outcomes effectively.
+- ***`survival`***comprehensive tool for performing survival analysis and modeling time-to-event data. It provides functions to fit and analyze various survival models, including the Cox proportional hazards model, Kaplan-Meier estimators, and parametric survival models (e.g., exponential, Weibull). The package includes methods for estimating survival curves, performing log-rank tests for comparing survival between groups, and handling censored data (where an event has not occurred for some individuals by the end of the study). The survival package also allows for advanced statistical techniques such as frailty models and competing risks analysis. It is widely used in clinical research, epidemiology, and other fields involving time-to-event data.
+
 
 ## SQL - Your best friend in Data Management
 The `sqldf` package in R allows users to execute SQL queries on R data frames, providing a convenient way to subset, filter, and summarize data. It is especially useful for those familiar with SQL but not as comfortable with R’s native data manipulation functions like `dplyr` or `data.table`. Since SQL is often considered more intuitive and readable, `sqldf` enables users to write queries in a "plain English" style rather than learning complex R-specific syntax. One of its advantages is that it treats R data frames as database tables, allowing users to perform operations like filtering, joining, grouping, and ordering without converting the data into another format. The queries are executed using an in-memory SQLite database by default, ensuring efficiency without the need for an external database system. The basic syntax follows standard SQL conventions, with the query enclosed in double quotes within the `sqldf()` function.
