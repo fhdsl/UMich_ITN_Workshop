@@ -23,4 +23,4 @@ make-book-txt: TRUE
 
 # What docker image should be used for rendering?
 # The default is jhudsl/base_ottr:main
-rendering-docker-image: 'jhudsl/ottr_itn_workshop:test'
+rendering-docker-image: 'jhudsl/ottr_itn_workshop:main'
