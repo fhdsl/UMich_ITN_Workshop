@@ -7,14 +7,6 @@ output:
     toc_depth: 2
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(sqldf)
-library(survival)
-library(ggplot2)
-library(survminer)
-```
-
 
 
 <details> <summary> About the author 😃 Chris Battiston </summary>
@@ -24,6 +16,8 @@ I'm a hardcore fan of heavy metal music, coffee, and ridiculously spicy food🔥
 
 I'm a Geek that loves data, R, and passionate about taking complex topics and breaking them down for easier consumption.  
 </details>
+
+<br>
 
 This is the more detailed version of the presentation given for the [ITN Workshop at the University of Michigan on Analyzing Clinical Data](https://hutchdatascience.org/UMich_ITN_Workshop/clinical_data.html).  
 
@@ -83,14 +77,52 @@ Most people are familiar with RStudio for the purposes of having a nice user int
 For the purposes of this tutorial, we're going to be using the following:
 
 - ***`sqldf`***perform SQL queries directly on R data frames, facilitating the manipulation and analysis of data using SQL syntax. It enables seamless integration of SQL operations such as SELECT, JOIN, GROUP BY, and WHERE with R data structures, without the need to convert data into a database format. `sqldf` can handle both simple and complex queries and is particularly useful for users familiar with SQL who prefer its syntax for data manipulation. The package supports working with data stored in data frames, tables, or external databases like SQLite and MySQL.
+
 - ***`ggplot2`*** One of the most widely used libraries for creating data visualizations. It is based on the Grammar of Graphics, which provides a systematic approach to building plots by combining various components such as data, aesthetic mappings (e.g., x and y axes, color, size), geometries (e.g., points, lines, bars), and statistical transformations. With `ggplot2`, users can easily create a wide range of static and dynamic visualizations, including scatter plots, bar charts, histograms, line graphs, boxplots, and more. It also provides robust customization options for themes, labels, and scales, allowing users to tailor visualizations for publication-quality graphics. The ggplot2 package integrates well with other tidyverse packages, making it a powerful tool for data exploration, analysis, and presentation.
-- ***`survminer`***specifically designed for visualizing survival analysis results. It provides functions to create publication-ready survival plots, such as Kaplan-Meier curves, survival curves by groups, and hazard ratio plots. The package allows for easy customization of plots, including adjustments to colors, labels, legends, and axes, and supports the addition of confidence intervals and p-values to plots. `survminer` works seamlessly with the survival package in R, which is used to perform survival analysis. It is particularly useful for researchers and analysts working with clinical or time-to-event data, enabling them to generate clear, informative, and visually appealing plots to communicate survival outcomes effectively.
+
 - ***`survival`***comprehensive tool for performing survival analysis and modeling time-to-event data. It provides functions to fit and analyze various survival models, including the Cox proportional hazards model, Kaplan-Meier estimators, and parametric survival models (e.g., exponential, Weibull). The package includes methods for estimating survival curves, performing log-rank tests for comparing survival between groups, and handling censored data (where an event has not occurred for some individuals by the end of the study). The survival package also allows for advanced statistical techniques such as frailty models and competing risks analysis. It is widely used in clinical research, epidemiology, and other fields involving time-to-event data.
+
+- ***`survminer`***specifically designed for visualizing survival analysis results. It provides functions to create publication-ready survival plots, such as Kaplan-Meier curves, survival curves by groups, and hazard ratio plots. The package allows for easy customization of plots, including adjustments to colors, labels, legends, and axes, and supports the addition of confidence intervals and p-values to plots. `survminer` works seamlessly with the survival package in R, which is used to perform survival analysis. It is particularly useful for researchers and analysts working with clinical or time-to-event data, enabling them to generate clear, informative, and visually appealing plots to communicate survival outcomes effectively.
+
+To use these in R we need to first load them in memory like so:
+
+```{r, comment=FALSE, message=FALSE}
+library(sqldf)
+library(ggplot2)
+library(survival)
+library(survminer)
+```
+
+
+## Lung Data
+We will use the lung dataset available in the `survival` package. The data contain subjects with advanced lung cancer from the North Central Cancer Treatment Group. It includes the 10 following variables:
+
+- inst:  Institution code
+- time:  Survival time in days
+- status:  censoring status 1=censored, 2=dead
+- age:  Age in years
+- sex:  Male=1 Female=2
+- ph.ecog:  ECOG performance score as rated by the physician. 0=asymptomatic, 1= symptomatic but completely ambulatory, 2= in bed <50% of the day, 3= in bed > 50% of the day but not bedbound, 4 = bedbound
+- ph.karno:  Karnofsky performance score (bad=0-good=100) rated by physician
+- pat.karno:  Karnofsky performance score (0 = bad, 100 = good) as rated by patient
+- meal.cal:  Calories consumed at meals
+- wt.loss:  Weight loss in last six months
+
+[source](https://rpubs.com/floreuzan/survivalanalysislungdata)
+
+
+Now that we have loaded the `survival` package, we can check it out just by typing `lung`. We will use the `head()` function to just preview the first several rows of data.  
+
+```{r}
+head(lung)
+```
 
 
 ## SQL for Data Management
 
-The `sqldf` package in R allows users to execute SQL queries on R data frames, providing a convenient way to subset, filter, and summarize data. It is especially useful for those familiar with SQL but not as comfortable with R’s native data manipulation functions like `dplyr` or `data.table`. Since SQL is often considered more intuitive and readable, `sqldf` enables users to write queries in a "plain English" style rather than learning complex R-specific syntax. One of its advantages is that it treats R data frames as database tables, allowing users to perform operations like filtering, joining, grouping, and ordering without converting the data into another format. The queries are executed using an in-memory SQLite database by default, ensuring efficiency without the need for an external database system. The basic syntax follows standard SQL conventions, with the query enclosed in double quotes within the `sqldf()` function.
+The `sqldf` package allows users to execute SQL queries on R data frames, providing a convenient way to subset, filter, and summarize data. It is especially useful for those familiar with SQL but not as comfortable with R’s native data manipulation functions like `dplyr` or `data.table`. 
+
+Since SQL is often considered more intuitive and readable, `sqldf` enables users to write queries in a "plain English" style rather than learning complex R-specific syntax. One of its advantages is that it treats R data frames as database tables, allowing users to perform operations like filtering, joining, grouping, and ordering without converting the data into another format. The queries are executed using an in-memory SQLite database by default, ensuring efficiency without the need for an external database system. The basic syntax follows standard SQL conventions, with the query enclosed in double quotes within the `sqldf()` function.
 
 For example, if you wanted to retrieve all columns for the first 10 rows in the `lung` dataset where age > 60, you would use:
 `sqldf("select * from lung where age>60 limit 10")`
@@ -99,39 +131,63 @@ For example, if you wanted to retrieve all columns for the first 10 rows in the 
 sqldf("select * from lung where age>60 limit 10")
 ```
 
-The package supports a variety of operations, making it a versatile tool for data analysis. It allows for easy data filtering and selection, enabling users to extract specific rows and columns with simple queries. Aggregation and summarization functions, such as COUNT, AVG, MIN, and MAX, allow users to quickly compute statistics on datasets. Sorting and ordering data is straightforward with the ORDER BY clause, and merging datasets is effortless using SQL joins, such as INNER JOIN and LEFT JOIN. Additionally, sqldf can be used for data cleaning and validation, helping identify duplicates, missing values, or inconsistencies within a dataset.
+The package supports a variety of operations, making it a versatile tool for data analysis.
+
+- It allows for easy data filtering and selection, enabling users to extract specific rows and columns with simple queries. 
+- Aggregation and summarization functions, such as COUNT, AVG, MIN, and MAX, allow users to quickly compute statistics on datasets. 
+- Sorting and ordering data is straightforward with the ORDER BY clause, and merging datasets is effortless using SQL joins, such as INNER JOIN and LEFT JOIN. 
+- Additionally, sqldf can be used for data cleaning and validation, helping identify duplicates, missing values, or inconsistencies within a dataset.
 
 Here is a basic example of using `sqldf` to create a basic summary table: 
 
-```
+
+```{r, eval = FALSE}
 sqldf("select sex, 
-   count(*),  
-   count(case when (age<=60) then 1 end) as LTE60, 
-   count(case when (age>60) then 1 end) as GT60 
-   from lung group by sex order by sex")
+      count(*),  
+      count(case when (age<=60) then 1 end) as LTE60, 
+      count(case when (age>60) then 1 end) as GT60 
+      from lung group by sex order by sex")
 ```
+
+Here's the output:<br>
+```{r lung3, echo = FALSE}
+sqldf("select sex, 
+      count(*),  
+      count(case when (age<=60) then 1 end) as LTE60, 
+      count(case when (age>60) then 1 end) as GT60 
+      from lung group by sex order by sex")
+```
+
 This is a good example of how a more advanced query is still easy to understand, allowing for even complex SQL queries to be relatively easy to understand by new users. 
 
-Here is the output: 
+One of the biggest benefits of sqldf is its familiar syntax, making it an ideal choice for users who are comfortable with SQL but not R’s built-in data manipulation tools. It is lightweight and efficient, as it uses an in-memory SQLite database for quick execution, and requires no additional database setup. Since it works directly with R data frames, there is no need to export data into a separate SQL environment.
 
-```{r lung3, echo=FALSE}
-library(sqldf)
-sqldf("select sex, count(*),  count(case when (age<=60) then 1 end) as LTE60, count(case when (age>60) then 1 end) as GT60 from lung group by sex order by sex")
-```
-
-One of the biggest benefits of sqldf is its familiar syntax, making it an ideal choice for users who are comfortable with SQL but not R’s built-in data manipulation tools. It is lightweight and efficient, as it uses an in-memory SQLite database for quick execution, and requires no additional database setup. Since it works directly with R data frames, there is no need to export data into a separate SQL environment. However, while `sqldf` is excellent for quick exploratory analysis and ad-hoc querying, it may not be the best choice for very large datasets, where optimized R packages like `dplyr` or `data.table` provide faster performance. Nonetheless, for small- to medium-sized datasets, `sqldf` remains an accessible, powerful, and intuitive tool for SQL-based data analysis in R.
+However, while `sqldf` is excellent for quick exploratory analysis and ad-hoc querying, it **may not be the best choice for very large datasets**, where optimized R packages like `dplyr` or `data.table` provide faster performance. Nonetheless, for small- to medium-sized datasets, `sqldf` remains an accessible, powerful, and intuitive tool for SQL-based data analysis in R.
 
 ## Exploring `ggplot2`
 
 `ggplot2` is a complete framework for developing complex graphs, with an extensive series of options and customizations available. Based on <a href="https://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387245448">The Grammar of Graphics by Leland Wilkinson</a>, it provides a structured approach to creating a wide variety of static, animated, and interactive visualizations with a consistent syntax. One of its key features is the layered approach, where plots are built step by step by adding components like points, lines, bars, and annotations. The aesthetic mapping `(aes())` function allows users to define how data variables correspond to visual properties such as axis positions, colors, sizes, and shapes.
 
-Different types of plots are created using geometries `(geom_xxx)`, including `geom_point()` for scatter plots, `geom_line()` for line charts, `geom_bar()` for bar plots, and `geom_histogram()` for histograms. For multi-panel displays, faceting `(facet_xxx)` allows splitting data into smaller subplots using `facet_wrap()` or `facet_grid()`. The package also provides themes `(theme_xxx)` for customizing plot appearance, including background, text size, legend placement, and grid lines. Users can further control plot elements through scales `(scale_*)`, which adjust axis limits, color gradients, and transformations.
+Different types of plots are created using geometries `(geom_xxx)` including:
+
+- `geom_point()` for scatter plots
+- `geom_line()` for line charts
+- `geom_bar()` for bar plots
+- `geom_histogram()` for histograms
+
+For multi-panel displays, faceting allows splitting data into smaller subplots using `facet_wrap()` or `facet_grid()`. 
+
+The package also provides themes `(theme_xxx)` for customizing plot appearance, including background, text size, legend placement, and grid lines. 
+
+Users can further control plot elements through scales `(scale_*)`, which adjust axis limits, color gradients, and transformations.
 
 Incorporating statistical summaries is easy with statistical transformations `(stat_*)`, such as `geom_smooth()` for regression lines and `geom_density()` for density estimates. Additionally, extensions like `gganimate` for animations, ggthemes for additional styles, and `patchwork` for arranging multiple plots enhance its functionality. 
-`ggplot2` is widely favored for its declarative syntax, which separates data, aesthetics, and layers, making complex visualizations intuitive and reproducible. It is highly flexible and extensible, making it an essential tool for data visualization in R.
+
+The `ggplot2` package  is widely favored for its declarative syntax, which separates data, aesthetics, and layers, making complex visualizations intuitive and reproducible. It is highly flexible and extensible, making it an essential tool for data visualization in R.
 
 To create a basic scatterplot using the `lung` data, here's how I would do it:
-```
+
+```{r, eval=FALSE}
 ggplot(lung, aes(x = age, y = time, color = factor(sex))) +
   geom_point(size = 3, alpha = 0.7) +  # Points with transparency
   labs(
@@ -143,6 +199,7 @@ ggplot(lung, aes(x = age, y = time, color = factor(sex))) +
   scale_color_manual(values = c("blue", "red"), labels = c("Male", "Female")) +
   theme_minimal()
 ```
+
 Here's the output:<br>
 ```{r plotsample, echo=FALSE}
 ggplot(lung, aes(x = age, y = time, color = factor(sex))) +
@@ -156,12 +213,12 @@ ggplot(lung, aes(x = age, y = time, color = factor(sex))) +
   scale_color_manual(values = c("blue", "red"), labels = c("Male", "Female")) +
   theme_minimal()
 ```
-<ul style="list-style-type:circle">
-<li><b><i>`ggplot(lung, aes(x = age, y = time, color = factor(sex)))`</b></i>Defines the dataset and aesthetic mappings (age on the x-axis, survival time on the y-axis, and color based on sex).</li>
-<li><b><i>`geom_point(size = 3, alpha = 0.7)`</b></i>Creates a scatter plot with medium-sized points and slight transparency for better visibility.</li>
-<li><b><i>`labs(...)`</b></i>Customizes the title, axis labels, and legend title.</li>
-<li><b><i>`scale_color_manual(...)`</b></i>Manually assigns colors (blue for males and red for females) and renames legend labels.</li>
-<li><b><i>`theme_minimal()`</b></i>Uses a clean, minimalistic theme for a better visual appearance.</li>
+
+- `ggplot(lung, aes(x = age, y = time, color = factor(sex)))` Defines the dataset and aesthetic mappings (age on the x-axis, survival time on the y-axis, and color based on sex).
+- `geom_point(size = 3, alpha = 0.7)` Creates a scatter plot with medium-sized points and slight transparency for better visibility.
+- `labs(...)` Customizes the title, axis labels, and legend title.
+- `scale_color_manual(...)` Manually assigns colors (blue for males and red for females) and renames legend labels.
+- `theme_minimal()` Uses a clean, minimalistic theme for a better visual appearance.
 
 ## Introduction to Kaplan-Meier Curves
 
