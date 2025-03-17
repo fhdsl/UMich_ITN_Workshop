@@ -38,8 +38,12 @@ navbar:
       href: st_tools_activity.html
   - text: ITN Home
     href: https://www.itcrtraining.org/home
-#  - text: UM Resources
-#    href:
+  - text: UM Resources
+    menu:
+    - text: Rogel Cancer Data Science Shared Resources
+      href: https://sph.umich.edu/cds/
+    - text: Single Cell Spatial Analysis Program
+      href: https://singlecellspatialanalysis.umich.edu/
 
 output:
   html_document:
