@@ -1,6 +1,5 @@
 ---
 title: "Clinical Workshop"
-output: html_notebook
 ---
 
 # Clinical Data Analysis Activity
