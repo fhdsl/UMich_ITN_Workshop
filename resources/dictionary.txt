@@ -26,8 +26,8 @@ csv
 CROST
 Ctrl
 customizable
-custimization
-custimazations
+customization
+customizations
 cwrigh
 dev
 Dockerfile
@@ -78,6 +78,7 @@ Il2ra
 juliawrobel
 json
 Kaplan
+Koues
 Legos
 lightblue
 lightgreen
@@ -133,6 +134,8 @@ reproducibility
 Reproducibility
 Rmd
 RNAseq
+Rogel
+Roys
 rstudio
 RStudio
 samplename
