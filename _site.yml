@@ -36,10 +36,11 @@ navbar:
       href: st_tools.html
     - text: Activity
       href: st_tools_activity.html
-  - text: ITN Home
+  - text: UM Resources
+    href: um_resources.html
+  - text: ITN Resources
     href: https://www.itcrtraining.org/home
-#  - text: UM Resources
-#    href:
+
 
 output:
   html_document:

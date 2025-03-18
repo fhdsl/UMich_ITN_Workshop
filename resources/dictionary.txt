@@ -29,7 +29,7 @@ csv
 CROST
 Ctrl
 customizable
-custimization
+customization
 customizations
 cwrigh
 dev
@@ -89,6 +89,7 @@ json
 Kaplan
 karno
 Karnofsky
+Koues
 Legos
 lightblue
 lightgreen
@@ -151,6 +152,8 @@ reproducibility
 Reproducibility
 Rmd
 RNAseq
+Rogel
+Roys
 rstudio
 RStudio
 samplename
