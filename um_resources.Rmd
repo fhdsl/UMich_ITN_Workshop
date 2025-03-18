@@ -1,0 +1,12 @@
+---
+title: "University of Michigan Resources"
+output: html_document
+---
+
+ - [Erik Roys](https://sph.umich.edu/cds/team.html) Program Manager, Cancer Data Science Shared Resource
+ 
+    - Rogel Cancer Data Science Shared Resources: https://sph.umich.edu/cds/
+ 
+ 
+ - [Olivia Koues](https://www.linkedin.com/in/olivia-i-koues-ba5b65b6/) Managing Director, Advanced Genomics Core
+    - Single Cell Spatial Analysis Program: https://singlecellspatialanalysis.umich.edu/
