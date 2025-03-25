@@ -12,7 +12,7 @@ output:
 <details> <summary> About the author 😃 Chris Battiston </summary>
 I am the Research Database Administrator for a hospital in Toronto, Canada.  I have over 20 years experience in database administration and all things healthcare data-related.  I have been using R now for over 7 years, and have become increasingly appreciative of it's flexibility, power, and user-friendly environment.  
 
-I am self-taught for many of these skills so you can do it too!
+I am self-taught for many of these skills, so you can do it too!
 
 I'm a hardcore fan of heavy metal music, coffee, and ridiculously spicy food🔥, and spend my spare time chasing my 5 1/2 year old son around the house (or cleaning up his never-ending piles of PlayDoh, Legos, and Hot Wheels🚗!).
 
