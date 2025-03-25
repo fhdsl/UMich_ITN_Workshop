@@ -15,9 +15,9 @@ In this workshop we will cover:
 
 <div class = "link_button"><a href="https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?usp=sharing" target="_blank"> Slides Link</a></div>
 
-<!--
-<div class = "slido_button"><a href="{FILL IN}" target="_blank"> Discussion Link </a></div>
+<div class = "slido_button"><a href="https://app.sli.do/event/6STozLiaMxyNhCFDceEUNk" target="_blank"> Discussion Link </a></div>
 
+<!--
 <div class = "resource_button"><a
 href="{FILL IN}" target="_blank"> Resource Link </a></div>
 <br>
