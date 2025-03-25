@@ -13,17 +13,14 @@ In this workshop we will cover:
 - Best practices for collaborative code review
 - Best practices for using containers
 
-<!--
 
-<div class = "link_button"><a href="{FILL IN}" target="_blank"> Slides Link</a></div>
+<div class = "link_button"><a href="https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?usp=sharing" target="_blank"> Slides Link</a></div>
 
-<div class = "slido_button"><a href="{FILL IN}" target="_blank"> Discussion Link </a></div>
+<div class = "slido_button"><a href="https://app.sli.do/event/cuq3YHBLQiBY5fe8w1A5qy" target="_blank"> Discussion Link </a></div>
+
 
 <div class = "resource_button"><a
-href="{FILL IN}" target="_blank"> Resource Link </a></div>
-<br>
-
--->
+href="https://www.docker.com/products/docker-desktop/" target="_blank"> Install Docker Desktop </a></div>
 
 ## Additional Resources
 
