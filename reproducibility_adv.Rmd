@@ -18,9 +18,10 @@ In this workshop we will cover:
 
 <div class = "slido_button"><a href="https://app.sli.do/event/cuq3YHBLQiBY5fe8w1A5qy" target="_blank"> Discussion Link </a></div>
 
+https://www.docker.com/products/docker-desktop/
+
 <div class = "resource_button"><a
-href="https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop" target="_blank"> Install GitHub Desktop </a></div> if you don't already have something to help you manage git (or don't know what git is). 
-<br>
+href="https://www.docker.com/products/docker-desktop/" target="_blank"> Install Docker Desktop </a></div>
 
 ## Additional Resources
 
