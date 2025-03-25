@@ -13,10 +13,9 @@ In this workshop we will cover:
 - Writing durable code and managing package versions
 - Using GitHub to make code open source
 
+<div class = "link_button"><a href="https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?usp=sharing" target="_blank"> Slides Link</a></div>
+
 <!--
-
-<div class = "link_button"><a href="{FILL IN}" target="_blank"> Slides Link</a></div>
-
 <div class = "slido_button"><a href="{FILL IN}" target="_blank"> Discussion Link </a></div>
 
 <div class = "resource_button"><a
