@@ -29,7 +29,7 @@ This is the more detailed version of the presentation given for the [ITN Worksho
 The goals are to:
 
 - Give an introduction to R and tools for clinical analysis
-- Give an a more thorough introduction to these tools:
+- Give a more thorough introduction to these tools:
   - `sqlr` - Your best friend in data management
   - `ggplot2` - Your best friend for visualizations
   - `survival` - Your best friend for analyzing survival data
