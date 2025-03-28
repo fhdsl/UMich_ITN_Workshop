@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Clinical Workshop</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link rel="shortcut icon" href="resources/images/favicon.ico" />
+ <!--- go to https://favicon.io/favicon-converter/ to upload an image to make a new favicon.io. You will need to replace the current favicon.io image with the one in the downloaded directory from the website. The current image is in the resources/images/ directory --->
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">University of Michigan Workshops 2025</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Intro to Reproducibility
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="reproducibility_intro.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="reproducibility_intro_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Intermediate &amp; Advanced Reproducibility
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="reproducibility_adv.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="reproducibility_adv_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyzing Clinical Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="clinical_data.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="clinical_data_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Choosing Genomics Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="choosing_genomics_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="choosing_genomics_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Spatial Transcriptomics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="st_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="st_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="um_resources.html">UM Resources</a>
+</li>
+<li>
+  <a href="https://www.itcrtraining.org/home">ITN Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Clinical Workshop</h1>
+
+</div>
+
+
+<div id="clinical-data-analysis-activity" class="section level1">
+<h1>Clinical Data Analysis Activity</h1>
+<p>❓ Questions about the content (but not support questions!) can be
+emailed to <a href="mailto:chris.battiston@wchospital.ca"
+class="email">chris.battiston@wchospital.ca</a>.❓</p>
+<p>The goals are to:</p>
+<ul>
+<li>Give an introduction to R and tools for clinical analysis</li>
+<li>Give an a more thorough introduction to these tools:
+<ul>
+<li><code>sqlr</code> - Your best friend in data management</li>
+<li><code>ggplot2</code> - Your best friend for visualizations</li>
+<li><code>survival</code> - Your best friend for analyzing [survival
+data</li>
+<li><code>survminer</code>- Your best friend for making publication
+ready survival analysis data plots</li>
+</ul></li>
+<li>Use a sample dataset to dig into survival or Kaplan-Meier
+curves</li>
+</ul>
+<div id="introduction-to-r" class="section level2">
+<h2>Introduction to R</h2>
+<p>R is a massive, fully customizable data management environment that
+is very helpful for clinical data analysis!</p>
+<p>R is driven largely by what are called “libraries” or “packages”,
+which are basically plugins or extensions created by the R User
+Community. For every one task you can do in R, there is likely going to
+be a multitude of packages you can choose from - as you move forward in
+becoming an R User, spend time familiarizing yourself with the various
+packages to see what each offers.</p>
+</div>
+<div id="packages" class="section level2">
+<h2>Packages</h2>
+<p>For the purposes of this tutorial, we’re going to be using the
+following:</p>
+<ul>
+<li><p><strong><em><code>sqldf</code></em></strong>perform SQL queries
+directly on R data frames, facilitating the manipulation and analysis of
+data using SQL syntax. It enables seamless integration of SQL operations
+such as SELECT, JOIN, GROUP BY, and WHERE with R data structures,
+without the need to convert data into a database format.
+<code>sqldf</code> can handle both simple and complex queries and is
+particularly useful for users familiar with SQL who prefer its syntax
+for data manipulation. The package supports working with data stored in
+data frames, tables, or external databases like SQLite and
+MySQL.</p></li>
+<li><p><strong><em><code>ggplot2</code></em></strong> One of the most
+widely used libraries for creating data visualizations. It is based on
+the Grammar of Graphics, which provides a systematic approach to
+building plots by combining various components such as data, aesthetic
+mappings (e.g., x and y axes, color, size), geometries (e.g., points,
+lines, bars), and statistical transformations. With
+<code>ggplot2</code>, users can easily create a wide range of static and
+dynamic visualizations, including scatter plots, bar charts, histograms,
+line graphs, boxplots, and more. It also provides robust customization
+options for themes, labels, and scales, allowing users to tailor
+visualizations for publication-quality graphics. The
+<code>ggplot2</code> package integrates well with other tidyverse
+packages, making it a powerful tool for data exploration, analysis, and
+presentation.</p></li>
+<li><p><strong><em><code>survival</code></em></strong>comprehensive tool
+for performing survival analysis and modeling time-to-event data. It
+provides functions to fit and analyze various survival models, including
+the Cox proportional hazards model, Kaplan-Meier estimators, and
+parametric survival models (e.g., exponential, Weibull). The package
+includes methods for estimating survival curves, performing log-rank
+tests for comparing survival between groups, and handling censored data
+(where an event has not occurred for some individuals by the end of the
+study). The survival package also allows for advanced statistical
+techniques such as frailty models and competing risks analysis. It is
+widely used in clinical research, epidemiology, and other fields
+involving time-to-event data.</p></li>
+<li><p><strong><em><code>survminer</code></em></strong>specifically
+designed for visualizing survival analysis results. It provides
+functions to create publication-ready survival plots, such as
+Kaplan-Meier curves, survival curves by groups, and hazard ratio plots.
+The package allows for easy customization of plots, including
+adjustments to colors, labels, legends, and axes, and supports the
+addition of confidence intervals and p-values to plots.
+<code>survminer</code> works seamlessly with the survival package in R,
+which is used to perform survival analysis. It is particularly useful
+for researchers and analysts working with clinical or time-to-event
+data, enabling them to generate clear, informative, and visually
+appealing plots to communicate survival outcomes effectively.</p></li>
+</ul>
+<p>To use these in R we need to first load them in memory like so.</p>
+<p>Press the green play button at the top right of the gray box (called
+a code chunk) below:</p>
+<pre class="r"><code>library(sqldf)
+library(ggplot2)
+library(survival)
+library(survminer)</code></pre>
+</div>
+<div id="lung-data" class="section level2">
+<h2>Lung Data</h2>
+<p>We will use the lung dataset available in the <code>survival</code>
+package. The data contain subjects with advanced lung cancer from the
+North Central Cancer Treatment Group. It includes the 10 following
+variables:</p>
+<ul>
+<li>inst: Institution code</li>
+<li>time: Survival time in days</li>
+<li>status: censoring status 1=censored, 2=dead</li>
+<li>age: Age in years</li>
+<li>sex: Male=1 Female=2</li>
+<li>ph.ecog: ECOG performance score as rated by the physician.
+<ul>
+<li>0=asymptomatic</li>
+<li>1= symptomatic but completely ambulatory</li>
+<li>2= in bed &lt;50% of the day</li>
+<li>3= in bed &gt; 50% of the day but not bedbound</li>
+<li>4 = bedbound</li>
+</ul></li>
+<li>ph.karno: Karnofsky performance score (bad=0-good=100) rated by
+physician</li>
+<li>pat.karno: Karnofsky performance score (0 = bad, 100 = good) as
+rated by patient</li>
+<li>meal.cal: Calories consumed at meals</li>
+<li>wt.loss: Weight loss in last six months</li>
+</ul>
+<p><a
+href="https://rpubs.com/floreuzan/survivalanalysislungdata">source</a></p>
+<p>Now that we have loaded the <code>survival</code> package, we can
+check it out just by typing <code>lung</code>. We will use the
+<code>head()</code> function to just preview the first several rows of
+data.</p>
+<p>Click the green play button in the chunk below to see the top part of
+the data:</p>
+<pre class="r"><code>head(lung)</code></pre>
+<pre><code>##   inst time status age sex ph.ecog ph.karno pat.karno meal.cal wt.loss
+## 1    3  306      2  74   1       1       90       100     1175      NA
+## 2    3  455      2  68   1       0       90        90     1225      15
+## 3    3 1010      1  56   1       0       90        90       NA      15
+## 4    5  210      2  57   1       1       90        60     1150      11
+## 5    1  883      2  60   1       0      100        90       NA       0
+## 6   12 1022      1  74   1       1       50        80      513       0</code></pre>
+</div>
+<div id="sql-for-data-management" class="section level2">
+<h2>SQL for Data Management</h2>
+<p>The <code>sqldf</code> package allows users to execute SQL queries on
+R data frames, providing a convenient way to subset, filter, and
+summarize data. It is especially useful for those familiar with SQL but
+not as comfortable with R’s native data manipulation functions like
+<code>dplyr</code> or <code>data.table</code>.</p>
+<p>The basic syntax follows standard SQL conventions, with the query
+enclosed in double quotes within the <code>sqldf()</code> function.</p>
+<p>For example, if you wanted to retrieve all columns for the first 10
+rows in the <code>lung</code> dataset where age &gt; 60, you would use:
+<code>sqldf("select * from lung where age&gt;60 limit 10")</code></p>
+<pre class="r"><code>sqldf(&quot;select * from lung where age&gt;60 limit 10&quot;)</code></pre>
+<pre><code>##    inst time status age sex ph.ecog ph.karno pat.karno meal.cal wt.loss
+## 1     3  306      2  74   1       1       90       100     1175      NA
+## 2     3  455      2  68   1       0       90        90     1225      15
+## 3    12 1022      1  74   1       1       50        80      513       0
+## 4     7  310      2  68   2       2       70        60      384      10
+## 5    11  361      2  71   2       2       60        80      538       1
+## 6     7  166      2  61   1       2       70        70      271      34
+## 7    16  654      2  68   2       2       70        70       NA      23
+## 8    11  728      2  68   2       1       90        90       NA       5
+## 9     1  144      2  67   1       1       80        90       NA      15
+## 10   22  613      2  70   1       1       90       100     1150      -5</code></pre>
+<p>The package supports a variety of operations, making it a versatile
+tool for data analysis.</p>
+<ul>
+<li>It allows for easy data filtering and selection, enabling users to
+extract specific rows and columns with simple queries.</li>
+<li>Aggregation and summarization functions, such as <code>COUNT</code>,
+<code>AVG</code>, <code>MIN</code>, and <code>MAX</code>, allow users to
+quickly compute statistics on datasets.</li>
+<li>Sorting and ordering data is straightforward with the
+<code>ORDER BY</code> clause, and merging datasets is effortless using
+SQL joins, such as <code>INNER JOIN</code> and
+<code>LEFT JOIN</code>.</li>
+<li>Additionally, <code>sqldf</code> can be used for data cleaning and
+validation, helping identify duplicates, missing values, or
+inconsistencies within a dataset.</li>
+</ul>
+<p>Here is a basic example of using <code>sqldf</code> to create a basic
+summary table:</p>
+<pre class="r"><code>sqldf(&quot;select sex, 
+      count(*),  
+      count(case when (age&lt;=60) then 1 end) as LTE60, 
+      count(case when (age&gt;60) then 1 end) as GT60 
+      from lung group by sex order by sex&quot;)</code></pre>
+<pre><code>##   sex count(*) LTE60 GT60
+## 1   1      138    49   89
+## 2   2       90    45   45</code></pre>
+</div>
+<div id="exploring-ggplot2" class="section level2">
+<h2>Exploring <code>ggplot2</code></h2>
+<p><code>ggplot2</code> is a complete framework for developing complex
+graphs, with an extensive series of options and customizations
+available. Based on
+<a href="https://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387245448">The
+Grammar of Graphics by Leland Wilkinson</a>, it provides a structured
+approach to creating a wide variety of static, animated, and interactive
+visualizations with a consistent syntax.</p>
+<p>One of its key features is the layered approach, where plots are
+built step by step by adding components like points, lines, bars, and
+annotations. The aesthetic mapping <code>(aes())</code> function allows
+users to define how data variables correspond to visual properties such
+as axis positions, colors, sizes, and shapes.</p>
+<p>Different types of plots are created using geometries
+<code>(geom_xxx)</code> including:</p>
+<ul>
+<li><code>geom_point()</code> for scatter plots</li>
+<li><code>geom_line()</code> for line charts</li>
+<li><code>geom_bar()</code> for bar plots</li>
+<li><code>geom_histogram()</code> for histograms</li>
+</ul>
+<p>To create a basic scatterplot using the <code>lung</code> data, we
+can run the following chunk by clicking on the green play button
+below:</p>
+<pre class="r"><code>ggplot(lung, aes(x = age, y = time, color = factor(sex))) +
+  geom_point(size = 3, alpha = 0.7) +  # Points with transparency
+  labs(
+    title = &quot;Survival Time vs. Age&quot;,
+    x = &quot;Age (years)&quot;,
+    y = &quot;Survival Time (days)&quot;,
+    color = &quot;Sex&quot;
+  ) +
+  scale_color_manual(values = c(&quot;blue&quot;, &quot;red&quot;), labels = c(&quot;Male&quot;, &quot;Female&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="clinicalworkshop_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<ul>
+<li><code>ggplot(lung, aes(x = age, y = time, color = factor(sex)))</code>
+Defines the dataset and aesthetic mappings (age on the x-axis, survival
+time on the y-axis, and color based on sex).</li>
+<li><code>geom_point(size = 3, alpha = 0.7)</code> Creates a scatter
+plot with medium-sized points and slight transparency for better
+visibility.</li>
+<li><code>labs(...)</code> Customizes the title, axis labels, and legend
+title.</li>
+<li><code>scale_color_manual(...)</code> Manually assigns colors (blue
+for males and red for females) and renames legend labels.</li>
+<li><code>theme_minimal()</code> Uses a clean, minimalistic theme for a
+better visual appearance.</li>
+</ul>
+</div>
+<div id="introduction-to-kaplan-meier-curves" class="section level2">
+<h2>Introduction to Kaplan-Meier Curves</h2>
+<p>KM Curves are also known as Survival Plots or Time To Event
+Analyses.</p>
+<p>Kaplan-Meier curves are a statistical method used to estimate and
+visualize survival probabilities over time, commonly applied in medical
+research and clinical studies. These curves illustrate the
+<strong>proportion of individuals who have not yet experienced a
+specific event</strong>, such as death, disease recurrence, or recovery,
+at various time points.</p>
+<p>The curve starts at 100%, representing all individuals in the study,
+and steps down each time an event occurs.</p>
+<p>Unlike simple averages, Kaplan-Meier analysis accounts for
+<strong>“censored”</strong> data, which includes participants who are
+<strong>lost to follow-up</strong> or <strong>do not experience the
+event before the study ends</strong>. These individuals are still
+included in calculations up to the point they leave the study but do not
+contribute beyond that.</p>
+<p>Kaplan-Meier curves are particularly useful for comparing survival
+outcomes between different groups, such as patients receiving different
+treatments.</p>
+<p>If one group’s curve declines more steeply than another’s, it
+suggests a higher event rate and worse outcomes.</p>
+<p>A flatter curve indicates better survival or a lower risk of the
+event occurring.</p>
+<p>The statistical significance of differences between curves is
+typically assessed using the <strong>log-rank test</strong>, which
+evaluates whether survival distributions differ meaningfully between
+groups.</p>
+<p>Kaplan-Meier curves help guide clinical decisions and shape future
+research directions.</p>
+</div>
+<div id="survival-introduction" class="section level2">
+<h2><code>survival</code> Introduction</h2>
+<p>The <code>survival</code> R package is a widely used tool for
+analyzing time-to-event data, also known as survival data, which is
+commonly applied in fields like clinical research, epidemiology, and
+social sciences. Survival analysis focuses on estimating the time it
+takes for a specific event, such as death, disease recurrence, or
+recovery, to occur, and it handles censored data—cases where the event
+has not yet occurred by the study’s end.</p>
+<p>The package provides a range of statistical methods including:</p>
+<ul>
+<li>The <strong>Kaplan-Meier estimator</strong> which is used to
+visualize survival functions and estimate the probability of an event
+occurring over time.</li>
+<li>The <strong>Cox proportional hazards model</strong>, a powerful
+method for examining the effect of multiple covariates (like age,
+treatment, or other risk factors) on the hazard or risk of an event
+happening.</li>
+<li><strong>Log-rank tests</strong> to compare survival distributions
+between groups, helping researchers determine if there are significant
+differences in survival between different treatments or population
+groups.</li>
+<li><strong>Parametric survival models</strong> such as exponential,
+Weibull, or log-normal can be applied when the assumptions of the Cox
+model do not hold, offering more flexibility in modeling time-to-event
+data.</li>
+</ul>
+<p>Researchers can also visualize and compare survival curves for
+different groups, further aiding in understanding the impact of various
+factors on survival outcomes.</p>
+</div>
+<div id="survival-example" class="section level2">
+<h2><code>survival</code> Example</h2>
+<p>First we will create a survival object using the <code>Surv()</code>
+function, which combines survival time <code>(lung$time)</code> and
+event status <code>(lung$status)</code>. Here, the event status is coded
+as 1 for an event (e.g., death) and 0 for censored data, meaning the
+event did not occur before the study ended.</p>
+<p>Click the play button to run this code:</p>
+<pre class="r"><code># Create a survival object: Surv(time, status)
+#&#39;time&#39; is survival time
+#&#39;status&#39; is event (1 = death, 0 = censored)
+surv_obj &lt;- Surv(lung$time, lung$status)</code></pre>
+<p>Now we can use the object to fit a Kaplan-Meier model using the
+<code>survfit()</code> function. The formula <code>surv_obj ~ 1</code>
+indicates that the model estimates an overall survival curve without
+considering any grouping variables.</p>
+<p>Click the play button to run this code:</p>
+<pre class="r"><code># Fit the Kaplan-Meier model
+km_fit &lt;- survfit(surv_obj ~ 1) 
+# &#39;~ 1&#39; indicates no grouping variable, just the overall survival curve</code></pre>
+<p>Next we will make the Kaplan-Meier survival curve plot.</p>
+<p>The <code>plot()</code> function generates a Kaplan-Meier survival
+curve, visually displaying how survival probability changes over time.
+The main argument sets the title of the plot, while <code>xlab</code>
+and <code>ylab</code> label the x-axis <code>Time (days)</code> and
+y-axis <code>Survival Probability</code>, respectively.</p>
+<p>Click the play button to create the plot:</p>
+<pre class="r"><code># Plot the Kaplan-Meier survival curve
+plot(km_fit, main=&quot;Kaplan-Meier Survival Curve&quot;, 
+     xlab=&quot;Time (days)&quot;, ylab=&quot;Survival Probability&quot;)</code></pre>
+<p><img src="clinicalworkshop_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>The Kaplan-Meier survival curve generated from this code provides a
+simple overview of survival probabilities over time for the entire
+dataset, without breaking it down by groups.</p>
+<p>The x-axis represents time in days, while the y-axis shows the
+probability of survival.</p>
+<p>The curve starts at 1 (100% survival) and gradually steps downward as
+events (e.g., deaths) occur.</p>
+<p>Each drop in the curve corresponds to a time point where at least one
+event happened. The presence of censored data (patients lost to
+follow-up or still alive at the study’s end) is typically indicated by
+small marks on the curve.</p>
+<p>While this plot gives a good initial look at overall survival trends,
+it lacks detail on differences between subgroups. For example, it
+doesn’t show whether survival differs based on factors like
+<strong>gender</strong>, <strong>treatment</strong>, or <strong>disease
+severity</strong>. To gain deeper insights, grouped survival curves and
+statistical comparisons (like the log-rank test) would be needed.</p>
+<div id="survival-example-2" class="section level3">
+<h3><code>survival</code> Example 2</h3>
+<p>Suppose we want to compare survival between two groups (e.g., based
+on the variable <code>lung$sex</code>). We can add this to our model
+from before, which was
+<code>km_fit &lt;- survfit(surv_obj ~ 1)</code>.</p>
+<p>Instead of generating a single survival curve for the entire dataset,
+the model now estimates separate survival curves for males and females.
+This allows for a direct visual and statistical comparison of survival
+outcomes between the two groups.</p>
+<p>Run the code chunk to fit the new model:</p>
+<pre class="r"><code># Fit Kaplan-Meier models for each group
+km_fit_group &lt;- survfit(surv_obj ~ lung$sex)</code></pre>
+<p>Now let’s plot the data - note this time we use the output from this
+model. Here we add some colors to differentiate our groups and add a
+legend.</p>
+<pre class="r"><code># Plot the survival curves by gender
+plot(km_fit_group, col=c(&quot;blue&quot;, &quot;red&quot;), lty=c(1, 2),
+     main=&quot;Survival by Gender&quot;, 
+     xlab=&quot;Time (days)&quot;, 
+     ylab=&quot;Survival Probability&quot;)
+
+legend(&quot;topright&quot;, legend=c(&quot;Male&quot;, &quot;Female&quot;), col=c(&quot;blue&quot;, &quot;red&quot;), lty=c(1, 2))</code></pre>
+<p><img src="clinicalworkshop_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>In this version, the plot assigns blue to males and red to females,
+with line styles differentiated—a solid line for males and a dashed line
+for females. The x-axis represents time in days, while the y-axis shows
+the probability of survival over time. A legend is added to the top
+right corner to help distinguish between the two survival curves.</p>
+<p>Now we will perform a log-rank test to compare survival between males
+and females:</p>
+<pre class="r"><code>log_rank_test &lt;- survdiff(surv_obj ~ lung$sex)
+log_rank_test</code></pre>
+<pre><code>## Call:
+## survdiff(formula = surv_obj ~ lung$sex)
+## 
+##              N Observed Expected (O-E)^2/E (O-E)^2/V
+## lung$sex=1 138      112     91.6      4.55      10.3
+## lung$sex=2  90       53     73.4      5.68      10.3
+## 
+##  Chisq= 10.3  on 1 degrees of freedom, p= 0.001</code></pre>
+<p>To formally test whether survival differs between males and females,
+the <code>survdiff()</code> function performs a log-rank test, a
+statistical method used to compare survival distributions between
+groups.</p>
+<p>The output includes a chi-square statistic and a p-value, where a
+p-value below 0.05 would indicate a statistically significant difference
+in survival between the two genders. This approach provides more
+meaningful insights than the earlier single-curve model by highlighting
+potential disparities in survival outcomes between patient groups.</p>
+</div>
+</div>
+<div id="survminer-introduction" class="section level2">
+<h2><code>survminer</code> Introduction</h2>
+<p>As you may have noticed, the <code>survival</code> outputs are OK but
+not something you’d want to use in a presentation. This is where the
+<code>survminer</code> package comes in - it’s a powerful tool designed
+to help users visualize the results of survival analysis in a more
+informative and publication-ready format. It works seamlessly with the
+<code>survival</code> package.</p>
+<p>In addition to Kaplan-Meier curves, <code>survminer</code> allows for
+the visualization of survival curves for multiple groups and other
+additional visualization techniques, such as:</p>
+<ul>
+<li>Survival curves by strata</li>
+<li>Cox regression plots</li>
+<li>Diagnostic plots for assessing the fit and assumptions of survival
+models</li>
+</ul>
+<p>These plots help users identify potential issues, such as
+proportional hazards violations, and gain deeper insights into the
+factors influencing survival outcomes.</p>
+<p>As it is dependent on the installation of <code>ggplot2</code>, it
+uses a lot of <code>gg</code> styled syntax, including one of the key
+functions <code>ggsurvplot()</code>, which creates Kaplan-Meier survival
+curves with extensive customization options.</p>
+</div>
+<div id="survminer-example" class="section level2">
+<h2><code>survminer</code> Example</h2>
+<p>Here is a sample KM Curve using the same data as the previous
+examples above:</p>
+<pre class="r"><code>fit &lt;- survfit(Surv(time, status) ~ sex, data = lung)
+
+ggsurvplot(fit, data = lung, 
+           pval = TRUE, 
+           risk.table = TRUE, 
+           conf.int = TRUE, 
+           ggtheme = theme_minimal())</code></pre>
+<p><img src="clinicalworkshop_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ul>
+<li><p><code>fit &lt;- survfit(Surv(time, status) ~ sex, data = lung)</code>
+This line fits a Kaplan-Meier survival model using the
+<code>survfit()</code> function. It defines the time-to-event variable
+(time) and the event status (status) using the <code>Surv()</code>
+function, while sex is included as a grouping variable. This means the
+model will estimate and compare survival curves separately for males and
+females using data from the lung dataset.</p>
+<ul>
+<li>The <code>ggsurvplot()</code> function is used to create an enhanced
+survival plot.</li>
+<li>The first argument, <code>fit</code>, is the Kaplan-Meier model
+object, and <code>data = lung</code> specifies the dataset. The
+<code>pval = TRUE</code> argument adds a p-value to the plot, indicating
+whether there is a significant difference in survival between the two
+groups. A p-value less than 0.05 suggests that the differences in
+survival between these groups are statistically significant.</li>
+<li>The <code>risk.table = TRUE</code> option includes a risk table
+below the plot, showing the number of individuals still at risk at
+different time points.</li>
+<li>The <code>conf.int = TRUE</code> argument adds confidence intervals,
+which provide a shaded region around the survival curves to indicate
+uncertainty.</li>
+<li>Finally, <code>ggtheme = theme_minimal()</code> applies a clean,
+minimalistic theme to improve the plot’s readability and
+aesthetics.</li>
+</ul></li>
+</ul>
+<p>The resulting Kaplan-Meier plot gives a clear visual representation
+of the survival probabilities over time for different groups. By
+examining the curves, you can quickly determine whether there is a
+notable difference in survival between males and females. If the curves
+diverge significantly, this may indicate that sex plays a role in the
+survival time of lung cancer patients. The confidence intervals help
+assess the precision of the survival estimates, while the risk table
+provides more detailed information on how many individuals are still at
+risk at each time point.</p>
+</div>
+<div id="km-curve-interpretation" class="section level2">
+<h2>KM Curve Interpretation</h2>
+<p>It is not necessarily true that if two Kaplan-Meier (KM) curves
+cross, there is no statistical significance between the groups. The
+crossing of KM curves does not automatically imply the absence of
+significance. In fact, the interpretation of crossing curves is more
+nuanced and requires further analysis.</p>
+<p>If two KM curves cross, it suggests that at different time points,
+one group may have a higher survival probability than the other, but
+this relationship changes over time. This could be due to differences in
+how the groups behave at different stages of the study. The crossing of
+the curves indicates that the survival advantages or disadvantages
+between the groups are not consistent across time, which could reflect a
+change in the factors affecting survival as the study progresses.</p>
+<p>The log-rank test, which is often used to compare two or more
+survival curves, tests the overall difference in survival between
+groups. The test evaluates whether the curves are significantly
+different across the entire time period, even if they cross at certain
+points. A significant log-rank test (p &lt; 0.05) means that there is a
+difference in survival between the groups, regardless of whether the
+curves cross. The test considers the entire survival distribution and is
+not affected by the crossing of the curves at specific time points.</p>
+<p>However, crossing curves can complicate interpretation, especially if
+the curves cross multiple times. In such cases, the proportional hazards
+assumption (which underpins the Cox proportional hazards model) may be
+violated. This assumption suggests that the hazard ratio between the
+groups is constant over time, but with crossing curves, the relationship
+between the groups may change at different intervals. This indicates
+that the survival patterns of the groups are not proportional over time,
+and more complex analysis might be needed to fully understand the
+relationship.</p>
+<p>Even when KM curves cross, it is still important to consider the
+clinical context and look at other statistical measures. For instance,
+median survival times, confidence intervals, and hazard ratios provide
+additional insights into the significance of the survival differences
+between groups. These metrics help provide a clearer understanding of
+the survival trends, even in the presence of crossing curves.</p>
+<p>In conclusion, while crossing KM curves can indicate that the
+survival patterns of two groups differ over time, it does not imply that
+there is no significance. A log-rank test or other statistical methods
+can still show whether there is a significant difference in survival
+between the groups across the entire study period, even in the presence
+of crossing curves. Therefore, the crossing of the curves should be
+interpreted in conjunction with statistical tests and clinical
+context.</p>
+</div>
+<div id="putting-it-all-together" class="section level2">
+<h2>Putting it all together</h2>
+<p>So given the various ways that we’ve reviewed to create a KM Curve,
+now we can put together a <strong>hypothetical workflow</strong> to
+highlight the use cases for each of the packages we’ve discussing.</p>
+<ul>
+<li>We want to use an SQL query to filter the data for specific
+conditions, such as selecting patients with a certain age range,
+patients with diabetes, and patients from a specific area.</li>
+<li>Now that we have our filtered data, we’ll create a <code>Surv</code>
+object and fit a Cox regression model to estimate the effect of
+variables like sex and <code>ph.ecog</code> (performance score) on
+survival. We will do this for each of the three data subsets we’ve
+created.</li>
+<li>We will now use the <code>survminer</code> package to create
+Kaplan-Meier survival curves for male and female patients in the
+filtered datasets. This is useful for visualizing survival probabilities
+by gender.</li>
+<li>Finally, we’ll perform log-rank tests using <code>survdiff()</code>
+to compare survival between males and females.</li>
+</ul>
+<p>Hopefully this will give you a sense of how you can quickly pull
+together complex data and generate powerful, useful visualizations and
+analyses.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>R is widely used across diverse fields, including medicine, social
+sciences, economics, and engineering, because it can handle a broad
+range of data types and offers specialized packages for various
+statistical analyses. R allows researchers to not only perform complex
+statistical tests but also visualize data effectively, making it a
+comprehensive choice for data analysis and presentation.</p>
+<p>R is also highly reproducible, which is vital for transparency in
+research, enabling others to replicate analyses and confirm
+findings.</p>
+<p>A particularly important statistical method available in R is the
+Kaplan-Meier (KM) curve, which is invaluable in survival analysis. KM
+curves are crucial for visualizing and interpreting time-to-event data,
+especially in clinical research where understanding patient survival is
+key. By displaying the probability of survival over time for different
+groups, KM curves provide insight into how factors such as treatment,
+age, or sex may influence outcomes. They are widely used in clinical
+trials to compare the effectiveness of different treatments, and in
+epidemiological studies to understand the impact of various risk factors
+on survival.</p>
+<p>The log-rank test, commonly used alongside KM curves, allows
+researchers to statistically determine whether differences in survival
+across groups are significant, providing a comprehensive approach to
+survival analysis.</p>
+<p>In conclusion, R is an indispensable tool for researchers due to its
+flexibility, statistical power, and ease of reproducibility.
+Kaplan-Meier curves exemplify the power of R in survival analysis,
+providing essential insights into time-to-event data. While R may seem
+intimidating initially, learning the basics unlocks a wealth of
+possibilities for data analysis and visualization, making it an
+invaluable skill for any researcher.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
