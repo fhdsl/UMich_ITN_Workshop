@@ -464,7 +464,6 @@ Finally, we conduct log-rank tests to statistically compare survival distributio
 
 Through this workflow, we systematically apply SQL for data extraction, survival analysis techniques for modeling, and visualization tools for interpretation—demonstrating the utility of each package in the survival analysis pipeline.
 
-So given the various ways that we've reviewed to create a KM Curve, now we can put together a hypothetical workflow to highlight the use cases for each of the packages we've discussing. 
 
 
 
