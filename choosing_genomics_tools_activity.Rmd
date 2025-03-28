@@ -21,9 +21,9 @@ The aim of this activity is to answer the question -- "What genes differentiate 
 
 ### Download Data and log into the Gene Pattern platform
 
-<input type="checkbox"> [Download the relevant datasets](https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/)
-  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.cls`
-  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.gct`
+<input type="checkbox"> [Download the relevant datasets](https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/)<br/>
+  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.cls`<br/>
+  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.gct`<br/>
 
 ```{r echo=FALSE, fig.alt="Download the c l s and g c t files from the gene pattern datasets resource, specifically the 2 4 0 4 1 1 hyphen P S T P workshops directory", fig.link="https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_0")
@@ -65,7 +65,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 <input type="checkbox"> Select the `gct` file (`BRCA_HUGO_symbols.preprocessed.gct`) for the "Input file*" option.
 
-<input type="checkbo"> Select the `cls` file (`BRCA_HUGO_symbols.preprocessed.cls`) for the "cls file*" option.
+<input type="checkbox"> Select the `cls` file (`BRCA_HUGO_symbols.preprocessed.cls`) for the "cls file*" option.
 
 ```{r echo=FALSE, fig.alt="select the input files"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_41")
