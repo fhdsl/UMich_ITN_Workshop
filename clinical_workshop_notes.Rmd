@@ -32,7 +32,7 @@ The goals are to:
 - Give an a more thorough introduction to these tools:
   - `sqlr` - Your best friend in data management
   - `ggplot2` - Your best friend for visualizations
-  - `survival` - Your best friend for analyzing [survival data
+  - `survival` - Your best friend for analyzing survival data
   - `survminer`- Your best friend for making publication ready survival analysis data plots
 - Use a sample dataset to dig into survival or Kaplan-Meier curves
 
