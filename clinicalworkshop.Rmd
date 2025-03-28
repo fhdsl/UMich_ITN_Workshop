@@ -1,0 +1,348 @@
+---
+title: "Clinical Workshop"
+---
+
+# Clinical Data Analysis Activity
+
+❓ Questions about the content (but not support questions!) can be emailed to chris.battiston@wchospital.ca.❓ 
+
+The goals are to:
+
+- Give an introduction to R and tools for clinical analysis
+- Give an a more thorough introduction to these tools:
+  - `sqlr` - Your best friend in data management
+  - `ggplot2` - Your best friend for visualizations
+  - `survival` - Your best friend for analyzing [survival data
+  - `survminer`- Your best friend for making publication ready survival analysis data plots
+- Use a sample dataset to dig into survival or Kaplan-Meier curves
+
+## Introduction to R
+
+R is a massive, fully customizable data management environment that is very helpful for clinical data analysis!
+
+R is driven largely by what are called "libraries" or "packages", which are basically plugins or extensions created by the R User Community.  For every one task you can do in R, there is likely going to be a multitude of packages you can choose from - as you move forward in becoming an R User, spend time familiarizing yourself with the various packages to see what each offers. 
+ 
+
+## Packages
+
+For the purposes of this tutorial, we're going to be using the following:
+
+- ***`sqldf`***perform SQL queries directly on R data frames, facilitating the manipulation and analysis of data using SQL syntax. It enables seamless integration of SQL operations such as SELECT, JOIN, GROUP BY, and WHERE with R data structures, without the need to convert data into a database format. `sqldf` can handle both simple and complex queries and is particularly useful for users familiar with SQL who prefer its syntax for data manipulation. The package supports working with data stored in data frames, tables, or external databases like SQLite and MySQL.
+
+- ***`ggplot2`*** One of the most widely used libraries for creating data visualizations. It is based on the Grammar of Graphics, which provides a systematic approach to building plots by combining various components such as data, aesthetic mappings (e.g., x and y axes, color, size), geometries (e.g., points, lines, bars), and statistical transformations. With `ggplot2`, users can easily create a wide range of static and dynamic visualizations, including scatter plots, bar charts, histograms, line graphs, boxplots, and more. It also provides robust customization options for themes, labels, and scales, allowing users to tailor visualizations for publication-quality graphics. The `ggplot2` package integrates well with other tidyverse packages, making it a powerful tool for data exploration, analysis, and presentation.
+
+- ***`survival`***comprehensive tool for performing survival analysis and modeling time-to-event data. It provides functions to fit and analyze various survival models, including the Cox proportional hazards model, Kaplan-Meier estimators, and parametric survival models (e.g., exponential, Weibull). The package includes methods for estimating survival curves, performing log-rank tests for comparing survival between groups, and handling censored data (where an event has not occurred for some individuals by the end of the study). The survival package also allows for advanced statistical techniques such as frailty models and competing risks analysis. It is widely used in clinical research, epidemiology, and other fields involving time-to-event data.
+
+- ***`survminer`***specifically designed for visualizing survival analysis results. It provides functions to create publication-ready survival plots, such as Kaplan-Meier curves, survival curves by groups, and hazard ratio plots. The package allows for easy customization of plots, including adjustments to colors, labels, legends, and axes, and supports the addition of confidence intervals and p-values to plots. `survminer` works seamlessly with the survival package in R, which is used to perform survival analysis. It is particularly useful for researchers and analysts working with clinical or time-to-event data, enabling them to generate clear, informative, and visually appealing plots to communicate survival outcomes effectively.
+
+To use these in R we need to first load them in memory like so.
+
+Press the green play button at the top right of the gray box (called a code chunk) below:
+
+```{r, comment=FALSE, message=FALSE}
+library(sqldf)
+library(ggplot2)
+library(survival)
+library(survminer)
+```
+
+
+## Lung Data
+We will use the lung dataset available in the `survival` package. The data contain subjects with advanced lung cancer from the North Central Cancer Treatment Group. It includes the 10 following variables:
+
+- inst:  Institution code
+- time:  Survival time in days
+- status:  censoring status 1=censored, 2=dead
+- age:  Age in years
+- sex:  Male=1 Female=2
+- ph.ecog:  ECOG performance score as rated by the physician.   
+    - 0=asymptomatic
+    - 1= symptomatic but completely ambulatory
+    - 2= in bed <50% of the day
+    - 3= in bed > 50% of the day but not bedbound
+    - 4 = bedbound
+- ph.karno:  Karnofsky performance score (bad=0-good=100) rated by physician
+- pat.karno:  Karnofsky performance score (0 = bad, 100 = good) as rated by patient
+- meal.cal:  Calories consumed at meals
+- wt.loss:  Weight loss in last six months
+
+[source](https://rpubs.com/floreuzan/survivalanalysislungdata)
+
+
+Now that we have loaded the `survival` package, we can check it out just by typing `lung`. We will use the `head()` function to just preview the first several rows of data.  
+
+Click the green play button in the chunk below to see the top part of the data:
+
+```{r}
+head(lung)
+```
+
+
+## SQL for Data Management
+
+The `sqldf` package allows users to execute SQL queries on R data frames, providing a convenient way to subset, filter, and summarize data. It is especially useful for those familiar with SQL but not as comfortable with R’s native data manipulation functions like `dplyr` or `data.table`. 
+
+The basic syntax follows standard SQL conventions, with the query enclosed in double quotes within the `sqldf()` function.
+
+For example, if you wanted to retrieve all columns for the first 10 rows in the `lung` dataset where age > 60, you would use:
+`sqldf("select * from lung where age>60 limit 10")`
+
+```{r}
+sqldf("select * from lung where age>60 limit 10")
+```
+
+The package supports a variety of operations, making it a versatile tool for data analysis.
+
+- It allows for easy data filtering and selection, enabling users to extract specific rows and columns with simple queries. 
+- Aggregation and summarization functions, such as `COUNT`, `AVG`, `MIN`, and `MAX`, allow users to quickly compute statistics on datasets.
+- Sorting and ordering data is straightforward with the `ORDER BY` clause, and merging datasets is effortless using SQL joins, such as `INNER JOIN` and `LEFT JOIN`. 
+- Additionally, `sqldf` can be used for data cleaning and validation, helping identify duplicates, missing values, or inconsistencies within a dataset.
+
+Here is a basic example of using `sqldf` to create a basic summary table: 
+
+
+```{r}
+sqldf("select sex, 
+      count(*),  
+      count(case when (age<=60) then 1 end) as LTE60, 
+      count(case when (age>60) then 1 end) as GT60 
+      from lung group by sex order by sex")
+```
+
+
+## Exploring `ggplot2`
+
+`ggplot2` is a complete framework for developing complex graphs, with an extensive series of options and customizations available. Based on <a href="https://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387245448">The Grammar of Graphics by Leland Wilkinson</a>, it provides a structured approach to creating a wide variety of static, animated, and interactive visualizations with a consistent syntax. 
+
+One of its key features is the layered approach, where plots are built step by step by adding components like points, lines, bars, and annotations. The aesthetic mapping `(aes())` function allows users to define how data variables correspond to visual properties such as axis positions, colors, sizes, and shapes.
+
+Different types of plots are created using geometries `(geom_xxx)` including:
+
+- `geom_point()` for scatter plots
+- `geom_line()` for line charts
+- `geom_bar()` for bar plots
+- `geom_histogram()` for histograms
+
+To create a basic scatterplot using the `lung` data, we can run the following chunk by clicking on the green play button below:
+
+```{r}
+ggplot(lung, aes(x = age, y = time, color = factor(sex))) +
+  geom_point(size = 3, alpha = 0.7) +  # Points with transparency
+  labs(
+    title = "Survival Time vs. Age",
+    x = "Age (years)",
+    y = "Survival Time (days)",
+    color = "Sex"
+  ) +
+  scale_color_manual(values = c("blue", "red"), labels = c("Male", "Female")) +
+  theme_minimal()
+```
+
+- `ggplot(lung, aes(x = age, y = time, color = factor(sex)))` Defines the dataset and aesthetic mappings (age on the x-axis, survival time on the y-axis, and color based on sex).
+- `geom_point(size = 3, alpha = 0.7)` Creates a scatter plot with medium-sized points and slight transparency for better visibility.
+- `labs(...)` Customizes the title, axis labels, and legend title.
+- `scale_color_manual(...)` Manually assigns colors (blue for males and red for females) and renames legend labels.
+- `theme_minimal()` Uses a clean, minimalistic theme for a better visual appearance.
+
+## Introduction to Kaplan-Meier Curves
+
+KM Curves are also known as Survival Plots or Time To Event Analyses. 
+
+Kaplan-Meier curves are a statistical method used to estimate and visualize survival probabilities over time, commonly applied in medical research and clinical studies. These curves illustrate the **proportion of individuals who have not yet experienced a specific event**, such as death, disease recurrence, or recovery, at various time points. 
+
+The curve starts at 100%, representing all individuals in the study, and steps down each time an event occurs. 
+
+Unlike simple averages, Kaplan-Meier analysis accounts for **"censored"** data, which includes participants who are **lost to follow-up** or **do not experience the event before the study ends**. These individuals are still included in calculations up to the point they leave the study but do not contribute beyond that.
+
+Kaplan-Meier curves are particularly useful for comparing survival outcomes between different groups, such as patients receiving different treatments. 
+
+If one group's curve declines more steeply than another’s, it suggests a higher event rate and worse outcomes.
+
+A flatter curve indicates better survival or a lower risk of the event occurring. 
+
+The statistical significance of differences between curves is typically assessed using the **log-rank test**, which evaluates whether survival distributions differ meaningfully between groups. 
+
+Kaplan-Meier curves help guide clinical decisions and shape future research directions.
+
+## `survival` Introduction
+
+The `survival` R package is a widely used tool for analyzing time-to-event data, also known as survival data, which is commonly applied in fields like clinical research, epidemiology, and social sciences. Survival analysis focuses on estimating the time it takes for a specific event, such as death, disease recurrence, or recovery, to occur, and it handles censored data—cases where the event has not yet occurred by the study's end. 
+
+The package provides a range of statistical methods including:
+
+- The **Kaplan-Meier estimator** which is used to visualize survival functions and estimate the probability of an event occurring over time. 
+- The **Cox proportional hazards model**, a powerful method for examining the effect of multiple covariates (like age, treatment, or other risk factors) on the hazard or risk of an event happening. 
+- **Log-rank tests** to compare survival distributions between groups, helping researchers determine if there are significant differences in survival between different treatments or population groups. 
+- **Parametric survival models** such as exponential, Weibull, or log-normal can be applied when the assumptions of the Cox model do not hold, offering more flexibility in modeling time-to-event data. 
+
+Researchers can also visualize and compare survival curves for different groups, further aiding in understanding the impact of various factors on survival outcomes. 
+
+## `survival` Example
+
+First we will create a survival object using the `Surv()` function, which combines survival time `(lung$time)` and event status `(lung$status)`. Here, the event status is coded as 1 for an event (e.g., death) and 0 for censored data, meaning the event did not occur before the study ended.
+
+Click the play button to run this code:
+
+``` {r}
+# Create a survival object: Surv(time, status)
+#'time' is survival time
+#'status' is event (1 = death, 0 = censored)
+surv_obj <- Surv(lung$time, lung$status)
+```
+
+
+Now we can use the object to fit a Kaplan-Meier model using the `survfit()` function. The formula `surv_obj ~ 1` indicates that the model estimates an overall survival curve without considering any grouping variables.
+
+Click the play button to run this code:
+
+```{r}
+# Fit the Kaplan-Meier model
+km_fit <- survfit(surv_obj ~ 1) 
+# '~ 1' indicates no grouping variable, just the overall survival curve
+```
+
+
+Next we will make the Kaplan-Meier survival curve plot. 
+
+The `plot()` function generates a Kaplan-Meier survival curve, visually displaying how survival probability changes over time. The main argument sets the title of the plot, while `xlab` and `ylab` label the x-axis `Time (days)` and y-axis `Survival Probability`, respectively.
+
+Click the play button to create the plot:
+
+```{r}
+# Plot the Kaplan-Meier survival curve
+plot(km_fit, main="Kaplan-Meier Survival Curve", 
+     xlab="Time (days)", ylab="Survival Probability")
+```
+
+
+The Kaplan-Meier survival curve generated from this code provides a simple overview of survival probabilities over time for the entire dataset, without breaking it down by groups. 
+
+The x-axis represents time in days, while the y-axis shows the probability of survival. 
+
+The curve starts at 1 (100% survival) and gradually steps downward as events (e.g., deaths) occur. 
+
+Each drop in the curve corresponds to a time point where at least one event happened. The presence of censored data (patients lost to follow-up or still alive at the study's end) is typically indicated by small marks on the curve.
+
+While this plot gives a good initial look at overall survival trends, it lacks detail on differences between subgroups. For example, it doesn’t show whether survival differs based on factors like **gender**, **treatment**, or **disease severity**. To gain deeper insights, grouped survival curves and statistical comparisons (like the log-rank test) would be needed.
+
+### `survival` Example 2
+
+Suppose we want to compare survival between two groups (e.g., based on the variable `lung$sex`). We can add this to our model from before, which was `km_fit <- survfit(surv_obj ~ 1) `.
+
+Instead of generating a single survival curve for the entire dataset, the model now estimates separate survival curves for males and females. This allows for a direct visual and statistical comparison of survival outcomes between the two groups.
+ 
+Run the code chunk to fit the new model:
+
+``` {r}
+# Fit Kaplan-Meier models for each group
+km_fit_group <- survfit(surv_obj ~ lung$sex)
+```
+
+
+Now let's plot the data - note this time we use the output from this model. Here we add some colors to differentiate our groups and add a legend.
+
+```{r}
+# Plot the survival curves by gender
+plot(km_fit_group, col=c("blue", "red"), lty=c(1, 2),
+     main="Survival by Gender", 
+     xlab="Time (days)", 
+     ylab="Survival Probability")
+
+legend("topright", legend=c("Male", "Female"), col=c("blue", "red"), lty=c(1, 2))
+```
+
+In this version, the plot assigns blue to males and red to females, with line styles differentiated—a solid line for males and a dashed line for females. The x-axis represents time in days, while the y-axis shows the probability of survival over time. A legend is added to the top right corner to help distinguish between the two survival curves.
+
+
+Now we will perform a log-rank test to compare survival between males and females:
+
+```{r}
+log_rank_test <- survdiff(surv_obj ~ lung$sex)
+log_rank_test
+```
+
+
+To formally test whether survival differs between males and females, the `survdiff()` function performs a log-rank test, a statistical method used to compare survival distributions between groups.
+
+
+The output includes a chi-square statistic and a p-value, where a p-value below 0.05 would indicate a statistically significant difference in survival between the two genders. This approach provides more meaningful insights than the earlier single-curve model by highlighting potential disparities in survival outcomes between patient groups.
+
+
+## `survminer` Introduction
+
+As you may have noticed, the `survival` outputs are OK but not something you'd want to use in a presentation.  This is where the `survminer` package comes in - it's a powerful tool designed to help users visualize the results of survival analysis in a more informative and publication-ready format. It works seamlessly with the `survival` package.
+
+In addition to Kaplan-Meier curves, `survminer` allows for the visualization of survival curves for multiple groups and other additional visualization techniques, such as:
+
+- Survival curves by strata
+- Cox regression plots
+- Diagnostic plots for assessing the fit and assumptions of survival models
+
+These plots help users identify potential issues, such as proportional hazards violations, and gain deeper insights into the factors influencing survival outcomes.
+
+
+As it is dependent on the installation of `ggplot2`, it uses a lot of `gg` styled syntax, including one of the key functions `ggsurvplot()`, which creates Kaplan-Meier survival curves with extensive customization options. 
+
+
+## `survminer` Example
+Here is a sample KM Curve using the same data as the previous examples above: 
+
+```{r}
+fit <- survfit(Surv(time, status) ~ sex, data = lung)
+
+ggsurvplot(fit, data = lung, 
+           pval = TRUE, 
+           risk.table = TRUE, 
+           conf.int = TRUE, 
+           ggtheme = theme_minimal())
+```
+
+- `fit <- survfit(Surv(time, status) ~ sex, data = lung)`
+This line fits a Kaplan-Meier survival model using the `survfit()` function. It defines the time-to-event variable (time) and the event status (status) using the `Surv()` function, while sex is included as a grouping variable. This means the model will estimate and compare survival curves separately for males and females using data from the lung dataset.
+
+  - The `ggsurvplot()` function is used to create an enhanced survival plot. 
+  - The first argument, `fit`, is the Kaplan-Meier model object, and `data = lung` specifies the dataset. The `pval = TRUE` argument adds a p-value to the plot, indicating whether there is a significant difference in survival between the two groups.  A p-value less than 0.05 suggests that the differences in survival between these groups are statistically significant. 
+  - The `risk.table = TRUE` option includes a risk table below the plot, showing the number of individuals still at risk at different time points. 
+  - The `conf.int = TRUE` argument adds confidence intervals, which provide a shaded region around the survival curves to indicate uncertainty. 
+  - Finally, `ggtheme = theme_minimal()` applies a clean, minimalistic theme to improve the plot’s readability and aesthetics.
+
+The resulting Kaplan-Meier plot gives a clear visual representation of the survival probabilities over time for different groups. By examining the curves, you can quickly determine whether there is a notable difference in survival between males and females. If the curves diverge significantly, this may indicate that sex plays a role in the survival time of lung cancer patients. The confidence intervals help assess the precision of the survival estimates, while the risk table provides more detailed information on how many individuals are still at risk at each time point. 
+
+## KM Curve Interpretation
+
+It is not necessarily true that if two Kaplan-Meier (KM) curves cross, there is no statistical significance between the groups. The crossing of KM curves does not automatically imply the absence of significance. In fact, the interpretation of crossing curves is more nuanced and requires further analysis.
+
+If two KM curves cross, it suggests that at different time points, one group may have a higher survival probability than the other, but this relationship changes over time. This could be due to differences in how the groups behave at different stages of the study. The crossing of the curves indicates that the survival advantages or disadvantages between the groups are not consistent across time, which could reflect a change in the factors affecting survival as the study progresses.
+
+The log-rank test, which is often used to compare two or more survival curves, tests the overall difference in survival between groups. The test evaluates whether the curves are significantly different across the entire time period, even if they cross at certain points. A significant log-rank test (p < 0.05) means that there is a difference in survival between the groups, regardless of whether the curves cross. The test considers the entire survival distribution and is not affected by the crossing of the curves at specific time points.
+
+However, crossing curves can complicate interpretation, especially if the curves cross multiple times. In such cases, the proportional hazards assumption (which underpins the Cox proportional hazards model) may be violated. This assumption suggests that the hazard ratio between the groups is constant over time, but with crossing curves, the relationship between the groups may change at different intervals. This indicates that the survival patterns of the groups are not proportional over time, and more complex analysis might be needed to fully understand the relationship.
+
+Even when KM curves cross, it is still important to consider the clinical context and look at other statistical measures. For instance, median survival times, confidence intervals, and hazard ratios provide additional insights into the significance of the survival differences between groups. These metrics help provide a clearer understanding of the survival trends, even in the presence of crossing curves.
+
+In conclusion, while crossing KM curves can indicate that the survival patterns of two groups differ over time, it does not imply that there is no significance. A log-rank test or other statistical methods can still show whether there is a significant difference in survival between the groups across the entire study period, even in the presence of crossing curves. Therefore, the crossing of the curves should be interpreted in conjunction with statistical tests and clinical context.
+
+## Putting it all together
+So given the various ways that we've reviewed to create a KM Curve, now we can put together a **hypothetical workflow** to highlight the use cases for each of the packages we've discussing. 
+
+- We want to use an SQL query to filter the data for specific conditions, such as selecting patients with a certain age range, patients with diabetes, and patients from a specific area.
+- Now that we have our filtered data, we'll create a `Surv` object and fit a Cox regression model to estimate the effect of variables like sex and `ph.ecog` (performance score) on survival.  We will do this for each of the three data subsets we've created.
+- We will now use the `survminer` package to create Kaplan-Meier survival curves for male and female patients in the filtered datasets. This is useful for visualizing survival probabilities by gender.
+- Finally, we'll perform log-rank tests using `survdiff()` to compare survival between males and females.
+
+
+Hopefully this will give you a sense of how you can quickly pull together complex data and generate powerful, useful visualizations and analyses. 
+
+## Conclusion
+
+R is widely used across diverse fields, including medicine, social sciences, economics, and engineering, because it can handle a broad range of data types and offers specialized packages for various statistical analyses. R allows researchers to not only perform complex statistical tests but also visualize data effectively, making it a comprehensive choice for data analysis and presentation.  
+
+R is also highly reproducible, which is vital for transparency in research, enabling others to replicate analyses and confirm findings.
+
+A particularly important statistical method available in R is the Kaplan-Meier (KM) curve, which is invaluable in survival analysis. KM curves are crucial for visualizing and interpreting time-to-event data, especially in clinical research where understanding patient survival is key. By displaying the probability of survival over time for different groups, KM curves provide insight into how factors such as treatment, age, or sex may influence outcomes. They are widely used in clinical trials to compare the effectiveness of different treatments, and in epidemiological studies to understand the impact of various risk factors on survival. 
+
+The log-rank test, commonly used alongside KM curves, allows researchers to statistically determine whether differences in survival across groups are significant, providing a comprehensive approach to survival analysis.
+
+
+In conclusion, R is an indispensable tool for researchers due to its flexibility, statistical power, and ease of reproducibility. Kaplan-Meier curves exemplify the power of R in survival analysis, providing essential insights into time-to-event data. While R may seem intimidating initially, learning the basics unlocks a wealth of possibilities for data analysis and visualization, making it an invaluable skill for any researcher.
+
