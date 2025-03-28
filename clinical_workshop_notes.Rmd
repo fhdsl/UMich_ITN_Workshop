@@ -466,7 +466,6 @@ Through this workflow, we systematically apply SQL for data extraction, survival
 
 So given the various ways that we've reviewed to create a KM Curve, now we can put together a hypothetical workflow to highlight the use cases for each of the packages we've discussing. 
 
-- We want to use an SQL query to filter the data for specific conditions, such as selecting patients with a certain age range, patients with diabetes, and patients from a specific area.
 
 
 Hopefully this will give you a sense of how you can quickly pull together complex data and generate powerful, useful visualizations and analyses. 
