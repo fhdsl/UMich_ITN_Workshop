@@ -468,7 +468,6 @@ So given the various ways that we've reviewed to create a KM Curve, now we can p
 
 - We want to use an SQL query to filter the data for specific conditions, such as selecting patients with a certain age range, patients with diabetes, and patients from a specific area.
 - Now that we have our filtered data, we'll create a `Surv` object and fit a Cox regression model to estimate the effect of variables like sex and `ph.ecog` (performance score) on survival.  We will do this for each of the three data subsets we've created.
-- We will now use the `survminer` package to create Kaplan-Meier survival curves for male and female patients in the filtered datasets. This is useful for visualizing survival probabilities by gender.
 
 
 Hopefully this will give you a sense of how you can quickly pull together complex data and generate powerful, useful visualizations and analyses. 
