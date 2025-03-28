@@ -281,7 +281,7 @@ In addition to Kaplan-Meier curves, `survminer` allows for the visualization of 
 These plots help users identify potential issues, such as proportional hazards violations, and gain deeper insights into the factors influencing survival outcomes.
 
 
-As it is dependent on the installation of `ggplot2`, it uses a lot `gg` styled syntax, including one of the key functions `ggsurvplot()`, which creates Kaplan-Meier survival curves with extensive customization options. 
+As it is dependent on the installation of `ggplot2`, it uses a lot of `gg` styled syntax, including one of the key functions `ggsurvplot()`, which creates Kaplan-Meier survival curves with extensive customization options. 
 
 
 ## `survminer` Example
