@@ -77,6 +77,9 @@ Most people are familiar with RStudio for the purposes of having a nice user int
 The final piece of the R "puzzle" I wanted to cover was a bundle of packages and a framework called the tidyverse.  
 
 
+The final piece of the R "puzzle" I wanted to cover was a bundle of packages and a framework called the tidyverse.  
+
+
 - `tidyverse` - The `tidyverse` suite of packages created by Hadley Wickham (among many countless contributors), and the [tidyverse philosophy](https://www.tidyverse.org/) centers around a consistent, human-readable approach to data science, emphasizing tidy data principles where each variable is a column, each observation is a row, and each value is a cell. It promotes a functional programming style with clear, pipeable workflows, making data manipulation, visualization, and analysis more intuitive and efficient.  Check out [the original `tidyverse` paper](https://joss.theoj.org/papers/10.21105/joss.01686).
 
 For the purposes of this tutorial, we're going to be using the following:
