@@ -7,6 +7,8 @@ output:
       toc_collapsed: true
     toc_depth: 3
     number_sections: false
+params:
+  token
 css: style.css
 editor_options:
   markdown:
@@ -51,7 +53,7 @@ After making sure `devtools` is installed, proceed to install `spatialGE`:
 devtools::install_github("fridleylab/spatialGE", token = Sys.getenv('GH_PAT'))
 ```
 
-```{r install_spatialGEshow, eval=FALSE}
+```{r install_spatialGE, eval=FALSE}
 devtools::install_github("fridleylab/spatialGE")
 ```
 
