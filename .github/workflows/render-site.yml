@@ -61,7 +61,9 @@ jobs:
         id: site
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
-        run: Rscript -e "rmarkdown::render_site()"
+        run: |
+          Rscript -e "devtools::install_github('fridleylab/spatialGE', token = Sys.getenv('GH_PAT'))"
+          Rscript -e "rmarkdown::render_site()"
 
       # This checks on the steps before it and makes sure that they completed.
       # If the renders didn't complete we don't want to commit the file changes
