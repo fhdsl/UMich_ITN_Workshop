@@ -92,7 +92,6 @@ But to create a pull request, we first need to create a branch to work from that
 <input type="checkbox"> Click the button that says `Commit to ...` it will have your branch name which should be `readme-edit`.  
 <input type="checkbox"> Click the `Publish branch` button. This will "push" your changes to online Github.com  
 
-
 ### Making the pull request
 
 <input type="checkbox"> Follow GitHub Desktop's prompt to `Create a Pull Request` and click the blue button. If the blue button says `Preview Pull Request` then click the downward facing arrow to see the option to `Create a Pull Request`.   

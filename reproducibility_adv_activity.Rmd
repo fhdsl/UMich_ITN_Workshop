@@ -146,11 +146,18 @@ Keep in mind you can install packages from here but they will not be saved to th
 <input type="checkbox"> On the left side of the screen click on the `Render R Example` action.   
 <input type="checkbox"> Click on the `Run workflow` dropdown menu and pick the green `Run workflow` button. You should see a light blue banner on the top that says "Worfklow run was successfully requested".   
 
-## Step 2: Take a look at your GitHub Action run!
+## Step 2: Take a look at the workflow file
+
+<input type="checkbox"> In your repository go to `.github/workflows/run-r-notebook.yml`.  
+<input type="checkbox"> Take a look at this workflow file and try to answer these questions:
+
+1. When will this workflow be run?
+2. What will this workflow do when it is run?
+3. What is this being run on -- what is the computing environment being used here?  
+
+## Step 3: Take a look at your GitHub Action run!
 
 <input type="checkbox"> You may need to refresh this page you are on.   
 <input type="checkbox"> Click on the Workflow run in the center of the page that also says `Render R example`  
 <input type="checkbox"> Click on the small box that says `render-notebooks`
 <input type="checkbox"> Click on the dropdown arrow where it says `Run R analysis example`
-
-**What is this being run on if you were to guess based on these logs?**    
