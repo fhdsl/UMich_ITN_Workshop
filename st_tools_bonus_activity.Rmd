@@ -51,7 +51,7 @@ After making sure `devtools` is installed, proceed to install `spatialGE`:
 devtools::install_github("fridleylab/spatialGE", token = Sys.getenv('GH_PAT'))
 ```
 
-```{r install_spatialGE, eval=FALSE}
+```{r install_spatialGEshow, eval=FALSE}
 devtools::install_github("fridleylab/spatialGE")
 ```
 
