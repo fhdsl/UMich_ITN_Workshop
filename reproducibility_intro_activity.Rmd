@@ -99,7 +99,6 @@ But to create a pull request, we first need to create a branch to work from that
 <input type="checkbox"> It should open up a page on GitHub.com Fill out the `Add a title` and the `Add a description` boxes to appropriately describe the work you did on the branch we are making the pull request from.  
 <input type="checkbox"> Click `Create pull request`.  
 
-
 ## Activity 2: Navigating PR components
 
 ### 2a: Leaving comments and suggestions

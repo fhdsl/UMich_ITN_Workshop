@@ -1,5 +1,5 @@
 ---
-title: "**Containers Activity**"
+title: "**Advanced Reproducibility**"
 output:
   html_document:
     toc: true
@@ -12,14 +12,36 @@ editor_options:
   markdown:
     wrap: 72
 ---
-# Activity 0: Getting started with Docker
 
-Go here to [install Docker](https://www.docker.com/get-started), following the instructions for your particular operating system.
 
-If you don't have a Docker account create an account when prompted, or [go here](https://hub.docker.com/).
+# Activity 0: Set Up
+
+### Installing Docker
+
+<input type="checkbox"> Go here to [install Docker](https://www.docker.com/get-started), following the instructions for your particular operating system.
+<input type="checkbox"> If you don't have a Docker account create an account when prompted, or [go here](https://hub.docker.com/).
 After you install Docker, start up Docker desktop by double clicking on the app. It may take some time to start up.
 
-## Activity 1: Pull and run a Docker image
+### Set up sandbox repository for this workshop
+
+**NOTE: If you completed these steps for the previous workshop you don't need to do them again!**
+
+#### Create your own copy of this repository
+
+<input type="checkbox"> Go to the template repository for this workshop: https://github.com/fhdsl/reproducibility-sandbox  
+<input type="checkbox"> Click the green `Use this template` button and then `Create a new repository`. If you don't see this button, you may need to expand your window.  
+<input type="checkbox"> On the next screen, create a `Repository name`.   
+<input type="checkbox"> Choose `Public`.  
+<input type="checkbox"> Scroll to the bottom and click `Create repository`.  
+
+#### Cloning our repository
+
+<input type="checkbox"> Open up GitHub Desktop on your computer.  
+<input type="checkbox"> Go to `File` > `Clone Repository`.  
+<input type="checkbox"> Search for your ITN workshop repository name in the tab that says `Github.com`. Click on the name of this repository in this list. You can choose where you'd like it to download on your computer underneath `Local Path`.  
+<input type="checkbox"> Click the blue `Clone` button.  
+
+# Activity 1: Getting familiar with Docker/Podman
 
 ### Step 1: Docker pull
 
@@ -28,19 +50,19 @@ After you install Docker, start up Docker desktop by double clicking on the app.
 Run this command in your Terminal or Command Prompt window:
 
 ```
-docker pull cansav09/practice-image:1
+docker pull jhudsl/reproducible-r
 ```
 
 ### Step 2: Check what images you have
 
-<input type="checkbox"> To see what images we have we can run `docker image ls` and we should see `cansav09/practice-image:1` show up now.
+<input type="checkbox"> To see what images we have we can run `docker image ls` and we should see `jhudsl/reproducible-r` show up now.
 
 ### Step 3: Run the docker image to start a container!
 
 <input type="checkbox"> Now if want to launch the image for use, we can use `docker run` to turn it into a **container**
 
 ```
-docker run cansav09/practice-image:1
+docker run jhudsl/reproducible-r
 ```
 
 <input type="checkbox"> To see what containers we have running we have we can run:
@@ -73,11 +95,9 @@ This won't work because the file `run_analysis.sh` is not a file that our contai
 bash: run_analysis.sh: No such file or directory
 ```
 
-## Activity 1b: Add a volume to the image
+### Step 6: Let’s add our reproducibility-sandbox files as a volume
 
 Our container is separate from our computer so if we want to use a file we have to attach it using a "volume".
-
-### Step 1: Let’s add our containers-for-scientists-sandbox files
 
 Point it so the volume has the workshop files
 
@@ -86,22 +106,51 @@ If we want to run `run_analysis.sh` there's two ways we could get our files on t
 - We could download the files we need from online! We could `git clone` files from a repository or otherwise `wget` or `curl` files.
 - We could add a `volume` of files that are local to our computer. For this we will use the You'll `-v` or volume option.
 
-### Step 2: Let’s add our containers-for-scientists-sandbox files
+### Step 7: Let’s add our reproducibility-sandbox files
 
 We can specify a particular file path on our computer or give it `$PWD` Then optionally we can give a `:` and a file path we'd like this to be stored on on the container. Otherwise it will be stored at the absolute top of the container.
 
+We are also going to add a port specification as well `-p 8787:8787` This will allow us to use RStudio on our container.
+
 <input type="checkbox"> Now we can run:
 ```
-docker run -v $PWD:/home cansav09/practice-image:1
+docker run -v $PWD:/home -p 8787:8787 jhudsl/reproducible-r
 ```
 
-### Step 3: Retry calling the script
+### Step 8: Retry calling the script
 
 <input type="checkbox"> Now we can run:
 ```
 docker exec -it <REPLACE_WITH_CONTAINER_ID> bash /home/run_analysis.sh
 ```
+And this should work!
 
-Now we have a new error! What does this mean?
+### Step 9: Using RStudio from a container
 
-**Question: Does our container have all of the same software that our computer has?**
+<input type="checkbox"> Click on the link that says 8787:8787 at the top of your docker desktop OR go to your internet browser and type in `localhost:8787`.  
+<input type="checkbox"> Now type in "rstudio" for your username and then find the password that was set in your docker logs and copy and past that for your password.   
+<input type="checkbox"> Click submit.
+
+Now you can develop code from a container that is shareable!
+
+::: {.notice}
+Keep in mind you can install packages from here but they will not be saved to the original image after you stop the container. To add software to your image you will need to modify your image which [you can find instructions on how to do this in our full course](https://hutchdatascience.org/Containers_for_Scientists/05-modifying-containers.html).
+:::
+
+# Activity 2: Getting familiar with GitHub Actions
+
+## Step 1: Manually initiate a GitHub Action workflow
+
+<input type="checkbox"> Go to your `reproducibility-sandbox` repository online on GitHub  
+<input type="checkbox"> Click on the `Actions` tab.  
+<input type="checkbox"> On the left side of the screen click on the `Render R Example` action.   
+<input type="checkbox"> Click on the `Run workflow` dropdown menu and pick the green `Run workflow` button. You should see a light blue banner on the top that says "Worfklow run was successfully requested".   
+
+## Step 2: Take a look at your GitHub Action run!
+
+<input type="checkbox"> You may need to refresh this page you are on.   
+<input type="checkbox"> Click on the Workflow run in the center of the page that also says `Render R example`  
+<input type="checkbox"> Click on the small box that says `render-notebooks`
+<input type="checkbox"> Click on the dropdown arrow where it says `Run R analysis example`
+
+**What is this being run on if you were to guess based on these logs?**    
