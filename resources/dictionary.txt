@@ -20,7 +20,9 @@ checkmark
 cheatsheet
 Chowell
 Cilas
+cls
 Cmd
+ComparativeMarkerSelection
 css
 csv
 CROST
@@ -30,9 +32,11 @@ customization
 customizations
 cwrigh
 dev
+DifferentialExpressionViewer
 Dockerfile
 Dockerhub
 DimPlot
+downregulated
 dropdown
 EBI
 Embeddings
@@ -41,6 +45,7 @@ ExhauCRF
 Fclient
 FeaturePlot
 fhdsl
+filetype
 findable
 FindClusters
 FindNeighbours
@@ -54,6 +59,7 @@ favicon
 Ferman
 galaxyproject
 Gapdh
+GCT
 GenePattern
 ggthemes
 GH
@@ -64,6 +70,7 @@ glyphicons
 GSEA
 GSM
 Hadley
+histologic
 HTTPS
 https
 IGKC
@@ -94,9 +101,11 @@ Murphey
 mxfda
 nb
 nCount
+NCRC
 nFeature
 nn
 Normalised
+ODF
 omics
 Ospina
 OTTR
@@ -183,6 +192,7 @@ tsv
 UIs
 UMich
 UMAP
+upregulated
 UseGalaxy
 usegalaxy
 VectraPolarisData
@@ -191,6 +201,7 @@ visium
 walkthrough
 Wickham
 Wifi
+wifi
 wikipedia
 Wrobel
 www
