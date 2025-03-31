@@ -131,7 +131,7 @@ slice. These names must match partially the file paths passed to `rnacounts` and
 `spotcoords`.
 
 ```{r}
-lc_stlist = STlist(rnacounts=counts_fp, spotcoords=coordinates_fp,
+lc_stlist = spatialGE::STlist(rnacounts=counts_fp, spotcoords=coordinates_fp,
                    samples=c('Lung5_Rep1', 'Lung6'))
 ```
 
