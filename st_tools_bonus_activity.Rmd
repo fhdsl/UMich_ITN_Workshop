@@ -99,7 +99,7 @@ slices. The files within each sub-folder are:
 
 Then load the spatialGE package:
 
-```{r}
+```{r eval=FALSE}
 library('spatialGE')
 ```
 
