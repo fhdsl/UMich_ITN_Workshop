@@ -47,7 +47,7 @@ if("devtools" %in% rownames(installed.packages()) == FALSE){
 
 After making sure `devtools` is installed, proceed to install `spatialGE`:
 
-```{r install_spatialGE, eval=T}
+```{r install_spatialGE, eval=F}
 devtools::install_github("fridleylab/spatialGE")
 ```
 
