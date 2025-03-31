@@ -128,7 +128,7 @@ jobs:
       - name: Run render html
         id: site
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GH_PAT }}
         run: Rscript -e "rmarkdown::render_site()"
 
       # This checks on the steps before it and makes sure that they completed.
