@@ -1,5 +1,5 @@
 ---
-title: Bonus activity: Using the command-line for single-cell Spatial Transcriptomics analysis
+title: "Bonus activity: Using the command-line for single-cell Spatial Transcriptomics analysis"
 output:
   html_document:
     toc: true
