@@ -1,5 +1,5 @@
 ---
-title: Getting started with Spatial Transcriptomics
+title: "Getting started with Spatial Transcriptomics"
 output:
   html_document:
     toc: true
