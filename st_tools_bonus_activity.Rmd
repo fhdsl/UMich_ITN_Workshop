@@ -8,7 +8,8 @@ output:
     toc_depth: 3
     number_sections: false
 params:
-  token
+  token:
+    Sys.getenv("GH_PAT")
 css: style.css
 editor_options:
   markdown:
@@ -50,7 +51,7 @@ if("devtools" %in% rownames(installed.packages()) == FALSE){
 After making sure `devtools` is installed, proceed to install `spatialGE`:
 
 ```{r install_spatialGE_secretly, eval=TRUE, echo = FALSE}
-devtools::install_github("fridleylab/spatialGE", token = params$token)
+devtools::install_github("FridleyLab/spatialGE", token = params$token)
 ```
 
 ```{r install_spatialGE, eval=FALSE}
