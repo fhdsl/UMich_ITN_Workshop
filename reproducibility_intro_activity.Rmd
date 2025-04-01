@@ -23,17 +23,22 @@ knitr::opts_chunk$set(number_sections = FALSE)
 
 ### Getting familiar with the repository
 
-This repository is a "mock" analysis. It has an example folder and file organizational structure that looks like this:
+This repository is a "mock" analysis. It has an example folder and file organizational structure that looks something like this:
 
+- .github/workflows
+- data/
+- docker/
+- plots/
+- renv/
+- results/
 - 00-download-data.py
 - 01-heatmap.Rmd
 - 01-heatmap.nb.html
 - **README.md**
 - renv.lock
 - run_analysis.sh
-- results/
-- plots/
-- docker/
+
+
 
 When you look at the README for this repository however, you will notice it is blank.
 
