@@ -125,15 +125,16 @@ Note that you or a collaborator can now readily incorporate your suggestion by c
 <input type="checkbox"> Click `Commit suggestion` and then `Commit changes`.  
 <input type="checkbox"> Return to the `Conversation` tab and scroll to the bottom. You should see an additional commit and your comment now!
 
+
 ### 2b: Reading GitHub Actions logs
 
-On the bottom of your PR you will notice a box at the bottom that will probably either say `Some checks haven't completed yet` or `All checks passed`.  
+On the bottom of your Pull Request (PR) you will notice a box at the bottom that will probably either say `Some checks haven't completed yet` or `All checks passed`.  
 
 This is an automatic check run by GitHub Actions which is one of many systems used for Continuous Integration/Continuous Deployment.
 
-<input type="checkbox"> If needed, click `Show all checks`.  
-<input type="checkbox"> Click `Details` at the end of the line that says `Render R Example / render-notebooks (pull_request)`.  
-<input type="checkbox"> Click around in here to investigate what GitHub Actions logs look like.
+<input type="checkbox">  If needed, click `Show all checks`.  
+<input type="checkbox"> Click the 3 dots at the end of the line that says `Render R Example / render-notebooks (pull_request)`. Click `View Details` 
+<input type="checkbox"> Click around to investigate what GitHub Actions logs look like.
 
 For more learning about using [GitHub Actions for science see our course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/).
 
