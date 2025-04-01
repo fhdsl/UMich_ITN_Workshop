@@ -81,6 +81,7 @@ In GitHub Desktop:
 
 <input type="checkbox"> Click the `Current Branch` box > `New branch`.  
 <input type="checkbox"> Call this new branch `readme-edit`.  
+<input type="checkbox"> Click the blue button that says `Create Branch`. 
 
 ### Create an AI generated README
 
