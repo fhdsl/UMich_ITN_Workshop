@@ -148,12 +148,14 @@ For more learning about using [GitHub Actions for science see our course](https:
 
 ### 2d: Merging your PR
 
-In a real life setting the life of a Pull request could be long or short. What's important is that the discussions that need to be had about the changes are had before the pull request is merged.
+In a real life setting the life of a pull request could be long or short. What's important is that the discussions that need to be had about the changes are had before the pull request is merged.
 
 Pull requests and GitHub have their own kind of etiquette. Make sure you talk to your team or collaborators to create and discuss what kind of guidelines and workflows you'd like to adhere to so everyone can do their best work!
 
 <input type="checkbox"> Return to GitHub Pull Request Online.  
-<input type="checkbox"> Click the `Merge` button. Follow up with the `Confirm merge` button.  
+<input type="checkbox"> Click the `Merge` button. 
+<input type="checkbox"> Follow up with the `Confirm merge` button.  
+<input type="checkbox"> You can also click the `Delete branch` button - our changes are already in main and we have a copy of what we did.
 
 Yay! Congrats.
 
