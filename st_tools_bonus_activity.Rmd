@@ -7,9 +7,6 @@ output:
       toc_collapsed: true
     toc_depth: 3
     number_sections: false
-params:
-  token:
-    Sys.getenv("GH_PAT")
 css: style.css
 editor_options:
   markdown:

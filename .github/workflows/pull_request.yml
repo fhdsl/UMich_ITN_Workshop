@@ -71,7 +71,7 @@ jobs:
       error_min: 0
     secrets:
       gh_pat: ${{ secrets.GH_PAT }}
-      
+
 ############################# Readability Report ###################################
 
   readability-report:
@@ -91,7 +91,7 @@ jobs:
         with:
           github-token: ${{ secrets.GH_PAT }}
           glob: '**/*.md'
-          
+
 ###################### Render preview of website ##################
   render-preview:
     name: Render preview
@@ -127,8 +127,6 @@ jobs:
        # Now we want to render all the html files from the Rmd files
       - name: Run render html
         id: site
-        env:
-          token: ${{ secrets.GH_PAT }}
         run: Rscript -e "rmarkdown::render_site()"
 
       # This checks on the steps before it and makes sure that they completed.
