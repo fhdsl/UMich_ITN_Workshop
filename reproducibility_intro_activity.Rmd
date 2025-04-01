@@ -133,7 +133,8 @@ On the bottom of your Pull Request (PR) you will notice a box at the bottom that
 This is an automatic check run by GitHub Actions which is one of many systems used for Continuous Integration/Continuous Deployment.
 
 <input type="checkbox">  If needed, click `Show all checks`.  
-<input type="checkbox"> Click the 3 dots at the end of the line that says `Render R Example / render-notebooks (pull_request)`. Click `View Details` 
+<input type="checkbox"> If no failing checkes, Click the 3 dots at the end of the line that says `Render R Example / render-notebooks (pull_request)`. Click `View Details` 
+<input type="checkbox"> If failing checks, Click  `Details` at the end of the line that says `Render R Example / render-notebooks (pull_request)`
 <input type="checkbox"> Click around to investigate what GitHub Actions logs look like.
 
 For more learning about using [GitHub Actions for science see our course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/).
