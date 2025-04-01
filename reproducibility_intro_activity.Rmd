@@ -131,7 +131,7 @@ If you followed the steps in the `Leaving comments and suggestions` section of t
 
 <input type="checkbox"> Return to GitHub Desktop.  
 <input type="checkbox"> Click the `Fetch origin` button.  
-<input type="checkbox"> You should be prompted to `Pull origin` click this button.  
+<input type="checkbox"> You should be prompted to `Pull origin` click this button.  <input type="checkbox"> Click the History tab to see your changes over time. Note the most recent are at the top.
 <input type="checkbox"> Now your changes should be synced. Open up the file you've changed with any default text editor to look for the change you made to make sure.  
 ### 2c: Reading GitHub Actions logs
 
