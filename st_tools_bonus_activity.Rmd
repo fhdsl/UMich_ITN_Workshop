@@ -42,17 +42,13 @@ The `spatialGE` repository is available at GitHub and can be installed via `devt
 To install `devtools` (in case it is not already installed in your R), please run
 the following code:
 
-```{r install_devtools}
+```{r install_devtools, eval=FALSE}
 if("devtools" %in% rownames(installed.packages()) == FALSE){
   install.packages("devtools")
 }
 ```
 
 After making sure `devtools` is installed, proceed to install `spatialGE`:
-
-```{r install_spatialGE_secretly, eval=TRUE, echo = FALSE}
-devtools::install_github("FridleyLab/spatialGE", token = params$token)
-```
 
 ```{r install_spatialGE, eval=FALSE}
 devtools::install_github("fridleylab/spatialGE")
@@ -113,15 +109,6 @@ library('spatialGE')
 Now, specify the directory paths to the folders containing the data, assuming the
 files are in the computer's desktop:
 
-```{r echo=FALSE}
-library(here)
-counts_fp = c(here("activity_files/bonus_spatial_transcriptomics_activity_files/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_exprMat_file_SUBSET.csv"),
-              here("activity_files/bonus_spatial_transcriptomics_activity_files/Lung6-Flat_files_and_images/Lung6_exprMat_file_SUBSET.csv"))
-
-coordinates_fp = c(here("activity_files/bonus_spatial_transcriptomics_activity_files/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_metadata_file_SUBSET.csv"),
-                   here("activity_files/bonus_spatial_transcriptomics_activity_files/Lung6-Flat_files_and_images/Lung6_metadata_file_SUBSET.csv"))
-```
-
 ```{r eval=FALSE}
 counts_fp = c('~/Desktop/nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_exprMat_file_SUBSET.csv',
               '~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/Lung6_exprMat_file_SUBSET.csv')
@@ -137,7 +124,7 @@ data and results.
 slice. These names must match partially the file paths passed to `rnacounts` and
 `spotcoords`.
 
-```{r}
+```{r eval=FALSE}
 lc_stlist = spatialGE::STlist(rnacounts=counts_fp, spotcoords=coordinates_fp,
                    samples=c('Lung5_Rep1', 'Lung6'))
 ```
@@ -197,13 +184,13 @@ email instead of waiting on the page.
 Once a STlist object has been created, one can obtain count statistics using the
 `summarize_STlist` function:
 
-```{r count_stats}
+```{r count_stats, eval=FALSE}
 summarize_STlist(lc_stlist)
 ```
 
 Some cells have zero counts. We can look at the distribution of counts per cell for the first five and last five FOVs using the `distribution_plots` function:
 
-```{r count_dstr}
+```{r count_dstr, eval=FALSE}
 cp <- distribution_plots(lc_stlist, plot_type='violin', plot_meta='total_counts')
 cp[['total_counts']]
 ```
@@ -214,7 +201,7 @@ this case, as CosMx-SMI panels include negative probe genes. While the negative
 probes can be used in normalization of counts, in this tutorial those genes will
 be removed. Negative probes in CosMx-SMI begin with the token "NegPrb":
 
-```{r filter_chunk}
+```{r filter_chunk, eval=FALSE}
 lc_stlist <- filter_data(lc_stlist, spot_minreads=20, rm_genes_expr='^NegPrb')
 ```
 
@@ -227,7 +214,7 @@ variance-stabilizing transformation (SCT; @hafemeister_2019), which is a method
 increasingly used in single-cell and spatial transcriptomics studies. To apply SCT
 transformation, use the following command:
 
-```{r norm_chunk, message=F}
+```{r norm_chunk, message=F, eval=FALSE}
 lc_stlist <- transform_data(lc_stlist, method='sct')
 ```
 
@@ -266,7 +253,7 @@ expression cells, then the null hypothesis of no spatial aggregation is rejected
 The first step to run `STenrich` is to obtain a list of gene sets. Here, the `msigdbr`
 package will be used to obtain HALLMARK gene sets:
 
-```{r genesets, message=F}
+```{r genesets, message=F, eval=FALSE}
 # Load msigdbr
 library('msigdbr')
 
@@ -283,7 +270,7 @@ gene_sets <- split(x=gene_sets[['gene_symbol']], f=gene_sets[['gs_name']])
 ```
 
 For the purpose of this example, we will only test "signaling" pathways:
-```{r genesets_sub, message=F}
+```{r genesets_sub, message=F, eval=FALSE}
 gene_sets = gene_sets[grep('SIGNALING', names(gene_sets))]
 ```
 
@@ -300,7 +287,7 @@ less than five genes in the sample (`min_genes=5`) and gene sets with less than 
 highly expressed cells (`min_units=10`) will not be tested. Notice a seed was set
 (`seed=12345`), which critical for replication of the results in the future.
 
-```{r stenrich}
+```{r stenrich, eval=FALSE}
 stenrich_df <- STenrich(lc_stlist, gene_sets=gene_sets,
                         reps=1000,
                         num_sds=1.5,
@@ -313,7 +300,7 @@ The result of the function is a list of data frames, with one data frame per
 samples (FOV in this case). For example, this is the data frame for the first
 FOV in the STlist:
 
-```{r stenrich_df}
+```{r stenrich_df, eval=FALSE}
 head(stenrich_df[['Lung5_Rep1_fov_1']])
 ```
 
@@ -327,7 +314,7 @@ decide if a gene set shows significant indications of a spatial pattern (adj_p_v
 With a few lines of code, a visual summary can be generated that presents the gene
 sets with adj_p_value < 0.05 across FOVs for each tissue slide:
 
-```{r message=F}
+```{r message=F, eval=FALSE}
 # Load tidyverse for data frame manipulation
 library('tidyverse')
 
@@ -356,7 +343,7 @@ expression (not GSEA score) for this pathway can be plotted. First, FOVs with an
 without NOTCH  signaling spatial patterns will be identified from "Lung5_Rep1" and
 "Lung6" respectively.
 
-```{r notch_sig1}
+```{r notch_sig1, eval=FALSE}
 bind_rows(stenrich_df) %>%
   mutate(prop_gene_set=size_test/size_gene_set) %>%
   filter(prop_gene_set >= 0.3 & adj_p_value >= 0.05) %>%
@@ -366,7 +353,7 @@ bind_rows(stenrich_df) %>%
   slice_head(n=3)
 ```
 
-```{r notch_sig2}
+```{r notch_sig2, eval=FALSE}
 bind_rows(stenrich_df) %>%
   mutate(prop_gene_set=size_test/size_gene_set) %>%
   filter(prop_gene_set >= 0.3 & adj_p_value < 0.05) %>%
@@ -378,7 +365,7 @@ bind_rows(stenrich_df) %>%
 
 Plots can be generated like so:
 
-```{r notch_plots, fig.width=10}
+```{r notch_plots, fig.width=10, eval=FALSE}
 qp <- STplot(lc_stlist, genes=gene_sets[names(gene_sets) == 'HALLMARK_NOTCH_SIGNALING'],
              color_pal='YlOrBr')
 
@@ -394,7 +381,7 @@ Since this expression of this pathway has been identified as spatially aggregate
 it might be of interest to know if there is correspondence of NOTCH signaling with
 tissue domains. With the `STclust` function, tissue domains can be identified.
 
-```{r stclust_smi}
+```{r stclust_smi, eval=FALSE}
 lung <- STclust(lung, ws=0.02, ks='dtc')
 ```
 
@@ -426,11 +413,6 @@ img_fp = '~/Desktop/nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/CellCompos
 lc_stlist <- load_images(lc_stlist, images=img_fp)
 ```
 
-```{r loadimages1Run, echo=FALSE}
-img_fp = here("activity_files/bonus_spatial_transcriptomics_activity_files/Lung5_Rep1-Flat_files_and_images/CellComposite")
-lc_stlist <- load_images(lc_stlist, images=img_fp)
-```
-
 The images for slide "Lung6" were not found, which are in the corresponsing folder. The `load_images` function is ran again to add images from "Lung6":
 
 ```{r loadimages2, eval = FALSE}
@@ -438,14 +420,9 @@ img_fp = '~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/CellComposite'
 lc_stlist <- load_images(lc_stlist, images=img_fp)
 ```
 
-```{r loadimages2Run, echo=FALSE}
-img_fp = here("activity_files/bonus_spatial_transcriptomics_activity_files/Lung6-Flat_files_and_images/CellComposite")
-lc_stlist <- load_images(lc_stlist, images=img_fp)
-```
-
 The domains can be plotted with the `STplot` function too.
 
-```{r plot_domains, fig.width=12}
+```{r plot_domains, fig.width=12, eval=FALSE}
 dom_p <- STplot(lung, ks='dtc', ws=0.02, deepSplit=FALSE,
                 color_pal='discreterainbow')
 
@@ -469,13 +446,13 @@ ggpubr::ggarrange(dom_p$Lung5_Rep1_fov_2_stclust_spw0.02_dsplFalse,
 
 Now, to identify the domains, differential gene expression can be performed:
 
-```{r domain_de}
+```{r domain_de, eval=FALSE}
 deg <- STdiff(lc_stlist, w=0.02, k='dtc', deepSplit=FALSE, test_type='wilcoxon')
 ```
 
 Then, the top 3 DE genes per cluster in the samples showing NOTCH signaling spatial patterns are identified:
 
-```{r top_de}
+```{r top_de, eval=FALSE}
 bind_rows(deg) %>%
   filter(adj_p_val < 0.05 & abs(avg_log2fc > 0.05)) %>%
   filter(sample %in% c('Lung6_fov_4', 'Lung6_fov_6', 'Lung6_fov_7')) %>%
@@ -528,7 +505,7 @@ The `STgradient` function can be executed with these commands, in order to test
 for gradients within the tumor compartment. First, it is necessary to find the name of
 the column in `lung_subset@spatial_meta` containing the domain assigments:
 
-```{r columnnames}
+```{r columnnames, eval=FALSE}
 colnames(lung@spatial_meta[['Lung5_Rep1_fov_2']])
 ```
 
@@ -536,7 +513,7 @@ The name of the column is `stclust_spw0.02_dsplFalse` (STclust results using spa
 weight of 0.02 and DynamicTreeCuts with no deepSplit). This name is used in the
 `annot` argument of `STgradient`:
 
-```{r stgradient_run}
+```{r stgradient_run, eval=FALSE}
 stg <- STgradient(lc_stlist,
                   topgenes=1000,
                   annot='stclust_spw0.02_dsplFalse',
@@ -548,15 +525,15 @@ stg <- STgradient(lc_stlist,
 
 Here are the first few rows of the `STgradient` result for sample "Lung6_fov_4":
 
-```{r stg_res}
+```{r stg_res, eval=FALSE}
 head(stg[['Lung6_fov_4']])
 ```
 
-The key columns to look ar are `min_spearman_r` and `min_spearman_r_pval_adj`.
+The key columns to look at are `min_spearman_r` and `min_spearman_r_pval_adj`.
 Now, to find genes with significant spatial gradients across the three samples,
 these commands can be used:
 
-```{r topstg}
+```{r topstg, eval=FALSE}
 bind_rows(stg) %>%
   arrange(desc(abs(min_spearman_r))) %>%
   group_by(sample_name) %>%
@@ -570,14 +547,14 @@ all of them with negative Spearman's coefficients (cells close to domain 3 tend 
 have higher keratin expression). Other such __HLA-B__ and __NDRG1__ have higher
 expression in cells far from domain 3:
 
-```{r stg_plots}
+```{r stg_plots, eval=FALSE}
 qp2 <- STplot(lung, genes=c('KRT6A', 'HLA-B'), samples='Lung6_fov_4', color_pal='YlOrBr')
 ggpubr::ggarrange(plotlist=qp2, common.legend=TRUE)
 ```
 
 Here are the results for genes within the NOTCH signaling pathway:
 
-```{r stg_notch}
+```{r stg_notch, eval=FALSE}
 bind_rows(stg) %>%
   arrange(desc(abs(min_spearman_r))) %>%
   filter(gene %in% gene_sets[['HALLMARK_NOTCH_SIGNALING']]) %>%
