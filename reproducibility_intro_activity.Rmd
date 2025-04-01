@@ -114,14 +114,16 @@ In GitHub Desktop:
 
 <input type="checkbox"> Return to your pull request on GitHub in your browser from Activity 1.   
 <input type="checkbox"> Click on the `Files Changed` tab (lower set of tabs).   
-<input type="checkbox"> Click one of the plus signs to the left of one of your changes to leave a comment.   
-<input type="checkbox"> Do this again, but this time click the little symbol that has a plus and minus in a page to leave a suggestion - make a change to the text in the suggestion.  
-<input type="checkbox"> Click `Add a single comment`.  
+<input type="checkbox"> Click one of the plus signs to the left of one of your changes to leave a comment. Type something and then click `Add single comment`. Nice, you added a comment!
+<input type="checkbox"> Click another plus sign to the left of a change.
+<input type="checkbox"> This time, click the little symbol that has a plus and minus in a page (next to the preview tab). This will start a suggestion, where you can make suggested changes to documents. 
+<input type="checkbox"> Make a change to the text in the suggestion.  
+<input type="checkbox"> Click `Add a single comment`. Great, You added a suggestion!
 
 Note that you or a collaborator can now readily incorporate your suggestion by clicking `Commit suggestion` or they could comment back to further discuss.
 
 <input type="checkbox"> Click `Commit suggestion` and then `Commit changes`.  
-<input type="checkbox"> Return to the `Conversation` tab and scroll to the bottom. You should see an additional commit now!
+<input type="checkbox"> Return to the `Conversation` tab and scroll to the bottom. You should see an additional commit and your comment now!
 
 ### 2b: Reading GitHub Actions logs
 
