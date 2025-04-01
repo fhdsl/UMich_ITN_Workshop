@@ -85,7 +85,7 @@ In GitHub Desktop:
 
 ### Create an AI generated README
 
-<input type="checkbox"> Click the `Show in Finder` or `Show in Explorer` button depending on your operating system.  
+<input type="checkbox"> In GitHub Desktop, Click the `Show in Finder` or `Show in Explorer` button depending on your operating system.  This should be about halfway down the screen.
 <input type="checkbox"> With any text editor open up both the `01-heatmap.Rmd` file and the `README.md` file  
 <input type="checkbox"> Copy all the text from `01-heatmap.Rmd` (Cmd + A - Mac, Ctrl + A - Windows).     
 <input type="checkbox"> Go to phind https://www.phind.com/search  
