@@ -123,7 +123,7 @@ slice. These names must match partially the file paths passed to `rnacounts` and
 
 ```{r eval=FALSE}
 lc_stlist = spatialGE::STlist(rnacounts=counts_fp, spotcoords=coordinates_fp,
-                   samples=c('Lung5_Rep1', 'Lung6'))
+                              samples=c('Lung5_Rep1', 'Lung6'))
 ```
 
 ####  {.click_to_expand_block}
@@ -298,7 +298,7 @@ samples (FOV in this case). For example, this is the data frame for the first
 FOV in the STlist:
 
 ```{r stenrich_df, eval=FALSE}
-head(stenrich_df[['Lung5_Rep1_fov_1']])
+head(stenrich_df[['Lung5_Rep1_fov_2']])
 ```
 
 Each row represents a test for the null hypothesis of no spatial aggregation in
@@ -379,7 +379,7 @@ it might be of interest to know if there is correspondence of NOTCH signaling wi
 tissue domains. With the `STclust` function, tissue domains can be identified.
 
 ```{r stclust_smi, eval=FALSE}
-lung <- STclust(lung, ws=0.02, ks='dtc')
+lc_stlist <- STclust(lc_stlist, ws=0.02, ks='dtc')
 ```
 
 Optinally, if tissue images are available for some or all the FOVs, users can
@@ -417,10 +417,15 @@ img_fp = '~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/CellComposite'
 lc_stlist <- load_images(lc_stlist, images=img_fp)
 ```
 
+The function plot_image is used to generate the ggplot objects containing the images:
+```{r plot_tissues, fig.width=12, eval=FALSE}
+ti <- plot_image(lc_stlist)
+```
+
 The domains can be plotted with the `STplot` function too.
 
 ```{r plot_domains, fig.width=12, eval=FALSE}
-dom_p <- STplot(lung, ks='dtc', ws=0.02, deepSplit=FALSE,
+dom_p <- STplot(lc_stlist, ks='dtc', ws=0.02, deepSplit=FALSE,
                 color_pal='discreterainbow')
 
 ggpubr::ggarrange(dom_p$Lung5_Rep1_fov_2_stclust_spw0.02_dsplFalse,
@@ -503,7 +508,7 @@ for gradients within the tumor compartment. First, it is necessary to find the n
 the column in `lung_subset@spatial_meta` containing the domain assigments:
 
 ```{r columnnames, eval=FALSE}
-colnames(lung@spatial_meta[['Lung5_Rep1_fov_2']])
+spatial_metadata(lc_stlist)
 ```
 
 The name of the column is `stclust_spw0.02_dsplFalse` (STclust results using spatial
@@ -545,7 +550,7 @@ have higher keratin expression). Other such __HLA-B__ and __NDRG1__ have higher
 expression in cells far from domain 3:
 
 ```{r stg_plots, eval=FALSE}
-qp2 <- STplot(lung, genes=c('KRT6A', 'HLA-B'), samples='Lung6_fov_4', color_pal='YlOrBr')
+qp2 <- STplot(lc_stlist, genes=c('KRT6A', 'HLA-B'), samples='Lung6_fov_4', color_pal='YlOrBr')
 ggpubr::ggarrange(plotlist=qp2, common.legend=TRUE)
 ```
 
