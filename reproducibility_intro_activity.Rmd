@@ -125,8 +125,15 @@ Note that you or a collaborator can now readily incorporate your suggestion by c
 <input type="checkbox"> Click `Commit suggestion` and then `Commit changes`.  
 <input type="checkbox"> Return to the `Conversation` tab and scroll to the bottom. You should see an additional commit and your comment now!
 
+### 2b: Updating your local repository
 
-### 2b: Reading GitHub Actions logs
+If you followed the steps in the `Leaving comments and suggestions` section of this activity you will now have at least one commit that is on your online version of your repository but the changes done online won't automatically get to your local repository. To do this we need to `Pull` the latest changes to our computer.
+
+<input type="checkbox"> Return to GitHub Desktop.  
+<input type="checkbox"> Click the `Fetch origin` button.  
+<input type="checkbox"> You should be prompted to `Pull origin` click this button.  
+<input type="checkbox"> Now your changes should be synced. Open up the file you've changed with any default text editor to look for the change you made to make sure.  
+### 2c: Reading GitHub Actions logs
 
 On the bottom of your Pull Request (PR) you will notice a box at the bottom that will probably either say `Some checks haven't completed yet` or `All checks passed`.  
 
@@ -138,15 +145,6 @@ This is an automatic check run by GitHub Actions which is one of many systems us
 <input type="checkbox"> Click around to investigate what GitHub Actions logs look like.
 
 For more learning about using [GitHub Actions for science see our course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/).
-
-### 2c: Updating your local repository
-
-If you followed the steps in the `Leaving comments and suggestions` section of this activity you will now have at least one commit that is on your online version of your repository but the changes done online won't automatically get to your local repository. To do this we need to `Pull` the latest changes to our computer.
-
-<input type="checkbox"> Return to GitHub Desktop.  
-<input type="checkbox"> Click the `Fetch origin` button.  
-<input type="checkbox"> You should be prompted to `Pull origin` click this button.  
-<input type="checkbox"> Now your changes should be synced. Open up the file you've changed with any default text editor to look for the change you made to make sure.  
 
 ### 2d: Merging your PR
 
