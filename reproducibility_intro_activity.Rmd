@@ -86,16 +86,16 @@ In GitHub Desktop:
 ### Create an AI generated README
 
 <input type="checkbox"> In GitHub Desktop, Click the `Show in Finder` or `Show in Explorer` button depending on your operating system.  This should be about halfway down the screen.
-<input type="checkbox"> With any text editor open up both the `01-heatmap.Rmd` file and the `README.md` file  
+<input type="checkbox"> Right click the file names to open up both the `01-heatmap.Rmd` file and the `README.md` file with any text editor. (May need to select `Other` and `Enable all applications` if on a Mac.)
 <input type="checkbox"> Copy all the text from `01-heatmap.Rmd` (Cmd + A - Mac, Ctrl + A - Windows).     
-<input type="checkbox"> Go to phind https://www.phind.com/search  
+<input type="checkbox"> Go to phind https://www.phind.com/search in your browser
 <input type="checkbox"> Ask phind to create a README from the code. Copy (Cmd + A - Mac, Ctrl + C - Windows) and paste (Cmd + V - Mac, Ctrl + V - Windows) in the code from `01-heatmap.Rmd`. You may want to do some variations on the prompt you use to ask phind to do this to get good results.     
 <input type="checkbox"> Copy all the text from the desired Phind output and paste it to `README.md`. Save the file.  
 
 
 ### Adding changes to a branch
 
-<input type="checkbox"> Go back to GitHub Desktop. You should see `1 changed file` in the upper right corner. It may be upper left for Windows.    
+<input type="checkbox"> Go back to GitHub Desktop. You should see `1 changed file` in the upper right corner. It may be upper left depending on your machine and version of GitHub Desktop.    
 <input type="checkbox"> Type in a "commit" message. Commits are how we add things to our branch.  
 <input type="checkbox"> Click the button that says `Commit to ...` it will have your branch name which should be `readme-edit`.  
 <input type="checkbox"> Click the `Publish branch` button. This will "push" your changes to online Github.com  
@@ -103,17 +103,19 @@ In GitHub Desktop:
 ### Making the pull request
 
 <input type="checkbox"> Follow GitHub Desktop's prompt to `Create a Pull Request` and click the blue button. If the blue button says `Preview Pull Request` then click the downward facing arrow to see the option to `Create a Pull Request`.   
+
 <input type="checkbox"> It should open up a page on GitHub.com Fill out the `Add a title` and the `Add a description` boxes to appropriately describe the work you did on the branch we are making the pull request from.  
-<input type="checkbox"> Click `Create pull request`.  
+
+<input type="checkbox"> Click the green `Create pull request` button.  
 
 ## Activity 2: Navigating PR components
 
 ### 2a: Leaving comments and suggestions
 
-<input type="checkbox"> Return to your pull request from Activity 1.   
-<input type="checkbox"> Click on the `Files Changed` tab.   
-<input type="checkbox"> Click one of the plus signs to the left to leave a comment.   
-<input type="checkbox"> With one of the open comments click the little symbol that has a plus and minus in a page to leave a suggestion.  
+<input type="checkbox"> Return to your pull request on GitHub in your browser from Activity 1.   
+<input type="checkbox"> Click on the `Files Changed` tab (lower set of tabs).   
+<input type="checkbox"> Click one of the plus signs to the left of one of your changes to leave a comment.   
+<input type="checkbox"> Do this again, but this time click the little symbol that has a plus and minus in a page to leave a suggestion - make a change to the text in the suggestion.  
 <input type="checkbox"> Click `Add a single comment`.  
 
 Note that you or a collaborator can now readily incorporate your suggestion by clicking `Commit suggestion` or they could comment back to further discuss.
