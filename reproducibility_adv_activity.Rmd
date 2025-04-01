@@ -20,7 +20,8 @@ editor_options:
 
 <input type="checkbox"> Go here to [install Docker Desktop](https://www.docker.com/get-started), following the instructions for your particular operating system.
 <input type="checkbox"> If you don't have a Docker account create an account when prompted, or [go here](https://hub.docker.com/).
-After you install Docker, start up Docker desktop by double clicking on the app. It may take some time to start up.
+After you install Docker, start up Docker Desktop by double clicking on the app. It may take some time to start up. 
+<input type="checkbox"> Docker Desktop may ask you to log in to your Docker account. 
 
 ### Set up sandbox repository for this workshop
 
@@ -45,9 +46,11 @@ After you install Docker, start up Docker desktop by double clicking on the app.
 
 ### Step 1: Docker pull
 
+<input type="checkbox"> Open your terminal or command prompt window.
+
 <input type="checkbox"> We need to get the Docker **image** we want to use. We do this by "pulling" it.
 
-Run this command in your Terminal or Command Prompt window:
+Run this command by copy pasting and clicking enter in your terminal:
 
 ```
 docker pull jhudsl/reproducible-r
@@ -55,7 +58,9 @@ docker pull jhudsl/reproducible-r
 
 ### Step 2: Check what images you have
 
-<input type="checkbox"> To see what images we have we can run `docker image ls` and we should see `jhudsl/reproducible-r` show up now.
+<input type="checkbox"> After the last steps complete, to see what images we have we can run `docker image ls` and we should see `jhudsl/reproducible-r` show up now.
+
+<input type="checkbox"> We can also check on the Images tab on the left menu in Docker Destop. We should see `jhudsl/reproducible-r` show up now.
 
 ### Step 3: Run the docker image to start a container!
 
