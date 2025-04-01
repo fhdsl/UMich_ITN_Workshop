@@ -77,6 +77,8 @@ We will practice filing a pull request by filling in the the README. READMEs are
 
 But to create a pull request, we first need to create a branch to work from that is separate from the `main` copy.
 
+In GitHub Desktop:
+
 <input type="checkbox"> Click the `Current Branch` box > `New branch`.  
 <input type="checkbox"> Call this new branch `readme-edit`.  
 
