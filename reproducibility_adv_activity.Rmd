@@ -60,7 +60,7 @@ docker pull jhudsl/reproducible-r
 
 <input type="checkbox"> After the last steps complete, to see what images we have we can run `docker image ls` and we should see `jhudsl/reproducible-r` show up now.
 
-<input type="checkbox"> We can also check on the Images tab on the left menu in Docker Destop. We should see `jhudsl/reproducible-r` show up now.
+<input type="checkbox"> We can also check on the Images tab on the left menu in Docker Desktop. We should see `jhudsl/reproducible-r` show up now.
 
 ### Step 3: Run the docker image to start a container!
 
