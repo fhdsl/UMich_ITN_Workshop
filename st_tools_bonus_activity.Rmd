@@ -462,11 +462,11 @@ bind_rows(deg) %>%
   slice_head(n=3)
 ```
 
-Expression of KRT genes in domains 1 and 2 of FOVs "Lung6_fov_4" and "Lung6_fov_7", and
-domains 2 and 4 of "Lung6_fov_6" are indicative of tumor cells. In those domains
-(with the exception of 4 in "Lung6_fov_6"), there seems to be an overlap with the
-areas of of NOTCH signaling, which indicates that in slide "Lung6", the tumor
-compartment is spatially enriched for NOTCH signaling.
+Expression of KRT genes in domains 1 and 4 for FOV "Lung6_fov_4", 1, 4, and 5 for 
+FOV Lung6_fov_6, and 1, 2, and 5 for FOV is indicative of tumor cells in those domains. 
+With the exception of 4 in "Lung6_fov_6", there seems to be concordance among the
+areas of of NOTCH signaling and the "tumor" domains, which indicates that in slide 
+"Lung6", the tumor compartment is spatially enriched for NOTCH signaling.
 
 ## Identification of genes presenting expression spatial gradients
 
@@ -519,10 +519,10 @@ weight of 0.02 and DynamicTreeCuts with no deepSplit). This name is used in the
 stg <- STgradient(lc_stlist,
                   topgenes=1000,
                   annot='stclust_spw0.02_dsplFalse',
-                  ref=3,
+                  ref=4,
                   samples=c('Lung6_fov_4', 'Lung6_fov_6', 'Lung6_fov_7'),
                   distsumm='min',
-                  robust=TRUE, cores=2)
+                  robust=TRUE)
 ```
 
 Here are the first few rows of the `STgradient` result for sample "Lung6_fov_4":
@@ -532,11 +532,12 @@ head(stg[['Lung6_fov_4']])
 ```
 
 The key columns to look at are `min_spearman_r` and `min_spearman_r_pval_adj`.
-Now, to find genes with significant spatial gradients across the three samples,
-these commands can be used:
+Now, to find genes with significant spatial gradients in FOV "Lung6_fov_4", these 
+commands can be used:
 
 ```{r topstg, eval=FALSE}
 bind_rows(stg) %>%
+  filter(sample_name == 'Lung6_fov_4') %>%
   arrange(desc(abs(min_spearman_r))) %>%
   group_by(sample_name) %>%
   slice_head(n=5) %>%
@@ -544,10 +545,10 @@ bind_rows(stg) %>%
   arrange(gene)
 ```
 
-It can be seen from these results that multiple keratin genes show spatial gradients,
-all of them with negative Spearman's coefficients (cells close to domain 3 tend to
-have higher keratin expression). Other such __HLA-B__ and __NDRG1__ have higher
-expression in cells far from domain 3:
+It can be seen from these results that multiple _KRT6A_ shows spatial gradients.
+With a negative Spearman's coefficients, the expression of this gene is higher 
+in cells close to to domain 4 than those away from it. Conversely, __HLA-B__ shows
+higher expression in cells far from domain 4:
 
 ```{r stg_plots, eval=FALSE}
 qp2 <- STplot(lc_stlist, genes=c('KRT6A', 'HLA-B'), samples='Lung6_fov_4', color_pal='YlOrBr')
@@ -558,12 +559,14 @@ Here are the results for genes within the NOTCH signaling pathway:
 
 ```{r stg_notch, eval=FALSE}
 bind_rows(stg) %>%
+  filter(sample_name == 'Lung6_fov_4') %>%
   arrange(desc(abs(min_spearman_r))) %>%
   filter(gene %in% gene_sets[['HALLMARK_NOTCH_SIGNALING']]) %>%
   filter(min_spearman_r_pval_adj < 0.05)
 ```
 
-Although the correlations in genes from this pathway are not as large as and those
-for __KRT6A__ and __HLA-B__ (i.e., lower absolute Spearman's coefficient), it can
+Although the correlations in genes from this pathway are not as strong as and those
+for __KRT6A__ and __HLA-B__ (i.e., Spearman's coefficient closer to zero), it can
 be seen that the genes __NOTCH1__ and __NOTCH3__ show evidence of expression
-gradients in FOVs 'Lung6_fov_4' and 'Lung6_fov_6'.
+gradients in FOV "Lung6_fov_4".
+
