@@ -182,6 +182,7 @@ docker run jhudsl/reproducible-r
 
 The reason you need to be in the directory with your files is because `$PWD` is a special environment variable that stores the absolute path of the current working directory. This will enable the next step to call the script file.
 
+Note that if you already did this using the buttons in Docker Desktop you may get an error that the port is already allocated. You can stop your other container (by clicking the trash button near the listed container in your Containers tab) to rerun this from the command line.
 
 
 ### Step 8: Retry calling the script
@@ -209,16 +210,21 @@ After a bit you should see the following:
 Output created: 01-heatmap.nb.html
 ```
 
-<input type="checkbox"> Alternatively in the terminal we could also use the following:
+<input type="checkbox"> Alternatively if you have been working in the terminal, we could open a new terminal and use the following:
 ```
 docker exec -it <REPLACE_WITH_CONTAINER_ID> bash /home/run_analysis.sh
 ```
 And this should work!
 
+Similarly after a bit you should see the following in the terminal:
+
+```
+Output created: 01-heatmap.nb.html
+```
 
 ### Step 9: Using RStudio from a container
 
-<input type="checkbox"> Click on the link that says 8787:8787 at the top of your Docker Desktop OR go to your internet browser and type in `localhost:8787`.  
+<input type="checkbox"> Click on the link that says 8787:8787 at the top of your Docker Desktop (in the Container tab) OR go to your internet browser and type in `localhost:8787`.  
 
 <input type="checkbox"> Now type in "rstudio" for your username and then find the password that was set in your docker logs and copy and past that for your password.
 (It will likely be in red).
