@@ -235,9 +235,12 @@ Keep in mind you can install packages from here but they will not be saved to th
 
 ## Step 1: Manually initiate a GitHub Action workflow
 
-<input type="checkbox"> Go to your `reproducibility-sandbox` repository online on GitHub  
-<input type="checkbox"> Click on the `Actions` tab.  
+<input type="checkbox"> Go to your `reproducibility-sandbox` repository online on GitHub
+
+<input type="checkbox"> Click on the `Actions` tab. 
+
 <input type="checkbox"> On the left side of the screen click on the `Render R Example` action.   
+
 <input type="checkbox"> Click on the `Run workflow` dropdown menu and pick the green `Run workflow` button. You should see a light blue banner on the top that says "Workflow run was successfully requested".   
 
 ## Step 2: Take a look at the workflow file
@@ -251,7 +254,10 @@ Keep in mind you can install packages from here but they will not be saved to th
 
 ## Step 3: Take a look at your GitHub Action run!
 
-<input type="checkbox"> Go back to the `Actions` tab. You may need to refresh the page.   
-<input type="checkbox"> Click on the Workflow run in the center of the page that also says `Render R example`  
+<input type="checkbox"> Go back to the `Actions` tab. You may need to refresh the page
+
+<input type="checkbox"> Click on the Workflow run in the center of the page that also says `Render R example` 
+
 <input type="checkbox"> Click on the small box that says `render-notebooks`
+
 <input type="checkbox"> Click on the dropdown arrow where it says `Run R analysis example` to see what code was run
