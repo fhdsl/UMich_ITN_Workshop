@@ -74,7 +74,7 @@ docker pull jhudsl/reproducible-r
 
 ### Step 3: Run the Docker image to start a container!
 
-<input type="checkbox"> Now if want to launch the image for use, we can use run button that looks like a triangle to turn the image into a **container**
+<input type="checkbox"> Now if we want to launch the image for use, we can use run button that looks like a triangle to turn the image into a **container**
 
 <input type="checkbox"> Alternatively, we could also use `docker run` as a command in the terminal:
 
