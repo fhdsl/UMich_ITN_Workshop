@@ -95,7 +95,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 </details>
 
-<input type="checkbox"> In the opened side panel, under the "Send to Module" heading, click on "DifferentialExpressionViewer".
+<input type="checkbox"> In the opened side panel, scroll down and under the "Send to Module" heading, click on "DifferentialExpressionViewer".
 
 ```{r echo=FALSE, fig.alt = "Send the data to the module named differential expression viewer"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_55")
