@@ -41,7 +41,7 @@ The `gct` file is a Gene Cluster Text file format used to describe an expression
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_11")
 ```
 
-The `cls` file is a Categorial (e.g., tumor vs normal) class file format, specifying phenotype or class labels associated with each sample in the expression data. [See more at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29)
+The `cls` file is a Categorial (e.g., tumor vs normal) class file format, specifying phenotype or class labels associated with each sample in the expression data. [See more about `cls` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29)
 
 ```{r echo=FALSE, fig.alt="Description of c l s file from the Broad Institute", fig.link="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_19")
