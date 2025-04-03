@@ -85,7 +85,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 <details><summary>What is this file type?</summary>
 
-An ODF is an Output Description Format file, a GenePattern specific filetype. It is similar to a GCT file format, describing a gene expression dataset; however, the ODF filetype has a specialized header. [See more information from GenePattern.](https://www.genepattern.org/file-formats-guide/#ODF)
+An ODF is an Output Description Format file, a GenePattern specific filetype. It is similar to a GCT file format, describing a gene expression dataset; however, the ODF filetype has a specialized header. [See more information about ODF files from GenePattern.](https://www.genepattern.org/file-formats-guide/#ODF)
 
 ```{r echo=FALSE, fig.alt = "The O D F file is a Gene Pattern specific file type that is similar to a G C T file type, but has a specialized header"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2800f2a6905_0_122")
