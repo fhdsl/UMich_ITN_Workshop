@@ -170,7 +170,7 @@ The reason you need to be in the directory with your files is because `$PWD` is 
 Note that if you already did this using the buttons in Docker Desktop you may get an error that the port is already allocated. You can stop your other container (by clicking the trash button near the listed container in your Containers tab) to rerun this from the command line.
 
 
-### Step 8: Call a script
+### Step 6: Call a script
 
 <input type="checkbox"> Click `Exec` to launch  execute mode.
 
@@ -207,7 +207,7 @@ Similarly after a bit you should see the following in the terminal:
 Output created: 01-heatmap.nb.html
 ```
 
-### Step 9: Using RStudio from a container
+### Step 7: Using RStudio from a container
 
 <input type="checkbox"> Click on the link that says 8787:8787 at the top of your Docker Desktop (in the Container tab) OR go to your internet browser and type in `localhost:8787`.  
 
