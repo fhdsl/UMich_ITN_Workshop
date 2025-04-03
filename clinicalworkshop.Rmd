@@ -20,7 +20,7 @@ The goals are to:
 
 R is a massive, fully customizable data management environment that is very helpful for clinical data analysis!
 
-R is driven largely by what are called "libraries" or "packages", which are basically plugins or extensions created by the R User Community.  For every one task you can do in R, there is likely going to be a multitude of packages you can choose from - as you move forward in becoming an R User, spend time familiarizing yourself with the various packages to see what each offers. 
+R is driven largely by what are called "libraries" or "packages", which are basically plugins or extensions created by the R User Community.  For every one task you can do in R, there is likely going to be a multitude of packages you can choose from - as you move forward in becoming an R User, spend time familiarizing yourself with the various packages to see what each offers.
  
 
 ## Packages
