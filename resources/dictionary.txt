@@ -28,7 +28,9 @@ checkmark
 cheatsheet
 Chowell
 Cilas
+cls
 Cmd
+ComparativeMarkerSelection
 css
 csv
 CROST
@@ -39,7 +41,9 @@ customizations
 cwrigh
 De
 dev
+DifferentialExpressionViewer
 DimPlot
+downregulated
 Dockerfile
 Dockerhub
 dplyr
@@ -57,6 +61,7 @@ ExhauCRF
 Fclient
 FeaturePlot
 fhdsl
+filetype
 Fi
 findable
 FindClusters
@@ -71,6 +76,7 @@ favicon
 Ferman
 galaxyproject
 Gapdh
+GCT
 GDPR
 GCP
 geocoding
@@ -86,6 +92,7 @@ glyphicons
 GSEA
 GSM
 Hadley
+histologic
 HIPAA
 HTTPS
 https
@@ -127,6 +134,7 @@ nFeature
 nn
 Nominatim
 Normalised
+ODF
 OpenStreetMap
 omics
 Ospina
@@ -228,6 +236,7 @@ tsv
 UIs
 UMich
 UMAP
+upregulated
 undirected
 UseGalaxy
 usegalaxy
