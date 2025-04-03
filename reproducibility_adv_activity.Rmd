@@ -27,9 +27,16 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 
 ### Set up sandbox repository for this workshop
 
+<br>
+
+<details> <summary>Click here if you did not attend the first workshop!</summary>
+
+:::explain_block
+
+
 **NOTE: If you completed these steps for the previous workshop you don't need to do them again!**
 
-#### Create your own copy of this repository
+<span style="font-size: 250%"> Create your own copy of this repository </span>
 
 <input type="checkbox"> Go to the template repository for this workshop: https://github.com/fhdsl/reproducibility-sandbox  
 
@@ -40,7 +47,7 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 
 <input type="checkbox"> Scroll to the bottom and click `Create repository`.  
 
-#### Cloning our repository
+<span style="font-size: 250%">Cloning our repository</span>
 
 <input type="checkbox"> Open up GitHub Desktop on your computer.  
 
@@ -49,6 +56,16 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 <input type="checkbox"> Search for your ITN workshop repository name in the tab that says `Github.com`. Click on the name of this repository in this list. You can choose where you'd like it to download on your computer underneath `Local Path`.
 
 <input type="checkbox"> Click the blue `Clone` button.  
+
+
+:::
+
+</details>
+
+
+
+<br>
+
 
 # Activity 1: Getting familiar with Docker/Podman
 
