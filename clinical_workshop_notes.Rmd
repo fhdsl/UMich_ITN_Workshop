@@ -52,13 +52,22 @@ High-quality data is the foundation of reliable analysis. Data cleaning, standar
 - **Standardization** ensures uniformity through common data formats such as CDISC, SDTM, or ADaM. 
 - **Validation** techniques, including range checks, logical consistency checks, and audit trails, further enhance data reliability.
 
-Compliance with regulatory and ethical guidelines is paramount in clinical data analysis. Regulations such as HIPAA, PHIPA, and GDPR dictate stringent rules on data privacy and security. Ethical considerations also play a crucial role, requiring approval from an Institutional Review Board (IRB) or Research Ethics Board (REB) before conducting research involving human data. De-identification techniques, including data masking and anonymization, must be implemented when sharing or analyzing patient data to protect personal information and ensure compliance with ethical and legal standards.
+### Guidelines
+
+Compliance with regulatory and ethical guidelines is paramount in clinical data analysis. Regulations such as [HIPAA](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act), [PHIPA](https://en.wikipedia.org/wiki/Personal_Health_Information_Protection_Act), and [GDPR](https://gdpr-info.eu/) dictate stringent rules on data privacy and security. Ethical considerations also play a crucial role, requiring approval from an [Institutional Review Board (IRB)](https://en.wikipedia.org/wiki/Institutional_review_board) or Research Ethics Board (REB) before conducting research involving human data. De-identification techniques, including data masking and anonymization, must be implemented when sharing or analyzing patient data to protect personal information and ensure compliance with ethical and legal standards.
+
+
+### Data Security
 
 Data security and controlled access are critical in clinical research, given the sensitivity of health-related information. The following practices can help ensure the data remains secure:
 
 - **Role-based access control (RBAC)** ensures that only authorized personnel can view or modify specific data, reducing the risk of breaches. 
 - **Encryption techniques** must be applied to protect data both at rest and in transit, ensuring that patient information remains secure. 
 - **Audit logs** of data access and modifications supports accountability and helps identify potential security threats.
+
+Check out the [ITN course on data ethics](https://hutchdatascience.org/Ethical_Data_Handling_for_Cancer_Research/) which includes information about security for more information. 
+
+### Analuysis Methods
 
 The choice of analytical methods depends on the study objectives and the nature of the dataset. Descriptive statistics, such as means, medians, and distributions, provide insights into patient demographics and baseline characteristics. Inferential statistics, including hypothesis testing, regression analysis, and survival analysis, help in understanding relationships between variables and making predictions. Increasingly, machine learning models are being applied in clinical research for predictive analytics, risk stratification, and pattern detection. However, such models must be interpreted with caution, ensuring transparency, bias mitigation, and clinical relevance.
 
@@ -70,6 +79,8 @@ Integration with external systems further enhances the efficiency and scalabilit
 - **Application Programming Interfaces (APIs)** and automated data pipelines streamline data extraction, transformation, and loading (ETL) processes, reducing manual errors and improving efficiency. 
 - **Data linkage techniques**, using unique patient identifiers, allow researchers to combine information from multiple sources, leading to more comprehensive insights.
 
+### Bias
+
 Finally, researchers must be mindful of potential biases and the interpretation of findings. Confounding variables should be identified and adjusted for in study designs to avoid misleading conclusions. Additionally, ensuring that study findings are generalizable beyond the sample population is crucial for clinical applicability. Emphasizing clinical relevance rather than mere statistical significance is essential, as results should ultimately contribute to improved patient care, treatment decisions, and healthcare policies.
 
 
@@ -78,7 +89,7 @@ Finally, researchers must be mindful of potential biases and the interpretation 
 R is a massive, fully customizable data management environment.  To do it any justice, I'd need a week of classes - so given this is based on a short workshop I gave, I'm going to cover a lot of content that I was not able to cover in the session. 
 
 
-R is driven largely by what are called "libraries" or "packages", which are basically plugins or extensions created by the R User Community.  For every one task you can do in R, there is likely going to be a multitude of packages you can choose from - as you move forward in becoming an R User, spend time familiarizing yourself with the various packages to see what each offers. 
+R is driven largely by what are called ["libraries" or "packages"](https://guides.library.jhu.edu/c.php?g=903617&p=6776484), which are basically plugins or extensions created by the R User Community.  For every one task you can do in R, there is likely going to be a multitude of packages you can choose from - as you move forward in becoming an R User, spend time familiarizing yourself with the various packages to see what each offers. 
 
 Designed for statistical computing, data analysis, and visualization, R is widely used in academia, research, and industry for tasks ranging from basic data manipulation to advanced machine learning. As mentioned, one of R’s key strengths is its extensive package ecosystem, which allows users to extend its functionality by installing and calling specialized libraries such as `ggplot2` for visualization, `dplyr` for data manipulation, and `survival` for survival analysis. Installing and loading libraries is crucial because many of R’s advanced features are provided through community-contributed packages rather than built into the base language.
 
