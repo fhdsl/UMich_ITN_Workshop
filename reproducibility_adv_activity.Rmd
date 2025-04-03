@@ -72,7 +72,7 @@ docker pull jhudsl/reproducible-r
 
 
 
-### Step 3: Run the docker image to start a container!
+### Step 3: Run the Docker image to start a container!
 
 <input type="checkbox"> Now if want to launch the image for use, we can use run button that looks like a triangle to turn the image into a **container**
 
@@ -233,7 +233,7 @@ Output created: 01-heatmap.nb.html
 
 <input type="checkbox"> Click on the link that says 8787:8787 at the top of your Docker Desktop (in the Container tab) OR go to your internet browser and type in `localhost:8787`.  
 
-<input type="checkbox"> Now type in "rstudio" for your username and then find the password that was set in your docker logs and copy and past that for your password.
+<input type="checkbox"> Now type in "rstudio" for your username and then find the password that was set in your Docker logs and copy and past that for your password.
 (It will likely be in red).
 
 <input type="checkbox"> Click submit.
