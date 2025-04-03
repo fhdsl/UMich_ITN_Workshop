@@ -78,7 +78,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 <input type="checkbox"> Click on the produced `odf` file (`BRCA_HUGO_symbols_preprocessed.comp.marker.odf`).
 
 ### Run the DifferentialExpressionViewer module to make a heatmap of the differentially expressed genes
-
+<input type="checkbox"> Click on the produced file from the comparative marker selection.
 ```{r echo=FALSE, fig.alt = "Click on the produced file from the comparative marker selection"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_50")
 ```
