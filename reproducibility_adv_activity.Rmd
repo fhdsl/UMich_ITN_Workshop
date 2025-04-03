@@ -136,37 +136,96 @@ Our container is separate from our computer so if we want to use a file we have 
 
 Point it so the volume has the workshop files
 
-If we want to run `run_analysis.sh` there's two ways we could get our files on there.
+If we want to run `run_analysis.sh` there are other ways we could get the file on our container, but one of the best ways is using a `volume`.
 
-- We could download the files we need from online! We could `git clone` files from a repository or otherwise `wget` or `curl` files.
-- We could add a `volume` of files that are local to our computer. For this we will use the You'll `-v` or volume option.
+A `volume`  is a set of files that are local to our computer that are accessible by the container. 
 
-### Step 7: Let’s add our reproducibility-sandbox files
+<input type="checkbox">  In Docker Desktop, we can click on the `Images` tab in the left menu
+
+<input type="checkbox"> Then click on the play button for our `jhudsl/reproducible-r` image.
+
+<input type="checkbox"> Then click on the play button for our `jhudsl/reproducible-r` image.
+
+<input type="checkbox"> This time click the downward arrow for running options.
+
+<input type="checkbox"> We will add `8787` as the host port.
+
+<input type="checkbox"> Now we can add the file path for our script file on our computer by clicking on the three dot menu button in the box that says `Host path`. Navigate to where you saved your files earlier from the repository.
+
+<input type="checkbox"> For the container path type `/home`.
+
+<input type="checkbox"> Click `Run`
+
+The container will launch again but this time with your files.
+
+
+Alternatively, we can do something similar in the terminal.
+
+We can run our Docker container with the volume `-v` option.
 
 We can specify a particular file path on our computer or give it `$PWD` Then optionally we can give a `:` and a file path we'd like this to be stored on on the container. Otherwise it will be stored at the absolute top of the container.
 
 We are also going to add a port specification as well `-p 8787:8787` This will allow us to use RStudio on our container.
 
-<input type="checkbox"> Now we can run:
+
+<input type="checkbox"> If you are in the directory where you saved the repository files, you can now run:
 ```
-docker run -v $PWD:/home -p 8787:8787 jhudsl/reproducible-r
+docker run -v $PWD:/home jhudsl/reproducible-r -p 8787:8787 
+
 ```
+
+For context, we previously ran this command to run the container without the files:
+
+```
+docker run jhudsl/reproducible-r
+```
+
+The reason you need to be in the directory with your files is because `$PWD` is a special environment variable that stores the absolute path of the current working directory. This will enable the next step to call the script file.
+
+
 
 ### Step 8: Retry calling the script
 
-<input type="checkbox"> Now we can run:
+<input type="checkbox"> Click `Exec` to launch the execute mode.
+
+<input type="checkbox"> Go to the home directory specified to place our files by typing the following and pressing enter after:
+
+```
+cd /home
+```
+
+<input type="checkbox"> Now try to run the script again.
+
+```
+bash run_analysis.sh
+
+```
+
+Great! Now you should see the script running. You will know because you will see text about what the script is doing.
+
+After a bit you should see the following:
+
+```
+Output created: 01-heatmap.nb.html
+```
+
+<input type="checkbox"> Alternatively in the terminal we could also use the following:
 ```
 docker exec -it <REPLACE_WITH_CONTAINER_ID> bash /home/run_analysis.sh
 ```
 And this should work!
 
+
 ### Step 9: Using RStudio from a container
 
-<input type="checkbox"> Click on the link that says 8787:8787 at the top of your docker desktop OR go to your internet browser and type in `localhost:8787`.  
-<input type="checkbox"> Now type in "rstudio" for your username and then find the password that was set in your docker logs and copy and past that for your password.   
+<input type="checkbox"> Click on the link that says 8787:8787 at the top of your Docker Desktop OR go to your internet browser and type in `localhost:8787`.  
+
+<input type="checkbox"> Now type in "rstudio" for your username and then find the password that was set in your docker logs and copy and past that for your password.
+(It will likely be in red).
+
 <input type="checkbox"> Click submit.
 
-Now you can develop code from a container that is shareable!
+Now you can develop code from RStudio from a container that is shareable!
 
 ::: {.notice}
 Keep in mind you can install packages from here but they will not be saved to the original image after you stop the container. To add software to your image you will need to modify your image which [you can find instructions on how to do this in our full course](https://hutchdatascience.org/Containers_for_Scientists/05-modifying-containers.html).
@@ -179,7 +238,7 @@ Keep in mind you can install packages from here but they will not be saved to th
 <input type="checkbox"> Go to your `reproducibility-sandbox` repository online on GitHub  
 <input type="checkbox"> Click on the `Actions` tab.  
 <input type="checkbox"> On the left side of the screen click on the `Render R Example` action.   
-<input type="checkbox"> Click on the `Run workflow` dropdown menu and pick the green `Run workflow` button. You should see a light blue banner on the top that says "Worfklow run was successfully requested".   
+<input type="checkbox"> Click on the `Run workflow` dropdown menu and pick the green `Run workflow` button. You should see a light blue banner on the top that says "Workflow run was successfully requested".   
 
 ## Step 2: Take a look at the workflow file
 
@@ -192,7 +251,7 @@ Keep in mind you can install packages from here but they will not be saved to th
 
 ## Step 3: Take a look at your GitHub Action run!
 
-<input type="checkbox"> You may need to refresh this page you are on.   
+<input type="checkbox"> Go back to the `Actions` tab. You may need to refresh the page.   
 <input type="checkbox"> Click on the Workflow run in the center of the page that also says `Render R example`  
 <input type="checkbox"> Click on the small box that says `render-notebooks`
-<input type="checkbox"> Click on the dropdown arrow where it says `Run R analysis example`
+<input type="checkbox"> Click on the dropdown arrow where it says `Run R analysis example` to see what code was run
