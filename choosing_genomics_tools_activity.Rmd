@@ -31,7 +31,7 @@ The aim of this activity is to answer the question -- "What genes differentiate 
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_0")
 ```
 
-*Make sure you know where they saved on your computer as you'll be uploading them in an upcoming step.*
+*Make sure you know where they are saved on your computer as you'll be uploading them in an upcoming step.*
 
 <details><summary>What are these file types?</summary>
 
