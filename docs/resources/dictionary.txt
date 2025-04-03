@@ -28,7 +28,9 @@ checkmark
 cheatsheet
 Chowell
 Cilas
+cls
 Cmd
+ComparativeMarkerSelection
 css
 csv
 CROST
@@ -39,7 +41,9 @@ customizations
 cwrigh
 De
 dev
+DifferentialExpressionViewer
 DimPlot
+downregulated
 Dockerfile
 Dockerhub
 dplyr
@@ -127,6 +131,7 @@ nFeature
 nn
 Nominatim
 Normalised
+ODF
 OpenStreetMap
 omics
 Ospina
@@ -228,6 +233,7 @@ tsv
 UIs
 UMich
 UMAP
+upregulated
 undirected
 UseGalaxy
 usegalaxy
