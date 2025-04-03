@@ -35,7 +35,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 <details><summary>What are these file types?</summary>
 
-The `gct` file is a Gene Cluster Text file format used to describe an expression dataset. [See more at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29)
+The `gct` file is a Gene Cluster Text file format used to describe an expression dataset. [See more about `gct` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29)
 
 ```{r echo=FALSE, fig.alt="Description of g c t file from the Broad Institute", fig.link="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_11")
