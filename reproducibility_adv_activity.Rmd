@@ -20,7 +20,7 @@ editor_options:
 
 <input type="checkbox"> Go here to [install Docker Desktop](https://www.docker.com/get-started), following the instructions for your particular operating system.
 
-<input type="checkbox"> If you don't have a Docker account create an account when prompted, or [go here](https://hub.docker.com/).
+<input type="checkbox"> If you don't have a Docker account yet, create an account when prompted, or [go here](https://hub.docker.com/).
 After you install Docker, start up Docker Desktop by double clicking on the app. It may take some time to start up. 
 
 <input type="checkbox"> Docker Desktop may ask you to log in to your Docker account. 
