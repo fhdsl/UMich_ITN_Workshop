@@ -120,46 +120,11 @@ docker exec -it <PUT_CONTAINER_ID_HERE> bash
 
 We should now see a `#` at the end of the line showing that we can enter commands for the container interactively.
 
-### Step 5: Try calling a script
 
-<input type="checkbox"> In the `Exec` window on Docker Desktop, to run a bash script using the Docker container we could type bash and the name of the script and press enter. Copy paste the following for one the files from playground repository:
-
-```
-bash run_analysis.sh
-```
-
-**BUT! You will find that this command won't work yet though, why?**
-
-<input type="checkbox">  Alternatively, using the command line in terminal, now that we have the Docker container in execute mode, (where we see a `#` at the end of the line) we can enter the same command:
-
-```
- bash run_analysis.sh
-```
-
-**BUT! You will find that this command won't work yet though, why?**
-
-(We can type `exit` as a command to get back out of the execute mode for the container.)
-
-Or we could do it all at once (but this would require not being in execute mode first):
-
-```
-docker exec -it <PUT_CONTAINER_ID_HERE> bash run_analysis.sh
-```
-
-**BUT! You will find that this command won't work yet though, why?**
-
-
-This won't work because the file `run_analysis.sh` is not a file that our container has. Docker containers do not have all the files that our computer does; they only have the files we add to it. With all methods above, we will get this response:
-
-```
-bash: run_analysis.sh: No such file or directory
-```
-
-### Step 6: Let’s add our reproducibility-sandbox files as a volume
+### Step 5: Add our reproducibility-sandbox files 
 
 Our container is separate from our computer so if we want to use a file we have to attach it using a "volume".
 
-Point it so the volume has the workshop files.
 
 If we want to run `run_analysis.sh` there are other ways we could get the file on our container, but one of the best ways is using a `volume`.
 
@@ -200,28 +165,22 @@ docker run -v $PWD:/home -p 8787:8787 jhudsl/reproducible-r
 
 ```
 
-For context, we previously ran this command to run the container without the files:
-
-```
-docker run jhudsl/reproducible-r
-```
-
 The reason you need to be in the directory with your files is because `$PWD` is a special environment variable that stores the absolute path of the current working directory. This will enable the next step to call the script file.
 
 Note that if you already did this using the buttons in Docker Desktop you may get an error that the port is already allocated. You can stop your other container (by clicking the trash button near the listed container in your Containers tab) to rerun this from the command line.
 
 
-### Step 8: Retry calling the script
+### Step 8: Call a script
 
-<input type="checkbox"> Click `Exec` to launch the execute mode.
+<input type="checkbox"> Click `Exec` to launch  execute mode.
 
-<input type="checkbox"> Go to the home directory specified to place our files by typing the following and pressing enter after:
+<input type="checkbox"> Go to the home directory specified to where our files were added by typing the following and pressing enter after:
 
 ```
 cd /home
 ```
 
-<input type="checkbox"> Now try to run the script again.
+<input type="checkbox"> Now try to run the script.
 
 ```
 bash run_analysis.sh
