@@ -169,8 +169,9 @@ We are also going to add a port specification as well `-p 8787:8787` This will a
 
 
 <input type="checkbox"> If you are in the directory where you saved the repository files, you can now run:
+
 ```
-docker run -v $PWD:/home jhudsl/reproducible-r -p 8787:8787 
+docker run -v $PWD:/home -p 8787:8787 jhudsl/reproducible-r 
 
 ```
 
