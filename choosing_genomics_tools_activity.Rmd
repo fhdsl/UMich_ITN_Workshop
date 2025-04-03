@@ -59,7 +59,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 ### Run the ComparativeMarkerSelection Module to identify differentially expressed genes between the two groups
 
-<input type="checkbox"> Find the "ComparativeMarkerSelection" Module.
+<input type="checkbox"> Find the "ComparativeMarkerSelection" Module by searching for it in the search tool.
 
 ```{r echo=FALSE, fig.alt="Find the Comparative Marker Selection Module to identify differentially expressed genes that can discriminate between our two groups of data"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_26")
