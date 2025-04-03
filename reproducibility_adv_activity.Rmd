@@ -19,8 +19,10 @@ editor_options:
 ### Installing Docker
 
 <input type="checkbox"> Go here to [install Docker Desktop](https://www.docker.com/get-started), following the instructions for your particular operating system.
+
 <input type="checkbox"> If you don't have a Docker account create an account when prompted, or [go here](https://hub.docker.com/).
 After you install Docker, start up Docker Desktop by double clicking on the app. It may take some time to start up. 
+
 <input type="checkbox"> Docker Desktop may ask you to log in to your Docker account. 
 
 ### Set up sandbox repository for this workshop
@@ -30,16 +32,22 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 #### Create your own copy of this repository
 
 <input type="checkbox"> Go to the template repository for this workshop: https://github.com/fhdsl/reproducibility-sandbox  
+
 <input type="checkbox"> Click the green `Use this template` button and then `Create a new repository`. If you don't see this button, you may need to expand your window.  
 <input type="checkbox"> On the next screen, create a `Repository name`.   
+
 <input type="checkbox"> Choose `Public`.  
+
 <input type="checkbox"> Scroll to the bottom and click `Create repository`.  
 
 #### Cloning our repository
 
 <input type="checkbox"> Open up GitHub Desktop on your computer.  
-<input type="checkbox"> Go to `File` > `Clone Repository`.  
-<input type="checkbox"> Search for your ITN workshop repository name in the tab that says `Github.com`. Click on the name of this repository in this list. You can choose where you'd like it to download on your computer underneath `Local Path`.  
+
+<input type="checkbox"> Go to `File` > `Clone Repository`. 
+
+<input type="checkbox"> Search for your ITN workshop repository name in the tab that says `Github.com`. Click on the name of this repository in this list. You can choose where you'd like it to download on your computer underneath `Local Path`.
+
 <input type="checkbox"> Click the blue `Clone` button.  
 
 # Activity 1: Getting familiar with Docker/Podman
@@ -74,9 +82,9 @@ docker pull jhudsl/reproducible-r
 docker run jhudsl/reproducible-r
 ```
 
-<input type="checkbox"> To see what containers we have running we check the `Containers` tab in Docker Desktop
+<input type="checkbox"> To see what containers we have running we check the `Containers` tab in Docker Desktop.
 
-<input type="checkbox"> Alternatively, we can run the following command in the terminal
+<input type="checkbox"> Alternatively, we can run the following command in the terminal:
 
 ```
 docker ps
@@ -134,15 +142,13 @@ bash: run_analysis.sh: No such file or directory
 
 Our container is separate from our computer so if we want to use a file we have to attach it using a "volume".
 
-Point it so the volume has the workshop files
+Point it so the volume has the workshop files.
 
 If we want to run `run_analysis.sh` there are other ways we could get the file on our container, but one of the best ways is using a `volume`.
 
 A `volume`  is a set of files that are local to our computer that are accessible by the container. 
 
-<input type="checkbox">  In Docker Desktop, we can click on the `Images` tab in the left menu
-
-<input type="checkbox"> Then click on the play button for our `jhudsl/reproducible-r` image.
+<input type="checkbox">  In Docker Desktop, we can click on the `Images` tab in the left menu.
 
 <input type="checkbox"> Then click on the play button for our `jhudsl/reproducible-r` image.
 
@@ -154,7 +160,7 @@ A `volume`  is a set of files that are local to our computer that are accessible
 
 <input type="checkbox"> For the container path type `/home`.
 
-<input type="checkbox"> Click `Run`
+<input type="checkbox"> Click `Run`.
 
 The container will launch again but this time with your files.
 
@@ -242,7 +248,7 @@ Keep in mind you can install packages from here but they will not be saved to th
 
 ## Step 1: Manually initiate a GitHub Action workflow
 
-<input type="checkbox"> Go to your `reproducibility-sandbox` repository online on GitHub
+<input type="checkbox"> Go to your `reproducibility-sandbox` repository online on GitHub.
 
 <input type="checkbox"> Click on the `Actions` tab. 
 
@@ -261,10 +267,10 @@ Keep in mind you can install packages from here but they will not be saved to th
 
 ## Step 3: Take a look at your GitHub Action run!
 
-<input type="checkbox"> Go back to the `Actions` tab. You may need to refresh the page
+<input type="checkbox"> Go back to the `Actions` tab. You may need to refresh the page.
 
-<input type="checkbox"> Click on the Workflow run in the center of the page that also says `Render R example` 
+<input type="checkbox"> Click on the Workflow run in the center of the page that also says `Render R example`.
 
-<input type="checkbox"> Click on the small box that says `render-notebooks`
+<input type="checkbox"> Click on the small box that says `render-notebooks`.
 
-<input type="checkbox"> Click on the dropdown arrow where it says `Run R analysis example` to see what code was run
+<input type="checkbox"> Click on the dropdown arrow where it says `Run R analysis example` to see what code was run.
