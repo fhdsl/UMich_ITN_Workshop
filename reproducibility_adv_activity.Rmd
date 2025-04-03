@@ -169,7 +169,9 @@ Alternatively, we can do something similar in the terminal.
 
 We can run our Docker container with the volume `-v` option.
 
-We can specify a particular file path on our computer or give it `$PWD` Then optionally we can give a `:` and a file path we'd like this to be stored on on the container. Otherwise it will be stored at the absolute top of the container.
+We can specify a particular file path on our computer or we can give it `$PWD`.
+
+Then  we can give a `:` and a file path where we'd like the files to be stored on the container. Otherwise it will be stored at the absolute top of the container.
 
 We are also going to add a port specification as well `-p 8787:8787` This will allow us to use RStudio on our container.
 
