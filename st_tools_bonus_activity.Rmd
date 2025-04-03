@@ -22,7 +22,7 @@ can be used to detect spatial patterns in gene expression at the gene and gene s
 Data from multiple spatial transcriptomics platforms can be analyzed, as long as
 gene expression counts per cell are associated with spatial coordinates of
 those cells. Both ***`spatialGE`*** R package and web application are also
-compatible with outputs fromthe CosMx-SMI spatial single-cell platform.
+compatible with outputs from the CosMx-SMI spatial single-cell platform.
 
 In this tutorial, the functions `STenrich`, `STclust`, `STdiff`, and `STgradient`
 will be used  to test for spatial gene set enrichment and genes showing expression
@@ -382,7 +382,7 @@ tissue domains. With the `STclust` function, tissue domains can be identified.
 lc_stlist <- STclust(lc_stlist, ws=0.02, ks='dtc')
 ```
 
-Optinally, if tissue images are available for some or all the FOVs, users can
+Optionally, if tissue images are available for some or all the FOVs, users can
 upload those to the STlist for display next to the other plot types available in
 `spatialGE`. Users can upload an entire folder of images to the STlist, as long as
 image files have the same names as the FOVs within the STlist (e.g., "Lung5_Rep1_fov_2",
@@ -390,8 +390,8 @@ image files have the same names as the FOVs within the STlist (e.g., "Lung5_Rep1
 significantly, especially in CosMx experiments that usually contain many FOVs.
 
 The multiplexed immunofluorescence images have been previously downloaded from the [spatialGE_Data GitHub repository](https://github.com/FridleyLab/spatialGE_Data). The temporary folder
-created at the beggining of this tutorial will be used to generate the file paths
-to the folder containng the images. Importantly, the images need to be renamed
+created at the beginning of this tutorial will be used to generate the file paths
+to the folder containing the images. Importantly, the images need to be renamed
 according to the FOV name in the STlist. This renaming was already performed for
 the files in the spatialGE_Data GitHub repository. Here is an example of how the
 files were renamed from the original data set:
@@ -410,7 +410,7 @@ img_fp = '~/Desktop/nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/CellCompos
 lc_stlist <- load_images(lc_stlist, images=img_fp)
 ```
 
-The images for slide "Lung6" were not found, which are in the corresponsing folder. The `load_images` function is ran again to add images from "Lung6":
+The images for slide "Lung6" were not found, which are in the corresponding folder. The `load_images` function is ran again to add images from "Lung6":
 
 ```{r loadimages2, eval = FALSE}
 img_fp = '~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/CellComposite'
@@ -462,10 +462,10 @@ bind_rows(deg) %>%
   slice_head(n=3)
 ```
 
-Expression of KRT genes in domains 1 and 4 for FOV "Lung6_fov_4", 1, 4, and 5 for 
-FOV Lung6_fov_6, and 1, 2, and 5 for FOV is indicative of tumor cells in those domains. 
+Expression of KRT genes in domains 1 and 4 for FOV "Lung6_fov_4", 1, 4, and 5 for
+FOV Lung6_fov_6, and 1, 2, and 5 for FOV is indicative of tumor cells in those domains.
 With the exception of 4 in "Lung6_fov_6", there seems to be concordance among the
-areas of of NOTCH signaling and the "tumor" domains, which indicates that in slide 
+areas of of NOTCH signaling and the "tumor" domains, which indicates that in slide
 "Lung6", the tumor compartment is spatially enriched for NOTCH signaling.
 
 ## Identification of genes presenting expression spatial gradients
@@ -505,7 +505,7 @@ domain.
 
 The `STgradient` function can be executed with these commands, in order to test
 for gradients within the tumor compartment. First, it is necessary to find the name of
-the column in `lung_subset@spatial_meta` containing the domain assigments:
+the column in `lung_subset@spatial_meta` containing the domain assignments:
 
 ```{r columnnames, eval=FALSE}
 spatial_metadata(lc_stlist)
@@ -532,7 +532,7 @@ head(stg[['Lung6_fov_4']])
 ```
 
 The key columns to look at are `min_spearman_r` and `min_spearman_r_pval_adj`.
-Now, to find genes with significant spatial gradients in FOV "Lung6_fov_4", these 
+Now, to find genes with significant spatial gradients in FOV "Lung6_fov_4", these
 commands can be used:
 
 ```{r topstg, eval=FALSE}
@@ -546,7 +546,7 @@ bind_rows(stg) %>%
 ```
 
 It can be seen from these results that multiple _KRT6A_ shows spatial gradients.
-With a negative Spearman's coefficients, the expression of this gene is higher 
+With a negative Spearman's coefficients, the expression of this gene is higher
 in cells close to to domain 4 than those away from it. Conversely, __HLA-B__ shows
 higher expression in cells far from domain 4:
 
@@ -569,4 +569,3 @@ Although the correlations in genes from this pathway are not as strong as and th
 for __KRT6A__ and __HLA-B__ (i.e., Spearman's coefficient closer to zero), it can
 be seen that the genes __NOTCH1__ and __NOTCH3__ show evidence of expression
 gradients in FOV "Lung6_fov_4".
-
