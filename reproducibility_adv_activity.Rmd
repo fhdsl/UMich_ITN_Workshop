@@ -16,6 +16,8 @@ editor_options:
 
 # Activity 0: Set Up
 
+[Slides are located here](https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?usp=sharing) 
+
 ### Installing Docker
 
 <input type="checkbox"> Go here to [install Docker Desktop](https://www.docker.com/get-started), following the instructions for your particular operating system.
@@ -71,7 +73,15 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 
 ### Step 1: Docker pull
 
-<input type="checkbox"> Open your terminal or command prompt window.
+
+<input type="checkbox">Search for the following image in the search box of Docker Desktop: `hudsl/reproducible-r`.
+
+<input type="checkbox"> Click on the `pull` button for this image.
+
+
+Alternatively you could use commands:
+
+<input type="checkbox"> Open terminal in Docker Desktop. Do so by clicking the lower right corner that has a symbol like this `>_`.
 
 <input type="checkbox"> We need to get the Docker **image** we want to use. We do this by "pulling" it.
 
