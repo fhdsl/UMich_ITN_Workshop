@@ -10,7 +10,7 @@ Welcome to the ITN University of Michigan Workshop Series!
 
 Over the next two days we will cover the a variety of bioinformatics topics. Please feel free to refer to these materials in the future.
 
-**Wifi:** Please use the guest wifi and supply your email.
+**Wi-Fi:** Please use the guest network and supply your email.
 
 **Website:** https://bit.ly/umich_itn
 

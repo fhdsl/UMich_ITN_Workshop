@@ -13,12 +13,153 @@ editor_options:
     wrap: 72
 ---
 
-#### Bulk RNA-seq
+## Bulk RNA-seq differential expression analysis
 
-- [Download the relevant datasets at this link](https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/)
-- [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/)
+The datasets for this activity consist of 20 Breast cancer primary tumor samples with 20 normal matched samples from TCGA as explained in the study ["Molecular analysis of TCGA breast cancer histologic types"](https://pmc.ncbi.nlm.nih.gov/articles/PMC9028992/).
 
-#### Single cell RNA-seq
+The aim of this activity is to answer the question -- "What genes differentiate samples with breast cancer from samples without breast cancer?". This is an example of differential expression analysis, a downstream analysis step in the bulk RNA-seq workflow.
+
+### Download Data and log into the GenePattern platform
+
+<input type="checkbox"> [Download the relevant datasets.](https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/)<br/>
+  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.cls`<br/>
+  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.gct`<br/>
+
+*Note, clicking on the filenames should automatically download them, otherwise you might need to right click.*
+
+```{r echo=FALSE, fig.alt="Download the c l s and g c t files from the gene pattern datasets resource, specifically the 2 4 0 4 1 1 hyphen P S T P workshops directory", fig.link="https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_0")
+```
+
+*Make sure you know where they are saved on your computer as you'll be uploading them in an upcoming step.*
+
+<details><summary>What are these file types?</summary>
+
+The `gct` file is a Gene Cluster Text file format used to describe an expression dataset. [See more about `gct` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29)
+
+```{r echo=FALSE, fig.alt="Description of g c t file from the Broad Institute", fig.link="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_11")
+```
+
+The `cls` file is a Categorial (e.g., tumor vs normal) class file format, specifying phenotype or class labels associated with each sample in the expression data. [See more about `cls` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29)
+
+```{r echo=FALSE, fig.alt="Description of c l s file from the Broad Institute", fig.link="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_19")
+```
+
+[See this resource from GenePattern for more information on creating these input files for your work.](https://www.genepattern.org/file-formats-guide/#gsc.tab=0)
+
+```{r echo=FALSE, fig.alt="Description of c l s and g c t file types with a link to a resource on creating these file types for your work", fig.link="https://www.genepattern.org/file-formats-guide/#gsc.tab=0"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_5")
+```
+
+</details>
+
+<input type="checkbox"> [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/) and sign in.
+
+### Run the ComparativeMarkerSelection Module to identify differentially expressed genes between the two groups
+
+<input type="checkbox"> Find the "ComparativeMarkerSelection" Module by searching for it in the search tool.
+
+```{r echo=FALSE, fig.alt="Find the Comparative Marker Selection Module to identify differentially expressed genes that can discriminate between our two groups of data"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_26")
+```
+
+<input type="checkbox"> Select the `gct` file (`BRCA_HUGO_symbols.preprocessed.gct`) for the "Input file*" option.
+
+<input type="checkbox"> Select the `cls` file (`BRCA_HUGO_symbols.preprocessed.cls`) for the "cls file*" option.
+
+```{r echo=FALSE, fig.alt="select the input files"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_41")
+```
+
+<input type="checkbox"> Scroll down and click the Run button.
+
+<input type="checkbox"> Click on the produced `odf` file (`BRCA_HUGO_symbols_preprocessed.comp.marker.odf`).
+
+### Run the DifferentialExpressionViewer module to make a heatmap of the differentially expressed genes
+
+
+<input type="checkbox"> Click on the produced file from the comparative marker selection.
+```{r echo=FALSE, fig.alt = "Click on the produced file from the comparative marker selection"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_50")
+```
+
+<details><summary>What is this file type?</summary>
+
+An ODF is an Output Description Format file, a GenePattern specific filetype. It is similar to a GCT file format, describing a gene expression dataset; however, the ODF filetype has a specialized header. [See more information about ODF files from GenePattern.](https://www.genepattern.org/file-formats-guide/#ODF)
+
+```{r echo=FALSE, fig.alt = "The O D F file is a Gene Pattern specific file type that is similar to a G C T file type, but has a specialized header"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2800f2a6905_0_122")
+```
+
+</details>
+
+<input type="checkbox"> In the opened side panel, scroll down and under the "Send to Module" heading, click on "DifferentialExpressionViewer".
+
+```{r echo=FALSE, fig.alt = "Send the data to the module named differential expression viewer"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_55")
+```
+
+<input type="checkbox"> Confirm that the ODF file has already been selected for the "differential expression filename*".
+<input type="checkbox"> Click the upload file button for the "dataset filename*" section.
+<input type="checkbox"> Select the `gct` file (`BRCA_HUGO_symbols.preprocessed.gct`).
+
+```{r echo=FALSE, fig.alt = "select the input files"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_66")
+```
+
+<input type="checkbox"> Click the Run button.
+
+### Inspect and customize the heatmap
+
+Inspecting the heatmap we see gene names are the row names and sample names are the column names.
+
+Color-wise there are blues and reds and whites. But without a legend, what do these colors mean?
+
+<input type="checkbox"> Click on the "Edit" dropdown menu in the top left.
+
+<input type="checkbox"> Click on "Display Options".
+
+<input type="checkbox"> Click the checkbox next to "Display Legend"
+
+<input type="checkbox"> Click "OK".
+
+From this newly added legend, we see that red is a "row max" value while blue is a "row min" value.
+
+```{r echo=FALSE, fig.alt="legend values"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2800f2a6905_0_160")
+```
+
+If a gene has very red colors across normal tissue samples and very blue colors across primary tissues -- that translates to that gene being upregulated in the matched normal tissues. MME is an example of this. (MME could also be termed downregulated in primary tumor samples).
+
+To save the heatmap (specifically those genes identified as comparative markers or differentially expressed genes) ....
+
+<input type="checkbox"> Click on the "File" dropdown menu in the top left.
+
+<input type="checkbox"> Click on "Save Image".
+
+<input type="checkbox"> You can select the "File type:" you want. `svg` is default. `png` is the other option.
+
+```{r echo=FALSE, fig.alt="saving the heatmap image"}
+ottrpal::include_slide('https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_79')
+```
+
+If you click the "Include" all features and samples checkbox, it will include all genes whether they were identified as differentially expressed or not, producing a much larger heatmap.
+
+<input type="checkbox"> Click on "OK".
+
+Fold Change and statistical test statistics (e.g., significance) are provided in a related table that you can also download.
+
+<input type="checkbox"> Click on the "File" dropdown menu in the top left.
+
+<input type="checkbox"> Click on the "Save Table (.txt)"
+
+<input type="checkbox"> If you want to save it to your computer, click on "Download" and select "OK".
+
+<!--
+## Single cell RNA-seq
 
 - [Download practice 10x single cell data](https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz)
 - [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/)
+-->
