@@ -135,6 +135,7 @@ nn
 Nominatim
 Normalised
 ODF
+OpenClinica
 OpenStreetMap
 omics
 Ospina
