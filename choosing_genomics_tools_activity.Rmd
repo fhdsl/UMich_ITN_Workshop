@@ -73,7 +73,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_41")
 ```
 
-<input type="checkbox"> Click the Run button.
+<input type="checkbox"> Scroll down and click the Run button.
 
 <input type="checkbox"> Click on the produced `odf` file (`BRCA_HUGO_symbols_preprocessed.comp.marker.odf`).
 
