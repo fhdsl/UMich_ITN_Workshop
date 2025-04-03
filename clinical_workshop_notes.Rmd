@@ -71,7 +71,7 @@ Data security and controlled access are critical in clinical research, given the
 
 Check out the [ITN course on data ethics](https://hutchdatascience.org/Ethical_Data_Handling_for_Cancer_Research/) which includes information about security for more information. 
 
-### Analuysis Methods
+### Analysis Methods
 
 The choice of analytical methods depends on the study objectives and the nature of the dataset. Descriptive statistics, such as means, medians, and distributions, provide insights into patient demographics and baseline characteristics. Inferential statistics, including hypothesis testing, regression analysis, and survival analysis, help in understanding relationships between variables and making predictions. Increasingly, machine learning models are being applied in clinical research for predictive analytics, risk stratification, and pattern detection. However, such models must be interpreted with caution, ensuring transparency, bias mitigation, and clinical relevance.
 

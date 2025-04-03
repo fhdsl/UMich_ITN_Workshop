@@ -1,6 +1,8 @@
+ADaM
 adriamycin
 al
 analytics
+anonymization
 another's
 Asc
 auth
@@ -20,6 +22,8 @@ ccRCC
 CDISC
 CellMarker
 cellularity
+CFR
+CRF
 checkmark
 cheatsheet
 Chowell
@@ -44,6 +48,7 @@ EBI
 ecog
 ECOG
 EDA
+EDC
 EHR
 Embeddings
 et
@@ -52,6 +57,7 @@ ExhauCRF
 Fclient
 FeaturePlot
 fhdsl
+Fi
 findable
 FindClusters
 FindNeighbours
@@ -66,6 +72,7 @@ Ferman
 galaxyproject
 Gapdh
 GDPR
+GCP
 geocoding
 GenePattern
 generalizable
@@ -149,6 +156,7 @@ px
 py
 pycaret
 PyCaret
+Qualtrics
 ra
 README
 README
@@ -214,6 +222,7 @@ TP
 trainings
 transcriptomics
 Transcriptomics
+translational
 tSNE
 tsv
 UIs
@@ -227,6 +236,7 @@ Visium
 visium
 walkthrough
 Wickham
+Wi
 Wifi
 wifi
 wikipedia
