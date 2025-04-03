@@ -17,6 +17,7 @@ bioinformatician
 biostatistician
 Bootstap
 ccRCC
+CDISC
 CellMarker
 cellularity
 checkmark
@@ -32,6 +33,7 @@ customizable
 customization
 customizations
 cwrigh
+De
 dev
 DimPlot
 Dockerfile
@@ -42,8 +44,10 @@ EBI
 ecog
 ECOG
 EDA
+EHR
 Embeddings
 et
+ETL
 ExhauCRF
 Fclient
 FeaturePlot
@@ -61,8 +65,10 @@ favicon
 Ferman
 galaxyproject
 Gapdh
+GDPR
 geocoding
 GenePattern
+generalizable
 ggplot
 ggthemes
 GH
@@ -73,6 +79,7 @@ glyphicons
 GSEA
 GSM
 Hadley
+HIPAA
 HTTPS
 https
 IGKC
@@ -80,10 +87,12 @@ Il
 immunohistochemistry
 IMM
 io
+IRB
 itcrtraining
 ITN
 ITCR
 Il2ra
+Jupyter
 juliawrobel
 json
 Kaplan
@@ -106,6 +115,7 @@ Murphey
 mxfda
 nb
 nCount
+NCRC
 nFeature
 nn
 Nominatim
@@ -121,6 +131,7 @@ ph
 Phenotyping
 phind
 Phind
+PHIPA
 pipeable
 PlayDoh
 Podman
@@ -142,6 +153,8 @@ ra
 README
 README
 READMEs
+RBAC
+REB
 REDCap
 REDCap's
 REDCapAPI
@@ -157,16 +170,19 @@ Roys
 rstudio
 RStudio
 samplename
+scalability
 Schoenfeld
 SCTransform
 scalefactors
 Scanpy
 scRNA
+SDTM
 SeuratNormalise
 SickKids
 slido
 Slido
 Soupir
+SOPs
 spatialGE
 spatialge
 spatialTIME
@@ -212,6 +228,7 @@ visium
 walkthrough
 Wickham
 Wifi
+wifi
 wikipedia
 Wrobel
 www
