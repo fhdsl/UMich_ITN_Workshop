@@ -103,7 +103,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 <input type="checkbox"> Confirm that the ODF file has already been selected for the "differential expression filename*".
 <input type="checkbox"> Click the upload file button for the "dataset filename*" section.
-<input type="checkbox"> Select the `gct` file (`BRCA_HUGO_symbols.preprocessed.gct`) for the "dataset filename*" option.
+<input type="checkbox"> Select the `gct` file (`BRCA_HUGO_symbols.preprocessed.gct`).
 
 ```{r echo=FALSE, fig.alt = "select the input files"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_66")
