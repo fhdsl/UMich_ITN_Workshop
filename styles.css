@@ -1,4 +1,19 @@
 
+code {
+  background-color: lightgray;
+  color:red;
+}
+
+
+.cmd {
+    margin: .2em;
+    padding: .2em;
+    background: #d2f4f9;
+    border: 4px black;
+}
+
+
+
 .explain_block {
     margin: .2em;
     padding: .2em;
@@ -19,6 +34,40 @@ div.warning{
   min-height: 120px;
   background-color: #e8ebee;
   background-image: url("./resources/images/warning.png");
+}
+
+
+div.itn{
+  padding: 1em;
+  margin: 1em 0;
+  min-height: 120px;
+  border: 4px #e0471c;
+  border-style: solid;
+  outline: 5px solid #193a5c;
+  border-style: solid;
+  background-size: 70px;
+  background-position: 15px center;
+  background-image: url("resources/images/ITN_logo.png");
+  padding: 1em;
+  margin: 1em 0;
+  padding-left: 100px;
+  min-height: 120px;
+  background-repeat: no-repeat;
+}
+
+div.notice{
+  border: 4px #68ace5;
+  border-style: solid;
+  background-size: 70px;
+  background-position: 15px center;
+  background-color: #e8ebee;
+  background-image: url("resources/images/note.png");
+  padding: 1em;
+  margin: 1em 0;
+  padding-left: 100px;
+  min-height: 120px;
+  background-repeat: no-repeat;
+}
 }
 
 /*------------- table code---------------- */

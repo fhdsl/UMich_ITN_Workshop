@@ -23,26 +23,52 @@ knitr::opts_chunk$set(number_sections = FALSE)
 
 ### Getting familiar with the repository
 
-This repository is a "mock" analysis. It has an example folder and file organizational structure that looks like this:
+This repository is a "mock" analysis. It has an example folder and file organizational structure that looks something like this:
 
+- .github/workflows
+- data/
+- docker/
+- plots/
+- renv/
+- results/
 - 00-download-data.py
 - 01-heatmap.Rmd
 - 01-heatmap.nb.html
 - **README.md**
 - renv.lock
 - run_analysis.sh
-- results/
-- plots/
-- docker/
+
+
+```{r echo=FALSE, fig.alt="screenshot of the repository showing these files"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_1984#slide=id.g2fcf7903f51_0_1984")
+```
+
+
 
 When you look at the README for this repository however, you will notice it is blank.
+
+
 
 ### Create your own copy of this repository
 
 <input type="checkbox"> Click the green `Use this template` button and then `Create a new repository`. If you don't see this button, you may need to expand your window.  
+
+
+```{r echo=FALSE, fig.alt="screenshot of the repository showing the use template button at the top of the screen"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g28d9b0eb45f_0_2227#slide=id.g28d9b0eb45f_0_2227")
+```
+
+
 <input type="checkbox"> On the next screen, create a `Repository name`.   
 <input type="checkbox"> Choose `Public`.  
-<input type="checkbox"> Scroll to the bottom and click `Create repository`.  
+<input type="checkbox"> Scroll to the bottom and click `Create repository`.
+
+
+```{r echo=FALSE, fig.alt="screenshot of setting up the respository by naming it and setting it to public"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g28d9b0eb45f_0_2233#slide=id.g28d9b0eb45f_0_2233")
+```
+
+You will use the name in the next step!
 
 ### Cloning our repository
 
@@ -51,6 +77,12 @@ GitHub Desktop is a great tool to help use use version control and interact with
 <input type="checkbox"> Go to `File` > `Clone Repository`.  
 <input type="checkbox"> Search for your ITN workshop repository name in the tab that says `Github.com`. Click on the name of this repository in this list. You can choose where you'd like it to download on your computer underneath `Local Path`.  
 <input type="checkbox"> Click the blue `Clone` button.  
+
+
+```{r echo=FALSE, fig.alt="the menu buttons to clone a repository in GitHub Desktop, as well as the link that should be used- the link of the repository you just created from copying the template"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g27ccc8ff33d_0_1715#slide=id.g27ccc8ff33d_0_1715")
+```
+
 
 ### Window Juggling
 
@@ -62,6 +94,12 @@ We will be "juggling" some windows when doing this activity:
 - `Files` -- we'll find where our files are on our computer with this
 - `Online GitHub` -- we will send our pull request and suggested changes to online GitHub.com with this.
 
+
+```{r echo=FALSE, fig.alt="A man juggling and a screenshot of the 3 locations we are working in"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2041#slide=id.g2fcf7903f51_0_2041
+")
+```
+
 ### Filing a pull request
 
 Pull requests are great for suggesting changes in a way that allow us to preview and discuss the changes before merging to the `main` version.
@@ -72,78 +110,231 @@ We will practice filing a pull request by filling in the the README. READMEs are
 
 But to create a pull request, we first need to create a branch to work from that is separate from the `main` copy.
 
+In GitHub Desktop:
+
 <input type="checkbox"> Click the `Current Branch` box > `New branch`.  
 <input type="checkbox"> Call this new branch `readme-edit`.  
+<input type="checkbox"> Click the blue button that says `Create Branch`.
+
+
+```{r echo=FALSE, fig.alt="A screenshot of creating a new branch in GitHub Desktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g27ccc8ff33d_0_1760#slide=id.g27ccc8ff33d_0_1760
+")
+```
+
 
 ### Create an AI generated README
 
-<input type="checkbox"> Click the `Show in Finder` or `Show in Explorer` button depending on your operating system.  
-<input type="checkbox"> With any text editor open up both the `01-heatmap.Rmd` file and the `README.md` file  
+<input type="checkbox"> In GitHub Desktop, Click the `Show in Finder` or `Show in Explorer` button depending on your operating system.  This should be about halfway down the screen.
+<input type="checkbox"> Right click the file names to open up both the `01-heatmap.Rmd` file and the `README.md` file with any text editor. (May need to select `Other` and `Enable all applications` if on a Mac.)
+
+```{r echo=FALSE, fig.alt="Menu button to open files in GitHub Desktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2111#slide=id.g2fcf7903f51_0_2111
+")
+```
+
+
+
 <input type="checkbox"> Copy all the text from `01-heatmap.Rmd` (Cmd + A - Mac, Ctrl + A - Windows).     
-<input type="checkbox"> Go to phind https://www.phind.com/search  
-<input type="checkbox"> Ask phind to create a README from the code. Copy (Cmd + A - Mac, Ctrl + C - Windows) and paste (Cmd + V - Mac, Ctrl + V - Windows) in the code from `01-heatmap.Rmd`. You may want to do some variations on the prompt you use to ask phind to do this to get good results.     
-<input type="checkbox"> Copy all the text from the desired Phind output and paste it to `README.md`. Save the file.  
+
+
+```{r echo=FALSE, fig.alt="image of copying the contents of the 01-heatmap.Rmd file and pasting in Phind to ask for a README file"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2141#slide=id.g2fcf7903f51_0_2141")
+```
+
+<input type="checkbox"> Go to phind https://www.phind.com/search in your browser. (Other AI chatbots can also work like https://poe.com/)
+<input type="checkbox"> Ask phind to create a README from the code. Copy (Cmd + A - Mac, Ctrl + C - Windows) and paste (Cmd + V - Mac, Ctrl + V - Windows) in the code from `01-heatmap.Rmd`. You may want to do some variations on the prompt you use to ask phind to do this to get good results.  
+
+```{r echo=FALSE, fig.alt="image of copying the response from Phind"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g28aa6633ca3_0_28#slide=id.g28aa6633ca3_0_28")
+```
+
+<input type="checkbox"> Copy all the text from the desired phind output and paste it to `README.md`. Save the file.  
+
+
+
 
 
 ### Adding changes to a branch
 
-<input type="checkbox"> Go back to GitHub Desktop. You should see `1 changed file` in the upper right corner. It may be upper left for Windows.    
+<input type="checkbox"> Go back to GitHub Desktop. You should see `1 changed file` in the upper right corner. It may be upper left depending on your machine and version of GitHub Desktop. 
+
+```{r echo=FALSE, fig.alt="showing the changes from adding contents to the readme file in GitHub Desktop - these are shown as green text"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g27d63c3b196_1_32#slide=id.g27d63c3b196_1_32")
+```
+
+
 <input type="checkbox"> Type in a "commit" message. Commits are how we add things to our branch.  
 <input type="checkbox"> Click the button that says `Commit to ...` it will have your branch name which should be `readme-edit`.  
-<input type="checkbox"> Click the `Publish branch` button. This will "push" your changes to online Github.com  
+<input type="checkbox"> Click the `Publish branch` button. This will "push" your changes to online GitHub.com  
+
+```{r echo=FALSE, fig.alt="the process of adding a commit message and publishing and pushing the changes to GitHub.com"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g27ccc8ff33d_0_1812#slide=id.g27ccc8ff33d_0_1812")
+```
 
 
 ### Making the pull request
 
 <input type="checkbox"> Follow GitHub Desktop's prompt to `Create a Pull Request` and click the blue button. If the blue button says `Preview Pull Request` then click the downward facing arrow to see the option to `Create a Pull Request`.   
+
+
+```{r echo=FALSE, fig.alt="Button to make a pull reqestion in GitHub Desktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2189#slide=id.g2fcf7903f51_0_2189
+")
+```
+
+
 <input type="checkbox"> It should open up a page on GitHub.com Fill out the `Add a title` and the `Add a description` boxes to appropriately describe the work you did on the branch we are making the pull request from.  
-<input type="checkbox"> Click `Create pull request`.  
+
+<input type="checkbox"> Click the green `Create pull request` button. 
+
+
+```{r echo=FALSE, fig.alt="Pull Requests on GitHub.com"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g27ccc8ff33d_0_1895#slide=id.g27ccc8ff33d_0_1895
+")
+```
+
 
 
 ## Activity 2: Navigating PR components
 
 ### 2a: Leaving comments and suggestions
 
-<input type="checkbox"> Return to your pull request from Activity 1.   
-<input type="checkbox"> Click on the `Files Changed` tab.   
-<input type="checkbox"> Click one of the plus signs to the left to leave a comment.   
-<input type="checkbox"> With one of the open comments click the little symbol that has a plus and minus in a page to leave a suggestion.  
-<input type="checkbox"> Click `Add a single comment`.  
+<input type="checkbox"> Return to your pull request on GitHub in your browser from Activity 1.   
+
+```{r echo=FALSE, fig.alt="Pull Requests on GitHub.comb"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2228#slide=id.g2fcf7903f51_0_2228
+")
+```
+
+
+
+
+<input type="checkbox"> Click on the `Files Changed` tab (lower set of tabs). 
+
+
+```{r echo=FALSE, fig.alt="Pull Requests on GitHub.com, the files changed ta"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2236#slide=id.g2fcf7903f51_0_2236
+")
+```
+
+
+<input type="checkbox"> Click one of the plus signs to the left of one of your changes to leave a comment. 
+
+```{r echo=FALSE, fig.alt="click on plus sign"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2244#slide=id.g2fcf7903f51_0_2244
+")
+```
+
+
+<input type="checkbox"> Type something and then click `Add single comment`. Nice, you added a comment!
+
+```{r echo=FALSE, fig.alt="adding a comment"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g3477d608862_3_13#slide=id.g3477d608862_3_13
+")
+```
+
+<input type="checkbox"> Click another plus sign to the left of a change.
+<input type="checkbox"> This time, click the little symbol that has a plus and minus in a page (next to the preview tab). This will start a suggestion, where you can make suggested changes to documents. 
+
+```{r echo=FALSE, fig.alt="The suggestion button which looks like a plus and minus sign in little box"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2253#slide=id.g2fcf7903f51_0_2253
+")
+```
+
+
+<input type="checkbox"> Make a change to the text in the suggestion.  
+<input type="checkbox"> Click `Add a single comment`. Great, You added a suggestion!
 
 Note that you or a collaborator can now readily incorporate your suggestion by clicking `Commit suggestion` or they could comment back to further discuss.
 
 <input type="checkbox"> Click `Commit suggestion` and then `Commit changes`.  
-<input type="checkbox"> Return to the `Conversation` tab and scroll to the bottom. You should see an additional commit now!
 
-### 2b: Reading GitHub Actions logs
+```{r echo=FALSE, fig.alt="The commit changes button for a suggestion"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g28aa6633ca3_0_56#slide=id.g28aa6633ca3_0_56
+")
+```
 
-On the bottom of your PR you will notice a box at the bottom that will probably either say `Some checks haven't completed yet` or `All checks passed`.  
 
-This is an automatic check run by GitHub Actions which is one of many systems used for Continuous Integration/Continuous Deployment.
+<input type="checkbox"> Return to the `Conversation` tab and scroll to the bottom. You should see an additional commit and your comment now!
 
-<input type="checkbox"> If needed, click `Show all checks`.  
-<input type="checkbox"> Click `Details` at the end of the line that says `Render R Example / render-notebooks (pull_request)`.  
-<input type="checkbox"> Click around in here to investigate what GitHub Actions logs look like.
+```{r echo=FALSE, fig.alt="The conversation tab showing the change"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2262#slide=id.g2fcf7903f51_0_2262
+")
+```
 
-For more learning about using [GitHub Actions for science see our course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/).
 
-### 2c: Updating your local repository
+### 2b: Updating your local repository
 
 If you followed the steps in the `Leaving comments and suggestions` section of this activity you will now have at least one commit that is on your online version of your repository but the changes done online won't automatically get to your local repository. To do this we need to `Pull` the latest changes to our computer.
 
 <input type="checkbox"> Return to GitHub Desktop.  
 <input type="checkbox"> Click the `Fetch origin` button.  
-<input type="checkbox"> You should be prompted to `Pull origin` click this button.  
+
+```{r echo=FALSE, fig.alt="The Fetch Origin Button on the top right of GitHub Desktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2215#slide=id.g2fcf7903f51_0_2215
+")
+```
+
+<input type="checkbox"> You should be prompted to `Pull origin` click this button.
+
+```{r echo=FALSE, fig.alt="The pull orgin button in GitHub Desktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g28aa6633ca3_0_70#slide=id.g28aa6633ca3_0_70
+")
+```
+
+
+<input type="checkbox"> Click the History tab to see your changes over time. Note the most recent are at the top.
+
+```{r echo=FALSE, fig.alt="The History tab on the left top of GitHub Desktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g28aa6633ca3_0_77#slide=id.g28aa6633ca3_0_77")
+```
+
+
 <input type="checkbox"> Now your changes should be synced. Open up the file you've changed with any default text editor to look for the change you made to make sure.  
+### 2c: Reading GitHub Actions logs
+
+On the bottom of your Pull Request (PR) you will notice a box at the bottom that will probably either say `Some checks haven't completed yet` or `All checks passed`.  
+
+This is an automatic check run by GitHub Actions which is one of many systems used for Continuous Integration/Continuous Deployment.
+
+<input type="checkbox">  If needed, click `Show all checks`.  
+<input type="checkbox"> If no failing checks, Click the 3 dots at the end of the line that says `Render R Example / render-notebooks (pull_request)`. Click `View Details` 
+<input type="checkbox"> If failing checks, Click  `Details` at the end of the line that says `Render R Example / render-notebooks (pull_request)`
+<input type="checkbox"> Click around to investigate what GitHub Actions logs look like.
+
+
+```{r echo=FALSE, fig.alt="Example of a GitHub action log which shows various steps and a green check mark for succesfully run actions"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2274#slide=id.g2fcf7903f51_0_2274
+")
+```
+
+
+For more learning about using [GitHub Actions for science see our course](https://hutchdatascience.org/GitHub_Automation_for_Scientists/).
 
 ### 2d: Merging your PR
 
-In a real life setting the life of a Pull request could be long or short. What's important is that the discussions that need to be had about the changes are had before the pull request is merged.
+In a real life setting the life of a pull request could be long or short. What's important is that the discussions that need to be had about the changes are had before the pull request is merged.
 
 Pull requests and GitHub have their own kind of etiquette. Make sure you talk to your team or collaborators to create and discuss what kind of guidelines and workflows you'd like to adhere to so everyone can do their best work!
 
 <input type="checkbox"> Return to GitHub Pull Request Online.  
-<input type="checkbox"> Click the `Merge` button. Follow up with the `Confirm merge` button.  
+<input type="checkbox"> Click the `Merge` button. 
+<input type="checkbox"> Follow up with the `Confirm merge` button. 
+
+```{r echo=FALSE, fig.alt="Merging button on a pull request on GitHub at the bottom left if you scroll down"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g28aa6633ca3_0_114#slide=id.g28aa6633ca3_0_114
+")
+```
+
+
+<input type="checkbox"> You can also click the `Delete branch` button - our changes are already in main and we have a copy of what we did.
+
+```{r echo=FALSE, fig.alt="The button for deleting the branch"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw/edit?slide=id.g2fcf7903f51_0_2304#slide=id.g2fcf7903f51_0_2304
+")
+```
+
 
 Yay! Congrats.
 
