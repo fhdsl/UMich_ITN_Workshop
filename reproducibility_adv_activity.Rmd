@@ -79,6 +79,11 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 <input type="checkbox"> Click on the `pull` button for this image.
 
 
+```{r echo=FALSE, fig.alt="pulling an image using the search for Docker Descktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g34c2796bb1c_0_9#slide=id.g34c2796bb1c_0_9")
+```
+
+
 Alternatively you could use the command line.
 
 <details> <summary> Click here to see these directions using the command line. </summary>
@@ -103,7 +108,16 @@ docker pull jhudsl/reproducible-r
 <input type="checkbox"> After the last steps complete, we can see what images we have by clicking on the `Images` tab on the left menu in Docker Desktop. We should see `jhudsl/reproducible-r` show up now.
 
 
+```{r echo=FALSE, fig.alt="checking images using the image tab in Docker Descktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_985#slide=id.g2ebd8828116_0_985")
+```
+
+
+
 <details> <summary> Click here to see these directions using the command line. </summary>
+
+
+
 
 :::cmd
 <input type="checkbox">  Run this command to see what images we have: 
@@ -121,6 +135,10 @@ docker image ls
 
 <input type="checkbox"> Now if we want to launch the image for use, we can use run button that looks like a triangle to turn the image into a **container**
 
+
+```{r echo=FALSE, fig.alt="run images using the play button in Docker Descktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_1006#slide=id.g2ebd8828116_0_1006")
+```
 
 <details> <summary> Click here to see these directions using the command line. </summary>
 
@@ -154,28 +172,8 @@ docker ps
 
 <br>
 
-### Step 4: Run a single command
 
-<input type="checkbox"> To use code on the fly interactively from the command line we can click on the container name (if needed) and click on the `Exec` tab in Docker Desktop 
-
-
-<details> <summary> Click here to see these directions using the command line. </summary>
-
-:::cmd
-<input type="checkbox"> Alternatively,  we can use the following command in the terminal:
-
-```
-docker exec -it <PUT_CONTAINER_ID_HERE> bash
-```
-
-We should now see a `#` at the end of the line showing that we can enter commands for the container interactively.
-:::
-
-</details>
-
-<br>
-
-### Step 5: Add our reproducibility-sandbox files 
+### Step 4: Add our reproducibility-sandbox files 
 
 Our container is separate from our computer so if we want to use a file we have to attach it using a "volume".
 
@@ -198,7 +196,12 @@ A `volume`  is a set of files that are local to our computer that are accessible
 
 <input type="checkbox"> Click `Run`.
 
-The container will launch again but this time with your files.
+The container will launch this time with your files.
+
+```{r echo=FALSE, fig.alt="adding a volumne with the files by using the options tab when running an image and specifying locations and a port of 8787:8787 to later us rStudio"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_1058#slide=id.g2ebd8828116_0_1058")
+```
+
 
 <details> <summary> Click here to see these directions using the command line. </summary>
 
@@ -229,9 +232,14 @@ Note that if you already did this using the buttons in Docker Desktop you may ge
 
 <br>
 
-### Step 6: Call a script
+### Step 5: Call a script
 
-<input type="checkbox"> Click `Exec` to launch  execute mode.
+<input type="checkbox"> To use code on the fly interactively from the command line we can click on the container name (if needed) and click on the `Exec` tab in Docker Desktop 
+
+```{r echo=FALSE, fig.alt="running commands using the Exec tab in Docker Descktop"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_1035#slide=id.g2ebd8828116_0_1035")
+```
+
 
 <input type="checkbox"> Go to the home directory specified to where our files were added by typing the following and pressing enter after:
 
@@ -275,12 +283,24 @@ Output created: 01-heatmap.nb.html
 </details>
 <br>
 
-### Step 7: Using RStudio from a container
+### Step 6: Using RStudio from a container
 
 <input type="checkbox"> Click on the link that says 8787:8787 at the top of your Docker Desktop (in the Container tab) OR go to your internet browser and type in `localhost:8787`.  
 
+```{r echo=FALSE, fig.alt="the location of the link to the rstudio port in Docker Desktop at the top left"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g34628800695_0_339#slide=id.g34628800695_0_339")
+```
+
+
 <input type="checkbox"> Now type in "rstudio" for your username and then find the password that was set in your Docker logs and copy and past that for your password.
 (It will likely be in red).
+
+
+```{r echo=FALSE, fig.alt="logging into RStudio using this method we need find the password from the log file and use rstudio as the username"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_1027#slide=id.g2ebd8828116_0_1027")
+```
+
+
 
 <input type="checkbox"> Click submit.
 
@@ -289,6 +309,9 @@ Now you can develop code from RStudio from a container that is shareable!
 ::: {.itn}
 Keep in mind you can install packages from here but they will not be saved to the original image after you stop the container. To add software to your image you will need to modify your image which [you can find instructions on how to do this in our full course](https://hutchdatascience.org/Containers_for_Scientists/05-modifying-containers.html).
 :::
+
+
+
 
 # Activity 2: Getting familiar with GitHub Actions
 
