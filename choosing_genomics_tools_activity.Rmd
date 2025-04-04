@@ -22,8 +22,8 @@ The aim of this activity is to answer the question -- "What genes differentiate 
 ### Download Data and log into the GenePattern platform
 
 <input type="checkbox"> [Download the relevant datasets.](https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/)<br/>
-  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.cls`<br/>
-  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.gct`<br/>
+ • <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.cls`<br/>
+ • <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.gct`<br/>
 
 *Note, clicking on the filenames should automatically download them, otherwise you might need to right click.*
 
@@ -102,7 +102,9 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 ```
 
 <input type="checkbox"> Confirm that the ODF file has already been selected for the "differential expression filename*".
+
 <input type="checkbox"> Click the upload file button for the "dataset filename*" section.
+
 <input type="checkbox"> Select the `gct` file (`BRCA_HUGO_symbols.preprocessed.gct`).
 
 ```{r echo=FALSE, fig.alt = "select the input files"}
