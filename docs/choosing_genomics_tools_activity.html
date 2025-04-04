@@ -446,8 +446,8 @@ class="section level3">
 <h3>Download Data and log into the GenePattern platform</h3>
 <p><input type="checkbox"> <a
 href="https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/">Download
-the relevant datasets.</a><br/> - <input type="checkbox"> Download
-<code>BRCA_HUGO_symbols.preprocessed.cls</code><br/> -
+the relevant datasets.</a><br/> • <input type="checkbox"> Download
+<code>BRCA_HUGO_symbols.preprocessed.cls</code><br/> •
 <input type="checkbox"> Download
 <code>BRCA_HUGO_symbols.preprocessed.gct</code><br/></p>
 <p><em>Note, clicking on the filenames should automatically download
@@ -459,6 +459,7 @@ you’ll be uploading them in an upcoming step.</em></p>
 <summary>
 What are these file types?
 </summary>
+<div class="explain_block">
 <p>The <code>gct</code> file is a Gene Cluster Text file format used to
 describe an expression dataset. <a
 href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29">See
@@ -477,6 +478,7 @@ href="https://www.genepattern.org/file-formats-guide/#gsc.tab=0">See
 this resource from GenePattern for more information on creating these
 input files for your work.</a></p>
 <p><a href="https://www.genepattern.org/file-formats-guide/#gsc.tab=0" target="_blank"><img src="choosing_genomics_tools_activity_files/figure-html/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM_g2f2ca03ec26_0_5.png" alt="Description of c l s and g c t file types with a link to a resource on creating these file types for your work" width="480" /></a></p>
+</div>
 </details>
 <p><input type="checkbox"> <a href="http://cloud.genepattern.org/gp/">Go
 to the Gene Pattern platform</a> and sign in.</p>
@@ -499,35 +501,35 @@ option.</p>
 <p><input type="checkbox"> Scroll down and click the Run button.</p>
 <p><input type="checkbox"> Click on the produced <code>odf</code> file
 (<code>BRCA_HUGO_symbols_preprocessed.comp.marker.odf</code>).</p>
-</div>
-<div
-id="run-the-differentialexpressionviewer-module-to-make-a-heatmap-of-the-differentially-expressed-genes"
-class="section level3">
-<h3>Run the DifferentialExpressionViewer module to make a heatmap of the
-differentially expressed genes</h3>
-<p><input type="checkbox"> Click on the produced file from the
-comparative marker selection.
-<img src="choosing_genomics_tools_activity_files/figure-html/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM_g2f2ca03ec26_0_50.png" alt="Click on the produced file from the comparative marker selection" width="480" /></p>
+<img src="choosing_genomics_tools_activity_files/figure-html/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM_g2f2ca03ec26_0_50.png" alt="Click on the produced file from the comparative marker selection" width="480" />
 <details>
 <summary>
 What is this file type?
 </summary>
+<div class="explain_block">
 <p>An ODF is an Output Description Format file, a GenePattern specific
 filetype. It is similar to a GCT file format, describing a gene
 expression dataset; however, the ODF filetype has a specialized header.
 <a href="https://www.genepattern.org/file-formats-guide/#ODF">See more
 information about ODF files from GenePattern.</a></p>
 <p><img src="choosing_genomics_tools_activity_files/figure-html/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM_g2800f2a6905_0_122.png" alt="The O D F file is a Gene Pattern specific file type that is similar to a G C T file type, but has a specialized header" width="480" /></p>
+</div>
 </details>
+</div>
+<div
+id="run-the-differentialexpressionviewer-module-to-make-a-heatmap-of-the-differentially-expressed-genes"
+class="section level3">
+<h3>Run the DifferentialExpressionViewer module to make a heatmap of the
+differentially expressed genes</h3>
 <p><input type="checkbox"> In the opened side panel, scroll down and
 under the “Send to Module” heading, click on
 “DifferentialExpressionViewer”.</p>
 <p><img src="choosing_genomics_tools_activity_files/figure-html/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM_g2f2ca03ec26_0_55.png" alt="Send the data to the module named differential expression viewer" width="480" /></p>
 <p><input type="checkbox"> Confirm that the ODF file has already been
-selected for the “differential expression filename<em>”.
-<input type="checkbox"> Click the upload file button for the ”dataset
-filename</em>” section. <input type="checkbox"> Select the
-<code>gct</code> file
+selected for the “differential expression filename*“.</p>
+<p><input type="checkbox"> Click the upload file button for the “dataset
+filename*” section.</p>
+<p><input type="checkbox"> Select the <code>gct</code> file
 (<code>BRCA_HUGO_symbols.preprocessed.gct</code>).</p>
 <p><img src="choosing_genomics_tools_activity_files/figure-html/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM_g2f2ca03ec26_0_66.png" alt="select the input files" width="480" /></p>
 <p><input type="checkbox"> Click the Run button.</p>
@@ -559,7 +561,7 @@ left.</p>
 <p><input type="checkbox"> You can select the “File type:” you want.
 <code>svg</code> is default. <code>png</code> is the other option.</p>
 <p><img src="choosing_genomics_tools_activity_files/figure-html/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM_g2f2ca03ec26_0_79.png" alt="saving the heatmap image" width="480" /></p>
-<p>If you click the “Include” all features and samples checkbox, it will
+<p>If you click the “Include all features and samples” checkbox, it will
 include all genes whether they were identified as differentially
 expressed or not, producing a much larger heatmap.</p>
 <p><input type="checkbox"> Click on “OK”.</p>

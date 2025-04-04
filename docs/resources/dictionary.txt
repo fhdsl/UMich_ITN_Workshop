@@ -61,6 +61,7 @@ ExhauCRF
 Fclient
 FeaturePlot
 fhdsl
+filetype
 Fi
 findable
 FindClusters
@@ -75,6 +76,7 @@ favicon
 Ferman
 galaxyproject
 Gapdh
+GCT
 GDPR
 GCP
 geocoding
@@ -90,6 +92,7 @@ glyphicons
 GSEA
 GSM
 Hadley
+histologic
 HIPAA
 HTTPS
 https
