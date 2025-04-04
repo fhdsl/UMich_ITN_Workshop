@@ -74,7 +74,7 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 ### Step 1: Docker pull
 
 
-<input type="checkbox">Search for the following image in the search box of Docker Desktop: `hudsl/reproducible-r`.
+<input type="checkbox">Search for the following image in the search box of Docker Desktop: `jhudsl/reproducible-r`.
 
 <input type="checkbox"> Click on the `pull` button for this image.
 
