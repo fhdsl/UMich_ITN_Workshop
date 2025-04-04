@@ -236,8 +236,8 @@ Note that if you already did this using the buttons in Docker Desktop you may ge
 
 <input type="checkbox"> To use code on the fly interactively from the command line we can click on the container name (if needed) and click on the `Exec` tab in Docker Desktop 
 
-```{r echo=FALSE, fig.alt="running commands using the Exec tab in Docker Descktop"}
-ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_1035#slide=id.g2ebd8828116_0_1035")
+```{r echo=FALSE, fig.alt="running commands using the Exec tab in Docker Descktop which is in the middle of the window at the top"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_1085#slide=id.g2ebd8828116_0_1085")
 ```
 
 
