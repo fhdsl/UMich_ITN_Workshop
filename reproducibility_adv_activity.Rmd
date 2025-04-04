@@ -79,49 +79,89 @@ After you install Docker, start up Docker Desktop by double clicking on the app.
 <input type="checkbox"> Click on the `pull` button for this image.
 
 
-Alternatively you could use commands:
+Alternatively you could use the command line.
+
+<details> <summary> Click here to see these directions using the command line. </summary>
+
+:::cmd
 
 <input type="checkbox"> Open terminal in Docker Desktop. Do so by clicking the lower right corner that has a symbol like this `>_`.
 
-<input type="checkbox"> We need to get the Docker **image** we want to use. We do this by "pulling" it.
-
-Run this command by copy pasting and clicking enter in your terminal:
+<input type="checkbox">  Run this command by copy pasting and clicking enter in your terminal to pull the Docker image:
 
 ```
 docker pull jhudsl/reproducible-r
 ```
 
+:::
+</details>
+
+<br>
+
 ### Step 2: Check what images you have
 
 <input type="checkbox"> After the last steps complete, we can see what images we have by clicking on the `Images` tab on the left menu in Docker Desktop. We should see `jhudsl/reproducible-r` show up now.
 
-<input type="checkbox">  We can also see what images we have by using the command `docker image ls` in the terminal. 
 
+<details> <summary> Click here to see these directions using the command line. </summary>
 
+:::cmd
+<input type="checkbox">  Run this command to see what images we have: 
+
+```
+docker image ls
+```
+:::
+
+</details>
+
+<br>
 
 ### Step 3: Run the Docker image to start a container!
 
 <input type="checkbox"> Now if we want to launch the image for use, we can use run button that looks like a triangle to turn the image into a **container**
 
+
+<details> <summary> Click here to see these directions using the command line. </summary>
+
+:::cmd
 <input type="checkbox"> Alternatively, we could also use `docker run` as a command in the terminal:
 
 ```
 docker run jhudsl/reproducible-r
 ```
+:::
+
+</details>
+<br>
+
+### Step 3b: Check what containers are running
 
 <input type="checkbox"> To see what containers we have running we check the `Containers` tab in Docker Desktop.
 
+
+<details> <summary> Click here to see these directions using the command line. </summary>
+
+:::cmd
 <input type="checkbox"> Alternatively, we can run the following command in the terminal:
 
 ```
 docker ps
 ```
+:::
+
+</details> 
+
+<br>
 
 ### Step 4: Run a single command
 
 <input type="checkbox"> To use code on the fly interactively from the command line we can click on the container name (if needed) and click on the `Exec` tab in Docker Desktop 
 
 
+<details> <summary> Click here to see these directions using the command line. </summary>
+
+:::cmd
 <input type="checkbox"> Alternatively,  we can use the following command in the terminal:
 
 ```
@@ -129,7 +169,11 @@ docker exec -it <PUT_CONTAINER_ID_HERE> bash
 ```
 
 We should now see a `#` at the end of the line showing that we can enter commands for the container interactively.
+:::
 
+</details>
+
+<br>
 
 ### Step 5: Add our reproducibility-sandbox files 
 
@@ -156,7 +200,9 @@ A `volume`  is a set of files that are local to our computer that are accessible
 
 The container will launch again but this time with your files.
 
+<details> <summary> Click here to see these directions using the command line. </summary>
 
+:::cmd
 Alternatively, we can do something similar in the terminal.
 
 We can run our Docker container with the volume `-v` option.
@@ -178,7 +224,10 @@ docker run -v $PWD:/home -p 8787:8787 jhudsl/reproducible-r
 The reason you need to be in the directory with your files is because `$PWD` is a special environment variable that stores the absolute path of the current working directory. This will enable the next step to call the script file.
 
 Note that if you already did this using the buttons in Docker Desktop you may get an error that the port is already allocated. You can stop your other container (by clicking the trash button near the listed container in your Containers tab) to rerun this from the command line.
+:::
+</details>
 
+<br>
 
 ### Step 6: Call a script
 
@@ -205,6 +254,11 @@ After a bit you should see the following:
 Output created: 01-heatmap.nb.html
 ```
 
+
+<details> <summary> Click here to see these directions using the command line. </summary>
+
+:::cmd
+
 <input type="checkbox"> Alternatively if you have been working in the terminal, we could open a new terminal and use the following:
 ```
 docker exec -it <REPLACE_WITH_CONTAINER_ID> bash /home/run_analysis.sh
@@ -216,6 +270,10 @@ Similarly after a bit you should see the following in the terminal:
 ```
 Output created: 01-heatmap.nb.html
 ```
+:::
+
+</details>
+<br>
 
 ### Step 7: Using RStudio from a container
 
@@ -228,7 +286,7 @@ Output created: 01-heatmap.nb.html
 
 Now you can develop code from RStudio from a container that is shareable!
 
-::: {.notice}
+::: {.itn}
 Keep in mind you can install packages from here but they will not be saved to the original image after you stop the container. To add software to your image you will need to modify your image which [you can find instructions on how to do this in our full course](https://hutchdatascience.org/Containers_for_Scientists/05-modifying-containers.html).
 :::
 
