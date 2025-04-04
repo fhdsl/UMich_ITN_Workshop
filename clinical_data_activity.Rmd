@@ -30,8 +30,30 @@ When you click on the link you will see this:
 </p>
 
 
+<input type="checkbox"> Click `Yes` to enter the workspace. <br>  
 
-<input type="checkbox"> Now follow along with each step in the file by clicking the green triangles at the top right of each code chunk.
+
+<p align="center" >
+    <img width="70%" src="resources/images/workshops.png" class="img_shad">
+</p>
+
+
+
+<input type="checkbox"> Select the appropriate project for your workshop. This will take some time. <br>  
+
+<p align="center" >
+    <img width="70%" src="resources/images/project_deploy.png" class="img_shad">
+</p>
+
+
+<input type="checkbox"> Click on the `.Rmd` file to open it. <br>
+
+<p align="center" >
+    <img width="70%" src="resources/images/rmd_open.png" class="img_shad">
+</p>
+
+
+<input type="checkbox"> Now follow along with each step in the file by clicking the green triangles at the top right of each code chunk (gray boxes).
 
 **It is very important that you run each step in the order given for the code to work!**
 
@@ -44,9 +66,34 @@ We will keep the Posit Cloud account available to you for one week after the wor
 If you'd like to run this on your own computer you will need to have R and an environment like RStudio. You can follow this [installation guide](https://jhudatascience.org/intro_to_r/modules/Setup/Setup.html) if you need help.
 
 <input type="checkbox"> Download the Rmd by clicking the checkmark next to the Rmd file name. <br>
+
+<p align="center" >
+    <img width="70%" src="resources/images/check_box_file.png" class="img_shad">
+</p>
+
+
+
 <input type="checkbox"> Then click on the gear and choose "Export". <br>
 
-![Posit Set Up Steps](./resources/images/export_rmd.png)
+<p align="center" >
+    <img width="70%" src="resources/images/export_rmd.png" class="img_shad">
+</p>
+
+
+<input type="checkbox"> Confirm that you wish to download the file. <br>
+
+<p align="center" >
+    <img width="70%" src="resources/images/confirm_download.png" class="img_shad">
+</p>
+
+
+
+<input type="checkbox"> Click save in the popup after you identify where you would like to save your file. <br>
+
+<p align="center" >
+    <img width="70%" src="resources/images/confirm_save.png" class="img_shad">
+</p>
+
 
 
 
