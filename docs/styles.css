@@ -1,3 +1,10 @@
+
+.explain_block {
+    margin: .2em;
+    padding: .2em;
+    background: #8FBC8F;
+}
+
 /*------------ warning box --------- */
 
 div.warning{
