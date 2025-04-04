@@ -92,6 +92,11 @@ Alternatively you could use the command line.
 
 <input type="checkbox"> Open terminal in Docker Desktop. Do so by clicking the lower right corner that has a symbol like this `>_`.
 
+```{r echo=FALSE, fig.alt="Opening terminal in Docker Descktop with the button in the botton right corner"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?slide=id.g2ebd8828116_0_980#slide=id.g2ebd8828116_0_980")
+```
+
+
 <input type="checkbox">  Run this command by copy pasting and clicking enter in your terminal to pull the Docker image:
 
 ```
