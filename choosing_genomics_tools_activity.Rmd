@@ -152,7 +152,7 @@ To save the heatmap (specifically those genes identified as comparative markers 
 ottrpal::include_slide('https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_79')
 ```
 
-If you click the "Include" all features and samples checkbox, it will include all genes whether they were identified as differentially expressed or not, producing a much larger heatmap.
+If you click the "Include all features and samples" checkbox, it will include all genes whether they were identified as differentially expressed or not, producing a much larger heatmap.
 
 <input type="checkbox"> Click on "OK".
 
