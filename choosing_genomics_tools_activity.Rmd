@@ -22,8 +22,8 @@ The aim of this activity is to answer the question -- "What genes differentiate 
 ### Download Data and log into the GenePattern platform
 
 <input type="checkbox"> [Download the relevant datasets.](https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/)<br/>
-  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.cls`<br/>
-  - <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.gct`<br/>
+ • <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.cls`<br/>
+ • <input type="checkbox"> Download `BRCA_HUGO_symbols.preprocessed.gct`<br/>
 
 *Note, clicking on the filenames should automatically download them, otherwise you might need to right click.*
 
@@ -34,6 +34,8 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 *Make sure you know where they are saved on your computer as you'll be uploading them in an upcoming step.*
 
 <details><summary>What are these file types?</summary>
+
+:::explain_block
 
 The `gct` file is a Gene Cluster Text file format used to describe an expression dataset. [See more about `gct` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29)
 
@@ -53,6 +55,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_5")
 ```
 
+:::
 </details>
 
 <input type="checkbox"> [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/) and sign in.
@@ -77,23 +80,22 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 <input type="checkbox"> Click on the produced `odf` file (`BRCA_HUGO_symbols_preprocessed.comp.marker.odf`).
 
-### Run the DifferentialExpressionViewer module to make a heatmap of the differentially expressed genes
-
-
-<input type="checkbox"> Click on the produced file from the comparative marker selection.
 ```{r echo=FALSE, fig.alt = "Click on the produced file from the comparative marker selection"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_50")
 ```
-
 <details><summary>What is this file type?</summary>
 
+::: explain_block
 An ODF is an Output Description Format file, a GenePattern specific filetype. It is similar to a GCT file format, describing a gene expression dataset; however, the ODF filetype has a specialized header. [See more information about ODF files from GenePattern.](https://www.genepattern.org/file-formats-guide/#ODF)
 
 ```{r echo=FALSE, fig.alt = "The O D F file is a Gene Pattern specific file type that is similar to a G C T file type, but has a specialized header"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2800f2a6905_0_122")
 ```
 
+:::
 </details>
+
+### Run the DifferentialExpressionViewer module to make a heatmap of the differentially expressed genes
 
 <input type="checkbox"> In the opened side panel, scroll down and under the "Send to Module" heading, click on "DifferentialExpressionViewer".
 
@@ -102,7 +104,9 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 ```
 
 <input type="checkbox"> Confirm that the ODF file has already been selected for the "differential expression filename*".
+
 <input type="checkbox"> Click the upload file button for the "dataset filename*" section.
+
 <input type="checkbox"> Select the `gct` file (`BRCA_HUGO_symbols.preprocessed.gct`).
 
 ```{r echo=FALSE, fig.alt = "select the input files"}
@@ -145,7 +149,7 @@ To save the heatmap (specifically those genes identified as comparative markers 
 ottrpal::include_slide('https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_79')
 ```
 
-If you click the "Include" all features and samples checkbox, it will include all genes whether they were identified as differentially expressed or not, producing a much larger heatmap.
+If you click the "Include all features and samples" checkbox, it will include all genes whether they were identified as differentially expressed or not, producing a much larger heatmap.
 
 <input type="checkbox"> Click on "OK".
 
