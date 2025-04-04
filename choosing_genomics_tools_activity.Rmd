@@ -35,6 +35,8 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 <details><summary>What are these file types?</summary>
 
+:::explain_block
+
 The `gct` file is a Gene Cluster Text file format used to describe an expression dataset. [See more about `gct` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29)
 
 ```{r echo=FALSE, fig.alt="Description of g c t file from the Broad Institute", fig.link="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29"}
@@ -53,6 +55,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_5")
 ```
 
+:::
 </details>
 
 <input type="checkbox"> [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/) and sign in.
@@ -87,12 +90,14 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 <details><summary>What is this file type?</summary>
 
+::: explain_block
 An ODF is an Output Description Format file, a GenePattern specific filetype. It is similar to a GCT file format, describing a gene expression dataset; however, the ODF filetype has a specialized header. [See more information about ODF files from GenePattern.](https://www.genepattern.org/file-formats-guide/#ODF)
 
 ```{r echo=FALSE, fig.alt = "The O D F file is a Gene Pattern specific file type that is similar to a G C T file type, but has a specialized header"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2800f2a6905_0_122")
 ```
 
+:::
 </details>
 
 <input type="checkbox"> In the opened side panel, scroll down and under the "Send to Module" heading, click on "DifferentialExpressionViewer".
