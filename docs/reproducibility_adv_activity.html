@@ -11,7 +11,7 @@
 
 
 
-<title>Containers Activity</title>
+<title>Advanced Reproducibility</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -423,102 +423,306 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><strong>Containers Activity</strong></h1>
+<h1 class="title toc-ignore"><strong>Advanced
+Reproducibility</strong></h1>
 
 </div>
 
 
-<div id="activity-0-getting-started-with-docker" class="section level1">
-<h1>Activity 0: Getting started with Docker</h1>
-<p>Go here to <a href="https://www.docker.com/get-started">install
-Docker</a>, following the instructions for your particular operating
-system.</p>
-<p>If you don’t have a Docker account create an account when prompted,
-or <a href="https://hub.docker.com/">go here</a>. After you install
-Docker, start up Docker desktop by double clicking on the app. It may
-take some time to start up.</p>
-<div id="activity-1-pull-and-run-a-docker-image" class="section level2">
-<h2>Activity 1: Pull and run a Docker image</h2>
+<div id="activity-0-set-up" class="section level1">
+<h1>Activity 0: Set Up</h1>
+<p><a
+href="https://docs.google.com/presentation/d/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w/edit?usp=sharing">Slides
+are located here</a></p>
+<div id="installing-docker" class="section level3">
+<h3>Installing Docker</h3>
+<p><input type="checkbox"> Go here to <a
+href="https://www.docker.com/get-started">install Docker Desktop</a>,
+following the instructions for your particular operating system.</p>
+<p><input type="checkbox"> If you don’t have a Docker account yet,
+create an account when prompted, or <a href="https://hub.docker.com/">go
+here</a>. After you install Docker, start up Docker Desktop by double
+clicking on the app. It may take some time to start up.</p>
+<p><input type="checkbox"> Docker Desktop may ask you to log in to your
+Docker account.</p>
+</div>
+<div id="set-up-sandbox-repository-for-this-workshop"
+class="section level3">
+<h3>Set up sandbox repository for this workshop</h3>
+<p><br></p>
+<details>
+<summary>
+Click here if you did not attend the first workshop!
+</summary>
+<div class="explain_block">
+<p><strong>NOTE: If you completed these steps for the previous workshop
+you don’t need to do them again!</strong></p>
+<p><span style="font-size: 250%"> Create your own copy of this
+repository </span></p>
+<p><input type="checkbox"> Go to the template repository for this
+workshop: <a href="https://github.com/fhdsl/reproducibility-sandbox"
+class="uri">https://github.com/fhdsl/reproducibility-sandbox</a></p>
+<p><input type="checkbox"> Click the green
+<code>Use this template</code> button and then
+<code>Create a new repository</code>. If you don’t see this button, you
+may need to expand your window.<br />
+<input type="checkbox"> On the next screen, create a
+<code>Repository name</code>.</p>
+<p><input type="checkbox"> Choose <code>Public</code>.</p>
+<p><input type="checkbox"> Scroll to the bottom and click
+<code>Create repository</code>.</p>
+<p><span style="font-size: 250%">Cloning our repository</span></p>
+<p><input type="checkbox"> Open up GitHub Desktop on your computer.</p>
+<p><input type="checkbox"> Go to <code>File</code> &gt;
+<code>Clone Repository</code>.</p>
+<p><input type="checkbox"> Search for your ITN workshop repository name
+in the tab that says <code>Github.com</code>. Click on the name of this
+repository in this list. You can choose where you’d like it to download
+on your computer underneath <code>Local Path</code>.</p>
+<p><input type="checkbox"> Click the blue <code>Clone</code> button.</p>
+</div>
+</details>
+<p><br></p>
+</div>
+</div>
+<div id="activity-1-getting-familiar-with-dockerpodman"
+class="section level1">
+<h1>Activity 1: Getting familiar with Docker/Podman</h1>
 <div id="step-1-docker-pull" class="section level3">
 <h3>Step 1: Docker pull</h3>
-<p><input type="checkbox"> We need to get the Docker
-<strong>image</strong> we want to use. We do this by “pulling” it.</p>
-<p>Run this command in your Terminal or Command Prompt window:</p>
-<pre><code>docker pull cansav09/practice-image:1</code></pre>
+<p><input type="checkbox">Search for the following image in the search
+box of Docker Desktop: <code>jhudsl/reproducible-r</code>.</p>
+<p><input type="checkbox"> Click on the <code>pull</code> button for
+this image.</p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g34c2796bb1c_0_9.png" alt="pulling an image using the search for Docker Descktop" width="480" /></p>
+<p>Alternatively you could use the command line.</p>
+<details>
+<summary>
+Click here to see these directions using the command line.
+</summary>
+<div class="cmd">
+<p><input type="checkbox"> Open terminal in Docker Desktop. Do so by
+clicking the lower right corner that has a symbol like this
+<code>&gt;_</code>.</p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g2ebd8828116_0_980.png" alt="Opening terminal in Docker Descktop with the button in the botton right corner" width="480" /></p>
+<p><input type="checkbox"> Run this command by copy pasting and clicking
+enter in your terminal to pull the Docker image:</p>
+<pre><code>docker pull jhudsl/reproducible-r</code></pre>
+</div>
+</details>
+<p><br></p>
 </div>
 <div id="step-2-check-what-images-you-have" class="section level3">
 <h3>Step 2: Check what images you have</h3>
-<p><input type="checkbox"> To see what images we have we can run
-<code>docker image ls</code> and we should see
-<code>cansav09/practice-image:1</code> show up now.</p>
+<p><input type="checkbox"> After the last steps complete, we can see
+what images we have by clicking on the <code>Images</code> tab on the
+left menu in Docker Desktop. We should see
+<code>jhudsl/reproducible-r</code> show up now.</p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g2ebd8828116_0_985.png" alt="checking images using the image tab in Docker Descktop" width="480" /></p>
+<details>
+<summary>
+Click here to see these directions using the command line.
+</summary>
+<div class="cmd">
+<p><input type="checkbox"> Run this command to see what images we
+have:</p>
+<pre><code>docker image ls</code></pre>
+</div>
+</details>
+<p><br></p>
 </div>
 <div id="step-3-run-the-docker-image-to-start-a-container"
 class="section level3">
-<h3>Step 3: Run the docker image to start a container!</h3>
-<p><input type="checkbox"> Now if want to launch the image for use, we
-can use <code>docker run</code> to turn it into a
-<strong>container</strong></p>
-<pre><code>docker run cansav09/practice-image:1</code></pre>
+<h3>Step 3: Run the Docker image to start a container!</h3>
+<p><input type="checkbox"> Now if we want to launch the image for use,
+we can use run button that looks like a triangle to turn the image into
+a <strong>container</strong></p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g2ebd8828116_0_1006.png" alt="run images using the play button in Docker Descktop" width="480" /></p>
+<details>
+<summary>
+Click here to see these directions using the command line.
+</summary>
+<div class="cmd">
+<p><input type="checkbox"> Alternatively, we could also use
+<code>docker run</code> as a command in the terminal:</p>
+<pre><code>docker run jhudsl/reproducible-r</code></pre>
+</div>
+</details>
+<p><br></p>
+</div>
+<div id="step-3b-check-what-containers-are-running"
+class="section level3">
+<h3>Step 3b: Check what containers are running</h3>
 <p><input type="checkbox"> To see what containers we have running we
-have we can run:</p>
+check the <code>Containers</code> tab in Docker Desktop.</p>
+<details>
+<summary>
+Click here to see these directions using the command line.
+</summary>
+<div class="cmd">
+<p><input type="checkbox"> Alternatively, we can run the following
+command in the terminal:</p>
 <pre><code>docker ps</code></pre>
 </div>
-<div id="step-4-run-a-single-command" class="section level3">
-<h3>Step 4: Run a single command</h3>
-<p><input type="checkbox"> To run stuff interactively from the command
-line we can do:</p>
-<pre><code>docker exec -it &lt;PUT_CONTAINER_ID_HERE&gt; bash</code></pre>
+</details>
+<p><br></p>
 </div>
-<div id="step-5-try-calling-a-script" class="section level3">
-<h3>Step 5: Try calling a script</h3>
-<p><input type="checkbox"> To run a script using the docker container we
-could just add reference to a script at the end:</p>
-<p><strong>BUT! You will find that this command won’t work yet though,
-why?</strong></p>
-<pre><code>docker exec -it &lt;PUT_CONTAINER_ID_HERE&gt; bash run_analysis.sh</code></pre>
-<p>This won’t work because the file <code>run_analysis.sh</code> is not
-a file that our container has. Docker containers do not have all the
-files that our computer does; they only have the files we add to it.</p>
-<pre><code>bash: run_analysis.sh: No such file or directory</code></pre>
-</div>
-</div>
-<div id="activity-1b-add-a-volume-to-the-image" class="section level2">
-<h2>Activity 1b: Add a volume to the image</h2>
+<div id="step-4-add-our-reproducibility-sandbox-files"
+class="section level3">
+<h3>Step 4: Add our reproducibility-sandbox files</h3>
 <p>Our container is separate from our computer so if we want to use a
 file we have to attach it using a “volume”.</p>
-<div id="step-1-lets-add-our-containers-for-scientists-sandbox-files"
-class="section level3">
-<h3>Step 1: Let’s add our containers-for-scientists-sandbox files</h3>
-<p>Point it so the volume has the workshop files</p>
-<p>If we want to run <code>run_analysis.sh</code> there’s two ways we
-could get our files on there.</p>
-<ul>
-<li>We could download the files we need from online! We could
-<code>git clone</code> files from a repository or otherwise
-<code>wget</code> or <code>curl</code> files.</li>
-<li>We could add a <code>volume</code> of files that are local to our
-computer. For this we will use the You’ll <code>-v</code> or volume
-option.</li>
-</ul>
+<p>If we want to run <code>run_analysis.sh</code> there are other ways
+we could get the file on our container, but one of the best ways is
+using a <code>volume</code>.</p>
+<p>A <code>volume</code> is a set of files that are local to our
+computer that are accessible by the container.</p>
+<p><input type="checkbox"> In Docker Desktop, we can click on the
+<code>Images</code> tab in the left menu.</p>
+<p><input type="checkbox"> Then click on the play button for our
+<code>jhudsl/reproducible-r</code> image.</p>
+<p><input type="checkbox"> This time click the downward arrow for
+running options.</p>
+<p><input type="checkbox"> We will add <code>8787</code> as the host
+port.</p>
+<p><input type="checkbox"> Now we can add the file path for our script
+file on our computer by clicking on the three dot menu button in the box
+that says <code>Host path</code>. Navigate to where you saved your files
+earlier from the repository.</p>
+<p><input type="checkbox"> For the container path type
+<code>/home</code>.</p>
+<p><input type="checkbox"> Click <code>Run</code>.</p>
+<p>The container will launch this time with your files.</p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g2ebd8828116_0_1058.png" alt="adding a volumne with the files by using the options tab when running an image and specifying locations and a port of 8787:8787 to later us rStudio" width="480" /></p>
+<details>
+<summary>
+Click here to see these directions using the command line.
+</summary>
+<div class="cmd">
+<p>Alternatively, we can do something similar in the terminal.</p>
+<p>We can run our Docker container with the volume <code>-v</code>
+option.</p>
+<p>We can specify a particular file path on our computer or we can give
+it <code>$PWD</code>.</p>
+<p>Then we can give a <code>:</code> and a file path where we’d like the
+files to be stored on the container. Otherwise it will be stored at the
+absolute top of the container.</p>
+<p>We are also going to add a port specification as well
+<code>-p 8787:8787</code> This will allow us to use RStudio on our
+container.</p>
+<p><input type="checkbox"> If you are in the directory where you saved
+the repository files, you can now run:</p>
+<pre><code>docker run -v $PWD:/home -p 8787:8787 jhudsl/reproducible-r 
+</code></pre>
+<p>The reason you need to be in the directory with your files is because
+<code>$PWD</code> is a special environment variable that stores the
+absolute path of the current working directory. This will enable the
+next step to call the script file.</p>
+<p>Note that if you already did this using the buttons in Docker Desktop
+you may get an error that the port is already allocated. You can stop
+your other container (by clicking the trash button near the listed
+container in your Containers tab) to rerun this from the command
+line.</p>
 </div>
-<div id="step-2-lets-add-our-containers-for-scientists-sandbox-files"
-class="section level3">
-<h3>Step 2: Let’s add our containers-for-scientists-sandbox files</h3>
-<p>We can specify a particular file path on our computer or give it
-<code>$PWD</code> Then optionally we can give a <code>:</code> and a
-file path we’d like this to be stored on on the container. Otherwise it
-will be stored at the absolute top of the container.</p>
-<p><input type="checkbox"> Now we can run:</p>
-<pre><code>docker run -v $PWD:/home cansav09/practice-image:1</code></pre>
+</details>
+<p><br></p>
 </div>
-<div id="step-3-retry-calling-the-script" class="section level3">
-<h3>Step 3: Retry calling the script</h3>
-<p><input type="checkbox"> Now we can run:</p>
+<div id="step-5-call-a-script" class="section level3">
+<h3>Step 5: Call a script</h3>
+<p><input type="checkbox"> To use code on the fly interactively from the
+command line we can click on the container name (if needed) and click on
+the <code>Exec</code> tab in Docker Desktop</p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g2ebd8828116_0_1085.png" alt="running commands using the Exec tab in Docker Descktop which is in the middle of the window at the top" width="480" /></p>
+<p><input type="checkbox"> Go to the home directory specified to where
+our files were added by typing the following and pressing enter
+after:</p>
+<pre><code>cd /home</code></pre>
+<p><input type="checkbox"> Now try to run the script.</p>
+<pre><code>bash run_analysis.sh
+</code></pre>
+<p>Great! Now you should see the script running. You will know because
+you will see text about what the script is doing.</p>
+<p>After a bit you should see the following:</p>
+<pre><code>Output created: 01-heatmap.nb.html</code></pre>
+<details>
+<summary>
+Click here to see these directions using the command line.
+</summary>
+<div class="cmd">
+<p><input type="checkbox"> Alternatively if you have been working in the
+terminal, we could open a new terminal and use the following:</p>
 <pre><code>docker exec -it &lt;REPLACE_WITH_CONTAINER_ID&gt; bash /home/run_analysis.sh</code></pre>
-<p>Now we have a new error! What does this mean?</p>
-<p><strong>Question: Does our container have all of the same software
-that our computer has?</strong></p>
+<p>And this should work!</p>
+<p>Similarly after a bit you should see the following in the
+terminal:</p>
+<pre><code>Output created: 01-heatmap.nb.html</code></pre>
 </div>
+</details>
+<p><br></p>
+</div>
+<div id="step-6-using-rstudio-from-a-container" class="section level3">
+<h3>Step 6: Using RStudio from a container</h3>
+<p><input type="checkbox"> Click on the link that says 8787:8787 at the
+top of your Docker Desktop (in the Container tab) OR go to your internet
+browser and type in <code>localhost:8787</code>.</p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g34628800695_0_339.png" alt="the location of the link to the rstudio port in Docker Desktop at the top left" width="480" /></p>
+<p><input type="checkbox"> Now type in “rstudio” for your username and
+then find the password that was set in your Docker logs and copy and
+past that for your password. (It will likely be in red).</p>
+<p><img src="reproducibility_adv_activity_files/figure-html/1_5FJ6SYA2t1F7BX5-Vvzi2LHEVUmXS4eFvousSqcl9w_g2ebd8828116_0_1027.png" alt="logging into RStudio using this method we need find the password from the log file and use rstudio as the username" width="480" /></p>
+<p><input type="checkbox"> Click submit.</p>
+<p>Now you can develop code from RStudio from a container that is
+shareable!</p>
+<div class="itn">
+<p>Keep in mind you can install packages from here but they will not be
+saved to the original image after you stop the container. To add
+software to your image you will need to modify your image which <a
+href="https://hutchdatascience.org/Containers_for_Scientists/05-modifying-containers.html">you
+can find instructions on how to do this in our full course</a>.</p>
+</div>
+</div>
+</div>
+<div id="activity-2-getting-familiar-with-github-actions"
+class="section level1">
+<h1>Activity 2: Getting familiar with GitHub Actions</h1>
+<div id="step-1-manually-initiate-a-github-action-workflow"
+class="section level2">
+<h2>Step 1: Manually initiate a GitHub Action workflow</h2>
+<p><input type="checkbox"> Go to your
+<code>reproducibility-sandbox</code> repository online on GitHub.</p>
+<p><input type="checkbox"> Click on the <code>Actions</code> tab.</p>
+<p><input type="checkbox"> On the left side of the screen click on the
+<code>Render R Example</code> action.</p>
+<p><input type="checkbox"> Click on the <code>Run workflow</code>
+dropdown menu and pick the green <code>Run workflow</code> button. You
+should see a light blue banner on the top that says “Workflow run was
+successfully requested”.</p>
+</div>
+<div id="step-2-take-a-look-at-the-workflow-file"
+class="section level2">
+<h2>Step 2: Take a look at the workflow file</h2>
+<p><input type="checkbox"> In your repository go to
+<code>.github/workflows/run-r-notebook.yml</code>.<br />
+<input type="checkbox"> Take a look at this workflow file and try to
+answer these questions:</p>
+<ol style="list-style-type: decimal">
+<li>When will this workflow be run?</li>
+<li>What will this workflow do when it is run?</li>
+<li>What is this being run on – what is the computing environment being
+used here?</li>
+</ol>
+</div>
+<div id="step-3-take-a-look-at-your-github-action-run"
+class="section level2">
+<h2>Step 3: Take a look at your GitHub Action run!</h2>
+<p><input type="checkbox"> Go back to the <code>Actions</code> tab. You
+may need to refresh the page.</p>
+<p><input type="checkbox"> Click on the Workflow run in the center of
+the page that also says <code>Render R example</code>.</p>
+<p><input type="checkbox"> Click on the small box that says
+<code>render-notebooks</code>.</p>
+<p><input type="checkbox"> Click on the dropdown arrow where it says
+<code>Run R analysis example</code> to see what code was run.</p>
 </div>
 </div>
 

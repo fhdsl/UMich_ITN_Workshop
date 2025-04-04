@@ -446,18 +446,22 @@ class="uri">https://github.com/fhdsl/reproducibility-sandbox</a></p>
 <div id="getting-familiar-with-the-repository" class="section level3">
 <h3>Getting familiar with the repository</h3>
 <p>This repository is a “mock” analysis. It has an example folder and
-file organizational structure that looks like this:</p>
+file organizational structure that looks something like this:</p>
 <ul>
+<li>.github/workflows</li>
+<li>data/</li>
+<li>docker/</li>
+<li>plots/</li>
+<li>renv/</li>
+<li>results/</li>
 <li>00-download-data.py</li>
 <li>01-heatmap.Rmd</li>
 <li>01-heatmap.nb.html</li>
 <li><strong>README.md</strong></li>
 <li>renv.lock</li>
 <li>run_analysis.sh</li>
-<li>results/</li>
-<li>plots/</li>
-<li>docker/</li>
 </ul>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_1984.png" alt="screenshot of the repository showing these files" width="1250" /></p>
 <p>When you look at the README for this repository however, you will
 notice it is blank.</p>
 </div>
@@ -467,12 +471,15 @@ class="section level3">
 <p><input type="checkbox"> Click the green
 <code>Use this template</code> button and then
 <code>Create a new repository</code>. If you don’t see this button, you
-may need to expand your window.<br />
-<input type="checkbox"> On the next screen, create a
+may need to expand your window.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g28d9b0eb45f_0_2227.png" alt="screenshot of the repository showing the use template button at the top of the screen" width="1250" /></p>
+<p><input type="checkbox"> On the next screen, create a
 <code>Repository name</code>.<br />
 <input type="checkbox"> Choose <code>Public</code>.<br />
 <input type="checkbox"> Scroll to the bottom and click
 <code>Create repository</code>.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g28d9b0eb45f_0_2233.png" alt="screenshot of setting up the respository by naming it and setting it to public" width="1250" /></p>
+<p>You will use the name in the next step!</p>
 </div>
 <div id="cloning-our-repository" class="section level3">
 <h3>Cloning our repository</h3>
@@ -486,6 +493,7 @@ the tab that says <code>Github.com</code>. Click on the name of this
 repository in this list. You can choose where you’d like it to download
 on your computer underneath <code>Local Path</code>.<br />
 <input type="checkbox"> Click the blue <code>Clone</code> button.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g27ccc8ff33d_0_1715.png" alt="the menu buttons to clone a repository in GitHub Desktop, as well as the link that should be used- the link of the repository you just created from copying the template" width="1250" /></p>
 </div>
 <div id="window-juggling" class="section level3">
 <h3>Window Juggling</h3>
@@ -499,6 +507,7 @@ with this</li>
 <li><code>Online GitHub</code> – we will send our pull request and
 suggested changes to online GitHub.com with this.</li>
 </ul>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2041.png" alt="A man juggling and a screenshot of the 3 locations we are working in" width="1250" /></p>
 </div>
 <div id="filing-a-pull-request" class="section level3">
 <h3>Filing a pull request</h3>
@@ -513,44 +522,56 @@ base.</p>
 <h3>Create a new branch</h3>
 <p>But to create a pull request, we first need to create a branch to
 work from that is separate from the <code>main</code> copy.</p>
+<p>In GitHub Desktop:</p>
 <p><input type="checkbox"> Click the <code>Current Branch</code> box
 &gt; <code>New branch</code>.<br />
 <input type="checkbox"> Call this new branch
-<code>readme-edit</code>.</p>
+<code>readme-edit</code>.<br />
+<input type="checkbox"> Click the blue button that says
+<code>Create Branch</code>.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g27ccc8ff33d_0_1760.png" alt="A screenshot of creating a new branch in GitHub Desktop" width="1250" /></p>
 </div>
 <div id="create-an-ai-generated-readme" class="section level3">
 <h3>Create an AI generated README</h3>
-<p><input type="checkbox"> Click the <code>Show in Finder</code> or
-<code>Show in Explorer</code> button depending on your operating
-system.<br />
-<input type="checkbox"> With any text editor open up both the
-<code>01-heatmap.Rmd</code> file and the <code>README.md</code>
-file<br />
-<input type="checkbox"> Copy all the text from
-<code>01-heatmap.Rmd</code> (Cmd + A - Mac, Ctrl + A - Windows).<br />
-<input type="checkbox"> Go to phind <a
+<p><input type="checkbox"> In GitHub Desktop, Click the
+<code>Show in Finder</code> or <code>Show in Explorer</code> button
+depending on your operating system. This should be about halfway down
+the screen. <input type="checkbox"> Right click the file names to open
+up both the <code>01-heatmap.Rmd</code> file and the
+<code>README.md</code> file with any text editor. (May need to select
+<code>Other</code> and <code>Enable all applications</code> if on a
+Mac.)</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2111.png" alt="Menu button to open files in GitHub Desktop" width="1250" /></p>
+<p><input type="checkbox"> Copy all the text from
+<code>01-heatmap.Rmd</code> (Cmd + A - Mac, Ctrl + A - Windows).</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2141.png" alt="image of copying the contents of the 01-heatmap.Rmd file and pasting in Phind to ask for a README file" width="1250" /></p>
+<p><input type="checkbox"> Go to phind <a
 href="https://www.phind.com/search"
-class="uri">https://www.phind.com/search</a><br />
-<input type="checkbox"> Ask phind to create a README from the code. Copy
-(Cmd + A - Mac, Ctrl + C - Windows) and paste (Cmd + V - Mac, Ctrl + V -
-Windows) in the code from <code>01-heatmap.Rmd</code>. You may want to
-do some variations on the prompt you use to ask phind to do this to get
-good results.<br />
-<input type="checkbox"> Copy all the text from the desired Phind output
-and paste it to <code>README.md</code>. Save the file.</p>
+class="uri">https://www.phind.com/search</a> in your browser. (Other AI
+chatbots can also work like <a href="https://poe.com/"
+class="uri">https://poe.com/</a>) <input type="checkbox"> Ask phind to
+create a README from the code. Copy (Cmd + A - Mac, Ctrl + C - Windows)
+and paste (Cmd + V - Mac, Ctrl + V - Windows) in the code from
+<code>01-heatmap.Rmd</code>. You may want to do some variations on the
+prompt you use to ask phind to do this to get good results.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g28aa6633ca3_0_28.png" alt="image of copying the response from Phind" width="1250" /></p>
+<p><input type="checkbox"> Copy all the text from the desired phind
+output and paste it to <code>README.md</code>. Save the file.</p>
 </div>
 <div id="adding-changes-to-a-branch" class="section level3">
 <h3>Adding changes to a branch</h3>
 <p><input type="checkbox"> Go back to GitHub Desktop. You should see
 <code>1 changed file</code> in the upper right corner. It may be upper
-left for Windows.<br />
-<input type="checkbox"> Type in a “commit” message. Commits are how we
-add things to our branch.<br />
+left depending on your machine and version of GitHub Desktop.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g27d63c3b196_1_32.png" alt="showing the changes from adding contents to the readme file in GitHub Desktop - these are shown as green text" width="1250" /></p>
+<p><input type="checkbox"> Type in a “commit” message. Commits are how
+we add things to our branch.<br />
 <input type="checkbox"> Click the button that says
 <code>Commit to ...</code> it will have your branch name which should be
 <code>readme-edit</code>.<br />
 <input type="checkbox"> Click the <code>Publish branch</code> button.
-This will “push” your changes to online Github.com</p>
+This will “push” your changes to online GitHub.com</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g27ccc8ff33d_0_1812.png" alt="the process of adding a commit message and publishing and pushing the changes to GitHub.com" width="1250" /></p>
 </div>
 <div id="making-the-pull-request" class="section level3">
 <h3>Making the pull request</h3>
@@ -558,55 +579,56 @@ This will “push” your changes to online Github.com</p>
 <code>Create a Pull Request</code> and click the blue button. If the
 blue button says <code>Preview Pull Request</code> then click the
 downward facing arrow to see the option to
-<code>Create a Pull Request</code>.<br />
-<input type="checkbox"> It should open up a page on GitHub.com Fill out
-the <code>Add a title</code> and the <code>Add a description</code>
+<code>Create a Pull Request</code>.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2189.png" alt="Button to make a pull reqestion in GitHub Desktop" width="1250" /></p>
+<p><input type="checkbox"> It should open up a page on GitHub.com Fill
+out the <code>Add a title</code> and the <code>Add a description</code>
 boxes to appropriately describe the work you did on the branch we are
-making the pull request from.<br />
-<input type="checkbox"> Click <code>Create pull request</code>.</p>
+making the pull request from.</p>
+<p><input type="checkbox"> Click the green
+<code>Create pull request</code> button.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g27ccc8ff33d_0_1895.png" alt="Pull Requests on GitHub.com" width="1250" /></p>
 </div>
 </div>
 <div id="activity-2-navigating-pr-components" class="section level2">
 <h2>Activity 2: Navigating PR components</h2>
 <div id="a-leaving-comments-and-suggestions" class="section level3">
 <h3>2a: Leaving comments and suggestions</h3>
-<p><input type="checkbox"> Return to your pull request from Activity
-1.<br />
-<input type="checkbox"> Click on the <code>Files Changed</code>
-tab.<br />
-<input type="checkbox"> Click one of the plus signs to the left to leave
-a comment.<br />
-<input type="checkbox"> With one of the open comments click the little
-symbol that has a plus and minus in a page to leave a suggestion.<br />
-<input type="checkbox"> Click <code>Add a single comment</code>.</p>
+<p><input type="checkbox"> Return to your pull request on GitHub in your
+browser from Activity 1.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2228.png" alt="Pull Requests on GitHub.comb" width="1250" /></p>
+<p><input type="checkbox"> Click on the <code>Files Changed</code> tab
+(lower set of tabs).</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2236.png" alt="Pull Requests on GitHub.com, the files changed ta" width="1250" /></p>
+<p><input type="checkbox"> Click one of the plus signs to the left of
+one of your changes to leave a comment.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2244.png" alt="click on plus sign" width="1250" /></p>
+<p><input type="checkbox"> Type something and then click
+<code>Add single comment</code>. Nice, you added a comment!</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g3477d608862_3_13.png" alt="adding a comment" width="1250" /></p>
+<p><input type="checkbox"> Click another plus sign to the left of a
+change. <input type="checkbox"> This time, click the little symbol that
+has a plus and minus in a page (next to the preview tab). This will
+start a suggestion, where you can make suggested changes to
+documents.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2253.png" alt="The suggestion button which looks like a plus and minus sign in little box" width="1250" /></p>
+<p><input type="checkbox"> Make a change to the text in the
+suggestion.<br />
+<input type="checkbox"> Click <code>Add a single comment</code>. Great,
+You added a suggestion!</p>
 <p>Note that you or a collaborator can now readily incorporate your
 suggestion by clicking <code>Commit suggestion</code> or they could
 comment back to further discuss.</p>
 <p><input type="checkbox"> Click <code>Commit suggestion</code> and then
-<code>Commit changes</code>.<br />
-<input type="checkbox"> Return to the <code>Conversation</code> tab and
-scroll to the bottom. You should see an additional commit now!</p>
+<code>Commit changes</code>.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g28aa6633ca3_0_56.png" alt="The commit changes button for a suggestion" width="1250" /></p>
+<p><input type="checkbox"> Return to the <code>Conversation</code> tab
+and scroll to the bottom. You should see an additional commit and your
+comment now!</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2262.png" alt="The conversation tab showing the change" width="1250" /></p>
 </div>
-<div id="b-reading-github-actions-logs" class="section level3">
-<h3>2b: Reading GitHub Actions logs</h3>
-<p>On the bottom of your PR you will notice a box at the bottom that
-will probably either say <code>Some checks haven't completed yet</code>
-or <code>All checks passed</code>.</p>
-<p>This is an automatic check run by GitHub Actions which is one of many
-systems used for Continuous Integration/Continuous Deployment.</p>
-<p><input type="checkbox"> If needed, click
-<code>Show all checks</code>.<br />
-<input type="checkbox"> Click <code>Details</code> at the end of the
-line that says
-<code>Render R Example / render-notebooks (pull_request)</code>.<br />
-<input type="checkbox"> Click around in here to investigate what GitHub
-Actions logs look like.</p>
-<p>For more learning about using <a
-href="https://hutchdatascience.org/GitHub_Automation_for_Scientists/">GitHub
-Actions for science see our course</a>.</p>
-</div>
-<div id="c-updating-your-local-repository" class="section level3">
-<h3>2c: Updating your local repository</h3>
+<div id="b-updating-your-local-repository" class="section level3">
+<h3>2b: Updating your local repository</h3>
 <p>If you followed the steps in the
 <code>Leaving comments and suggestions</code> section of this activity
 you will now have at least one commit that is on your online version of
@@ -614,17 +636,42 @@ your repository but the changes done online won’t automatically get to
 your local repository. To do this we need to <code>Pull</code> the
 latest changes to our computer.</p>
 <p><input type="checkbox"> Return to GitHub Desktop.<br />
-<input type="checkbox"> Click the <code>Fetch origin</code>
-button.<br />
-<input type="checkbox"> You should be prompted to
-<code>Pull origin</code> click this button.<br />
-<input type="checkbox"> Now your changes should be synced. Open up the
-file you’ve changed with any default text editor to look for the change
-you made to make sure.</p>
+<input type="checkbox"> Click the <code>Fetch origin</code> button.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2215.png" alt="The Fetch Origin Button on the top right of GitHub Desktop" width="1250" /></p>
+<p><input type="checkbox"> You should be prompted to
+<code>Pull origin</code> click this button.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g28aa6633ca3_0_70.png" alt="The pull orgin button in GitHub Desktop" width="1250" /></p>
+<p><input type="checkbox"> Click the History tab to see your changes
+over time. Note the most recent are at the top.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g28aa6633ca3_0_77.png" alt="The History tab on the left top of GitHub Desktop" width="1250" /></p>
+<p><input type="checkbox"> Now your changes should be synced. Open up
+the file you’ve changed with any default text editor to look for the
+change you made to make sure.<br />
+### 2c: Reading GitHub Actions logs</p>
+<p>On the bottom of your Pull Request (PR) you will notice a box at the
+bottom that will probably either say
+<code>Some checks haven't completed yet</code> or
+<code>All checks passed</code>.</p>
+<p>This is an automatic check run by GitHub Actions which is one of many
+systems used for Continuous Integration/Continuous Deployment.</p>
+<p><input type="checkbox"> If needed, click
+<code>Show all checks</code>.<br />
+<input type="checkbox"> If no failing checks, Click the 3 dots at the
+end of the line that says
+<code>Render R Example / render-notebooks (pull_request)</code>. Click
+<code>View Details</code> <input type="checkbox"> If failing checks,
+Click <code>Details</code> at the end of the line that says
+<code>Render R Example / render-notebooks (pull_request)</code>
+<input type="checkbox"> Click around to investigate what GitHub Actions
+logs look like.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2274.png" alt="Example of a GitHub action log which shows various steps and a green check mark for succesfully run actions" width="1250" /></p>
+<p>For more learning about using <a
+href="https://hutchdatascience.org/GitHub_Automation_for_Scientists/">GitHub
+Actions for science see our course</a>.</p>
 </div>
 <div id="d-merging-your-pr" class="section level3">
 <h3>2d: Merging your PR</h3>
-<p>In a real life setting the life of a Pull request could be long or
+<p>In a real life setting the life of a pull request could be long or
 short. What’s important is that the discussions that need to be had
 about the changes are had before the pull request is merged.</p>
 <p>Pull requests and GitHub have their own kind of etiquette. Make sure
@@ -632,8 +679,14 @@ you talk to your team or collaborators to create and discuss what kind
 of guidelines and workflows you’d like to adhere to so everyone can do
 their best work!</p>
 <p><input type="checkbox"> Return to GitHub Pull Request Online.<br />
-<input type="checkbox"> Click the <code>Merge</code> button. Follow up
-with the <code>Confirm merge</code> button.</p>
+<input type="checkbox"> Click the <code>Merge</code> button.
+<input type="checkbox"> Follow up with the <code>Confirm merge</code>
+button.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g28aa6633ca3_0_114.png" alt="Merging button on a pull request on GitHub at the bottom left if you scroll down" width="1250" /></p>
+<p><input type="checkbox"> You can also click the
+<code>Delete branch</code> button - our changes are already in main and
+we have a copy of what we did.</p>
+<p><img src="reproducibility_intro_activity_files/figure-html/1floOR4W_tfuj0uCX6WxDZiyO4bIzBCEFmkdvULasCbw_g2fcf7903f51_0_2304.png" alt="The button for deleting the branch" width="1250" /></p>
 <p>Yay! Congrats.</p>
 </div>
 <div id="for-more-learning" class="section level3">

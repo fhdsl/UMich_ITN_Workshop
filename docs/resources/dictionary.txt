@@ -157,6 +157,7 @@ Normalised
 nsclc
 NSCLC
 ODF
+OpenClinica
 OpenStreetMap
 omics
 Ospina
