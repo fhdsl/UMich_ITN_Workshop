@@ -1,8 +1,14 @@
 
+code {
+  background-color: lightgray;
+  color:red;
+}
+
+
 .cmd {
     margin: .2em;
     padding: .2em;
-    background: lightgray;
+    background: #d2f4f9;
     border: 4px black;
 }
 
