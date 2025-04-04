@@ -1,3 +1,4 @@
+AnVIL
 ADaM
 adriamycin
 al
@@ -26,12 +27,14 @@ CellMarker
 cellularity
 CFR
 CRF
+chatbots
 checkmark
 cheatsheet
 Chowell
 Cilas
 cls
 Cmd
+cmd
 cosmx
 CosMx
 ComparativeMarkerSelection
@@ -116,6 +119,7 @@ IMM
 io
 IRB
 itcrtraining
+itn
 ITN
 ITCR
 Il2ra
