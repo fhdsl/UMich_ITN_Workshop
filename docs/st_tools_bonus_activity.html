@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Bonus activity: Using the command-line for single-cell Spatial Transcriptomics analysis</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link rel="shortcut icon" href="resources/images/favicon.ico" />
+ <!--- go to https://favicon.io/favicon-converter/ to upload an image to make a new favicon.io. You will need to replace the current favicon.io image with the one in the downloaded directory from the website. The current image is in the resources/images/ directory --->
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">University of Michigan Workshops 2025</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Intro to Reproducibility
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="reproducibility_intro.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="reproducibility_intro_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Intermediate &amp; Advanced Reproducibility
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="reproducibility_adv.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="reproducibility_adv_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyzing Clinical Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="clinical_data.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="clinical_data_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Choosing Genomics Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="choosing_genomics_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="choosing_genomics_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Spatial Transcriptomics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="st_tools.html">Workshop Material</a>
+    </li>
+    <li>
+      <a href="st_tools_activity.html">Activity</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="um_resources.html">UM Resources</a>
+</li>
+<li>
+  <a href="https://www.itcrtraining.org/home">ITN Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Bonus activity: Using the command-line for
+single-cell Spatial Transcriptomics analysis</h1>
+
+</div>
+
+
+<div id="accessing-r-and-rstudio" class="section level2">
+<h2>Accessing R and RStudio</h2>
+<p>To continue to practice using <code>spatialGE</code> using R, you can
+access our PositCloud instance until April 27th. See the <a
+href="https://hutchdatascience.org/UMich_ITN_Workshop/clinical_data_activity.html">clinical
+workshop activity guidance</a> for instructions on how to connect.</p>
+<p>Alternatively you can download and install R and RStudio to use on
+your local machine or see if your institution has a sever available with
+R and RStudio. See this <a
+href="https://jhudatascience.org/intro_to_r/modules/Setup/Setup.html">link
+for information on installations</a>. You could also consider using
+another cloud-based option like <a
+href="https://jhudatascience.org/AnVIL_Book_Getting_Started/starting-rstudio.html">AnVIL</a>
+or <a
+href="https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/rstudio/tutorial.html">Galaxy</a>.</p>
+</div>
+<div id="spatialge-r-package" class="section level2">
+<h2><code>spatialGE</code> R package</h2>
+<p>The package <strong><em><code>spatialGE</code></em></strong> R
+package and <a href="https://spatialge.moffitt.org">web application</a>
+can be used to detect spatial patterns in gene expression at the gene
+and gene set level. Data from multiple spatial transcriptomics platforms
+can be analyzed, as long as gene expression counts per cell are
+associated with spatial coordinates of those cells. Both
+<strong><em><code>spatialGE</code></em></strong> R package and web
+application are also compatible with outputs from the CosMx-SMI spatial
+single-cell platform.</p>
+<p>In this tutorial, the functions <code>STenrich</code>,
+<code>STclust</code>, <code>STdiff</code>, and <code>STgradient</code>
+will be used to test for spatial gene set enrichment and genes showing
+expression gradients in a <a
+href="https://nanostring.com/products/cosmx-spatial-molecular-imager/nsclc-ffpe-dataset/">CosMx-SMI
+data set</a> from Non-Small Cell Lung Cancer (NSCLC).</p>
+<div id="section" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+How is <code>spatialGE</code> installed?
+</summary>
+<p>The <code>spatialGE</code> repository is available at GitHub and can
+be installed via <code>devtools</code>. To install <code>devtools</code>
+(in case it is not already installed in your R), please run the
+following code:</p>
+<pre class="r"><code>if(&quot;devtools&quot; %in% rownames(installed.packages()) == FALSE){
+  install.packages(&quot;devtools&quot;)
+}</code></pre>
+<p>After making sure <code>devtools</code> is installed, proceed to
+install <code>spatialGE</code>:</p>
+<pre class="r"><code>devtools::install_github(&quot;fridleylab/spatialGE&quot;)</code></pre>
+</details>
+</div>
+<div id="section-1" class="section level4">
+<h4></h4>
+</div>
+</div>
+<div id="get-data-files" class="section level2">
+<h2>Get data files</h2>
+<p>The CosMx-SMI platform generates single-cell level gene expression
+with associated x and y locations of the cells where measurements were
+taken. For the data set used in this tutorial, RNA counts were measured
+for 960 genes in about 800K cells. The data was generated from eight
+tissue slices, with counts obtained for a series of Fields of Vision
+(FOVs) within each slice. However, in this tutorial, the data set has
+been subset to 6 FOVs originating from two of the slices.</p>
+<p>The complete data set can be downloaded from the links below. It is
+also likely that registration in the website is necessary in order to
+download the data set.</p>
+<ul>
+<li><a
+href="https://nanostring.com/resources/smi-ffpe-dataset-lung5-rep1-data/">Lung
+5-1</a></li>
+<li><a
+href="https://nanostring.com/resources/smi-ffpe-dataset-lung6-data/">Lung
+6</a></li>
+</ul>
+<p><strong>The data from the 6 FOVs used in this tutorial</strong> is
+available at the <a
+href="https://github.com/FridleyLab/spatialGE_Data">spatialGE_Data
+GitHub repository</a>:</p>
+<p><input type="checkbox"> Download the files for this activity clicking
+here: <a
+href="https://github.com/FridleyLab/spatialGE_Data/raw/refs/heads/main/nanostring_nsclc.zip?download="
+class="uri">https://github.com/FridleyLab/spatialGE_Data/raw/refs/heads/main/nanostring_nsclc.zip?download=</a><br />
+<input type="checkbox"> Put this file on your desktop so it is easily
+findable.<br />
+<input type="checkbox"> Double click the zip file (or right click and
+choose “unzip” or “decompress” to unzip the file.<br />
+<input type="checkbox"> Open up your activity files you downloaded so we
+can see what’s there.</p>
+<div id="get-familiar-with-the-data-set" class="section level3">
+<h3>Get familiar with the data set</h3>
+<p>Within the folder, we should a see two sub-folders, one for each of
+the two tissue slices. The files within each sub-folder are:</p>
+<ul>
+<li>Lung5_Rep1-Flat_files_and_images
+<ul>
+<li>21_00732_LI_SING_filtered_feature_bc_matrix.h5 (the gene expression
+data)</li>
+<li>spatial
+<ul>
+<li>CellComposite (tissue images)</li>
+<li>Lung5_Rep1_exprMat_file_SUBSET.csv (gene expression data)</li>
+<li>Lung5_Rep1_metadata_file_SUBSET.csv (cell x,y coordinates)</li>
+</ul></li>
+</ul></li>
+<li>Lung6-Flat_files_and_images
+<ul>
+<li>…</li>
+</ul></li>
+</ul>
+<p>Then load the spatialGE package:</p>
+<pre class="r"><code>library(&#39;spatialGE&#39;)</code></pre>
+<p>Now, specify the directory paths to the folders containing the data,
+assuming the files are in the computer’s desktop:</p>
+<pre class="r"><code>counts_fp = c(&#39;~/Desktop/nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_exprMat_file_SUBSET.csv&#39;,
+              &#39;~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/Lung6_exprMat_file_SUBSET.csv&#39;)
+
+coordinates_fp = c(&#39;~/Desktop//nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_metadata_file_SUBSET.csv&#39;,
+                   &#39;~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/Lung6_metadata_file_SUBSET.csv&#39;)</code></pre>
+<p>Finally, create an STlist. The STlist is the R object in spatialGE
+that holds the data and results.</p>
+<p><strong>Important:</strong> Note that the argument
+<code>samples</code> contains the names of each tissue slice. These
+names must match partially the file paths passed to
+<code>rnacounts</code> and <code>spotcoords</code>.</p>
+<pre class="r"><code>lc_stlist = spatialGE::STlist(rnacounts=counts_fp, spotcoords=coordinates_fp,
+                              samples=c(&#39;Lung5_Rep1&#39;, &#39;Lung6&#39;))</code></pre>
+<div id="section-2" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Uploading a CosMx experiment to the spatialGE web application
+</summary>
+<p><strong>Start a new project</strong></p>
+<p><input type="checkbox"> Click the blue “New Project” button.<br />
+<input type="checkbox"> For
+<code>What spatial transcriptomics platform are you using for this project?</code>
+choose <code>CosMx-SMI</code>.<br />
+<input type="checkbox"> Make your own project name and description
+that’s sensible. Could be something related to the workshop such as
+“ITN-UMichigan_cosmx”.<br />
+<input type="checkbox"> Then click “Create”.</p>
+<p><strong>Uploading data</strong></p>
+<p><input type="checkbox"> For <code>Sample Name</code> put the ID
+indicating on the folder, e.g. <code>Lung5_Rep1</code>.<br />
+<input type="checkbox"> For the <code>Gene expression</code> box upload
+the file <code>Lung5_Rep1_exprMat_file_SUBSET</code>. You can upload
+files by dragging and dropping or by clicking on them to navigate.<br />
+<input type="checkbox"> For the <code>Coordinates</code> box upload the
+file <code>Lung5_Rep1_metadata_file_SUBSET.csv</code>.</p>
+<p><input type="checkbox"> Once the above steps are done click the green
+<code>Import Sample</code>.</p>
+<p>Now repeat these steps for the other tissue slice.</p>
+<p><em>You can use this checklist to keep track as you upload and follow
+the steps for each sample.</em></p>
+<p><input type="checkbox"> <code>Lung5_Rep1</code> data entered<br />
+<input type="checkbox"> <code>Lung6</code> data entered</p>
+<p><strong>NOTE</strong>: Make sure to upload all the tissue slices
+before clicking the <code>Import Data</code> button. You will not be
+able to edit the project (unless you start a new project completely)
+after you click <code>Import Data</code>.</p>
+<p><input type="checkbox"> Make sure everything is as you intend and
+then click <code>Import Data</code>.</p>
+<p>This may take a little bit of time. Note you can have it send you an
+email instead of waiting on the page.</p>
+</details>
+</div>
+<div id="section-3" class="section level4">
+<h4></h4>
+<p>Once a STlist object has been created, one can obtain count
+statistics using the <code>summarize_STlist</code> function:</p>
+<pre class="r"><code>summarize_STlist(lc_stlist)</code></pre>
+<p>Some cells have zero counts. We can look at the distribution of
+counts per cell for the first five and last five FOVs using the
+<code>distribution_plots</code> function:</p>
+<pre class="r"><code>cp &lt;- distribution_plots(lc_stlist, plot_type=&#39;violin&#39;, plot_meta=&#39;total_counts&#39;)
+cp[[&#39;total_counts&#39;]]</code></pre>
+<p>Cells with zero counts, can be removed using the
+<code>filter_data</code> function. The function can also be used to
+remove all counts from specific genes. This option is useful in this
+case, as CosMx-SMI panels include negative probe genes. While the
+negative probes can be used in normalization of counts, in this tutorial
+those genes will be removed. Negative probes in CosMx-SMI begin with the
+token “NegPrb”:</p>
+<pre class="r"><code>lc_stlist &lt;- filter_data(lc_stlist, spot_minreads=20, rm_genes_expr=&#39;^NegPrb&#39;)</code></pre>
+</div>
+</div>
+</div>
+<div id="transformation-of-spatially-resolved-transcriptomics-data"
+class="section level2">
+<h2>Transformation of spatially-resolved transcriptomics data</h2>
+<p>The function <code>transform_data</code> allows data transformation
+using one of two possible options. The first options applies
+log-transformation to the counts, after library size normalization
+performed on each sample separately. The second option applies
+variance-stabilizing transformation (SCT; <span
+class="citation">@hafemeister_2019</span>), which is a method
+increasingly used in single-cell and spatial transcriptomics studies. To
+apply SCT transformation, use the following command:</p>
+<pre class="r"><code>lc_stlist &lt;- transform_data(lc_stlist, method=&#39;sct&#39;)</code></pre>
+</div>
+<div id="detecting-gene-sets-with-spatial-aggregation-patterns"
+class="section level2">
+<h2>Detecting gene sets with spatial aggregation patterns</h2>
+<p>An important part of gene expression analysis is the use of gene sets
+to make inferences about the functional significance of changes in
+expression. Normally, this is achieved by conducting a Gene Set
+Enrichment Analysis (GSEA). While GSEA can be completed in a similar
+fashion to scRNA-seq, it is possible with the <code>STenrich</code>
+function to test for gene sets that show spatial non-uniform enrichment.
+In other words, <code>STenrich</code> tests whether expression of a gene
+set is concentrated in one or few areas of the tissue.</p>
+<p>The <code>STenrich</code> function first calculates Euclidean
+distances among all cells. Then, the gene expression of the sample is
+subset to the genes within the gene set being tested. If too few genes
+are left after subset (<code>min_genes</code>), then the gene set is
+omitted for that sample. The enrichment scores and standard deviations
+of those genes are calculated for each cell. Next, cells with gene set
+scores above the average gene set score across all cells are identified.
+The threshold to define these high gene set score cells is defined by
+the average gene set score plus a number (<code>min_sds</code>) of
+standard deviations. The sum of the Euclidean distances between the high
+score cells is calculated.</p>
+<p>The next step involves a permutation process, in which a null
+distribution is generated in order to test if the (sum of) distances
+among high expression cells are smaller than expected. To that end, a
+random sample of cells (regardless of expression) is selected. The
+random sample has the same size as the number of high expression cells.
+Then, the sum of distances among the randomly sampled cells is
+calculated. The random selection is repeated as many times as requested
+(`reps``). Finally, a p-value is calculated by noting how many times the
+sum of random distances was higher than the sum of distances among high
+expression cells. If the sum of random distances was most of the times
+higher than the sum of distances among high expression cells, then the
+null hypothesis of no spatial aggregation is rejected (i.e., cells with
+high gene set expression are more aggregated than expected by
+chance).</p>
+<p>The first step to run <code>STenrich</code> is to obtain a list of
+gene sets. Here, the <code>msigdbr</code> package will be used to obtain
+HALLMARK gene sets:</p>
+<pre class="r"><code># Load msigdbr
+library(&#39;msigdbr&#39;)
+
+# Get HALLMARK gene sets
+gene_sets &lt;- msigdbr(species=&#39;Homo sapiens&#39;)
+# Select the appropriate column depending on the msigdbr version
+gs_column &lt;- grep(&#39;gs_cat|gs_collection&#39;, colnames(gene_sets), value=T)[1]
+gene_sets &lt;- gene_sets[gene_sets[[gs_column]] == &quot;H&quot;, ]
+
+# Convert gene set dataframe to list
+# The result is a named list. The names of the list are the names of each gene set
+# The contents of each list element are the gene names within each gene set
+gene_sets &lt;- split(x=gene_sets[[&#39;gene_symbol&#39;]], f=gene_sets[[&#39;gs_name&#39;]])</code></pre>
+<p>For the purpose of this example, we will only test “signaling”
+pathways:</p>
+<pre class="r"><code>gene_sets = gene_sets[grep(&#39;SIGNALING&#39;, names(gene_sets))]</code></pre>
+<p>Please keep in mind that it is assumed that HUGO gene names are used.
+If spatial transcriptomics data from a non-human species is used, the
+appropriate database should be used. Otherwise, <code>spatialGE</code>
+will not be able to identify genes within the gene set.</p>
+<p>The <code>STenrich</code> function can now be used. For this
+analysis, 1000 replicates (<code>reps=1000</code>) will be used to
+generate the null distribution. In addition, for a gene set to be
+considered as highly expressed in cell, it should be expressed at least
+over the average gene set score plus 1.5 standard deviations
+(<code>num_sds=1.5</code>). Gene sets with less than five genes in the
+sample (<code>min_genes=5</code>) and gene sets with less than 10 highly
+expressed cells (<code>min_units=10</code>) will not be tested. Notice a
+seed was set (<code>seed=12345</code>), which critical for replication
+of the results in the future.</p>
+<pre class="r"><code>stenrich_df &lt;- STenrich(lc_stlist, gene_sets=gene_sets,
+                        reps=1000,
+                        num_sds=1.5,
+                        min_genes=5,
+                        min_units=10,
+                        seed=12345)</code></pre>
+<p>The result of the function is a list of data frames, with one data
+frame per samples (FOV in this case). For example, this is the data
+frame for the first FOV in the STlist:</p>
+<pre class="r"><code>head(stenrich_df[[&#39;Lung5_Rep1_fov_2&#39;]])</code></pre>
+<p>Each row represents a test for the null hypothesis of no spatial
+aggregation in the expression of the set in the “gene_set” column. The
+column “size_test” is the number of genes of a gene set that were
+present in the FOV. The larger this number the better, as it indicates a
+better representation of the gene set in the sample. The “adj_p_value”
+is the multiple test adjusted p-value, which is the value used to decide
+if a gene set shows significant indications of a spatial pattern
+(adj_p_value &lt; 0.05).</p>
+<p>With a few lines of code, a visual summary can be generated that
+presents the gene sets with adj_p_value &lt; 0.05 across FOVs for each
+tissue slide:</p>
+<pre class="r"><code># Load tidyverse for data frame manipulation
+library(&#39;tidyverse&#39;)
+
+# Combine all samples in a single data frame
+# Subset to gene sets showing significant evidence of spatial pattern (adj_p_value &lt; 0.05) and
+# proportion higher or equal than 0.3 of genes from a gene set present in sample
+res &lt;- bind_rows(stenrich_df) %&gt;%
+  mutate(prop_gene_set=size_test/size_gene_set) %&gt;%
+  filter(prop_gene_set &gt;= 0.3 &amp; adj_p_value &lt; 0.05) %&gt;%
+  mutate(slide=str_extract(sample_name, &quot;Lung5_Rep1|Lung6&quot;)) %&gt;%
+  select(slide, gene_set) %&gt;%
+  mutate(gene_set=str_replace(gene_set, &#39;HALLMARK_&#39;, &#39;&#39;))
+
+# Generate barplot showing the number of FOVs with siginificant evidence of spatial
+# patterns for each tissue slide
+ggplot(res) +
+  geom_bar(aes(x=gene_set)) +
+  xlab(NULL) +
+  theme(axis.text.x=element_text(angle=70, vjust=1, hjust=1)) +
+  facet_wrap(~slide)</code></pre>
+<p>The “NOTCH signaling” pathway showed spatial patterns less frequently
+in the slide “Lung5_Rep1” compared to “Lung6”. With the function
+<code>STplot</code>, the average gene set expression (not GSEA score)
+for this pathway can be plotted. First, FOVs with and without NOTCH
+signaling spatial patterns will be identified from “Lung5_Rep1” and
+“Lung6” respectively.</p>
+<pre class="r"><code>bind_rows(stenrich_df) %&gt;%
+  mutate(prop_gene_set=size_test/size_gene_set) %&gt;%
+  filter(prop_gene_set &gt;= 0.3 &amp; adj_p_value &gt;= 0.05) %&gt;%
+  arrange(desc(prop_gene_set), desc(adj_p_value)) %&gt;%
+  filter(gene_set == &#39;HALLMARK_NOTCH_SIGNALING&#39;) %&gt;%
+  filter(str_detect(sample_name, &quot;Lung5_Rep1&quot;)) %&gt;%
+  slice_head(n=3)</code></pre>
+<pre class="r"><code>bind_rows(stenrich_df) %&gt;%
+  mutate(prop_gene_set=size_test/size_gene_set) %&gt;%
+  filter(prop_gene_set &gt;= 0.3 &amp; adj_p_value &lt; 0.05) %&gt;%
+  arrange(desc(prop_gene_set), adj_p_value) %&gt;%
+  filter(gene_set == &#39;HALLMARK_NOTCH_SIGNALING&#39;) %&gt;%
+  filter(str_detect(sample_name, &quot;Lung6&quot;)) %&gt;%
+  slice_head(n=3)</code></pre>
+<p>Plots can be generated like so:</p>
+<pre class="r"><code>qp &lt;- STplot(lc_stlist, genes=gene_sets[names(gene_sets) == &#39;HALLMARK_NOTCH_SIGNALING&#39;],
+             color_pal=&#39;YlOrBr&#39;)
+
+ggpubr::ggarrange(plotlist=qp, ncol=3, nrow=2, common.legend=TRUE)</code></pre>
+<p>Although expression of the NOTCH signaling pathway is higher overall
+in “Lung6”, the expression is not uniform, but rather is arranged in
+patterns within each FOV. Conversely, cells in FOVs of “Lung5_Rep1” that
+show high expression of the NOTCH signaling pathway are scattered across
+the tissue.</p>
+<p>Since this expression of this pathway has been identified as
+spatially aggregated, it might be of interest to know if there is
+correspondence of NOTCH signaling with tissue domains. With the
+<code>STclust</code> function, tissue domains can be identified.</p>
+<pre class="r"><code>lc_stlist &lt;- STclust(lc_stlist, ws=0.02, ks=&#39;dtc&#39;)</code></pre>
+<p>Optionally, if tissue images are available for some or all the FOVs,
+users can upload those to the STlist for display next to the other plot
+types available in <code>spatialGE</code>. Users can upload an entire
+folder of images to the STlist, as long as image files have the same
+names as the FOVs within the STlist (e.g., “Lung5_Rep1_fov_2”,
+“Lung6_fov_4”, etc). Keep in mind, however, this will increase the size
+of the STlist significantly, especially in CosMx experiments that
+usually contain many FOVs.</p>
+<p>The multiplexed immunofluorescence images have been previously
+downloaded from the <a
+href="https://github.com/FridleyLab/spatialGE_Data">spatialGE_Data
+GitHub repository</a>. The temporary folder created at the beginning of
+this tutorial will be used to generate the file paths to the folder
+containing the images. Importantly, the images need to be renamed
+according to the FOV name in the STlist. This renaming was already
+performed for the files in the spatialGE_Data GitHub repository. Here is
+an example of how the files were renamed from the original data set:</p>
+<ul>
+<li>For tissue slice “Lung5_Rep1”, images were renamed from
+“CellComposite_F002.jpg”, “CellComposite_F006.jpg”, and
+“CellComposite_F011.jpg” to “Lung5_Rep1_fov_2.jpg”,
+“Lung5_Rep1_fov_6.jpg”, and “Lung5_Rep1_fov_11.jpg” respectively.</li>
+<li>For tissue slice “Lung6”, images were renamed from
+“CellComposite_F004.jpg”, “CellComposite_F006.jpg”, and
+“CellComposite_F007.jpg” to “Lung6_fov_4.jpg”, “Lung6_fov_6.jpg”, and
+“Lung6_fov_7.jpg” respectively.</li>
+</ul>
+<p>Now, upload the images to the STlist with the
+<code>load_images</code> function:</p>
+<pre class="r"><code>img_fp = &#39;~/Desktop/nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/CellComposite&#39;
+lc_stlist &lt;- load_images(lc_stlist, images=img_fp)</code></pre>
+<p>The images for slide “Lung6” were not found, which are in the
+corresponding folder. The <code>load_images</code> function is ran again
+to add images from “Lung6”:</p>
+<pre class="r"><code>img_fp = &#39;~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/CellComposite&#39;
+lc_stlist &lt;- load_images(lc_stlist, images=img_fp)</code></pre>
+<p>The function plot_image is used to generate the ggplot objects
+containing the images:</p>
+<pre class="r"><code>ti &lt;- plot_image(lc_stlist)</code></pre>
+<p>The domains can be plotted with the <code>STplot</code> function
+too.</p>
+<pre class="r"><code>dom_p &lt;- STplot(lc_stlist, ks=&#39;dtc&#39;, ws=0.02, deepSplit=FALSE,
+                color_pal=&#39;discreterainbow&#39;)
+
+ggpubr::ggarrange(dom_p$Lung5_Rep1_fov_2_stclust_spw0.02_dsplFalse,
+                  ti$image_Lung5_Rep1_fov_2,
+                  dom_p$Lung5_Rep1_fov_6_stclust_spw0.02_dsplFalse,
+                  ti$image_Lung5_Rep1_fov_6,
+                  dom_p$Lung5_Rep1_fov_11_stclust_spw0.02_dsplFalse,
+                  ti$image_Lung5_Rep1_fov_11,
+                  dom_p$Lung6_fov_4_stclust_spw0.02_dsplFalse,
+                  ti$image_Lung6_fov_4,
+                  dom_p$Lung6_fov_6_stclust_spw0.02_dsplFalse,
+                  ti$image_Lung6_fov_6,
+                  dom_p$Lung6_fov_7_stclust_spw0.02_dsplFalse,
+                  ti$image_Lung6_fov_7,
+                  ncol=4, nrow=3)
+
+# If no tissue images are available:
+# ggpubr::ggarrange(plotlist=dom_p, ncol=3, nrow=2)</code></pre>
+<p>Now, to identify the domains, differential gene expression can be
+performed:</p>
+<pre class="r"><code>deg &lt;- STdiff(lc_stlist, w=0.02, k=&#39;dtc&#39;, deepSplit=FALSE, test_type=&#39;wilcoxon&#39;)</code></pre>
+<p>Then, the top 3 DE genes per cluster in the samples showing NOTCH
+signaling spatial patterns are identified:</p>
+<pre class="r"><code>bind_rows(deg) %&gt;%
+  filter(adj_p_val &lt; 0.05 &amp; abs(avg_log2fc &gt; 0.05)) %&gt;%
+  filter(sample %in% c(&#39;Lung6_fov_4&#39;, &#39;Lung6_fov_6&#39;, &#39;Lung6_fov_7&#39;)) %&gt;%
+  group_by(sample, cluster_1) %&gt;%
+  slice_head(n=3)</code></pre>
+<p>Expression of KRT genes in domains 1 and 4 for FOV “Lung6_fov_4”, 1,
+4, and 5 for FOV Lung6_fov_6, and 1, 2, and 5 for FOV is indicative of
+tumor cells in those domains. With the exception of 4 in “Lung6_fov_6”,
+there seems to be concordance among the areas of of NOTCH signaling and
+the “tumor” domains, which indicates that in slide “Lung6”, the tumor
+compartment is spatially enriched for NOTCH signaling.</p>
+</div>
+<div
+id="identification-of-genes-presenting-expression-spatial-gradients"
+class="section level2">
+<h2>Identification of genes presenting expression spatial gradients</h2>
+<p>Since the tumor areas have been visually identified, it is possible
+now to ascertain which genes show expression that varies with distance
+within the tumor compartment. In the FOVs “Lung6_fov_4”, “Lung6_fov_7”,
+and “Lung6_fov_6”, the domain 3 seems to be surrounding the tumor
+compartment. Hence, domain 3 will be used as reference domain to test
+for genes for which expression increases or decreases with distance from
+domain 3. This test is performed by the <code>STgradient</code>
+function.</p>
+<p>In <code>STgradient</code>, the spatial coordinates are used to
+calculate Euclidean distances of each cell to each of the other cells.
+The reference domain is the domain from which the distances will be
+calculated (domain 3 in this case). The non-reference domain(s) are the
+domain(s) on which the user wants to study gradients. Next, removes
+isolated cells in the reference domain (i.e., have a number of immediate
+neighbors smaller than parameter <code>min_nb</code>). The
+<code>min_nb</code> parameter intends to reduce the effects of small
+“pockets” of the reference domain on the correlation coefficient. At
+this point, either the minimum or average distance of each non-reference
+cell to each reference cell is calculated (<code>distsumm</code>). The
+minimum distance is easier to interpret, however, it is more sensitive
+to highly fragmented reference domains. On the other hand, the
+interpretability of the average distance is not as easy as the minimum
+distance, but it might detect in a better way the gradients when the
+reference domain is distributed across the sample. Next, the gene
+expression data is subset to the non-reference cells, and the top
+variable genes (<code>topgenes</code>) are selected. Results will be
+produced only for those genes. Depending on the user’s selection, the
+ordinary least squares (OLS) or robust regression is used to calculate
+the slope of the regression line between the minimum/average distance
+and the expression of a gene. If OLS was selected, users might opt to
+remove outliers via the interquartile method. Finally, the Spearman’s
+coefficient is calculated in addition to the regression line
+coefficient. The slope indicates the direction of the correlation. If
+positive, the gene expression tends to be higher when farther from the
+reference domain. If negative, gene expression is higher when closer to
+the reference domain. The interpretation of the sign for the Spearman’s
+coefficient is similar, however its magnitude indicates how strong the
+correlation is between gene expression and distance to the reference
+domain.</p>
+<p>The <code>STgradient</code> function can be executed with these
+commands, in order to test for gradients within the tumor compartment.
+First, it is necessary to find the name of the column in
+<code>lung_subset@spatial_meta</code> containing the domain
+assignments:</p>
+<pre class="r"><code>spatial_metadata(lc_stlist)</code></pre>
+<p>The name of the column is <code>stclust_spw0.02_dsplFalse</code>
+(STclust results using spatial weight of 0.02 and DynamicTreeCuts with
+no deepSplit). This name is used in the <code>annot</code> argument of
+<code>STgradient</code>:</p>
+<pre class="r"><code>stg &lt;- STgradient(lc_stlist,
+                  topgenes=1000,
+                  annot=&#39;stclust_spw0.02_dsplFalse&#39;,
+                  ref=4,
+                  samples=c(&#39;Lung6_fov_4&#39;, &#39;Lung6_fov_6&#39;, &#39;Lung6_fov_7&#39;),
+                  distsumm=&#39;min&#39;,
+                  robust=TRUE)</code></pre>
+<p>Here are the first few rows of the <code>STgradient</code> result for
+sample “Lung6_fov_4”:</p>
+<pre class="r"><code>head(stg[[&#39;Lung6_fov_4&#39;]])</code></pre>
+<p>The key columns to look at are <code>min_spearman_r</code> and
+<code>min_spearman_r_pval_adj</code>. Now, to find genes with
+significant spatial gradients in FOV “Lung6_fov_4”, these commands can
+be used:</p>
+<pre class="r"><code>bind_rows(stg) %&gt;%
+  filter(sample_name == &#39;Lung6_fov_4&#39;) %&gt;%
+  arrange(desc(abs(min_spearman_r))) %&gt;%
+  group_by(sample_name) %&gt;%
+  slice_head(n=5) %&gt;%
+  ungroup() %&gt;%
+  arrange(gene)</code></pre>
+<p>It can be seen from these results that multiple <em>KRT6A</em> shows
+spatial gradients. With a negative Spearman’s coefficients, the
+expression of this gene is higher in cells close to to domain 4 than
+those away from it. Conversely, <strong>HLA-B</strong> shows higher
+expression in cells far from domain 4:</p>
+<pre class="r"><code>qp2 &lt;- STplot(lc_stlist, genes=c(&#39;KRT6A&#39;, &#39;HLA-B&#39;), samples=&#39;Lung6_fov_4&#39;, color_pal=&#39;YlOrBr&#39;)
+ggpubr::ggarrange(plotlist=qp2, common.legend=TRUE)</code></pre>
+<p>Here are the results for genes within the NOTCH signaling
+pathway:</p>
+<pre class="r"><code>bind_rows(stg) %&gt;%
+  filter(sample_name == &#39;Lung6_fov_4&#39;) %&gt;%
+  arrange(desc(abs(min_spearman_r))) %&gt;%
+  filter(gene %in% gene_sets[[&#39;HALLMARK_NOTCH_SIGNALING&#39;]]) %&gt;%
+  filter(min_spearman_r_pval_adj &lt; 0.05)</code></pre>
+<p>Although the correlations in genes from this pathway are not as
+strong as and those for <strong>KRT6A</strong> and
+<strong>HLA-B</strong> (i.e., Spearman’s coefficient closer to zero), it
+can be seen that the genes <strong>NOTCH1</strong> and
+<strong>NOTCH3</strong> show evidence of expression gradients in FOV
+“Lung6_fov_4”.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

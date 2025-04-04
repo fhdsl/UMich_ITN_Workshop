@@ -433,8 +433,8 @@ Transcriptomics</h1>
 <h2>Get workshop files</h2>
 <p><input type="checkbox"> Download the files for this activity clicking
 here: <a
-href="https://github.com/fhdsl/Moffitt_ITN_Workshop/archive/refs/heads/main.zip"
-class="uri">https://github.com/fhdsl/Moffitt_ITN_Workshop/archive/refs/heads/main.zip</a><br />
+href="https://github.com/fhdsl/UMich_ITN_Workshop/archive/refs/heads/main.zip"
+class="uri">https://github.com/fhdsl/UMich_ITN_Workshop/archive/refs/heads/main.zip</a><br />
 <input type="checkbox"> Put this file on your desktop so it is easily
 findable.<br />
 <input type="checkbox"> Double click the zip file (or right click and
@@ -443,67 +443,63 @@ choose “unzip” or “decompress” to unzip the file.<br />
 can see what’s there.</p>
 <div id="get-familiar-with-the-data-set" class="section level3">
 <h3>Get familiar with the data set</h3>
-<p>Within the folder, navigate to <code>activity-files</code> and then
-<code>spatial_transcriptomics_activity_files</code> we should see a
-metadata file (<code>meylan_etal_2022_tumor_grade.csv</code>), a PDF of
-the manuscript that describes these data, and a
-<code>visium_samples</code> folder that includes two samples.</p>
+<p>Navigate to <code>activity-files</code> and then
+<code>spatial_transcriptomics_activity_files</code>. Within the folder,
+we should see a metadata file
+(<code>lee_etal_2024_sample_metadata.csv</code>), a PDF of the
+manuscript that describes these data, and a <code>visium_samples</code>
+folder that includes two samples.</p>
 <p>Each sample’s folder contains a several files resulting from the
 <code>spaceranger</code> pipeline. However, we will use the following
 files:</p>
 <ul>
-<li>sample_b_01
+<li>sample_00732
 <ul>
-<li>GSM5924046_frozen_b_1_filtered_feature_bc_matrix.h5 (the gene
-expression data)</li>
+<li>21_00732_LI_SING_filtered_feature_bc_matrix.h5 (the gene expression
+data)</li>
 <li>spatial
 <ul>
-<li>GSM5924046_frozen_b_1_tissue_positions_list.csv (spot x,y spatial
+<li>21_00732_LI_SING_tissue_positions_list.csv (spot x,y spatial
 positions)</li>
-<li>GSM5924046_frozen_b_1_tissue_hires_image.png (The H&amp;E-stained
-tissue image)</li>
-<li>GSM5924046_frozen_b_1_scalefactors_json.json (to scale the H&amp;E
-image and plots)</li>
+<li>21_00732_LI_SING_tissue_hires_image.png (The H&amp;E-stained tissue
+image)</li>
+<li>21_00732_LI_SING_scalefactors_json (to scale the H&amp;E image and
+plots)</li>
 </ul></li>
 </ul></li>
-<li>sample_b_07 …</li>
+<li>sample_01675
+<ul>
+<li>…</li>
+</ul></li>
 </ul>
 <p>The README describes these samples:</p>
 <blockquote>
 <p>These samples result from tumor biopsies collected from a patient
-cohort with clear cell renal cell carcinoma (ccRCC). The researchers
-profiled the samples with 10X Visium to study the gene expression in TLS
-in a spatial context.</p>
+cohort with gastric cancer (GC). The researchers profiled the samples
+with 10X Visium to study the gene expression in malignant, stromal, and
+immune cells within the GC tumor microenvironment.</p>
 </blockquote>
-<p>The metadata file (<code>meylan_etal_2022_tumor_grade.csv</code>)
-contains two variables of interest. One is the tumor grade, and the
-other is positivity for a tertiary lymphoid structure (TLS) as
-ascertained using immunohistochemistry staining. The file looks like
-this:</p>
+<p>The metadata file (<code>lee_etal_2024_sample_metadata.csv</code>)
+contains sample identifiers and classification into “intestinal” or
+“diffuse” GC. The file looks like this:</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">samplename</th>
-<th align="left">cohort</th>
-<th align="left">ID</th>
-<th align="left">pT</th>
-<th align="left">tls</th>
+<th align="left">sample_id</th>
+<th align="left">sample_id2</th>
+<th align="left">type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">sample_b_01</td>
-<td align="left">IMM</td>
-<td align="left">b_1</td>
-<td align="left">pT1</td>
-<td align="left">pos</td>
+<td align="left">sample_01675</td>
+<td align="left">GC9</td>
+<td align="left">Diffuse</td>
 </tr>
 <tr class="even">
-<td align="left">sample_b_07</td>
-<td align="left">IMM</td>
-<td align="left">b_7</td>
-<td align="left">pT3</td>
-<td align="left">neg</td>
+<td align="left">sample_00732</td>
+<td align="left">GC3</td>
+<td align="left">Intestinal</td>
 </tr>
 </tbody>
 </table>
@@ -526,7 +522,7 @@ choose <code>Visium</code> – this is the type of data our example data
 are.<br />
 <input type="checkbox"> Make your own project name and description
 that’s sensible. Could be something related to the workshop such as
-“ITN-Moffitt workshop”.<br />
+“ITN-UMichigan workshop”.<br />
 <input type="checkbox"> Then click “Create”.</p>
 <div id="uploading-the-dataset" class="section level3">
 <h3>Uploading the dataset</h3>
@@ -536,42 +532,42 @@ following steps to upload each sample’s set of files.</em></p>
 <div id="uploading-one-samples-data" class="section level3">
 <h3>Uploading one sample’s data</h3>
 <p><input type="checkbox"> For <code>Sample Name</code> put the ID
-indicating on the folder, e.g. <code>sample_b_01</code>. This is very
+indicating on the folder, e.g. <code>sample_00732</code>. This is very
 important, as sample IDs need to match exactly the sample IDs in the
-metadata file (<code>meylan_etal_2022_tumor_grade.csv</code>).
+metadata file (<code>lee_etal_2024_sample_metadata.csv</code>).
 Otherwise, no metadata is imported.<br />
 <input type="checkbox"> For the <code>Gene expression</code> box upload
 the <code>.h5</code> file
-e.g. <code>GSM5924046_frozen_b_1_filtered_feature_bc_matrix.h5</code>.
-You can upload files by dragging and dropping or by clicking on them to
+e.g. <code>21_00732_LI_SING_filtered_feature_bc_matrix.h5</code>. You
+can upload files by dragging and dropping or by clicking on them to
 navigate.<br />
 <input type="checkbox"> For the <code>Coordinates</code> box upload the
 <code>.csv</code> file
-e.g. <code>GSM5924046_frozen_b_1_tissue_positions_list.csv</code>.<br />
+e.g. <code>21_00732_LI_SING_tissue_positions_list.csv</code>.<br />
 <input type="checkbox"> For the <code>Tissue image</code> box upload the
 <code>.png</code> file
-e.g. <code>GSM5924046_frozen_b_1_tissue_hires_image.png</code>.<br />
+e.g. <code>21_00732_LI_SING_tissue_hires_image.png</code>.<br />
 <input type="checkbox"> For the <code>Scale factor</code> box upload the
 <code>.json</code> file
-e.g. <code>GSM5924046_frozen_b_1_scalefactors_json.json</code>. The
-scaling factor file is output automatically by the
-<code>10X Space Ranger</code> pipeline, and contains information to
-approximate the size of the tissue image and the expression plots.</p>
+e.g. <code>21_00732_LI_SING_scalefactors_json.json</code>. The scaling
+factor file is output automatically by the <code>10X Space Ranger</code>
+pipeline, and contains information to approximate the size of the tissue
+image and the expression plots.</p>
 <p><input type="checkbox"> Once the above steps are done click the green
 <code>Import Sample</code>.</p>
 <p>Now <a href="#uploading-one-samples-data">return to the beginning of
 these steps</a> to repeat the same steps for the other sample.</p>
 <p><em>You can use this checklist to keep track as you upload and follow
 the steps for each sample.</em></p>
-<p><input type="checkbox"> <code>sample_b_01</code> data entered<br />
-<input type="checkbox"> <code>sample_b_07</code> data entered</p>
+<p><input type="checkbox"> <code>sample_00732</code> data entered<br />
+<input type="checkbox"> <code>sample_01675</code> data entered</p>
 </div>
 <div id="adding-metadata" class="section level3">
 <h3>Adding metadata</h3>
 <p><input type="checkbox"> Now click
 <code>Option 1: Upload metadata file</code>.<br />
 <input type="checkbox"> Upload the
-<code>meylan_etal_2022_tumor_grade.csv</code> file. You can drag and
+<code>lee_etal_2024_sample_metadata.csv</code> file. You can drag and
 drop the file or by click on the (+) button to navigate.</p>
 <div id="section" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
@@ -587,117 +583,39 @@ steps:</p>
 a column named <code>patient</code>.<br />
 <input type="checkbox"> Click <code>Add new metadata column</code>
 again. Add a column named <code>therapy</code>.</p>
-<p>You can refer to the <code>meylan_etal_2022_tumor_grade.csv</code>
+<p>You can refer to the <code>lee_etal_2024_sample_metadata.csv</code>
 file’s contents to add these data for each sample:</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">samplename</th>
-<th align="left">pT</th>
-<th align="left">tls</th>
+<th align="left">sample_id</th>
+<th align="left">sample_id2</th>
+<th align="left">type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">sample_b_01</td>
-<td align="left">pT1</td>
-<td align="left">pos</td>
+<td align="left">sample_01675</td>
+<td align="left">GC9</td>
+<td align="left">Diffuse</td>
 </tr>
 <tr class="even">
-<td align="left">sample_b_07</td>
-<td align="left">pT3</td>
-<td align="left">neg</td>
-</tr>
-<tr class="odd">
-<td align="left">sample_b_18</td>
-<td align="left">pT2</td>
-<td align="left">pos</td>
-</tr>
-<tr class="even">
-<td align="left">sample_a_01</td>
-<td align="left">pT1b</td>
-<td align="left">neg</td>
+<td align="left">sample_00732</td>
+<td align="left">GC3</td>
+<td align="left">Intestinal</td>
 </tr>
 </tbody>
 </table>
-<p><input type="checkbox"> Add this <code>sample_b_01</code>
-corresponding <code>pT</code> and <code>tls</code> information.<br />
-<input type="checkbox"> Add this <code>sample_b_07</code> corresponding
-<code>pT</code> and <code>tls</code> information.<br />
-<input type="checkbox"> Add this <code>sample_b_18</code> corresponding
-<code>pT</code> and <code>tls</code> information.<br />
-<input type="checkbox"> Add this <code>sample_a_01</code> corresponding
-<code>pT</code> and <code>tls</code> information.</p>
+<p><input type="checkbox"> Add <code>sample_01675</code> corresponding
+<code>sample_id2</code> and <code>type</code> information.<br />
+<input type="checkbox"> Add <code>sample_00732</code> corresponding
+<code>sample_id2</code> and <code>type</code> information.</p>
 </details>
 </div>
 <div id="section-1" class="section level4">
 <h4></h4>
 <p><strong>Remember:</strong> The sample IDs in the metadata should
 match exactly the sample names used during file import.</p>
-</div>
-<div id="section-2" class="section level4 click_to_expand_block">
-<h4 class="click_to_expand_block"></h4>
-<details>
-<summary>
-Homework: Additional samples in the data set
-</summary>
-<p>Users are encouraged to try spatialGE with these additional samples
-after the workshop. These samples were not used in the workshop for
-time-efficiency purposes</p>
-<p>The metadata for the other two samples looks like this:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">samplename</th>
-<th align="left">cohort</th>
-<th align="left">ID</th>
-<th align="left">pT</th>
-<th align="left">tls</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">sample_b_01</td>
-<td align="left">IMM</td>
-<td align="left">b_1</td>
-<td align="left">pT1</td>
-<td align="left">pos</td>
-</tr>
-<tr class="even">
-<td align="left">sample_b_07</td>
-<td align="left">IMM</td>
-<td align="left">b_7</td>
-<td align="left">pT3</td>
-<td align="left">neg</td>
-</tr>
-<tr class="odd">
-<td align="left">sample_b_18</td>
-<td align="left">IMM</td>
-<td align="left">b_18</td>
-<td align="left">pT2</td>
-<td align="left">pos</td>
-</tr>
-<tr class="even">
-<td align="left">sample_a_01</td>
-<td align="left">ExhauCRF</td>
-<td align="left">a_1</td>
-<td align="left">pT1b</td>
-<td align="left">neg</td>
-</tr>
-</tbody>
-</table>
-<p>The metadata file and additional visium samples can be found within
-the <code>additional_activity_files_for_home</code>.</p>
-<p><em>You can use this checklist to keep track as you upload and follow
-the steps for each sample.</em></p>
-<p><input type="checkbox"> <code>sample_b_01</code> data entered<br />
-<input type="checkbox"> <code>sample_b_07</code> data entered<br />
-<input type="checkbox"> <code>sample_b_18</code> data entered<br />
-<input type="checkbox"> <code>sample_a_01</code> data entered</p>
-</details>
-</div>
-<div id="section-3" class="section level4">
-<h4></h4>
 </div>
 </div>
 <div id="after-youve-entered-the-data-and-metadata"
@@ -711,11 +629,11 @@ click <code>Import Data</code>.</p>
 then click <code>Import Data</code>.</p>
 <p>This may take a little bit of time. Note you can have it send you an
 email instead of waiting on the page.</p>
-<div id="section-4" class="section level4 click_to_expand_block">
+<div id="section-2" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
-Advanced task: Loading data into the command-line version of spatialGE
+Using the command-line: Loading data into spatialGE
 </summary>
 <p>Most of analyses in this step-by-step tutorial can also be performed
 with the spatialGE R package. To do so, start by installing the
@@ -728,18 +646,16 @@ devtools::install_github(&#39;FridleyLab/spatialGE&#39;)</code></pre>
 <pre class="r"><code>library(&#39;spatialGE&#39;)</code></pre>
 <p>Now, specify the directory paths to the folders containing the data
 and the metadata file:</p>
-<pre class="r"><code>counts_fp = c(&#39;./activity-files/spatial_transcriptomics_activity_files/visium_samples/sample_b_01/&#39;,
-              &#39;./activity-files/spatial_transcriptomics_activity_files/visium_samples/sample_b_07/&#39;,
-              &#39;./activity-files/spatial_transcriptomics_activity_files/additional_activity_files_for_home/sample_a_01/&#39;,
-              &#39;./activity-files/spatial_transcriptomics_activity_files/additional_activity_files_for_home/sample_b_18/&#39;)
+<pre class="r"><code>counts_fp = c(&#39;./activity_files/spatial_transcriptomics_activity_files/visium_samples/sample_00732/&#39;,
+              &#39;./activity_files/spatial_transcriptomics_activity_files/visium_samples/sample_01675/&#39;)
 
-meta_file = &#39;./activity-files/spatial_transcriptomics_activity_files/additional_activity_files_for_home/meylan_etal_2022_tumor_grade.csv&#39;</code></pre>
+meta_file = &#39;./activity_files/spatial_transcriptomics_activity_files/lee_etal_2024_sample_metadata.csv&#39;</code></pre>
 <p>Finally, create an STlist. The STlist is the R object in spatialGE
 that holds the data and results:</p>
-<pre class="r"><code>tls_stlist = STlist(rnacounts=counts_fp, samples=meta_file)</code></pre>
+<pre class="r"><code>gc_stlist = STlist(rnacounts=counts_fp, samples=meta_file)</code></pre>
 </details>
 </div>
-<div id="section-5" class="section level4">
+<div id="section-3" class="section level4">
 <h4></h4>
 </div>
 </div>
@@ -769,7 +685,7 @@ filter spots by mitochondrial gene content. Keep in mind that some ST
 platforms do not quantify mitochondrial genes.<br />
 <input type="checkbox"> Enter the maximum percentage of mitochondrial
 counts. Use 20% in this case.</p>
-<div id="section-6" class="section level4 click_to_expand_block">
+<div id="section-4" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
@@ -789,28 +705,27 @@ counts.<br />
 spots.</p>
 </details>
 </div>
-<div id="section-7" class="section level4">
+<div id="section-5" class="section level4">
 <h4></h4>
 </div>
-<div id="section-8" class="section level4 click_to_expand_block">
+<div id="section-6" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
-Advanced task: Filtering data using the command-line version of
-spatialGE
+Using the command-line: Filtering data with spatialGE
 </summary>
 <p>To achieve the same spot- and gene level filtering results as those
 obtained with the web application, users can run the following command
 in the R console.</p>
-<pre class="r"><code>tls_stlist = filter_data(tls_stlist,
-                         spot_minreads=500,
-                         spot_mingenes=100,
-                         spot_maxpct=0.2,
-                         gene_minreads=100,
-                         gene_minspots=20)</code></pre>
+<pre class="r"><code>gc_stlist = filter_data(gc_stlist,
+                        spot_minreads=500,
+                        spot_mingenes=100,
+                        spot_maxpct=0.2,
+                        gene_minreads=100,
+                        gene_minspots=20)</code></pre>
 </details>
 </div>
-<div id="section-9" class="section level4">
+<div id="section-7" class="section level4">
 <h4></h4>
 <p><input type="checkbox"> Once you have all the filter settings as
 you’d like click the blue “APPLY FILTER” button.<br />
@@ -830,20 +745,20 @@ spot can be visualized.<br />
 <input type="checkbox"> When changing the variable to plot, click the
 blue “GENERATE PLOTS” button to update.</p>
 </div>
-<div id="section-10" class="section level4 click_to_expand_block">
+<div id="section-8" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
-Advanced task: Create count distribution plots with the command-line
-version of spatialGE
+Using the command-line: Create count distribution plots with the
+spatialGE
 </summary>
-<pre class="r"><code>spatialGE::distribution_plots(tls_stlist, , plot_meta=&#39;total_counts&#39;, plot_type=&#39;violin&#39;)</code></pre>
+<pre class="r"><code>spatialGE::distribution_plots(gc_stlist, plot_meta=&#39;total_counts&#39;, plot_type=&#39;violin&#39;)</code></pre>
 </details>
 </div>
-<div id="section-11" class="section level4">
+<div id="section-9" class="section level4">
 <h4></h4>
 </div>
-<div id="section-12" class="section level4 click_to_expand_block">
+<div id="section-10" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
@@ -866,7 +781,7 @@ underneath the <code>Second sample</code> drop-down menu.<br />
 plot.</p>
 </details>
 </div>
-<div id="section-13" class="section level4">
+<div id="section-11" class="section level4">
 <h4></h4>
 </div>
 </div>
@@ -879,7 +794,7 @@ normalization method.<br />
 <input type="checkbox"> Click the blue “NORMALIZE DATA” to start
 normalization.<br />
 </p>
-<div id="section-14" class="section level4 click_to_expand_block">
+<div id="section-12" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
@@ -896,22 +811,21 @@ these are human samples, use all-upper case letters.<br />
 <em>MAP2K2</em> counts per spot.</p>
 </details>
 </div>
-<div id="section-15" class="section level4">
+<div id="section-13" class="section level4">
 <h4></h4>
 </div>
-<div id="section-16" class="section level4 click_to_expand_block">
+<div id="section-14" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
-Advanced task: Data normalization using the command-line version of
-sptialGE
+Using the command-line: Data normalization using sptialGE
 </summary>
 <pre class="r"><code># Perform data normalization using SCTransform
 # NOTE: To use log-transformation set `method=&#39;log&#39;`
-tls_stlist = transform_data(tls_stlist, method=&#39;sct&#39;)</code></pre>
+gc_stlist = transform_data(gc_stlist, method=&#39;sct&#39;)</code></pre>
 </details>
 </div>
-<div id="section-17" class="section level4">
+<div id="section-15" class="section level4">
 <h4></h4>
 </div>
 </div>
@@ -924,14 +838,14 @@ class="section level3">
 on the left side menu.<br />
 <input type="checkbox"> You can search for your favorite gene in the
 <code>Search and select genes</code> menu. For this example query and
-click <em>IGKC</em>.<br />
-<input type="checkbox"> Also query and click <em>MS4A1</em> gene.<br />
+click <em>CCL19</em>.<br />
+<input type="checkbox"> Also query and click <em>FN1</em> gene.<br />
 <input type="checkbox"> Lastly, also query and click
 <em>COL1A1</em>.<br />
 <input type="checkbox"> Click blue “GENERATE PLOTS” button to create the
 plot.</p>
 <p>Images can be exported in multiple formats (PNG/SVG/PDF).</p>
-<div id="section-18" class="section level4 click_to_expand_block">
+<div id="section-16" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
@@ -944,25 +858,25 @@ where expression values are inferred for the spaces not quantified
 between spots.</p>
 <p><input type="checkbox"> Click the “Expression surface” tab.<br />
 <input type="checkbox"> In the <code>Search and select genes</code> menu
-search and select <code>IGKC</code>.<br />
+search and select <code>COL1A1</code>.<br />
 <input type="checkbox"> Click “ESTIMATE SURFACES” button to create the
 plot.</p>
 </details>
 </div>
-<div id="section-19" class="section level4">
+<div id="section-17" class="section level4">
 <h4></h4>
 </div>
-<div id="section-20" class="section level4 click_to_expand_block">
+<div id="section-18" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
-Advanced task: Create spatial gene expression plots using the
-command-line version of spatialGE
+Using the command-line: Create spatial gene expression plots using
+spatialGE
 </summary>
-<pre class="r"><code>STplot(tls_stlist, genes=c(&#39;IGKC&#39;, &#39;MS4A1&#39;, &#39;COL1A1&#39;))</code></pre>
+<pre class="r"><code>STplot(gc_stlist, genes=c(&#39;CCL19&#39;, &#39;FN1&#39;, &#39;COL1A1&#39;))</code></pre>
 </details>
 </div>
-<div id="section-21" class="section level4">
+<div id="section-19" class="section level4">
 <h4></h4>
 </div>
 </div>
@@ -982,33 +896,31 @@ clusters.<br />
 <input type="checkbox"> Explore the results by clicking each
 <code>K=</code> tab.</p>
 <p>Images can be exported in multiple formats (PNG/SVG/PDF).</p>
-<div id="section-22" class="section level4 click_to_expand_block">
+<div id="section-20" class="section level4 click_to_expand_block">
 <h4 class="click_to_expand_block"></h4>
 <details>
 <summary>
-Advanced task: Domain detection using the command-line version of
-spatialGE
+Using the command-line: Domain detection using spatialGE
 </summary>
-<pre class="r"><code>tls_stlist = STclust(tls_stlist, ks=c(3:5))
+<pre class="r"><code>gc_stlist = STclust(gc_stlist, ks=c(3:5))
 
 # Plot the detected domains
-STplot(tls_stlist, ks=3:5)</code></pre>
+STplot(gc_stlist, ks=3:5)</code></pre>
 </details>
 </div>
-<div id="section-23" class="section level4">
+<div id="section-21" class="section level4">
 <h4></h4>
 </div>
-<div id="section-24" class="section level4 click_to_expand_block">
-<h4 class="click_to_expand_block"></h4>
-<details>
-<summary>
-Homework: Other analysis types to explore
-</summary>
+</div>
+<div id="homework-other-analysis-types-to-explore"
+class="section level2">
+<h2>Homework: Other analysis types to explore</h2>
 <p>We encourage the users to run these more advanced analyses. These
 were not included due to time necessary to complete them. However, these
 are some of the advanced analysis types that can help in hypothesis
 generation using spatial transcriptomics data.</p>
-<p><strong>Phenotyping</strong></p>
+<div id="phenotyping" class="section level3">
+<h3>Phenotyping</h3>
 <p>In spatialGE, inferring cell types on Visium data sets is achieved
 with STdeconvolve (<a
 href="https://doi.org/10.1038/s41467-022-30033-z">Miller et
@@ -1037,7 +949,29 @@ signatures (v2.0, Human-Cancer)” reference data set from the “Gene
 signatures” drop-down.<br />
 <input type="checkbox"> Then, click “ASSIGN IDENTITIES” to begin
 GSEA.</p>
-<p><strong>Spatial gradient detection</strong></p>
+</div>
+<div id="spatial-gene-set-enrichment" class="section level3">
+<h3>Spatial gene set enrichment</h3>
+<p>The test for spatial gene set enrichment in spatialGE uses a
+permutation-based approach to find if the distances among spots with
+high expression of a gene set are shorter than expected by chance. The
+spatial gene set enrichment test produces a p-value for each gene set,
+with a low p-value (typically &lt; 0.05), indicating that there is
+evidence for the gene set to be spatially distributed as hot-spot(s). In
+spatialGE, a collection of gene sets including Hallmark and KEGG are
+available. Nonetheless, users can upload their customs data sets as
+well.</p>
+<p>To start a spatial gene set enrichment test, follow these steps:</p>
+<p><input type="checkbox"> Click the “Spatial gene set enrichment”
+module on the left side menu.<br />
+<input type="checkbox"> In the “Select/upload a gene set database”
+dropdown, select the “HALLMARK - human” option.<br />
+<input type="checkbox"> Write “1000” in the “Permutations”
+textbox.<br />
+<input type="checkbox"> Then, click “RUN STENRICH”.</p>
+</div>
+<div id="spatial-gradient-detection" class="section level3">
+<h3>Spatial gradient detection</h3>
 <p>In spatialGE, users can test if a gene shows higher (or lower)
 expression closer to a specific cluster or spatial domain (“spatial
 gradient”). The method is useful to investigate spatial patterns at the
@@ -1055,14 +989,27 @@ samples.<br />
 <input type="checkbox"> Write “1000” in the “Number of most variable
 genes to use” textbox.<br />
 <input type="checkbox"> From the “Annotation to test” drop-down, select
-” STclust; Domains (k): 03; No spatial weight”.<br />
+” STclust; Domains (k): 04; No spatial weight”.<br />
 <input type="checkbox"> From the “reference cluster” drop-down, select
 “3”.<br />
 <input type="checkbox"> Then, click “RUN STGRADIENT”.</p>
+<div id="section-22" class="section level4 click_to_expand_block">
+<h4 class="click_to_expand_block"></h4>
+<details>
+<summary>
+Using the command-line: Domain detection using spatialGE
+</summary>
+<pre class="r"><code>stgradient_res = STgradient(gc_stlist, topgenes=1000, 
+                            samples=&#39;sample_00732&#39;,
+                            annot=&#39;stclust_spw0.025_k4&#39;,
+                            ref=4)
+
+stgradient_res[[&#39;sample_00732&#39;]]</code></pre>
 </details>
 </div>
-<div id="section-25" class="section level4">
+<div id="section-23" class="section level4">
 <h4></h4>
+</div>
 </div>
 </div>
 
