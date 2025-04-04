@@ -21,7 +21,7 @@ To continue to practice using `spatialGE` using R, you can access our PositCloud
 
  Alternatively you can download and install R and RStudio to use on your local machine or see if your institution has a sever available with R and RStudio. See this [link for information on installations](https://jhudatascience.org/intro_to_r/modules/Setup/Setup.html). You could also consider using another cloud-based option like [AnVIL](https://jhudatascience.org/AnVIL_Book_Getting_Started/starting-rstudio.html) or [Galaxy](https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/rstudio/tutorial.html).
 
-See this [link for information on installations](https://jhudatascience.org/intro_to_r/modules/Setup/Setup.html). 
+## `spatialGE` R package
 
 
 The package ***`spatialGE`*** R package and [web application](https://spatialge.moffitt.org)
