@@ -15,9 +15,9 @@ In this workshop we will cover:
 
 <div class = "link_button"><a href="https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit?usp=sharing" target="_blank"> Slides Link</a></div>
 
-<!--
-<div class = "slido_button"><a href="" target="_blank"> Discussion Link </a></div>
--->
+
+<div class = "slido_button"><a href="https://app.sli.do/event/i7j7SmoPF3hRJ6yjsrNcjG" target="_blank"> Discussion Link </a></div>
+
 
 <div class = "resource_button"><a
 href="http://cloud.genepattern.org/gp/" target="_blank"> Resource Link </a></div>

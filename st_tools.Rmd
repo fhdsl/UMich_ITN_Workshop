@@ -16,11 +16,11 @@ In this workshop we will cover:
 
 [Dr. Oscar Ospina](https://www.linkedin.com/in/oscareospina/) will lead this workshop.
 
-<!--
-<div class = "link_button"><a href="https://docs.google.com/presentation/d/1yPqGAAMdBA6DMpNlmV22sr-fB9nLc0oGs-0o_z1mxTY/edit?usp=drive_link" target="_blank"> Slides Link</a></div>
 
-<div class = "slido_button"><a href="https://app.sli.do/event/u34YdHzLCsYKgqCNueqiRp" target="_blank"> Discussion Link </a></div>
--->
+<div class = "link_button"><a href="https://docs.google.com/presentation/d/1hrlVq_DZVqPKeBWcSaVq4nP9XSoAS2qalZbP9rukYpk/edit?usp=sharing" target="_blank"> Slides Link</a></div>
+
+<div class = "slido_button"><a href="https://app.sli.do/event/jUV9ycuttFZ9fZx8e9maGi" target="_blank"> Discussion Link </a></div>
+
 
 <div class = "resource_button"><a
 href="https://spatialge.moffitt.org/" target="_blank"> Resource Link </a></div>
@@ -31,7 +31,7 @@ href="https://spatialge.moffitt.org/" target="_blank"> Resource Link </a></div>
 - [The accompanying paper for spatialGE](https://doi.org/10.1158/0008-5472.CAN-24-2346)
 - [Tutorials on how to use the spatialGE R package](https://fridleylab.github.io/spatialGE/)
 - [The code for spatialGE](https://github.com/FridleyLab/spatialGE)
-
+- There are additional files to practice using the `spatialGE` package on [Posit Cloud](https://posit.cloud/) at the link we sent you
 <!--
 ### Note from Oscar:
 

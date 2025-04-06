@@ -14,7 +14,7 @@ In this workshop we will cover:
 
 [Chris Battiston](https://www.linkedin.com/in/christopher-b-7246942/) will lead this workshop.
 
-<div class = "link_button"><a href="https://bit.ly/clinical_data_umich2025" target="_blank"> Slides Link</a></div>
+<div class = "link_button"><a href="https://docs.google.com/presentation/d/1IPl1u3pdGuDbtIpkOCMgRRR1B5z0bLBxF8oj9pjO3mw/edit?usp=sharing" target="_blank"> Slides Link</a></div>
 
 <div class = "slido_button"><a href="https://app.sli.do/event/sZ1tiAZuG3kXthsfQKvhGn" target="_blank"> Discussion Link </a></div>
 
