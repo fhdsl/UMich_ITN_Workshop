@@ -383,12 +383,17 @@ samples, use all-upper case letters.\
 
 <details>
 
-<summary>Using the command-line: Data normalization using sptialGE</summary>
+<summary>Using the command-line: Data normalization using spatialGE</summary>
 
 ```{r eval=F}
 # Perform data normalization using SCTransform
-# NOTE: To use log-transformation set `method='log'`
+# First allow higher memory allocation
+options(future.globals.maxSize=1200000000000)
+
+# Then, perform data transformation
 gc_stlist = transform_data(gc_stlist, method='sct')
+
+# NOTE: To use log-transformation set `method='log'`
 ```
 
 </details>
