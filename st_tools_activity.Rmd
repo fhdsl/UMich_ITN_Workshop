@@ -576,4 +576,4 @@ stgradient_res[['sample_00732']]
 
 #### 
 
-There is an additional bonus activity on [Posit Cloud ](https://posit.cloud/) if you want to dive deeper with using the `spatialGE R` package.
+There is an additional bonus activity on [Posit Cloud](https://posit.cloud/) if you want to dive deeper with using the `spatialGE R` package.
