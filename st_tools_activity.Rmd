@@ -184,7 +184,7 @@ email instead of waiting on the page.
 
 Most of analyses in this step-by-step tutorial can also be performed
 with the spatialGE R package. To do so, start by installing the
-spatialGE package:
+spatialGE package. You can run these commands on [Posit Cloud](https://posit.cloud/) with the link we sent you to avoid running installations. 
 
 ```{r eval=F}
 # Install devtools if not already installed:
@@ -576,3 +576,4 @@ stgradient_res[['sample_00732']]
 
 #### 
 
+There is an additional bonus activity on [Posit Cloud ](https://posit.cloud/) if you want to dive deeper with using the `spatialGE R` package.
