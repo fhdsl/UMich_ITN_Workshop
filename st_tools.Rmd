@@ -16,11 +16,11 @@ In this workshop we will cover:
 
 [Dr. Oscar Ospina](https://www.linkedin.com/in/oscareospina/) will lead this workshop.
 
-<!--
-<div class = "link_button"><a href="https://docs.google.com/presentation/d/1yPqGAAMdBA6DMpNlmV22sr-fB9nLc0oGs-0o_z1mxTY/edit?usp=drive_link" target="_blank"> Slides Link</a></div>
 
-<div class = "slido_button"><a href="https://app.sli.do/event/u34YdHzLCsYKgqCNueqiRp" target="_blank"> Discussion Link </a></div>
--->
+<div class = "link_button"><a href="https://docs.google.com/presentation/d/1hrlVq_DZVqPKeBWcSaVq4nP9XSoAS2qalZbP9rukYpk/edit?usp=sharing" target="_blank"> Slides Link</a></div>
+
+<div class = "slido_button"><a href="https://app.sli.do/event/jUV9ycuttFZ9fZx8e9maGi" target="_blank"> Discussion Link </a></div>
+
 
 <div class = "resource_button"><a
 href="https://spatialge.moffitt.org/" target="_blank"> Resource Link </a></div>
