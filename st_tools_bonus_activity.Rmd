@@ -270,7 +270,7 @@ gene_sets <- msigdbr(species='Homo sapiens')
 
 NOTE - NEED to respond to R: Say "No" to installing misgdbdf.
 
-```{r}
+```{r, eval = FALSE}
 # Select the appropriate column depending on the msigdbr version
 gs_column <- grep('gs_cat|gs_collection', colnames(gene_sets), value=T)[1]
 gene_sets <- gene_sets[gene_sets[[gs_column]] == "H", ]
