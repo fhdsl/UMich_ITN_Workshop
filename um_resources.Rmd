@@ -8,5 +8,5 @@ output: html_document
     - Rogel Cancer Data Science Shared Resources: https://sph.umich.edu/cds/
  
  
- - [Olivia Koues](https://www.linkedin.com/in/olivia-i-koues-ba5b65b6/) Managing Director, Advanced Genomics Core
+ - [Olivia Koues](https://www.linkedin.com/in/olivia-i-koues-ba5b65b6/) Director, Advanced Genomics Core
     - Single Cell Spatial Analysis Program: https://singlecellspatialanalysis.umich.edu/
