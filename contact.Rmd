@@ -4,8 +4,12 @@ output:
   html_document
 ---
 
+If you have questions please contact us:
 
+* **Carrie Wright**, **Candace Savonen**, or **Kate Isaac**: [itcrtrainingnetwork@gmail.com](mailto:itcrtrainingnetwork@gmail.com)
 
-If you have questions please contact:
+* **Oscar Ospina**: [Oscar.Ospina@moffitt.org](mailto:Oscar.Ospina@moffitt.org) or [oospina1@jh.edu](mailto:osspina1@jh.edu) (Oscar is transitioning to a new position with Johns Hopkins soon!)
 
-* Carrie Wright (cwrigh60@jhu.edu)
+* **Chris Battiston** (Email if you have questions about the clinical workshop, or feedback about the REDCap Users Guide): [chris.battiston@wchospital.ca](mailto:chris.battiston@wchospital.ca)
+
+Join our mailing list for announcements or requests for follow-up feedback: [https://bit.ly/hutch_learner](https://bit.ly/hutch_learner)

@@ -38,6 +38,8 @@ navbar:
       href: st_tools_activity.html
   - text: UM Resources
     href: um_resources.html
+  - text: Contact Us
+    href: contact.html
   - text: ITN Resources
     href: https://www.itcrtraining.org/home
 
