@@ -478,6 +478,9 @@ following code:</p>
 <p>After making sure <code>devtools</code> is installed, proceed to
 install <code>spatialGE</code>:</p>
 <pre class="r"><code>devtools::install_github(&quot;fridleylab/spatialGE&quot;)</code></pre>
+Note that you may need to install requested dependencies. You may also
+need to use R 4.3.3 instead of the newest version of R to be able to use
+some of the dependencies.
 </details>
 </div>
 <div id="section-1" class="section level4">
@@ -540,14 +543,14 @@ data)</li>
 </ul></li>
 </ul>
 <p>Then load the spatialGE package:</p>
-<pre class="r"><code>library(&#39;spatialGE&#39;)</code></pre>
+<pre class="r"><code>library(spatialGE)</code></pre>
 <p>Now, specify the directory paths to the folders containing the data,
 assuming the files are in the computer’s desktop:</p>
-<pre class="r"><code>counts_fp = c(&#39;~/Desktop/nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_exprMat_file_SUBSET.csv&#39;,
-              &#39;~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/Lung6_exprMat_file_SUBSET.csv&#39;)
+<pre class="r"><code>counts_fp = c(&#39;activity_files/bonus_spatial_transcriptomics_activity_files/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_exprMat_file_SUBSET.csv&#39;,
+              &#39;activity_files/bonus_spatial_transcriptomics_activity_files/Lung6-Flat_files_and_images/Lung6_exprMat_file_SUBSET.csv&#39;)
 
-coordinates_fp = c(&#39;~/Desktop//nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_metadata_file_SUBSET.csv&#39;,
-                   &#39;~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/Lung6_metadata_file_SUBSET.csv&#39;)</code></pre>
+coordinates_fp = c(&#39;activity_files/bonus_spatial_transcriptomics_activity_files/Lung5_Rep1-Flat_files_and_images/Lung5_Rep1_metadata_file_SUBSET.csv&#39;,
+                   &#39;activity_files/bonus_spatial_transcriptomics_activity_files/Lung6-Flat_files_and_images/Lung6_metadata_file_SUBSET.csv&#39;)</code></pre>
 <p>Finally, create an STlist. The STlist is the R object in spatialGE
 that holds the data and results.</p>
 <p><strong>Important:</strong> Note that the argument
@@ -627,7 +630,8 @@ performed on each sample separately. The second option applies
 variance-stabilizing transformation (SCT; <span
 class="citation">@hafemeister_2019</span>), which is a method
 increasingly used in single-cell and spatial transcriptomics studies. To
-apply SCT transformation, use the following command:</p>
+apply SCT transformation, use the following command (this may take
+awhile!):</p>
 <pre class="r"><code>lc_stlist &lt;- transform_data(lc_stlist, method=&#39;sct&#39;)</code></pre>
 </div>
 <div id="detecting-gene-sets-with-spatial-aggregation-patterns"
@@ -670,11 +674,12 @@ chance).</p>
 gene sets. Here, the <code>msigdbr</code> package will be used to obtain
 HALLMARK gene sets:</p>
 <pre class="r"><code># Load msigdbr
-library(&#39;msigdbr&#39;)
+library(msigdbr)
 
 # Get HALLMARK gene sets
-gene_sets &lt;- msigdbr(species=&#39;Homo sapiens&#39;)
-# Select the appropriate column depending on the msigdbr version
+gene_sets &lt;- msigdbr(species=&#39;Homo sapiens&#39;)</code></pre>
+<p>NOTE - NEED to respond to R: Say “No” to installing misgdbdf.</p>
+<pre class="r"><code># Select the appropriate column depending on the msigdbr version
 gs_column &lt;- grep(&#39;gs_cat|gs_collection&#39;, colnames(gene_sets), value=T)[1]
 gene_sets &lt;- gene_sets[gene_sets[[gs_column]] == &quot;H&quot;, ]
 
@@ -774,6 +779,7 @@ the tissue.</p>
 spatially aggregated, it might be of interest to know if there is
 correspondence of NOTCH signaling with tissue domains. With the
 <code>STclust</code> function, tissue domains can be identified.</p>
+<p>This step will take some time!</p>
 <pre class="r"><code>lc_stlist &lt;- STclust(lc_stlist, ws=0.02, ks=&#39;dtc&#39;)</code></pre>
 <p>Optionally, if tissue images are available for some or all the FOVs,
 users can upload those to the STlist for display next to the other plot
@@ -804,12 +810,13 @@ an example of how the files were renamed from the original data set:</p>
 </ul>
 <p>Now, upload the images to the STlist with the
 <code>load_images</code> function:</p>
-<pre class="r"><code>img_fp = &#39;~/Desktop/nanostring_nsclc/Lung5_Rep1-Flat_files_and_images/CellComposite&#39;
+<pre class="r"><code>img_fp = &#39;activity_files/bonus_spatial_transcriptomics_activity_files/Lung5_Rep1-Flat_files_and_images/CellComposite&#39;
+img_fp2 = 
 lc_stlist &lt;- load_images(lc_stlist, images=img_fp)</code></pre>
 <p>The images for slide “Lung6” were not found, which are in the
 corresponding folder. The <code>load_images</code> function is ran again
 to add images from “Lung6”:</p>
-<pre class="r"><code>img_fp = &#39;~/Desktop/nanostring_nsclc/Lung6-Flat_files_and_images/CellComposite&#39;
+<pre class="r"><code>img_fp = &#39;activity_files/bonus_spatial_transcriptomics_activity_files/Lung6_Rep1-Flat_files_and_images/CellComposite&#39;
 lc_stlist &lt;- load_images(lc_stlist, images=img_fp)</code></pre>
 <p>The function plot_image is used to generate the ggplot objects
 containing the images:</p>
@@ -836,7 +843,7 @@ ggpubr::ggarrange(dom_p$Lung5_Rep1_fov_2_stclust_spw0.02_dsplFalse,
 # If no tissue images are available:
 # ggpubr::ggarrange(plotlist=dom_p, ncol=3, nrow=2)</code></pre>
 <p>Now, to identify the domains, differential gene expression can be
-performed:</p>
+performed (this step will take some time):</p>
 <pre class="r"><code>deg &lt;- STdiff(lc_stlist, w=0.02, k=&#39;dtc&#39;, deepSplit=FALSE, test_type=&#39;wilcoxon&#39;)</code></pre>
 <p>Then, the top 3 DE genes per cluster in the samples showing NOTCH
 signaling spatial patterns are identified:</p>
