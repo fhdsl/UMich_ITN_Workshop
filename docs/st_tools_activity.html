@@ -558,8 +558,14 @@ pipeline, and contains information to approximate the size of the tissue
 image and the expression plots.</p>
 <p><input type="checkbox"> Once the above steps are done click the green
 <code>Import Sample</code>.</p>
-<p>Now <a href="#uploading-one-samples-data">return to the beginning of
-these steps</a> to repeat the same steps for the other sample.</p>
+<p>If you’ve only entered the first sample, click the blue “ADD NEW
+SAMPLE” button on the top left and then <a
+href="#uploading-one-samples-data">return to the beginning of these
+steps</a> to repeat the same steps for the other sample.</p>
+<p><strong>Do not click the blue Import Data</strong> button on the
+bottom of the page until you’ve uploaded <strong>both samples and the
+associated metadata</strong>. Otherwise, you’ll have to create a new
+project to upload additional samples.</p>
 <p><em>You can use this checklist to keep track as you upload and follow
 the steps for each sample.</em></p>
 <p><input type="checkbox"> <code>sample_00732</code> data entered<br />
@@ -583,9 +589,9 @@ steps:</p>
 <p><input type="checkbox">Click
 <code>Option 2: Add metadata manually</code>.<br />
 <input type="checkbox"> Click <code>Add new metadata column</code>. Add
-a column named <code>patient</code>.<br />
+a column named <code>sample_id2</code>.<br />
 <input type="checkbox"> Click <code>Add new metadata column</code>
-again. Add a column named <code>therapy</code>.</p>
+again. Add a column named <code>type</code>.</p>
 <p>You can refer to the <code>lee_etal_2024_sample_metadata.csv</code>
 file’s contents to add these data for each sample:</p>
 <table>
@@ -1004,7 +1010,7 @@ genes to use” textbox.<br />
 <summary>
 Using the command-line: Domain detection using spatialGE
 </summary>
-<pre class="r"><code>stgradient_res = STgradient(gc_stlist, topgenes=1000, 
+<pre class="r"><code>stgradient_res = STgradient(gc_stlist, topgenes=1000,
                             samples=&#39;sample_00732&#39;,
                             annot=&#39;stclust_spw0.025_k4&#39;,
                             ref=4)
@@ -1012,13 +1018,32 @@ Using the command-line: Domain detection using spatialGE
 stgradient_res[[&#39;sample_00732&#39;]]</code></pre>
 </details>
 </div>
-<div id="section-23" class="section level4">
-<h4></h4>
+</div>
+</div>
+<div id="additional-practice-with-spatialge" class="section level2">
+<h2>Additional Practice with spatialGE</h2>
 <p>There is an additional bonus activity on <a
 href="https://posit.cloud/">Posit Cloud</a> if you want to dive deeper
-with using the <code>spatialGE R</code> package.</p>
-</div>
-</div>
+with using the <code>spatialGE R</code> package. We will keep the Posit
+Cloud account available to you for one week after the workshop. Please
+download any of your files you’d like to keep before this week is
+up!</p>
+<p>See instructions on accessing the resources on <a
+href="https://posit.cloud/">Posit Cloud</a> in the “Activity: Set Up
+Posit Cloud” section of the <a
+href="https://hutchdatascience.org/UMich_ITN_Workshop/clinical_data_activity.html">Clinical
+Workshop Activity page</a>.</p>
+<p>Additionally, the <a
+href="https://github.com/fhdsl/UMich_ITN_Workshop/blob/main/st_tools_bonus_activity.Rmd">bonus
+activity is available on GitHub</a> and you can work through it on your
+machine. You can download the Rmd file from there using the “Download
+raw file” (<img src="resources/images/download_icon.png" id="id"
+class="class" width="25" height="20" alt="Download raw file button" />)
+button in the top right. If you encounter any issues installing
+spatialGE (specifically its dependencies), we recommend using
+BiocManager to try to install these dependencies (following the <a
+href="https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html#installing-biocmanager">instructions
+of sections 2.2 and 2.3 at this BiocManager resource</a>).</p>
 </div>
 
 
