@@ -31,7 +31,7 @@ can see what's there.
 
 ### Get familiar with the data set
 
-Navigate to `activity-files` and then `spatial_transcriptomics_activity_files`. 
+Navigate to `activity-files` and then `spatial_transcriptomics_activity_files`.
 Within the folder, we should see a metadata file
 (`lee_etal_2024_sample_metadata.csv`), a PDF of the manuscript that
 describes these data, and a `visium_samples` folder that includes two
@@ -55,10 +55,10 @@ Each sample's folder contains a several files resulting from the
 
 The README describes these samples:
 
-> These samples result from tumor biopsies collected from a patient cohort with 
-> gastric cancer (GC). The researchers profiled the samples with 10X Visium to 
-> study the gene expression in malignant, stromal, and immune cells within the 
-> GC tumor microenvironment. 
+> These samples result from tumor biopsies collected from a patient cohort with
+> gastric cancer (GC). The researchers profiled the samples with 10X Visium to
+> study the gene expression in malignant, stromal, and immune cells within the
+> GC tumor microenvironment.
 
 The metadata file (`lee_etal_2024_sample_metadata.csv`) contains sample identifiers
 and classification into "intestinal" or "diffuse" GC. The file looks like this:
@@ -113,9 +113,11 @@ the expression plots.
 <input type="checkbox"> Once the above steps are done click the green
 `Import Sample`.
 
-Now [return to the beginning of these
+If you've only entered the first sample, click the blue "ADD NEW SAMPLE" button on the top left and then [return to the beginning of these
 steps](#uploading-one-samples-data) to repeat the same steps for the
 other sample.
+
+**Do not click the blue Import Data** button on the bottom of the page until you've uploaded **both samples and the associated metadata**. Otherwise, you'll have to create a new project to upload additional samples.
 
 *You can use this checklist to keep track as you upload and follow the
 steps for each sample.*
@@ -140,9 +142,9 @@ Metadata can also be added manually. To do so, follow these steps:
 
 <input type="checkbox">Click `Option 2: Add metadata manually`.\
 <input type="checkbox"> Click `Add new metadata column`. Add a column
-named `patient`.\
+named `sample_id2`.\
 <input type="checkbox"> Click `Add new metadata column` again. Add a
-column named `therapy`.
+column named `type`.
 
 You can refer to the `lee_etal_2024_sample_metadata.csv` file's contents
 to add these data for each sample:
@@ -184,7 +186,7 @@ email instead of waiting on the page.
 
 Most of analyses in this step-by-step tutorial can also be performed
 with the spatialGE R package. To do so, start by installing the
-spatialGE package. You can run these commands on [Posit Cloud](https://posit.cloud/) with the link we sent you to avoid running installations. 
+spatialGE package. You can run these commands on [Posit Cloud](https://posit.cloud/) with the link we sent you to avoid running installations.
 
 ```{r eval=F}
 # Install devtools if not already installed:
@@ -218,7 +220,7 @@ gc_stlist = STlist(rnacounts=counts_fp, samples=meta_file)
 
 </details>
 
-#### 
+####
 
 ## Filtering your data
 
@@ -266,7 +268,7 @@ spots.
 
 </details>
 
-#### 
+####
 
 ####  {.click_to_expand_block}
 
@@ -321,7 +323,7 @@ spatialGE::distribution_plots(gc_stlist, plot_meta='total_counts', plot_type='vi
 
 </details>
 
-#### 
+####
 
 ####  {.click_to_expand_block}
 
@@ -393,7 +395,7 @@ gc_stlist = transform_data(gc_stlist, method='sct')
 
 </details>
 
-#### 
+####
 
 ## Visualization
 
@@ -446,7 +448,7 @@ STplot(gc_stlist, genes=c('CCL19', 'FN1', 'COL1A1'))
 
 </details>
 
-#### 
+####
 
 ## Spatial Domain Detection {#detect-spatial-domains}
 
@@ -477,7 +479,7 @@ STplot(gc_stlist, ks=3:5)
 
 </details>
 
-#### 
+####
 
 ## Homework: Other analysis types to explore
 
@@ -489,7 +491,7 @@ generation using spatial transcriptomics data.
 ### Phenotyping
 
 In spatialGE, inferring cell types on Visium data sets is achieved with
-STdeconvolve ([Miller et al.2022](https://doi.org/10.1038/s41467-022-30033-z)). 
+STdeconvolve ([Miller et al.2022](https://doi.org/10.1038/s41467-022-30033-z)).
 The STdeconvolve is performed in two stages:
 
 1.  The method attempts to fit a series of models composed of "latent
@@ -522,7 +524,7 @@ approach to find if the distances among spots with high expression of a gene set
 are shorter than expected by chance. The spatial gene set enrichment test produces
 a p-value for each gene set, with a low p-value (typically < 0.05), indicating that
 there is evidence for the gene set to be spatially distributed as hot-spot(s). In
-spatialGE, a collection of gene sets including Hallmark and KEGG are available. 
+spatialGE, a collection of gene sets including Hallmark and KEGG are available.
 Nonetheless, users can upload their customs data sets as well.
 
 To start a spatial gene set enrichment test, follow these steps:
@@ -541,8 +543,8 @@ expression closer to a specific cluster or spatial domain ("spatial
 gradient"). The method is useful to investigate spatial patterns at the
 interface of spatial domains.
 
-Using the steps previously outlined to [detect spatial domains](#detect-spatial-domains), 
-it seems spatial domain 3 in the plot with title "stclust_spw0_k3", is an immune-infiltrated 
+Using the steps previously outlined to [detect spatial domains](#detect-spatial-domains),
+it seems spatial domain 3 in the plot with title "stclust_spw0_k3", is an immune-infiltrated
 area. With the following steps, users can test for genes with spatial expression
 gradients with respect to this immune region:
 
@@ -564,7 +566,7 @@ genes to use" textbox.\
 <summary>Using the command-line: Domain detection using spatialGE</summary>
 
 ```{r eval=F}
-stgradient_res = STgradient(gc_stlist, topgenes=1000, 
+stgradient_res = STgradient(gc_stlist, topgenes=1000,
                             samples='sample_00732',
                             annot='stclust_spw0.025_k4',
                             ref=4)
@@ -574,6 +576,10 @@ stgradient_res[['sample_00732']]
 
 </details>
 
-#### 
+## Additional Practice with spatialGE
 
-There is an additional bonus activity on [Posit Cloud](https://posit.cloud/) if you want to dive deeper with using the `spatialGE R` package.
+There is an additional bonus activity on [Posit Cloud](https://posit.cloud/) if you want to dive deeper with using the `spatialGE R` package. We will keep the Posit Cloud account available to you for one week after the workshop. Please download any of your files you'd like to keep before this week is up!
+
+See instructions on accessing the resources on [Posit Cloud](https://posit.cloud/) in the "Activity: Set Up Posit Cloud" section of the [Clinical Workshop Activity page](https://hutchdatascience.org/UMich_ITN_Workshop/clinical_data_activity.html).
+
+Additionally, the [bonus activity is available on GitHub](https://github.com/fhdsl/UMich_ITN_Workshop/blob/main/st_tools_bonus_activity.Rmd) and you can work through it on your machine. You can download the Rmd file from there using the "Download raw file" (![Download raw file button](resources/images/download_icon.png){#id .class width=25 height=20px}) button in the top right. If you encounter any issues installing spatialGE (specifically its dependencies), we recommend using BiocManager to try to install these dependencies (following the [instructions of sections 2.2 and 2.3 at this BiocManager resource](https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html#installing-biocmanager)).
