@@ -1,5 +1,5 @@
 ---
-title: "**Choosing Genomics Tools: Gene Pattern Activity**"
+title: "**Choosing Genomics Tools: GenePattern Activity**"
 output:
   html_document:
     toc: true
@@ -27,7 +27,7 @@ The aim of this activity is to answer the question -- "What genes differentiate 
 
 *Note, clicking on the filenames should automatically download them, otherwise you might need to right click.*
 
-```{r echo=FALSE, fig.alt="Download the c l s and g c t files from the gene pattern datasets resource, specifically the 2 4 0 4 1 1 hyphen P S T P workshops directory", fig.link="https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/"}
+```{r echo=FALSE, fig.alt="Download the c l s and g c t files from the GenePattern datasets resource, specifically the 2 4 0 4 1 1 hyphen P S T P workshops directory", fig.link="https://datasets.genepattern.org/?prefix=data/workshops/240411-PSTP/"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_0")
 ```
 
@@ -37,15 +37,15 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 
 :::explain_block
 
-The `gct` file is a Gene Cluster Text file format used to describe an expression dataset. [See more about `gct` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29)
+The `gct` file is a Gene Cluster Text file format used to describe an expression dataset. [See more about `gct` files at this GenePattern resource.](https://www.genepattern.org/file-formats-guide/#GCT)
 
-```{r echo=FALSE, fig.alt="Description of g c t file from the Broad Institute", fig.link="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GCT:_Gene_Cluster_Text_file_format_.28.2A.gct.29"}
+```{r echo=FALSE, fig.alt="Description of g c t file from GenePattern", fig.link="https://www.genepattern.org/file-formats-guide/#GCT"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_11")
 ```
 
-The `cls` file is a categorical (e.g., tumor vs normal) class file format, specifying phenotype or class labels associated with each sample in the expression data. [See more about `cls` files at this Broad Institute resource.](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29)
+The `cls` file is a categorical (e.g., tumor vs normal) class file format, specifying phenotype or class labels associated with each sample in the expression data. [See more about `cls` files at this GenePattern resource.](https://www.genepattern.org/file-formats-guide/#CLS)
 
-```{r echo=FALSE, fig.alt="Description of c l s file from the Broad Institute", fig.link="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29"}
+```{r echo=FALSE, fig.alt="Description of c l s file from GenePattern", fig.link="https://www.genepattern.org/file-formats-guide/#CLS"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2f2ca03ec26_0_19")
 ```
 
@@ -58,7 +58,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 :::
 </details>
 
-<input type="checkbox"> [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/) and sign in.
+<input type="checkbox"> [Go to the GenePattern platform](http://cloud.genepattern.org/gp/) and sign in.
 
 ### Run the ComparativeMarkerSelection Module to identify differentially expressed genes between the two groups
 
@@ -88,7 +88,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP
 ::: explain_block
 An ODF is an Output Description Format file, a GenePattern specific filetype. It is similar to a GCT file format, describing a gene expression dataset; however, the ODF filetype has a specialized header. [See more information about ODF files from GenePattern.](https://www.genepattern.org/file-formats-guide/#ODF)
 
-```{r echo=FALSE, fig.alt = "The O D F file is a Gene Pattern specific file type that is similar to a G C T file type, but has a specialized header"}
+```{r echo=FALSE, fig.alt = "The O D F file is a GenePattern specific file type that is similar to a G C T file type, but has a specialized header"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1VBriRWSN-XJEjuzP29TkbkpiGpSJslTrtleqZwtlsDM/edit#slide=id.g2800f2a6905_0_122")
 ```
 
@@ -165,5 +165,5 @@ Fold Change and statistical test statistics (e.g., significance) are provided in
 ## Single cell RNA-seq
 
 - [Download practice 10x single cell data](https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz)
-- [Go to the Gene Pattern platform](http://cloud.genepattern.org/gp/)
+- [Go to the GenePattern platform](http://cloud.genepattern.org/gp/)
 -->
