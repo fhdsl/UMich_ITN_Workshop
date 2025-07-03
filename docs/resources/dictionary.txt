@@ -14,6 +14,7 @@ bc
 bedbound
 betweenness
 Bing
+BiocManager
 bioconductor
 bioinformatics
 bioinformatician
@@ -142,6 +143,7 @@ Loadings
 ly
 microenvironment
 md
+misgdbdf
 minimalistic
 moffitt
 Moffitt
@@ -213,6 +215,7 @@ Roys
 rstudio
 RStudio
 samplename
+Savonen
 scalability
 Schoenfeld
 SCTransform
